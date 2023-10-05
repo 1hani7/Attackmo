@@ -101,12 +101,7 @@ const router = createRouter({
     {
       path:'/Siren',
       name:'Siren',
-      component: () => import('../views/SirenPop.vue'),
-      beforeEnter: (to, from, next) => {
-        const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
-        else return next();
-      }
+      component: () => import('../views/SirenPop.vue')
     },
     {
       path:"/login",

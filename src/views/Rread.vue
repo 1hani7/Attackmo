@@ -94,7 +94,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 
 const liked = ref(false)
 
@@ -135,13 +135,19 @@ const replies = ref([
     },
 ])
 
+const isLogin = inject('isLogin');
+
 const openSirenPopup = () => {
-    // sirenPop.vue를 열고, 부모 창으로부터 메시지를 받을 수 있도록 리스너 설정
-    const sirenPopup = window.open('/Siren', '_blank', 'width=450,height=750,top=100px,left=700px');
-    window.addEventListener('message', (event) => {
-        // 팝업 창으로부터 메시지를 수신하면 이를 처리합니다.
-        console.log('부모 창에서 수신한 메시지:', event.data);
-    });
+    if( isLogin.value == true ){
+        // sirenPop.vue를 열고, 부모 창으로부터 메시지를 받을 수 있도록 리스너 설정
+        const sirenPopup = window.open('/Siren', '_blank', 'width=450,height=750,top=100px,left=700px');
+        window.addEventListener('message', (event) => {
+            // 팝업 창으로부터 메시지를 수신하면 이를 처리합니다.
+            console.log('부모 창에서 수신한 메시지:', event.data);
+        });
+    }else{
+        alert('로그인이 필요한 서비스입니다.')
+    }
 }
 </script>
 
