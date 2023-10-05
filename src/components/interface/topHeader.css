@@ -44,7 +44,7 @@
     }
   }
   @media(max-width:490px){
-    .header .logo-frame{height:40px; width:100vw;}
+    .header .logo-frame{height:40px; width:calc(100vw - 30px);}
   }
 
 
