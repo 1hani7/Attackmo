@@ -38,8 +38,8 @@
           <RouterLink to="/MovieTitle" class="link">
             <img class="rectangle" src="../images/Rectangle 695.png" />
           </RouterLink>
-          <img class="img" src="../images/Rectangle 696.png" />
-          <img class="img" src="../images/Rectangle 697.png" />
+          <img class="rectangle" src="../images/Rectangle 696.png" />
+          <img class="rectangle" src="../images/Rectangle 697.png" />
           <img class="rectangle" src="../images/Rectangle 698.png" />
         </div>
       </div>
@@ -49,10 +49,10 @@
           <div class="div"><router-link to="/Mnow">+</router-link></div>
         </div>
         <div class="posters">
-          <img class="rectangle-2" src="../images/Rectangle 618.png" />
-          <img class="rectangle-2" src="../images/Rectangle 642.png" />
-          <img class="rectangle-2" src="../images/Rectangle 643.png" />
-          <img class="rectangle-2" src="../images/Rectangle 653.png" />
+          <img class="rectangle" src="../images/Rectangle 618.png" />
+          <img class="rectangle" src="../images/Rectangle 642.png" />
+          <img class="rectangle" src="../images/Rectangle 643.png" />
+          <img class="rectangle" src="../images/Rectangle 653.png" />
         </div>
       </div>
       <div v-if="isLogin" class="top">
@@ -62,9 +62,9 @@
         </div>
         <div class="posters">
           <img class="rectangle" src="../images/Rectangle 698.png" />
-          <img class="rectangle-2" src="../images/Rectangle 629.png" />
-          <img class="rectangle-2" src="../images/Rectangle 613.png" />
-          <img class="rectangle-2" src="../images/Rectangle 614.png" />
+          <img class="rectangle" src="../images/Rectangle 629.png" />
+          <img class="rectangle" src="../images/Rectangle 613.png" />
+          <img class="rectangle" src="../images/Rectangle 614.png" />
         </div>
       </div>
     </div>

@@ -174,26 +174,6 @@
     height: 322px;
     object-fit: cover;
   }
-  
-  .div-wrapper .text-wrapper-2 {
-    position: relative;
-    width: fit-content;
-    margin-top: -1px;
-    font-family: "Inter-Bold", Helvetica;
-    font-weight: 700;
-    color: var(--font-black);
-    font-size: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-  }
-  
-  .div-wrapper .rectangle-2 {
-    width: 230px;
-    height: 320px;
-    position: relative;
-    object-fit: cover;
-  }
 
   
   
@@ -219,8 +199,7 @@
 
     #top10Plus{display:none;}
 
-    .div-wrapper .text-wrapper,
-    .div-wrapper .text-wrapper-2,
+ 
     .div-wrapper .title{
       font-size:23px;
     }
@@ -231,7 +210,7 @@
     .div-wrapper .posters::-webkit-scrollbar{ width:0; }
 
     .div-wrapper .img, .div-wrapper > .div,
-    .div-wrapper .rectangle, .div-wrapper .rectangle-2{
+    .div-wrapper .rectangle {
       width:93px; height:130px;
     }
     
