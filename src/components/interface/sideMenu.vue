@@ -30,7 +30,7 @@ export default {
       </div>
     </div>
     <div class="frame2">
-      <img class="person-icon" src="@/images/personicon.svg" />
+      <RouterLink to="/Info"><img class="person-icon" src="@/images/personicon.svg" /></RouterLink>
       <div class="loginWrapperMobile">
         <RouterLink to="/login"><div v-if="!isLogin" style="cursor:pointer;">로그인</div></RouterLink>
         <div v-if="isLogin" @click="loginToggle()" style="cursor:pointer;">로그아웃</div> /

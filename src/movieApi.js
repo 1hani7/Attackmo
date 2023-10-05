@@ -73,7 +73,7 @@ function organize(dt){
         set[item.title]['감독'] = item.staffs.staff[0].staffNm;
         set[item.title]['배우'] = actors(item.actors.actor);
         set[item.title]['러닝타임'] = item.runtime + '분';
-        set[item.title]['개봉일'] = `${y}.${m}.${d}`;
+        set[item.title]['개봉일'] = `${y}.${m}.${d} 개봉`;
         set[item.title]['스틸컷'] = stCuts(item);
         set[item.title]['예고편영상'] = stTrailer(item.vods.vod, false);
         set[item.title]['예고편타이틀'] = stTrailer(item.vods.vod, true);

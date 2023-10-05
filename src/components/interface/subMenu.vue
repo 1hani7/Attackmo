@@ -79,8 +79,8 @@
 
 .sub-menu .line {
   position: relative;
-  width: 1px;
-  height: 200px;
+  width: fit-content;
+  height: fit-content;
   object-fit: cover;
 }
 
