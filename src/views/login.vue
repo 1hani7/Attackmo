@@ -249,8 +249,58 @@ export default {
       a{text-decoration: none;}
   }
 
-  @media (max-width:490px) {
-      
+  @media (max-width: 490px) {
+  #wrap {
+    display: flex;
+    width: auto;
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
+
+  #login_box {
+    width: 90%;
+  }
+
+  #title {
+    width: 100%;
+    height: auto;
+    padding: 20px 0px;
+    font-size: 20px;
+  }
+
+  #content input {
+    width: 90%;
+    height: 50px;
+    font-size: 18px;
+  }
+  #login_box{width:80%;}
+  #login_bt {
+    width: 90%;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  #social_login {
+    width: 90%;
+    
+  }
+
+  .social_bt {
+    font-size: 24px;
+  }
+
+  .social_bt img {
+    width: 50px;
+    height: 50px;
+  }
+  #find label {
+    font-size: 17px;
+  }
+}
     
 </style>

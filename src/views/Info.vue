@@ -6,7 +6,7 @@
                     <p class="nickname">@활동명</p>
                     <RouterLink to="/MyReview" class="my_review">내가 쓴 리뷰보기 ></RouterLink>
                     <p class="email">email@email.com</p>
-                    <RouterLink to="/PwCheck" class="change">회원정보 변경 ></RouterLink>
+                    <RouterLink to="/If_Eck" class="change">회원정보 변경 ></RouterLink>
                 </div>
                 <div class="review">
                     <b>작성리뷰 수</b>

@@ -294,7 +294,5 @@ export default {
       #sign,#cancel{font-size: 17px;}
     }
   
-    @media (max-width:490px) {
-        
-    }
+    
 </style>
