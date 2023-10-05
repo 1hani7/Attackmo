@@ -7,10 +7,13 @@ a{color:black;}
     flex-direction: column;
     width:420px; height: 100vh;
     align-items: flex-start;
-    position: fixed; top:0; right:0;
+    position: fixed; top:0; right:-420px;
     background-color: #ffffff;
     z-index:100;
+    transition: all 0.5s ease;
 }
+
+.rightZero{right:0;}
 
 .darkBG{
     position:fixed; top:0; left:0;

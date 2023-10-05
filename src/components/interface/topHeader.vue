@@ -59,7 +59,9 @@
         </div>
     </div>
 
-    <sideMenu v-if="isSlideMenuToggle"/>
+    <!-- <div v-show="isSlideMenuToggle">
+    </div> -->
+    <sideMenu />
 
 </template>
 
@@ -75,6 +77,8 @@ export default {
         sideMenu, subMenu, searchBar
     },
     setup(){
+
+        const uniqueKey = 0;
 
         const loginToggle = inject('loginToggle');
         const isLogin = inject('isLogin');
@@ -222,7 +226,7 @@ export default {
               isSearching, searchingStart,
               isMobileSearch, searchMobile,
               isTabletSearching, isMenuHover, MenuHover, MenuLeave,
-              searchMovie, router, isLogin, loginToggle };
+              searchMovie, router, isLogin, loginToggle, uniqueKey };
     }
 }
 </script>

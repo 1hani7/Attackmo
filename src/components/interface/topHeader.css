@@ -39,7 +39,8 @@
   @media(max-width:1194px){
     .header .logo-frame {
       justify-content: space-between;
-      width:100vw; padding:0 15px; gap:0;
+      width:calc(100vw - 30px ); gap:0;
+      margin:0 auto;
     }
   }
   @media(max-width:490px){
@@ -273,3 +274,5 @@
     width:100%; height:calc(100vh - 70px); z-index:1;
     background: rgba(41,41,41,0.6);
   }
+
+

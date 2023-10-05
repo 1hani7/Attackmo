@@ -1,16 +1,33 @@
 <script>
-import { inject } from 'vue'
-import { RouterLink } from 'vue-router';
+import { inject, onMounted, watch, ref } from 'vue'
+import { RouterLink, useRouter } from 'vue-router';
 export default {
     name: 'sideMenu',
     setup() {
         const isSlideMenuToggle = inject('isSlideMenuToggle');
         const sideMenuOpen = inject('sideMenuOpen');
         const loginToggle = inject('loginToggle');
-        const loginCheck = inject('loginCheck');
         const isLogin = inject('isLogin');
+        const router = useRouter();
+
+        onMounted(()=>{
+          const sideMenu = document.querySelector('.side-menu');
+          watch(isSlideMenuToggle, (newVal, oldVal) => {
+            if(newVal){
+              sideMenu.classList.toggle('rightZero');
+            }else{
+              sideMenu.classList.toggle('rightZero');
+            }
+          });
+          router.beforeEach((to, from) => {
+            isSlideMenuToggle.value = false;
+            sideMenu.classList.remove('rightZero');
+          })
+        })
+
+
         return { isSlideMenuToggle, sideMenuOpen,
-            loginToggle, loginCheck, isLogin };
+            loginToggle,  isLogin };
     },
     components: { RouterLink }
 }
@@ -30,7 +47,7 @@ export default {
       </div>
     </div>
     <div class="frame2">
-      <RouterLink to="/Info"><img class="person-icon" src="@/images/personicon.svg" /></RouterLink>
+      <RouterLink to=""><img class="person-icon" src="@/images/personicon.svg" /></RouterLink>
       <div class="loginWrapperMobile">
         <RouterLink to="/login"><div v-if="!isLogin" style="cursor:pointer;">로그인</div></RouterLink>
         <div v-if="isLogin" @click="loginToggle()" style="cursor:pointer;">로그아웃</div> /
@@ -89,6 +106,7 @@ export default {
     </RouterLink>
   </div>
 </div>
-<div @click="sideMenuOpen()" class="darkBG"></div></template>
+<div v-if="isSlideMenuToggle" @click="sideMenuOpen()" class="darkBG"></div>
+</template>
 
 <style>@import url(./sideMenu.css);</style>
