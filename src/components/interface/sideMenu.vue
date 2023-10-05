@@ -1,5 +1,5 @@
 <script>
-import { inject, onMounted, watch, ref } from 'vue'
+import { inject, onMounted, watch, ref, onBeforeUnmount } from 'vue'
 import { RouterLink, useRouter } from 'vue-router';
 export default {
     name: 'sideMenu',
@@ -12,6 +12,12 @@ export default {
 
         onMounted(()=>{
           const sideMenu = document.querySelector('.side-menu');
+          router.beforeEach((to, from) => {
+            isSlideMenuToggle.value = false;
+          })
+          router.beforeEach((to, from) => {
+            sideMenu.classList.remove('rightZero');
+          })
           watch(isSlideMenuToggle, (newVal, oldVal) => {
             if(newVal){
               sideMenu.classList.toggle('rightZero');
@@ -19,10 +25,10 @@ export default {
               sideMenu.classList.toggle('rightZero');
             }
           });
-          router.beforeEach((to, from) => {
-            sideMenu.classList.remove('rightZero');
-            isSlideMenuToggle.value = false;
-          })
+        })
+
+        onBeforeUnmount(()=>{
+          window.removeEventListener('popstate');
         })
 
 
