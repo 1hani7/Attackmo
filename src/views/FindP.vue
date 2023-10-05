@@ -199,4 +199,14 @@ methods: {
         -webkit-appearance: none;
         margin: 0;
     }
+@media (max-width:1194px) {
+   #wrap{width:100vw;}
+   #find_box, #num input{width: 90%;}
+   #phone, #email{width:100%;}
+   #button_box{width:100%}
+
+}
+@media (max-width:490px) {
+    
+}
 </style>

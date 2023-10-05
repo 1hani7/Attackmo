@@ -140,5 +140,18 @@ export default {
     #cancel{color:red;}
     #check{background:red;color:white;}
     label{font-size:23px;font-weight: 700;}
+@media (max-width:1194px) {
+   #admin{
+    display: flex;
+    width: 700px;
+    padding-top: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+   }
+}
+@media (max-width:490px) {
     
+}
 </style>

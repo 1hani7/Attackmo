@@ -179,7 +179,7 @@ export default {
       gap: 49px 42px;
       flex-wrap: wrap;
     }
-    #email{
+    #email,#pw,#pw_ck,#nickname{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -189,22 +189,12 @@ export default {
         width: 916px;
         height: 75px;
     }
-    #pw{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
+    
     #pw input{
         width: 916px;
         height: 75px;
     }
-    #pw_ck{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
+    
     #pw_ck input{
         width: 916px;
         height: 75px;
@@ -223,12 +213,7 @@ export default {
         font-weight: 700;
         font-size: 23px;
     }
-    #nickname{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
+    
     #nickname input{
         width: 916px;
         height: 75px;
@@ -288,5 +273,28 @@ export default {
     input[type="number"]::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
+    }
+    @media (max-width:1194px) {
+      #sign_box{
+        border:none;
+        width:804px;
+        font-size: 23px;
+      }
+      #email,#pw,#pw_ck,#nickname,#phone,#num{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width:772px;
+      }
+      #email input,#pw input,#pw_ck input,#nickname input,#pw_ck p,#phone,#num input,#sign,#cancel{
+        width:100%;
+      }
+      #pw_ck p{font-size: 17px;}
+      #sign,#cancel{font-size: 17px;}
+    }
+  
+    @media (max-width:490px) {
+        
     }
 </style>

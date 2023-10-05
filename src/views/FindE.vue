@@ -52,6 +52,7 @@ export default {
 
 <style scoped>
     #wrap{
+        width:1000px;
         display: flex;
         margin-top: 150px;
         margin-bottom:150px;
@@ -65,7 +66,7 @@ export default {
         align-items: center;
         gap: 53px;
         display: flex;
-        width: 1000px;
+        width: 100%;
     }
     #phone{
         display: flex;
@@ -95,7 +96,6 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
-        display: flex;   
     }
     #find_e{
         display: flex;
@@ -147,5 +147,22 @@ export default {
         -webkit-appearance: none;
         margin: 0;
     }
+@media (max-width:1194px) {
+   #wrap{width:100vw;}
+   #find_box{
+      width: 90%;
+   }
+   #phone{
+     width:100%;
+   }
+   #phone input,#button_box button{width:65%;}
+   #find_e{
+    width:100%;
+   }
+}
+
+@media (max-width:490px) {
+    
+}
 
 </style>
