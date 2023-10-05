@@ -220,7 +220,8 @@
     #top10Plus{display:none;}
 
     .div-wrapper .text-wrapper,
-    .div-wrapper .text-wrapper-2{
+    .div-wrapper .text-wrapper-2,
+    .div-wrapper .title{
       font-size:23px;
     }
 
