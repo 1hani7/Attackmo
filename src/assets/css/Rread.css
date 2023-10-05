@@ -12,18 +12,16 @@
 }
 .review_con{
     width:100%;
-    margin: 60px 0;
+    margin: 20px 0;
 }
 .main_content{
     width:100%;
     display:flex;
     flex-direction: column;
     row-gap: 30px;
-    border-bottom:1px solid black;
 }
 .review_title{
     width:100%;
-    height:65px;
     font-size:25px;
     display:flex;
     justify-content:space-between;
@@ -52,33 +50,31 @@
     justify-content: space-between;
 }
 .movie_name{
-    height:50px;
     font-size:30px;
-    
+    padding:15px 0;
 }
 .movie_release{
-    height:40px;
     font-size:20px;
+    padding:15px 0;
     font-weight:700px;
-    border-bottom:3px solid #000;
+    border-bottom:2px solid #000;
 }
 .movie_detail{
     height:180px;
     display:flex;
-    flex-wrap:wrap;
 }
 .info_l{
     font-weight:900;
 }
 .info_l p, .info_r p{
-    height:40px;
-    margin:5px;
+    padding: 15px 5px;
     font-size:17px;
 }
 .star_score{
     width:100%;
     text-align: center;
     margin:50px 0;
+    border-bottom:1px solid black;
 }
 .post_menu{
     display:flex;
@@ -122,6 +118,7 @@
 .reply_bt:hover{
     background:#ccc;
 }
+.mReply_wrap{display:none;}
 .reply{
     width:100%;
     padding:20px 15px;
@@ -163,40 +160,31 @@
 @media (max-width:490px){
     *{padding:0;margin:0;font-size:12px;}
     #section{width:100vw;}
-    #review_wrap{width:90%;margin:0 auto;}
-    .review_con{
-        position:relative;
-    }
-    .review_title{
-        padding:15px 20px;
-        display:inline-block;
-    }
-    .review_title .title, .bi-heart{
-        font-size:12px;
-    }
-    .write_info{
-        width:100%;
-    }
+    #review_wrap{width:90%;margin:20px auto;}
+    .page_title{font-size:23px;}
+    .main_content{row-gap:25px;position:relative;}
+    .write_info{justify-content: space-between; padding:0 5px;}
     .write_info div{font-size:12px;}
-    .con_detail{
-        width:100%;
-        display:block;
-        margin-bottom:25px;
-    }
-    .movie_info{height:150px;}
-    .movie_name{font-size: 17px;}
-    .movie_release{font-size: 12px;}
-    .info_l p,.info_r p{font-size: 12px;height:20px;}
-    .poster{margin:0 auto;}
-    .movie_info{width:100%;}
-    .post_menu{
-        position:absolute;
-        top:30px;
-        right:0;
-    }
-    .post_menu div{font-size:12px;}
-    .write_reply input{width:88%;}
-    .reply_bt{font-size: 12px;width:12%;height:95%;}
-}
-
-.siren, .rePost, .del{cursor:pointer;}
+    .review_title{padding:10px 15px; display:block;}
+    .review_title .title{font-size: 15px;}
+    .post_menu{position:absolute; top: 30px; right:10px;}
+    .post_menu div{font-size: 12px;}
+    .con_detail{display:block;margin:0;}
+    .p_box{ text-align: center;}
+    .movie_info{width:100%;margin:15px 0;height:fit-content;}
+    .movie_name{font-size:25px; font-weight: 500;}
+    .movie_detail{height: fit-content;}
+    .movie_release{font-size:14px;font-weight:500;}
+    .info_l p, .info_r p{font-size:12px;height:20px;}
+    .star_score{border:0;margin:0;}
+    .stars i{ padding: 0 5px; font-size:17px; color:#F9C041;}
+    .reply_wrap{ width:100%; height:fit-content; padding-bottom:80px; position:relative; margin:0; }
+    .hReply{font-size: 12px;}
+    .write_reply{position:absolute; bottom:0; height:30px; }
+    .write_reply input{font-size: 12px;width: 85%;}
+    .reply_bt{font-size: 12px;width:15%;height: 99%;;}
+    .reply{display:none;}
+    .mReply_wrap{display:block;} .mReply_box{ border-bottom:1px solid #ccc; padding: 15px 0;}
+    .n_name{font-weight:800;} .mReply_menu{width: 100%; display:flex;justify-content:flex-end;}
+    .mReply_menu p{padding: 3px 5px; border: 1px solid #aaa; border-radius:5px;font-size: 10px; margin-left: 10px;}
+} 
