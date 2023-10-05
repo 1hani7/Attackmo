@@ -9,7 +9,7 @@
 }
 .like_title{
     font-size:23px;
-    font-weight: 700;;
+    font-weight: 700;
     padding-bottom:60px;
 }
 .review_wrap{width:100%;}
@@ -17,8 +17,6 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
     row-gap: 50px;
     flex-wrap: wrap;
 }
@@ -48,12 +46,10 @@
 @media (max-width:1194px) {
     #section{width:100vw;}
     #like_wrap{width:90%; margin:0 auto;}
-    .review_wrap{overflow-x:scroll;}
-    .r_box{width:1000px;}
+    .r_box{width:100%;}
 }
 @media (max-width:490px) {
-    #section{width:100vw;height: 85vh;}
+    #section{width:100vw;}
     #like_wrap{width:90%;margin:0 auto;}
-    .review_wrap{overflow-x:scroll;}
-    .r_box{flex-wrap:nowrap; column-gap:10px;}
+    .review{width: 160px;height:227px;}  .review img{width:100%; height:100%;}
 }

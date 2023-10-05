@@ -120,8 +120,11 @@
     #wrap{width:100vw;}
     #content{width:90%;}
     .account{width:100%;margin: 0 auto;}
+    .account div{margin: 15px 0;}
     .info a, .info p{width:35%;font-size:12px;margin:5px 10px;}
     .num{font-size:15px;}
+    .title b{font-size: 15px; width: 50%;}
+    .title p{font-size: 10px; width: 40%; text-align: end;}
     #rec, #rec_history{width:100%; margin:0 auto;}
     .slider{overflow-x: scroll;}
     .slide-container{flex-wrap:nowrap;}
