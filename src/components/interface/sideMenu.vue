@@ -20,8 +20,8 @@ export default {
             }
           });
           router.beforeEach((to, from) => {
-            isSlideMenuToggle.value = false;
             sideMenu.classList.remove('rightZero');
+            isSlideMenuToggle.value = false;
           })
         })
 
