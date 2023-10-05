@@ -131,7 +131,12 @@ const router = createRouter({
     {
       path:"/If_Eck",
       name:"If_Eck",
-      component:()=>import('@/views/If_Eck.vue')
+      component:()=>import('@/views/If_Eck.vue'),
+      beforeEnter: (to, from, next) => {
+        const sessionStorage = window.sessionStorage;
+        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        else return next();
+      }
     },
     {
       path:"/FindP",
