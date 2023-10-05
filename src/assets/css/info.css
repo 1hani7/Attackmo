@@ -18,13 +18,13 @@
     border-radius:10px;
     color:#fff;
 }
-.info p,.info a{
+.info p,.my_review, .change{
     width:440px;
     margin:10px 30px;
     font-size:23px;
     font-weight: 800;
 }
-.info a{
+.my_review,.change{
     text-align: end;
     color:#fff;
     text-decoration: none;

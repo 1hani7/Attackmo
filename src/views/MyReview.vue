@@ -4,14 +4,14 @@
             <div class="title">내가 쓴 리뷰</div>
             <div class="review_wrap">
                 <div class="mr_box">
-                    <a href="/Rread" class="view" v-for="(review, index) in reviews" :key="index">
+                    <RouterLink to="/Rread" class="view" v-for="(review, index) in reviews" :key="index">
                         <img class="poster" :src="review.img" />
                         <div class="myreview">
                             <div class="m_title">{{ review.mTitle }}</div>
                             <div class="r_title">{{ review.rTitle }}</div>
                             <div class="r_con">{{ review.rCon }}</div>
                         </div>
-                    </a>
+                    </RouterLink>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@ export default {
   };
   </script>
 
-<style>
+<style scoped>
 @import url('../assets/css/MyReview.css');
 </style>
 

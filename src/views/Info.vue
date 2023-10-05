@@ -4,9 +4,9 @@
             <div class="account">
                 <div class="info">
                     <p class="nickname">@활동명</p>
-                    <a href="/MyReview" class="my_review">내가 쓴 리뷰보기 ></a>
+                    <RouterLink to="/MyReview" class="my_review">내가 쓴 리뷰보기 ></RouterLink>
                     <p class="email">email@email.com</p>
-                    <a href="/PwCheck" class="change">회원정보 변경 ></a>
+                    <RouterLink to="/PwCheck" class="change">회원정보 변경 ></RouterLink>
                 </div>
                 <div class="review">
                     <b>작성리뷰 수</b>
@@ -37,10 +37,10 @@
                 <div class="slider">
                     <div class="slide-container">
                         <div class="slide" v-for="(movie, index) in recommendedMovies" :key="index">
-                            <a href="" class="rec_movie">
+                            <RouterLink to="" class="rec_movie">
                                 <img class="poster" :src="movie.imgSrc" :alt="movie.altText">
                                 <div class="summary">{{ movie.text }}</div>
-                            </a>
+                            </RouterLink>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div id="history_wrap">
                     <div class="card">
-                        <a href="/RecHistory" class="card_n" v-for="card in 8" :key="card">
+                        <RouterLink to="/RecHistory" class="card_n" v-for="card in 8" :key="card">
                             <div class="history">
                                 <div class="thumbnail">
                                     <img src="../images/img/사도.jpg" alt="">
@@ -72,7 +72,7 @@
                                     N월 N주<br>추천영화
                                 </b>
                             </span>
-                        </a>
+                        </RouterLink>
                     </div>
                 </div>
             </div>

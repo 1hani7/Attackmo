@@ -6,13 +6,13 @@
             </p>
             <div class="movie_wrap">
                 <div class="m_box">
-                  <a href="" class="mark" v-for="(marks,index) in marks" :key="index" @mouseover="showMark(index)" @mouseleave="hideMark()">
+                  <RouterLink to="" class="mark" v-for="(marks,index) in marks" :key="index" @mouseover="showMark(index)" @mouseleave="hideMark()">
                       <div class="markMovie" :class="{ 'active' : showMarkIndex === index}">
                         <p class="movieTitle">{{ marks.title }}</p>
                         <p class="summary">{{ marks.text }}</p>
                       </div>
                       <img :src="marks.image" alt="">
-                  </a>
+                  </RouterLink>
                 </div>
             </div>
         </div>
