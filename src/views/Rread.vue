@@ -14,7 +14,7 @@
                         <div class="write_d">2023.09.08</div>
                     </div>
                     <div class="con_detail">
-                        <img class="poster" src="../images/img/잠.jpg" />
+                        <div class="p_box"><img class="poster" src="../images/img/잠.jpg" /></div>
                         <div class="movie_info">
                             <div class="movie_name">잠</div>
                             <div class="movie_release">2023.09.06 개봉</div>
@@ -48,11 +48,11 @@
                             <i class="bi bi-star-fill"></i>
                         </div>
                     </div>
-                </div>
-                <div class="post_menu">
-                    <div class="rePost">수정</div>
-                    <div class="del">삭제</div>
-                    <div class="siren" @click="openSirenPopup">신고</div>
+                    <div class="post_menu">
+                        <div class="rePost">수정</div>
+                        <div class="del">삭제</div>
+                        <div class="siren" @click="openSirenPopup">신고</div>
+                    </div>
                 </div>
             </div>
             <div class="reply_wrap">
@@ -62,101 +62,29 @@
                         <input type="text" placeholder="바른 말 고운 말, 함께 만드는 댓글 문화!">
                         <button class="reply_bt">등록하기</button>
                     </div>
-                    <div class="reply">
+                    <div class="reply" v-for="(reply, index) in replies" :key="index">
                         <div class="reply_info">
-                            <div class="nickName">로고스와미고스</div>
-                            <div class="wDate">
-                                YYYY.MM.DD
-                            </div>
+                            <div class="nickName">{{ reply.nickName }}</div>
+                            <div class="wDate">{{ reply.date }}</div>
                             <div class="reply_menu">
                                 <p class="rePost_reply">수정</p>
                                 <p class="del_reply">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
                         </div>
-                        <div class="reply_text">
-                            저도 진짜 재밌게 봤는데 영화 많이 보신 분들한테는 좀 식상할 수도 있음
-                        </div>
+                        <div class="reply_text">{{ reply.text }}</div>
                     </div>
-                    <div class="reply">
-                        <div class="reply_info">
-                            <div class="nickName">동과젤리</div>
-                            <div class="wDate">
-                                YYYY.MM.DD
+                    <div class="mReply_wrap">
+                        <div class="mReply_box" v-for="(reply, index) in replies" :key="index">
+                            <div class="mReply">
+                                <span class="n_name">{{ reply.nickName }}</span>
+                                {{ reply.text }}
                             </div>
-                            <div class="reply_menu">
+                            <div class="mReply_menu">
                                 <p class="rePost_reply">수정</p>
                                 <p class="del_reply">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
-                        </div>
-                        <div class="reply_text">
-                            그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로
-                        </div>
-                    </div>
-                    <div class="reply">
-                        <div class="reply_info">
-                            <div class="nickName">망고젤리</div>
-                            <div class="wDate">
-                                YYYY.MM.DD
-                            </div>
-                            <div class="reply_menu">
-                                <p class="rePost_reply">수정</p>
-                                <p class="del_reply">삭제</p>
-                                <p class="siren_reply" @click="openSirenPopup">신고</p>
-                            </div>
-                        </div>
-                        <div class="reply_text">
-                            간만에 친구 만나서 같이 봤는데 생각했던 것보다 엄청 재밌어서 놀람 이선균이 이런 연기도 하네
-                        </div>
-                    </div>
-                    <div class="reply">
-                        <div class="reply_info">
-                            <div class="nickName">우웅증말기환자</div>
-                            <div class="wDate">
-                                YYYY.MM.DD
-                            </div>
-                            <div class="reply_menu">
-                                <p class="rePost_reply">수정</p>
-                                <p class="del_reply">삭제</p>
-                                <p class="siren_reply" @click="openSirenPopup">신고</p>
-                            </div>
-                        </div>
-                        <div class="reply_text">
-                            이제 무서워서 잠 어떻게 자는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
-                        </div>
-                    </div>
-                    <div class="reply">
-                        <div class="reply_info">
-                            <div class="nickName">성현박사맘</div>
-                            <div class="wDate">
-                                YYYY.MM.DD
-                            </div>
-                            <div class="reply_menu">
-                                <p class="rePost_reply">수정</p>
-                                <p class="del_reply">삭제</p>
-                                <p class="siren_reply" @click="openSirenPopup">신고</p>
-                            </div>
-                        </div>
-                        <div class="reply_text">
-                            몽유병이 진짜 같이 사는 사람끼리는 이보다 무서운 게 없는 병이거든요...<br>
-                            뭔가 남 일 같지가 않아서 계속 손에 땀을 쥐면서 봤네요
-                        </div>
-                    </div>
-                    <div class="reply">
-                        <div class="reply_info">
-                            <div class="nickName">바재부팅부</div>
-                            <div class="wDate">
-                                YYYY.MM.DD
-                            </div>
-                            <div class="reply_menu">
-                                <p class="rePost_reply">수정</p>
-                                <p class="del_reply">삭제</p>
-                                <p class="siren_reply" @click="openSirenPopup">신고</p>
-                            </div>
-                        </div>
-                        <div class="reply_text">
-                            그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로
                         </div>
                     </div>
                 </div>
@@ -173,6 +101,39 @@ const liked = ref(false)
 const toggleLike = () => {
     liked.value = !liked.value
 }
+
+const replies = ref([
+    {
+        nickName:'로고와스미스',
+        date:'YYYY.MM.DD',
+        text:'저도 진짜 재밌게 봤는데 영화 많이 보신분들한테는 좀 식상할 수도 있음'
+    },
+    {
+        nickName:'동과젤리',
+        date:'YYYY.MM.DD',
+        text:'그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로'
+    },
+    {
+        nickName:'망고젤리',
+        date:'YYYY.MM.DD',
+        text:'간만에 친구 만나서 같이 봤는데 생각했던 것보다 엄청 재밌어서 놀람 이선균이 이런 연기도 하네'
+    },
+    {
+        nickName:'우웅증말기환자',
+        date:'YYYY.MM.DD',
+        text:'이제 무서워서 잠 어떻게 가는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
+    },
+    {
+        nickName:'성현박사맘',
+        date:'YYYY.MM.DD',
+        text:'몽유병이 진짜 같이 사는 사람끼리는 이보다 무서운게 없는 병익든요... 뭔가 남 일 같지 않아서 계속 손에 땀을 쥐면서 봤네요...'
+    },
+    {
+        nickName:'바재부팅부',
+        date:'YYYY.MM.DD',
+        text:'나도 혹시 자는 중에 이러는거 아닌가 싶어서 무서워지네'
+    },
+])
 
 const openSirenPopup = () => {
     // sirenPop.vue를 열고, 부모 창으로부터 메시지를 받을 수 있도록 리스너 설정
