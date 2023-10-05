@@ -82,7 +82,7 @@ thead tr{
 @media (max-width:1194px) {
     #section{width:100vw; font-size: 17px;;}
     #wrap{width:90%;margin: 0 auto;}
-    #write{top:70px;right:10px;}
+    #write{top:70px;right:30px;}
     .main{width:100%;align-items:flex-start;}
     #search{font-size: 17px;;}
 

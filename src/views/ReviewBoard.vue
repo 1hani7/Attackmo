@@ -2,9 +2,9 @@
     <section id="section">
         <div id="wrap">
             <p id="title">리뷰게시판</p>
-            <a href="/Rwrite" id="write">
+            <RouterLink to="/Rwrite" id="write">
                 <i class="bi bi-pencil-square"></i>
-            </a>
+            </RouterLink>
             <div class="main">
                 <div id="search_box">
                     <input type="text" id="search" placeholder="검색어를 입력해주세요">
@@ -22,7 +22,7 @@
                     <tbody class="con">
                         <tr v-for="(list,index) in list" :key="index">
                             <td class="n">{{ index }}</td>
-                            <td class="t"><a href="/Rread">{{ list.rTitle}}</a></td>
+                            <td class="t"><RouterLink to="/Rread">{{ list.rTitle}}</RouterLink></td>
                             <td class="w">{{ list.rWriter }}</td>
                             <td class="d">{{ list.rDate }}</td>
                         </tr>
@@ -32,16 +32,16 @@
             <div class="page_list">
                 <i class="bi bi-chevron-double-left"></i>
                 <i class="bi bi-chevron-left"></i>
-                <a href="">1</a> 
-                <a href="">2</a> 
-                <a href="">3</a> 
-                <a href="">4</a> 
-                <a href="">5</a> 
-                <a href="">6</a> 
-                <a href="">7</a> 
-                <a href="">8</a> 
-                <a href="">9</a> 
-                <a href="">10</a>
+                <RouterLink to="">1</RouterLink>
+                <RouterLink to="">2</RouterLink>
+                <RouterLink to="">3</RouterLink>
+                <RouterLink to="">4</RouterLink>
+                <RouterLink to="">5</RouterLink>
+                <RouterLink to="">6</RouterLink>
+                <RouterLink to="">7</RouterLink>
+                <RouterLink to="">8</RouterLink>
+                <RouterLink to="">9</RouterLink>
+                <RouterLink to="">10</RouterLink>
                 <i class="bi bi-chevron-right"></i>
                 <i class="bi bi-chevron-double-right"></i>
             </div>
