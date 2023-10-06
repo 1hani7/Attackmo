@@ -19,8 +19,8 @@
                             <td class="d">날짜</td>
                         </tr>
                     </thead>
-                    <tbody class="con">
-                        <tr v-for="(list,index) in list" :key="index">
+                    <tbody>
+                        <tr class="con" v-for="(list,index) in list" :key="index">
                             <td class="n">{{ index }}</td>
                             <td class="t"><RouterLink to="/Rread">{{ list.rTitle}}</RouterLink></td>
                             <td class="w">{{ list.rWriter }}</td>
@@ -28,6 +28,13 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="mobileList">
+                    <div class="post" v-for="(list,index) in list" :key="index">
+                        <div class="m_t"><RouterLink to="/Rread">{{ list.rTitle }}</RouterLink></div>
+                        <div class="m_w">{{ list.rWriter }}</div>
+                        <div class="m_d">{{ list.rDate }}</div>
+                    </div>
+                </div>
             </div>
             <div class="page_list">
                 <i class="bi bi-chevron-double-left"></i>
@@ -55,17 +62,17 @@ export default {
         return{
             list:[
                 {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'귤먹고 뒹굴뒹굴',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'아이언맨',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'스칼렛',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'마크야',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'체리',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'로키',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'지켜본다',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'만다린',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'앱플',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'오토모',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'기아',rDate:'0000.00.00'},
-                {rTitle:'리뷰 처음 써보는데 이 영화 괜찮네요',rWriter:'skjjdk',rDate:'0000.00.00'},
+                {rTitle:'오랜만에 봐도 좋은 영화..',rWriter:'아이언맨',rDate:'0000.00.00'},
+                {rTitle:'이건 안보면 영화광이라고 말할 수 없는',rWriter:'스칼렛',rDate:'0000.00.00'},
+                {rTitle:'어떻게 연기를 이렇게 살벌하게 하시는지',rWriter:'마크야',rDate:'0000.00.00'},
+                {rTitle:'배우라고 생각이 들지 않고 저 사람이 지금 실존하는 것 같네요..',rWriter:'체리',rDate:'0000.00.00'},
+                {rTitle:'휴...지가 굉장히 많이 필요한...',rWriter:'로키',rDate:'0000.00.00'},
+                {rTitle:'마피아 막내아들인 내가 평범한 삶을 살다가 보스가 된 건에 대하여..',rWriter:'지켜본다',rDate:'0000.00.00'},
+                {rTitle:'이거 보고 나서 복서가 꿈이에요..',rWriter:'만다린',rDate:'0000.00.00'},
+                {rTitle:'마블 이넘들은 어디까지 가는겨',rWriter:'앱플',rDate:'0000.00.00'},
+                {rTitle:'오토라는 남자는....',rWriter:'오토모',rDate:'0000.00.00'},
+                {rTitle:'금자는 지금 행복할까',rWriter:'기아',rDate:'0000.00.00'},
+                {rTitle:'우디야 자유롭게 살어',rWriter:'skjjdk',rDate:'0000.00.00'},
             ]  
         }
     }
