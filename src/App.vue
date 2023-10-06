@@ -1,5 +1,5 @@
 <script>
-import { RouterView} from 'vue-router';
+import { RouterView, useRouter  } from 'vue-router';
 import topHeader from './components/interface/topHeader.vue';
 import botFooter from './components/interface/botFooter.vue';
 import topAds from './components/AD/topAds.vue';
@@ -11,7 +11,8 @@ import {set} from './movieApi';
 export default {
   components: {
     topAds, topHeader, botAds, botFooter
-  }, setup() {
+  },
+  setup() {
     console.log(set);
 
     const isLogin = ref(false);
@@ -38,6 +39,11 @@ export default {
         isSiren.value = true;
       }
     })
+
+    useRouter().afterEach(()=>{
+      window.scrollTo(0, 0);
+    })
+
 
     return{
       isSiren

@@ -8,7 +8,6 @@
 }
 
 :root {
-    scroll-behavior: smooth;
     --font-black: rgba(48, 48, 48, 1);
     --y: rgba(249, 192, 65, 1);
     --bg: rgba(251, 243, 228, 1);
