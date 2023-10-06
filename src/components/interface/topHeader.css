@@ -251,10 +251,7 @@
     position: relative;
     width: fit-content;
     margin-top: -1px;
-    letter-spacing: var(--semi-title-letter-spacing);
-    line-height: var(--semi-title-line-height);
     white-space: nowrap;
-    font-style: var(--semi-title-font-style);
   }
   
 
