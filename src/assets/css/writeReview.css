@@ -100,6 +100,7 @@
     justify-content: space-between;
     align-items: center;
 }
+.point input{border:none;}
 #detail_input{
     width:1000px;
     display:flex;
@@ -145,7 +146,7 @@
 }
 @media (max-width:490px) {
     *,#t_input,#search_m{font-size:12px;}
-    #section{width:90vw;}
+    #section{width:100vw;}
     #de_con{width:90vw;height:200px;}
     input[type=text]{
         height:30px;
