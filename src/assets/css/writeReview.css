@@ -18,10 +18,9 @@
     cursor:pointer;
     font-size:40px;
     color:#ccc;
-    text-shadow:0.08em 0.08em gray;
 }
 .dv-rate:not(:checked) > label:before {
-    content:'★ ';
+    content:'★';
 }
 .dv-rate > input:checked ~ label{
     color:#ffc700;
@@ -59,6 +58,8 @@
 .t_input input, .select_m input{
     height:60px;
     font-size:17px;
+    padding:0 20px;
+    outline: 0;
 }
 .select_m{position:relative;}
 .search-result{
