@@ -4,7 +4,7 @@
         <div class="title"><div class="mainTitle">상영 중인 영화</div></div>
         <div class="posters">
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 626.png" />
+            <img class="rectangle" src="@/images/rectangle626.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 612.png" />
+            <img class="rectangle" src="@/images/rectangle612.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 732.png" />
+            <img class="rectangle" src="@/images/rectangle732.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 734.png" />
+            <img class="rectangle" src="@/images/rectangle734.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 735.png" />
+            <img class="rectangle" src="@/images/rectangle735.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 711.png" />
+            <img class="rectangle" src="@/images/rectangle711.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -106,7 +106,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 736.png" />
+            <img class="rectangle" src="@/images/rectangle736.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -123,7 +123,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 725.png" />
+            <img class="rectangle" src="@/images/rectangle725.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -140,7 +140,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 712.png" />
+            <img class="rectangle" src="@/images/rectangle712.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -157,7 +157,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 739.png" />
+            <img class="rectangle" src="@/images/rectangle739.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -174,7 +174,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 726.png" />
+            <img class="rectangle" src="@/images/rectangle726.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -191,7 +191,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 701.png" />
+            <img class="rectangle" src="@/images/rectangle701.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -208,7 +208,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 713.png" />
+            <img class="rectangle" src="@/images/rectangle713.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -225,7 +225,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 740.png" />
+            <img class="rectangle" src="@/images/rectangle740.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -242,7 +242,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 714.png" />
+            <img class="rectangle" src="@/images/rectangle714.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -259,7 +259,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 702.png" />
+            <img class="rectangle" src="@/images/rectangle702.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -276,7 +276,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 727.png" />
+            <img class="rectangle" src="@/images/rectangle727.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -293,7 +293,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 716.png" />
+            <img class="rectangle" src="@/images/rectangle716.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -310,7 +310,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 729.png" />
+            <img class="rectangle" src="@/images/rectangle729.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>
@@ -327,7 +327,7 @@
             </div>
           </div>
           <div class="poster-box">
-            <img class="rectangle" src="@/images/rectangle 741.png" />
+            <img class="rectangle" src="@/images/rectangle741.png" />
             <div class="view">
               <div class="div">영화제목</div>
               <div class="normalFont">개봉일</div>

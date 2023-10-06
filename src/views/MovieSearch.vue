@@ -3,7 +3,7 @@
       <div class="title"><div class="mainTitle">영화 검색결과 N건</div></div>
       <div class="results">
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>
@@ -63,7 +63,7 @@
           </div>
         </div>
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>
@@ -75,7 +75,7 @@
           </div>
         </div>
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>
@@ -87,7 +87,7 @@
           </div>
         </div>
         <div class="template">
-          <img class="rectangle" src="@/images/rectangle 408.png" />
+          <img class="rectangle" src="@/images/rectangle408.png" />
           <div class="info">
             <div class="div">오펜하이머</div>
             <div class="line"></div>

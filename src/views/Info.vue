@@ -61,7 +61,7 @@
                                     <img src="../images/img/어벤져스.jpg" alt="">
                                 </div>
                                 <div class="thumbnail">
-                                    <img src="../images/img/왕의 남자.jpg" alt="">
+                                    <img src="../images/img/왕의남자.jpg" alt="">
                                 </div>
                                 <div class="thumbnail">
                                     <img src="../images/img/인어공주.jpg" alt="">

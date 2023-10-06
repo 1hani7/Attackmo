@@ -36,11 +36,11 @@
         </div>
         <div class="posters">
           <RouterLink to="/MovieTitle" class="link">
-            <img class="rectangle" src="../images/Rectangle 695.png" />
+            <img class="rectangle" src="../images/Rectangle695.png" />
           </RouterLink>
-          <img class="rectangle" src="../images/Rectangle 696.png" />
-          <img class="rectangle" src="../images/Rectangle 697.png" />
-          <img class="rectangle" src="../images/Rectangle 698.png" />
+          <img class="rectangle" src="../images/Rectangle696.png" />
+          <img class="rectangle" src="../images/Rectangle697.png" />
+          <img class="rectangle" src="../images/Rectangle698.png" />
         </div>
       </div>
       <div class="top">
@@ -49,10 +49,10 @@
           <div class="div"><router-link to="/Mnow">+</router-link></div>
         </div>
         <div class="posters">
-          <img class="rectangle" src="../images/Rectangle 618.png" />
-          <img class="rectangle" src="../images/Rectangle 642.png" />
-          <img class="rectangle" src="../images/Rectangle 643.png" />
-          <img class="rectangle" src="../images/Rectangle 653.png" />
+          <img class="rectangle" src="../images/Rectangle618.png" />
+          <img class="rectangle" src="../images/Rectangle642.png" />
+          <img class="rectangle" src="../images/Rectangle643.png" />
+          <img class="rectangle" src="../images/Rectangle653.png" />
         </div>
       </div>
       <div v-if="isLogin" class="top">
@@ -61,10 +61,10 @@
           <RouterLink to="/RecHistory"><div class="div">+</div></RouterLink>
         </div>
         <div class="posters">
-          <img class="rectangle" src="../images/Rectangle 698.png" />
-          <img class="rectangle" src="../images/Rectangle 629.png" />
-          <img class="rectangle" src="../images/Rectangle 613.png" />
-          <img class="rectangle" src="../images/Rectangle 614.png" />
+          <img class="rectangle" src="../images/Rectangle698.png" />
+          <img class="rectangle" src="../images/Rectangle629.png" />
+          <img class="rectangle" src="../images/Rectangle613.png" />
+          <img class="rectangle" src="../images/Rectangle614.png" />
         </div>
       </div>
     </div>

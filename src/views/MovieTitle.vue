@@ -35,21 +35,21 @@
         <div class="trailer-template">
           <div class="trailerBox">
             <div class="trailerBox">
-              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle 421.png" />
+              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle421.png" />
               <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
             </div>
             <div class="trailerTitle">티저 예고편</div>
           </div>
           <div class="trailerBox">
             <div class="trailerBox">
-              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle 422.png" />
+              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle422.png" />
               <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
             </div>
             <div class="trailerTitle">메인 예고편</div>
           </div>
           <div class="trailerBox">
             <div class="trailerBox">
-              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle 423.png" />
+              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle423.png" />
               <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
             </div>
             <div class="trailerTitle">메인 예고편 2</div>
