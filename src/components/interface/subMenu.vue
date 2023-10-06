@@ -67,7 +67,7 @@
 .sub-menu .navBt {
   position: relative;
   align-self: stretch;
-  font-family: "Inter-Regular", Helvetica;
+  font-family: 'SUITE-Regular';
   font-weight: 400;
   color: #000000;
   font-size: 22px;
