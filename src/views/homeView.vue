@@ -8,7 +8,7 @@
       </div>
       <div class="controler">
         <div class="detail">
-          <div class="more">상세보기</div>
+          <RouterLink to="/MovieTitle"><div class="more">상세보기</div></RouterLink>
           <img class="chevron-right" src="../images/chevron_right.svg" />
         </div>
 
