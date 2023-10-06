@@ -38,6 +38,312 @@
             </div>
           </div>
           <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
+            <img class="rectangle" src="@/images/rectangle612.png" />
+            <div class="view">
+              <div class="div">영화제목</div>
+              <div class="normalFont">개봉일</div>
+              <div class="normalFont onMobile">장르</div>
+              <div class="normalFont onMobile">러닝타임</div>
+              <div class="normalFont onMobile">연령</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+          </div>
+          <div class="poster-box">
             <img class="rectangle" src="@/images/rectangle732.png" />
             <div class="view">
               <div class="div">영화제목</div>

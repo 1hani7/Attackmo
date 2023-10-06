@@ -197,8 +197,6 @@
   @media(max-width:490px){
     .div-wrapper{margin:50px auto; gap:50px; }
 
-    #top10Plus{display:none;}
-
  
     .div-wrapper .title{
       font-size:23px;
