@@ -39,7 +39,7 @@
   position: absolute; top:190px;
   left:50%; transform:translateX(-50%);
   background-color: #ffffff;
-  width: calc(100vw - 30px); z-index:2; border-top:3px solid black;
+  width: 100%; z-index:2; border-top:1px solid black;
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
 }
 @media(max-width:1194px){
