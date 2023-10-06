@@ -48,7 +48,7 @@
 .main-content .mainTitle {
   position: relative;
   width: fit-content;
-  font-family: "Inter-Bold", Helvetica;
+  font-family: 'SUITE-Regular';
   font-weight: 700;
   color: #000000;
   font-size: 30px;
@@ -142,7 +142,7 @@
 .main-content .div {
   align-self: stretch;
   margin-top: -1px;
-  font-family: "Inter-Bold", Helvetica;
+  font-family: 'SUITE-Regular';
   font-weight: 700;
   color: var(--font-black);
   font-size: 26px;

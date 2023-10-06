@@ -136,7 +136,7 @@
     position: relative;
     width: 222px;
     margin-top: -1px;
-    font-family: "Inter-Bold", Helvetica;
+    font-family: 'SUITE-Regular';
     font-weight: 700;
     color: var(--font-black);
     font-size: 40px;
@@ -149,7 +149,7 @@
     position: relative;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Inter-Bold", Helvetica;
+    font-family: 'SUITE-Regular';
     font-weight: 700;
     color: #000000;
     font-size: 40px;
