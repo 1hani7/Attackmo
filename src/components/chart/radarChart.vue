@@ -14,7 +14,6 @@ export default {
 
         onMounted(() => {
             const ctx = document.getElementById('radar');
-            console.log(ctx)
 
             window.addEventListener('scroll', function () {
                 const chartWrap = document.getElementById('chartWrap');

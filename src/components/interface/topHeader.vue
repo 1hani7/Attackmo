@@ -14,7 +14,7 @@
                             로그아웃
                         </div>
                         <div class="normalFont">/</div>
-                        
+
                         <RouterLink to="/signup">
                             <div class="normalFont">회원가입</div>
                         </RouterLink>
@@ -23,13 +23,12 @@
                         <img class="vector" src="@/images/search_icon.svg" />
                         <form action="/Search" method="get" @keypress.enter="searchMovie">
                             <div class="place-holder">
-                                <input @focus="searchingStart()" autocomplete="off"
-                                type="text" name="searchWord" class="inputText searchWrite"
-                                placeholder="영화, 인물을 검색해보세요">
+                                <input @focus="searchingStart()" autocomplete="off" type="text" name="searchWord"
+                                    class="inputText searchWrite" placeholder="영화, 인물을 검색해보세요">
                             </div>
                         </form>
                         <div v-if="isSearching" class="searchBar">
-                            <searchBar/>
+                            <searchBar />
                         </div>
                         <div v-if="isTabletSearching" @click="searchingStart()" class="darkBg2"></div>
                         <div v-if="isMobileSearch" @click="searchMobile()" class="darkBg"></div>
@@ -40,43 +39,52 @@
             </div>
             <div @mouseover="MenuHover()" class="nav-b-ox">
                 <div class="menu">
-                    <RouterLink to="/MovieMain"><div class="menuName">영화</div></RouterLink>
+                    <RouterLink to="/MovieMain">
+                        <div class="menuName">영화</div>
+                    </RouterLink>
                 </div>
                 <div class="menu">
-                    <RouterLink to="/ReviewBoard"><div class="menuName">리뷰</div></RouterLink>
+                    <RouterLink to="/ReviewBoard">
+                        <div class="menuName">리뷰</div>
+                    </RouterLink>
                 </div>
                 <div class="menu">
-                    <RouterLink to="/NoticeList"><div class="menuName">공지사항</div></RouterLink>
+                    <RouterLink to="/NoticeList">
+                        <div class="menuName">공지사항</div>
+                    </RouterLink>
                 </div>
                 <div class="menu">
-                    <RouterLink to="/AskMe"><div class="menuName">문의사항</div></RouterLink>
+                    <RouterLink to="/AskMe">
+                        <div class="menuName">문의사항</div>
+                    </RouterLink>
                 </div>
                 <div class="menu">
-                    <RouterLink to="/Info"><div class="menuName">마이페이지</div></RouterLink>
+                    <RouterLink to="/Info">
+                        <div class="menuName">마이페이지</div>
+                    </RouterLink>
                 </div>
             </div>
-            <subMenu v-if="isMenuHover" @mouseleave="MenuLeave()"/>
+            <subMenu v-if="isMenuHover" @mouseleave="MenuLeave()" />
         </div>
     </div>
 
     <!-- <div v-show="isSlideMenuToggle">
     </div> -->
     <sideMenu />
-
 </template>
 
 <script>
-import {useRouter, useRoute} from 'vue-router';
-import {ref, provide, inject, onMounted, onBeforeMount} from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { ref, provide, inject, onMounted, onBeforeMount } from 'vue';
 import sideMenu from '../interface/sideMenu.vue';
 import subMenu from '../interface/subMenu.vue';
 import searchBar from '../interface/searchBar.vue';
 export default {
     name: 'topHeader',
-    components:{
+    components: {
         sideMenu, subMenu, searchBar
     },
-    setup(){
+    setup() {
 
         const uniqueKey = 0;
 
@@ -97,11 +105,11 @@ export default {
         const MenuLeave = () => isMenuHover.value = false;
 
         const searchMovie = (e) => {
-            if( window.innerWidth >= 1194 ){
+            if (window.innerWidth >= 1194) {
                 isSearching.value = !isSearching.value;
                 isMenuHover.value = false;
                 router.push('/Search');
-            }else{
+            } else {
                 e.preventDefault();
             }
         }
@@ -112,7 +120,7 @@ export default {
 
 
         const searchingStart = () => {
-            if( isMobileSearch.value ) {
+            if (isMobileSearch.value) {
                 return;
             }
 
@@ -122,9 +130,9 @@ export default {
             const menu_bt = document.querySelector(".menu_bt");
             const search_box = document.querySelector(".search-box");
             const search_bt = document.querySelector(".search_bt");
-            
-            
-            if(isSearching.value && window.innerWidth <= 1194){
+
+
+            if (isSearching.value && window.innerWidth <= 1194) {
                 isTabletSearching.value = true;
                 LOGO.classList.add('hide');
                 menu_bt.classList.add('hide');
@@ -134,7 +142,7 @@ export default {
                 search_box.style.left = '-5px';
                 search_box.style.margin = '15px auto';
                 search_bt.style.display = 'none';
-            }else{
+            } else {
                 isTabletSearching.value = false;
                 LOGO.classList.remove('hide');
                 menu_bt.classList.remove('hide');
@@ -157,13 +165,13 @@ export default {
             isSearching.value = !isSearching.value;
             isMobileSearch.value = !isMobileSearch.value;
 
-            if(isMobileSearch.value && window.innerWidth <= 490){
+            if (isMobileSearch.value && window.innerWidth <= 490) {
                 LOGO.classList.add('hide');
                 menu_bt.style.display = 'none';
                 search_bt.style.display = 'none';
                 search_box.style.display = 'flex';
                 search_box.style.width = 'calc(100vw - 30px)';
-            }else{
+            } else {
                 LOGO.classList.remove('hide');
                 menu_bt.style.display = '';
                 search_bt.style.display = '';
@@ -173,7 +181,7 @@ export default {
         }
 
 
-        window.addEventListener('resize', function(){
+        window.addEventListener('resize', function () {
             const LOGO = document.querySelector(".LOGO");
             const search_box = document.querySelector(".search-box");
             const menu_bt = document.querySelector(".menu_bt");
@@ -182,13 +190,13 @@ export default {
             const search_bt = document.querySelector(".search_bt");
             const window = this.window.innerWidth;
 
-            if( isSearching.value ){
-                if( window > 1194 ){
+            if (isSearching.value) {
+                if (window > 1194) {
                     isTabletSearching.value = false;
                     LOGO.classList.remove('hide');
                     search_box.style.width = '';
                     search_box.style.margin = '';
-                }else if ( 490 <= window && window <= 1194 ){
+                } else if (490 <= window && window <= 1194) {
                     isTabletSearching.value = true;
                     LOGO.classList.add('hide');
                     menu_bt.classList.add('hide');
@@ -198,7 +206,7 @@ export default {
                     search_box.style.left = '-5px';
                     search_box.style.margin = '15px auto';
                     search_bt.style.display = 'none';
-                }else if ( window < 490 ){
+                } else if (window < 490) {
                     isTabletSearching.value = false;
                     LOGO.classList.add('hide');
                     menu_bt.style.display = 'none';
@@ -206,31 +214,62 @@ export default {
                     search_box.style.display = 'flex';
                     search_box.style.width = 'calc(100vw - 30px)';
                 }
-            }else{
-                if ( 490 <= window && window <= 1194 ){
+            } else {
+                if (490 <= window && window <= 1194) {
                     search_box.style.width = '';
                     search_bt.style.display = 'none';
-                }else if ( window < 490 ){
+                } else if (window < 490) {
                     search_bt.style.display = 'block';
                 }
             }
         })
 
 
-        provide('isSlideMenuToggle',isSlideMenuToggle);
-        provide('sideMenuOpen',sideMenuOpen);
-        provide('searchingStart',searchingStart);
-        
+        provide('isSlideMenuToggle', isSlideMenuToggle);
+        provide('sideMenuOpen', sideMenuOpen);
+        provide('searchingStart', searchingStart);
 
-        return {isSlideMenuToggle, sideMenuOpen,
-              isSearching, searchingStart,
-              isMobileSearch, searchMobile,
-              isTabletSearching, isMenuHover, MenuHover, MenuLeave,
-              searchMovie, router, isLogin, loginToggle, uniqueKey };
+
+        onMounted(() => {
+            router.beforeEach((to, from) => {
+                const search_box = document.querySelector(".search-box");
+                const menu_bt = document.querySelector(".menu_bt");
+                const LOGO = document.querySelector(".LOGO");
+                const search_bt = document.querySelector(".search_bt");
+
+                if (490 <= window.innerWidth && window.innerWidth <= 1194) {
+                    isSearching.value = false;
+                    isTabletSearching.value = false;
+                    LOGO.classList.remove('hide');
+                    menu_bt.classList.remove('hide');
+                    search_box.style.width = '';
+                    search_box.style.position = '';
+                    search_box.style.top = '';
+                    search_box.style.left = '';
+                    search_box.style.margin = '';
+                    search_bt.style.display = 'none';
+                } else if (window.innerWidth < 490) {
+                    LOGO.classList.remove('hide');
+                    menu_bt.style.display = '';
+                    search_bt.style.display = '';
+                    search_box.style.display = '';
+                    isMobileSearch.value = false;
+                }
+
+
+            })
+        })
+
+
+        return {
+            isSlideMenuToggle, sideMenuOpen,
+            isSearching, searchingStart,
+            isMobileSearch, searchMobile,
+            isTabletSearching, isMenuHover, MenuHover, MenuLeave,
+            searchMovie, router, isLogin, loginToggle, uniqueKey
+        };
     }
 }
 </script>
 
-<style scoped>
-@import url('./topHeader.css');
-</style>
+<style scoped>@import url('./topHeader.css');</style>
