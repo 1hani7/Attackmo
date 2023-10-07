@@ -39,7 +39,7 @@ export default {
                 writer: this.writer,
             })
             this.$router.push({
-                path:"/AskMe"
+                path:"/NoticeList"
             })
         }
     }

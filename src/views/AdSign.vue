@@ -62,11 +62,6 @@ export default {
             const end = start + this.itemsPerPage;
             return this.sortedData.slice(start, end);
         }, 
-        visiblePosts() {
-            const start = (this.currentPage - 1) * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            return this.sortedData.slice(start, end);
-        },
         blocks() {
             const blocks = [];
             for (let i = 1; i <= this.totalPage; i++) {

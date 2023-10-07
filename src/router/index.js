@@ -177,7 +177,12 @@ const router = createRouter({
       path:"/Adnotice",
       name:"Adnotice",
       component:()=>import('@/views/Adnotice.vue')
-    }  
+    },
+    {
+      path:"/ArWrite",
+      name:"ArWrite",
+      component:()=>import('@/views/ArWrite.vue')
+    }
   ]
 })
 

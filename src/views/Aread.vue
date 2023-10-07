@@ -51,7 +51,7 @@
         align-items: flex-start;
     }
     label{
-        background: #D9D9D9;
+        background: #F9C041;
         width:100%;
         display: flex;
         flex-direction: column;
