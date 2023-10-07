@@ -23,10 +23,10 @@
              <div id="phone">
                 <label><i class="bi bi-asterisk"></i>휴대폰번호</label>
                 <div id="num">
-                  <!-- <input type="number" name="number" v-model="formData.number1" id="number1" @input="limitCharacters('number1')" placeholder="010">
+                  <input type="number" name="number" v-model="formData.number1" id="number1" @input="limitCharacters('number1')" placeholder="010">
                   -<input type="number" name="number" v-model="formData.number2" id="number2" @input="limitCharacters('number2')">
-                  -<input type="number" name="number" v-model="formData.number3" id="number3" @input="limitCharacters('number3')"> -->
-                  <input type="number" name="number" v-model="formData.number" id="number" @input="limitCharacters('number')" placeholder="01012341235">
+                  -<input type="number" name="number" v-model="formData.number3" id="number3" @input="limitCharacters('number3')">
+                  <!-- <input type="number" name="number" v-model="formData.number" id="number" @input="limitCharacters('number')" placeholder="01012341235"> -->
                 </div>       
              </div>
              <div id="button_box">
@@ -51,10 +51,10 @@ export default {
         password1:"",
         password2:"",
         n_name:"",
-        // number1:"",
-        // number2:"",
-        // number3:"",
-        number:"",
+        number1:"",
+        number2:"",
+        number3:"",
+        //number:"",
       },
       submittedData: [], // 입력된 데이터를 저장할 배열
     };
@@ -71,8 +71,8 @@ export default {
       const password1 = this.formData.password1;
       const password2 = this.formData.password2;
       const n_name = this.formData.n_name;
-      //const phone = this.formData.number1 + this.formData.number2 + this.formData.number3;
-      const phone = this.formData.number;
+      const phone = this.formData.number1 + this.formData.number2 + this.formData.number3;
+      //const phone = this.formData.number;
       
       if (!this.checkMail(mail)) {
         //console.log("이메일 값: " + this.formData.mail);
@@ -169,7 +169,6 @@ export default {
     }
     h1{text-align: center;}
     #sign_box{
-      border: 1px solid black;
       display: flex;
       width: 1000px;
       padding: 50px 41px;
@@ -185,19 +184,11 @@ export default {
         align-items: flex-start;
         gap: 20px;
     }
-    #email input{
+    #email input,#pw input,#pw_ck input,#nickname input{
         width: 916px;
         height: 75px;
-    }
-    
-    #pw input{
-        width: 916px;
-        height: 75px;
-    }
-    
-    #pw_ck input{
-        width: 916px;
-        height: 75px;
+        outline:none;
+        padding:20px;
     }
     #pw_ck p{
         display: flex;
@@ -206,17 +197,12 @@ export default {
         padding: 22px 135px;
         justify-content: center;
         align-items: center;
-        gap: 10px;
         border-radius: 10px;
         background: #F9C041;
         color:white;
         font-weight: 700;
         font-size: 23px;
-    }
-    
-    #nickname input{
-        width: 916px;
-        height: 75px;
+        margin-top:10px;
     }
     #phone{
         display: flex;
@@ -225,11 +211,12 @@ export default {
         gap:20px;
         width: 916px;
     }
-    /* #phone input{
+    #phone input{
         width: 250px;
         height: 60px;
-        padding: 13px 26px;
-    } */
+        padding:20px;
+        outline:none;
+    }
     #num{ 
         width: 915px;
         height: 60px;
@@ -266,6 +253,7 @@ export default {
         border:none;
         font-size: 23px;
         font-weight: 700;
+        cursor: pointer;
     }
     #sign{ background: #F9C041;}
     #cancel{ background:  #B91646;}
@@ -276,7 +264,6 @@ export default {
     }
     @media (max-width:1194px) {
       #sign_box{
-        border:none;
         width:804px;
         font-size: 23px;
       }

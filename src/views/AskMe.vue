@@ -102,6 +102,7 @@ export default {
             }
         }
     },
+
 }
 </script>
 <style scoped>
@@ -179,6 +180,7 @@ thead tr{
     border:none;
     background: white;
 }
+
 @media (max-width:1194px) {
     #section{width:100vw; font-size: 17px;;}
     #wrap{width:90%;margin: 0 auto;}

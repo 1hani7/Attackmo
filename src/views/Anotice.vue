@@ -8,7 +8,7 @@
             </div>
             <div class="file_box">
                 <label>첨부파일</label>
-                <input type="file" name="file" id="file" @change="handleFileChange">
+                <input type="file" accept =".gif, .jpg, .png" name="file" id="file" @change="handleFileChange">
             </div>
             <div id="notice">
                 <label>내용</label>
@@ -78,23 +78,18 @@ export default {
         width:100%;
     }
     #title input{
-        display: flex;
-        padding: 23px 20px;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        align-self: stretch;
-        display: flex;
         font-size: 26px;
+        outline:none;
+        padding:20px;
+        width:1000px;
     }
     .file_box{
+        width: 100%;
         display: flex;
-        width: 1000px;
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
         font-size: 17px;
-        width:100%;
     }
     input[type=file]::file-selector-button {
         width: 99px;
@@ -115,6 +110,8 @@ export default {
         align-self: stretch;
         height: 436px;
         width: 100%;
+        outline:none;
+        padding:20px;
         
     }
     #button_box{
@@ -136,10 +133,12 @@ export default {
         background: none;
         font-size:15px;
         font-weight: 400;
+        cursor: pointer;
     }
     #cancel{color:red;}
     #check{background:red;color:white;}
     label{font-size:23px;font-weight: 700;}
+
 @media (max-width:1194px) {
    #admin{
     display: flex;

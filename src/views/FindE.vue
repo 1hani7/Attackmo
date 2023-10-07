@@ -5,8 +5,8 @@
              <div id="phone">
                 <label>휴대폰번호</label>
                 <div id="num">
-                  <!-- <input v-model="formData.number" type="number" name="number" placeholder="010" >-<input type="number" name="number" >-<input type="number" name="number"> -->
-                  <input v-model="formData.number" type="number" name="number" placeholder="010" >
+                  <input v-model="formData.number" type="number" name="number" placeholder="010" >-<input type="number" name="number" >-<input type="number" name="number">
+                  <!-- <input v-model="formData.number" type="number" name="number" placeholder="010" > -->
                 </div>       
              </div>
                 <div id="button_box">
@@ -52,7 +52,6 @@ export default {
 
 <style scoped>
     #wrap{
-        width:1000px;
         display: flex;
         margin-top: 150px;
         margin-bottom:150px;
@@ -60,7 +59,6 @@ export default {
         align-items: center;
     }
     #find_box{
-        border: 1px solid black;
         padding: 73px 80px;
         flex-direction: column;
         align-items: center;
@@ -77,15 +75,17 @@ export default {
     }
     #phone label{font-size: 23px;font-weight: 700;}
     #phone input{
-        width: 830px;
+        width: 820px;
         height: 60px;
-        padding: 13px 26px;
+        padding:20px;
         justify-content: space-between;
         align-items: center;
         border-radius: 10px;
+        outline:none;
+        
     }
     #num{ 
-        width: 915px;
+        width: 100%;
         height: 60px;
         display: flex;
         align-items: center;
@@ -97,13 +97,10 @@ export default {
         align-items: flex-start;
         gap: 15px;
     }
-    #find_e{
-        display: flex;
+    #find_e{    
         width: 831px;
         height: 85px;
         padding: 25px 318px;
-        justify-content: center;
-        align-items: center;
         gap: 10px;
         border-radius: 10px;
         background: #F9C041;
@@ -113,20 +110,10 @@ export default {
         font-size:23px;
     }
     #find{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        width:830px;
     }
     #find label{font-size:30px;font-weight: 700;}
     #find p{font-size:16px;font-weight: 400;color:#7A7979;}
-    #find_bt{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-        display: flex;    
-    }
     #mine{
         display: flex;
         width: 335px;

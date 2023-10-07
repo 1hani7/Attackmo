@@ -11,8 +11,8 @@
                   <button @click="login()" id="login_bt">로그인</button> 
               
                     <div id="find">
-                        <label><a href="./FindE">ID</a><a href="./FindP">/PW찾기</a></label>
-                        <label><a href="./SignUp">회원가입</a></label>
+                        <label><RouterLink to="./FindE">ID</RouterLink><RouterLink to="./FindP">/PW찾기</RouterLink></label>
+                        <label><RouterLink to="./SignUp">회원가입</RouterLink></label>
                     </div>
               </form>
               <div id="social_login">
@@ -121,11 +121,9 @@ export default {
     }
     #login_box{
         display: flex;
-        padding-bottom: 0px;
         flex-direction: column;
         align-items: center;
         gap: 30px;
-        border: 1px solid black;
         height: 719px; 
     }
     #content{
@@ -138,18 +136,16 @@ export default {
         display: flex;
         width: 831px;
         height: 85px;
-        padding: 10px 40px;
+        padding: 20px;
+        outline: none;
         align-items: center;
         gap: 10px;
         font-size: 23px;
         font-weight: 700;
     }
     #login_bt{
-        display: flex;
         width: 831px;
         height: 85px;
-        justify-content: center;
-        align-items: center;
         padding: 25px 368px;
         font-size: 23px;
         border-radius: 8px;
@@ -160,17 +156,15 @@ export default {
     #login_bt:hover{cursor: pointer;}
     #social_login{
         display: flex;
-        align-items: flex-start;
-        gap: 87px;   
+        justify-content: space-around;
     }
     .social_bt{
-        font-size: 34px;
-        width: 130px;
-        margin-bottom:40px;
+        font-size: 20px;
+        width: 108px;
     }
     .social_bt img{ 
-        width: 106.013px;
-        height: 106.013px;
+        width: 50px;
+        height:50px;
     }
     #find{
         display: flex;
@@ -182,21 +176,9 @@ export default {
     
     /*반응형*/
     @media (max-width:1194px) {
-        #wrap {
-        display: flex;
+      #wrap {
         width: 834px;
-        height: 1194px;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-      }
-      #login_box{
-        display: flex;
-        width: 536px;
-        padding-bottom: 40px;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        height: 800px;
       }
       #title{
         display: flex;
@@ -217,90 +199,36 @@ export default {
         display: flex;
         width: 430px;
         height: 67px;
-        padding: 10px 40px;
+        padding: 20px;
+        outline:none;
         
       }
       #login_bt{
-        display: flex;
-        width: 430px;
+        width:100%;
         height: 67px;
         padding: 10px 40px;
       }
       #login_bt:hover{cursor: pointer;}
       #social_login{
-        display: flex;
         width: 278px;
-        height: 77px;
-        align-items: flex-start;
-        gap: 25px;
+        height: 77px; 
       }
       .social_bt img{ 
-        width: 76px;
-        height: 77px;
-        
-      }
-      #find{
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-        align-self: stretch;
+        width: 50px;
+        height: 50px; 
       }
       #find label{font-size: 17px;color:#7A7979;}
       a{text-decoration: none;}
   }
 
   @media (max-width: 490px) {
-  #wrap {
-    display: flex;
-    width: auto;
-    height: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+     #wrap{
+       width:50%;
+     }
+     #login_box{
+      width:cacl(100vw-50px);
+    }
+    #title{width:80%;}
   }
-
-  #login_box {
-    width: 90%;
-  }
-
-  #title {
-    width: 100%;
-    height: auto;
-    padding: 20px 0px;
-    font-size: 20px;
-  }
-
-  #content input {
-    width: 90%;
-    height: 50px;
-    font-size: 18px;
-  }
-  #login_box{width:80%;}
-  #login_bt {
-    width: 90%;
-    height: 50px;
-    padding: 10px 20px;
-    font-size: 18px;
-  }
-
-  #social_login {
-    width: 90%;
-    
-  }
-
-  .social_bt {
-    font-size: 24px;
-  }
-
-  .social_bt img {
-    width: 50px;
-    height: 50px;
-  }
-  #find label {
-    font-size: 17px;
-  }
-}
     
 </style>

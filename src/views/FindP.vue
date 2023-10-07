@@ -101,13 +101,12 @@ methods: {
         align-items: center;
     }
     #find_box{
-        border: 1px solid black;
         display: flex;
         width: 1000px;
         padding: 73px 80px;
         flex-direction: column;
         align-items: center;
-        gap: 53px;
+        gap: 53px;  
     }
     #email{
         width: 831px;
@@ -117,24 +116,21 @@ methods: {
         display: flex;
         width: 831px;
         height: 85px;
-        padding: 13px 26px;
+        padding: 20px;
         align-items: center;
         border-radius: 10px;
         font-size: 23px;
         color:#7A7979;
+        outline:none;
     }
     #phone{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap:15px;
+       width:100%; 
     }
     #phone label{
         font-size:23px;
         font-weight: 700;
     }
     #num{
-        display: flex;
         align-items: center;
         gap: 30px;
         display: flex;
@@ -143,8 +139,9 @@ methods: {
     #num input{
         width: 230px;
         height: 60px;
-        padding: 13px 26px;
+        padding: 20px;
         border-radius: 10px;
+        outline:none;
     }
     #button_box{
         display: flex;
@@ -158,7 +155,7 @@ methods: {
         width: 831px;
         height: 85px;
         padding: 25px 318px;
-        gap: 10px;
+        margin-top: 30px;
         border-radius: 10px;
         background: #F9C041;
         border:none;
@@ -171,6 +168,7 @@ methods: {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
+        margin-top:10px;
     }
     #find label{font-size:30px;font-weight: 700;}
     #find p{font-size:15px;font-weight: 400;color:#7A7979;}
@@ -186,7 +184,6 @@ methods: {
         width: 335px;
         height: 85px;
         padding: 24px 84px;
-        gap: 10px;
         background: #F9C041;
         border:none;
         color:white; 
