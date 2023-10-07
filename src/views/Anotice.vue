@@ -8,7 +8,10 @@
             </div>
             <div class="file_box">
                 <label>첨부파일</label>
-                <input type="file" accept =".gif, .jpg, .png" name="file" id="file" @change="handleFileChange">
+                
+                <input type="file" accept =".gif, .jpg, .png" 
+                name="file" id="file" @change="handleFileChange" >
+                <p>*gif,jpg,png 선택 가능합니다</p>
             </div>
             <div id="notice">
                 <label>내용</label>
@@ -91,6 +94,7 @@ export default {
         gap: 20px;
         font-size: 17px;
     }
+    .file_box p{width:100%;color:blue;font-weight: 700;font-size: 15px;}
     input[type=file]::file-selector-button {
         width: 99px;
         height: 33px;
@@ -138,19 +142,18 @@ export default {
     #cancel{color:red;}
     #check{background:red;color:white;}
     label{font-size:23px;font-weight: 700;}
+    
 
 @media (max-width:1194px) {
-   #admin{
-    display: flex;
-    width: 700px;
-    padding-top: 30px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-   }
+  #wrap{width:100%;}
+  #admin{width:90%;}
+  #title{width:100%;}
+  #title input{width:100%;}
 }
-@media (max-width:490px) {
-    
+@media (max-width:490px) { 
+  #wrap{width:100%;}
+  #admin{width:90%;}
+  #title{width:100%;}
+  #title input{width:100%;}
 }
 </style>

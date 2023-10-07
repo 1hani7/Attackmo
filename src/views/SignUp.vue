@@ -209,13 +209,6 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         gap:20px;
-        width: 916px;
-    }
-    #phone input{
-        width: 250px;
-        height: 60px;
-        padding:20px;
-        outline:none;
     }
     #num{ 
         width: 915px;
@@ -227,7 +220,7 @@ export default {
     #num input{
         width: 918px;
         height: 75px;
-        padding: 13px 26px;
+        padding: 20px;
     }
     label{font-size: 23px;font-weight: 700;}
     label i {font-size: 23px;color:#B91646;}
@@ -263,23 +256,29 @@ export default {
         margin: 0;
     }
     @media (max-width:1194px) {
-      #sign_box{
-        width:804px;
-        font-size: 23px;
-      }
-      #email,#pw,#pw_ck,#nickname,#phone,#num{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        width:772px;
-      }
-      #email input,#pw input,#pw_ck input,#nickname input,#pw_ck p,#phone,#num input,#sign,#cancel{
-        width:100%;
-      }
-      #pw_ck p{font-size: 17px;}
-      #sign,#cancel{font-size: 17px;}
+     #wrap,#sign_box,#email,#pw{width:100%;}
+     #email input,#pw input,#pw_ck input,#nickname input{width:100%;}
+     #pw_ck,#nickname,#phone,#num{width:100%;}
+     #pw_ck p{width:100%;font-size: 17px;}
+     #num input{width:100%;}
+     #button_box{width:100%;}
+     #button_box button{width:350px;padding:0px;}
+     input{outline:none;}
     }
+    @media (max-width:490px) {
+      input{outline:none;}
+      label, .bi-asterisk{font-size: 17px;}
+      #wrap{width:calc(100vw - 30px);
+        padding:0px;margin:0px;}
+      #sign_box,#email,#pw{width:100%;}
+      #email input,#pw input,#pw_ck input,#nickname input{width:100%;}
+      #pw_ck,#nickname,#phone{width:100%;}
+      #pw_ck p{width:100%;font-size:13px;padding:0px;}
+      #button_box{width:100%;}
+      #button_box button{width:130px;font-size: 17px;}
+      #num{margin:0px;padding:0px;width:20%;}
+      #num input{width:70px;}
+}
   
     
 </style>

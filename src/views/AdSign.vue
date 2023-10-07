@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <div id="wrap">
         <div id="nwrite">
-            <p>회원관리</p>
+            <p>회원관리(관리자)</p>
             <span>목록{{ sortedData.length}}</span>
             <table id="list">
                 <tr>
@@ -14,8 +14,9 @@
                 </tr>
             </table> 
             <table id="list2">
-                <tr v-for="(value) in visiblePosts" :key="value.id" @click="gonote">
-                    <td>{{ value.name}}</td>
+                <tr v-for="(value) in visiblePosts" 
+                :key="value.id" >
+                    <td @click="open()">{{ value.name}}</td>
                     <td>{{ value.email }}</td>
                     <td>{{ value.number }}</td>
                     <td>{{ value.level }}</td>
@@ -31,12 +32,17 @@
                 <i @click="next()" class="bi bi-chevron-compact-right"></i>  
                 <i @click="next()" class="bi bi-chevron-bar-right"></i>
             </div>
+            <div id="search_box">
+                <input type="text" id="search" placeholder="활동명으로 검색">
+                <i class="bi bi-search"></i>
+            </div>
         </div>
         
     </div>
 </template>
 <script>
 import data from '../data/sign.js'
+
 
 export default {
     name: 'Read',
@@ -78,9 +84,8 @@ export default {
             const day = String(currentDate.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         },
-        gonote(){
-           alert("클릭미");
-            
+        open(){
+            window.open('./AdSpopup','_blank','width:150','height:150');
         },
         changePage(page) {
             this.currentPage = page;
@@ -151,5 +156,21 @@ table tr td:nth-child(2){width:480px;}
 #pgnum{
     border:none;
     background: white;
+}
+
+#search_box{width:100%;display:flex; justify-content: flex-end;}
+#search{
+    width:330px;
+    height:40px;
+    border:1px solid black;
+    font-size:20px;
+    margin-bottom:20px;
+    border-radius: 20px;
+    padding:20px;
+    outline:none;
+}
+.bi-search{
+    margin-left:-40px;
+    font-size: 30px;
 }
 </style>

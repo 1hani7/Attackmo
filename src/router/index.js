@@ -182,6 +182,11 @@ const router = createRouter({
       path:"/ArWrite",
       name:"ArWrite",
       component:()=>import('@/views/ArWrite.vue')
+    },
+    {
+      path:"/AdSpopup",
+      name:"AdSpopup",
+      component:()=>import('@/views/AdSpopup.vue')
     }
   ]
 })

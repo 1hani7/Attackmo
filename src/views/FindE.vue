@@ -64,7 +64,7 @@ export default {
         align-items: center;
         gap: 53px;
         display: flex;
-        width: 100%;
+        width:1000px;
     }
     #phone{
         display: flex;
@@ -78,11 +78,8 @@ export default {
         width: 820px;
         height: 60px;
         padding:20px;
-        justify-content: space-between;
-        align-items: center;
         border-radius: 10px;
-        outline:none;
-        
+        outline:none;    
     }
     #num{ 
         width: 100%;
@@ -91,17 +88,9 @@ export default {
         align-items: center;
         gap:32px;
     } 
-    #button_box{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
     #find_e{    
         width: 831px;
         height: 85px;
-        padding: 25px 318px;
-        gap: 10px;
         border-radius: 10px;
         background: #F9C041;
         border:none;
@@ -114,14 +103,10 @@ export default {
     }
     #find label{font-size:30px;font-weight: 700;}
     #find p{font-size:16px;font-weight: 400;color:#7A7979;}
-    #mine{
-        display: flex;
+    #mine{ 
         width: 335px;
         height: 85px;
         padding: 24px 84px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
         border:none;
         color:white; 
         border-radius: 10px;
@@ -136,20 +121,20 @@ export default {
     }
 @media (max-width:1194px) {
    #wrap{width:100vw;}
-   #find_box{
-      width: 90%;
-   }
-   #phone{
-     width:100%;
-   }
-   #phone input,#button_box button{width:65%;}
-   #find_e{
-    width:100%;
-   }
+   #find_box{width: 100%;}
+   #find{width:100%;}
+   #phone{width:100%;}
+   #phone input{width:100%;}
+   #find_e{width:660px;} 
 }
-
 @media (max-width:490px) {
-    
+  #wrap{width:calc(100vw-30px);font-size: 17px;}
+  #find{width:90%;}
+  #find_e{width:90vw;}
+  #mine{height:80%;width:90vw;}
+  #find_box{width: 100%;padding:0px;margin:0px;} 
+  #phone{width:90%;}
+  #phone input{width:90%;margin:0px;padding:20px;}
 }
 
 </style>

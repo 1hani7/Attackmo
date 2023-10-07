@@ -16,9 +16,12 @@
                     </div>
               </form>
               <div id="social_login">
-                  <a href="https://www.facebook.com/?locale=ko_KR" id="facebook" class="social_bt"><img src="../images/facebook.png"></a>
-                  <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D" id="twitter" class="social_bt"><img src="../images/twitter.svg"></a>
-                  <a href="https://www.instagram.com/accounts/login/" id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
+                  <a @click="openWindow('https://www.facebook.com/?locale=ko_KR')" id="facebook" class="social_bt">
+                    <img src="../images/facebook.png"></a>
+                  <a @click ="openWindow('https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D')" 
+                    id="twitter" class="social_bt"><img src="../images/twitter.svg"></a>
+                  <a @click="openWindow('https://www.instagram.com/accounts/login/')" 
+                    id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
               </div>
       </div>
   </div>
@@ -60,6 +63,10 @@ export default {
     // })
 
     return { login, isLogin }
+  },methods:{
+    openWindow(linkUrl){
+      window.open(linkUrl,'_blank','width=600 height=600');
+    }
   }
   // data: function() {
   //   return {
@@ -96,7 +103,7 @@ export default {
  
 <style scoped>
 
-    a{color:black;}
+    a{color:black;cursor:pointer}
 
     #wrap{
         display: flex;
@@ -108,7 +115,7 @@ export default {
     }
     #title{
         display: flex;
-        width: 1000px;
+        width: 830px;
         height: 136px;
         padding: 41px 0px 41px 40px;
         align-items: center;
@@ -182,7 +189,7 @@ export default {
       }
       #title{
         display: flex;
-        width: 534px;
+        width: 433px;
         height: 76px;
         padding: 41px 0px 41px 40px;
         align-items: center;
@@ -222,13 +229,12 @@ export default {
   }
 
   @media (max-width: 490px) {
-     #wrap{
-       width:50%;
-     }
-     #login_box{
-      width:cacl(100vw-50px);
-    }
-    #title{width:80%;}
-  }
+    #wrap{width:100%;}
+    #login_box{width:90%;}
+    #title{width:100%;}
+    #content input{width:100%;outline:none;}
+    #login_bt{width:100%;}
+    .social_bt img{width:50%;}
     
+  }
 </style>

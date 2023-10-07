@@ -99,6 +99,7 @@ methods: {
         margin-bottom:130px;
         flex-direction: column;
         align-items: center;
+        width:100%;
     }
     #find_box{
         display: flex;
@@ -113,11 +114,9 @@ methods: {
         height: 85px;
     }
     #email input{
-        display: flex;
         width: 831px;
         height: 85px;
         padding: 20px;
-        align-items: center;
         border-radius: 10px;
         font-size: 23px;
         color:#7A7979;
@@ -144,12 +143,7 @@ methods: {
         outline:none;
     }
     #button_box{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        align-items: center; 
-        gap: 15px; 
+        width:1000px;
     }
     #find_p{
         width: 831px;
@@ -169,17 +163,10 @@ methods: {
         align-items: flex-start;
         gap: 15px;
         margin-top:10px;
+        width:100%;
     }
     #find label{font-size:30px;font-weight: 700;}
     #find p{font-size:15px;font-weight: 400;color:#7A7979;}
-    #find_bt{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        align-items: center; 
-        gap: 15px; 
-    }
     #mine{
         width: 335px;
         height: 85px;
@@ -198,12 +185,25 @@ methods: {
     }
 @media (max-width:1194px) {
    #wrap{width:100vw;}
-   #find_box, #num input{width: 90%;}
-   #phone, #email{width:100%;}
-   #button_box{width:100%}
+   #email{width:90%;}
+   #email input{width:750px;}
+   #button_box{width:90%;}
+   #find_p{width:750px;font-size:20px;}
+   #phone{width:90%;}
+   #find{width:750px;}
+   #num{width:750px;}
+   
 
 }
 @media (max-width:490px) {
-    
+    #wrap{width:calc(100vw - 30px); margin:10px;}
+    #email{width:40%;}
+    #email input{width:100%;}
+    #phone{width:40%;}
+    #num{width:40%;}
+    #num input{width:65px;}
+    #find{width:40%;}
+    #button_box {width: 100%; }
+    #find_p {width: 100%; padding: 15px 0;}
 }
 </style>

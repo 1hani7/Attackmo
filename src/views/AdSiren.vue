@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <div id="wrap">
         <div id="nwrite">
-            <p>신고관리</p>
+            <p>신고관리(관리자)</p>
             <span>목록{{ sortedData.length}}</span>
             <table id="list">
                 <tr>
@@ -58,11 +58,7 @@ export default {
             const end = start + this.itemsPerPage;
             return this.sortedData.slice(start, end);
         }, 
-        visiblePosts() {
-            const start = (this.currentPage - 1) * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            return this.sortedData.slice(start, end);
-        },
+       
         blocks() {
             const blocks = [];
             for (let i = 1; i <= this.totalPage; i++) {
@@ -80,7 +76,7 @@ export default {
             return `${year}-${month}-${day}`;
         },
         gonote(){
-           alert("클릭미");
+           this.$router.push('./AdSpopup');
             
         },
         changePage(page) {

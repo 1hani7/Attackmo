@@ -130,7 +130,7 @@ export default {
     flex-direction: column;
 } 
 .list{
-    width:100%;
+    width:1000px;
     border-radius:10px;
     border-collapse:collapse;
 }
@@ -141,6 +141,7 @@ export default {
 .t{
     text-decoration: none;
     color:#000;
+    text-align: center;
 }
 thead tr{
     text-align:center;
@@ -174,27 +175,43 @@ thead tr{
     background: white;
 }
 @media (max-width:1194px) {
-    #section{width:100vw; font-size: 17px;}
-    #wrap{width:90%; margin: 0 auto;}
-    #write{top:70px;right:10px;}
+    #section{width:100vw; font-size: 17px;;}
+    #wrap{width:90%;margin: 0 auto;}
+    #write{top:70px;right:30px;}
     .main{width:100%;align-items:flex-start;}
-    #search{font-size: 17px;}
+    #search{font-size: 17px;;}
+
 }
 @media (max-width:490px) {
-    #section{
-        width:90%;
-    }
-    .main{
-        width:100%;
-        font-size:12px;
-    }
+    #section{width:100vw;}
+    #wrap{width:90%;}
+    .main{width:100%;font-size:12px;}
     #write{
         width:25px;
         height:25px;
         line-height:25px;
         font-size:15px;
-        top:70px;
-        right:0;
+        top:80px;
+        right:20px;
     }
+    #search_box{width:50%;height:30px;}
+    #search_box i{display:none;}
+    #search{
+        width:100%;
+        height:30px;
+        line-height:30px;
+        font-size:12px;
+        padding:0 10px;
+    }
+    .page_list{width:50%;font-size: 12px;}
+    .list{display:none;}
+    .mobileList{display:block;}
+    .post{
+        display:flex;
+        flex-wrap:wrap;
+        border-bottom:1px solid #ccc;
+        padding: 3px;}
+    .m_t{width:100%; font-size:14px;} 
+    .m_w,.m_d{font-size:8px; color:#aaa;}
 }
 </style>
