@@ -76,7 +76,8 @@ export default {
        align-items: flex-start;
        gap: 20px;
      }
-     #change_pw input , #check_pw input{width:500px;height:97px;border-radius: 10px;}
+     #change_pw input , #check_pw input{
+      width:500px;height:97px;border-radius: 10px;outline:none;padding:20px;}
      #num{
        display: flex;
        width: 500px;
@@ -87,6 +88,7 @@ export default {
        width: 150px;
        height: 50px;
        border-radius: 10px;
+       outline:none;padding:20px;
      }
      label{color:#7A7979;font-size: 23px;font-weight: 700;}
      #button_box{
@@ -112,4 +114,19 @@ export default {
         -webkit-appearance: none;
         margin: 0;
     }
+@media (max-width:1194px) {
+   #wrap{width:100%;}
+  }
+
+@media (max-width: 490px) {
+    #wrap{width:calc(100vw - 30px);}
+    #sign_box{width:90%;}
+    #change_pw, #check_pw,#phone{width:100%;}
+    #change_pw input , #check_pw input{width:100%;outline:none;padding:20px;}
+    #num{width:100%;}
+    #num input{width:100%;padding:20px;}
+    label{font-size: 17px;}
+    #button_box{width:100%;}
+    .bt{width:40%;font-size: 17px;}
+  }
  </style>

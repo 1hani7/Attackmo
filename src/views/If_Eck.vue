@@ -62,12 +62,16 @@ export default{
         height: 50px;
         border-radius: 10px;
         border: 1px solid black;
+        outline:none;
+        padding:20px;
+        
     }
     #button_bt{
         display: flex;
         width: 450px;
         justify-content: space-between;
         align-items: flex-start;
+       
     }
     .bt{
         width: 200px;
@@ -78,7 +82,22 @@ export default{
         color:white;
         font-size: 23px;
         font-weight: 700;
+        cursor: pointer;
     }
     #cancel{background:#B91646;}
     #check{background:black;}
+@media (max-width:1194px) {
+   #wrap{width:100%;}
+  }
+
+@media (max-width: 490px) {
+    #wrap{width:calc(100vw - 30px);}
+    #edit_box{width:90%;}
+    #edit_box label{width:100%;}
+    #edit_box p{width:100%; font-size: 17px;}
+    #input_box{width:100%;}
+    #input_box input{width:100%;outline:none;}
+    #button_bt{width:100%;}
+    .bt{width:45%;}
+  }
 </style>

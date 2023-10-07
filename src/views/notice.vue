@@ -4,7 +4,7 @@
             <p>공지사항</p>
             <label>공지 확인 부탁드립니다.</label>        
         <div class="writer">
-            <h3>관리자</h3><h3>{{ getCurrentDate() }}</h3>
+            <p>관리자</p><p>{{ getCurrentDate() }}</p>
         </div>
         <div id="admin">
             <div class="note">
@@ -55,14 +55,14 @@ export default {
     gap: 50px;
     width:1000px;
 }
-h3:nth-child(2){font-size: 17px;font-weight: 100;}
+
 .writer{
     display: flex;
     gap:20px;
     align-items: flex-start;
 }
 label{
-    background: #D9D9D9;
+    background:  #F9C041;
     width:100%;
     display: flex;
     flex-direction: column;
@@ -83,4 +83,13 @@ label{
     font-size: 17px;
     font-weight: 400;
 }
+@media (max-width:1194px) {
+   #wrap{width:100%;}
+   #nwrite{width:90%;}
+  }
+
+@media (max-width: 490px) {
+    #wrap{width:calc(100vw - 20px);}
+    #nwrite{width:90%;}
+  }
 </style>

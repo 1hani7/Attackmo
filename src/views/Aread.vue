@@ -80,4 +80,18 @@
         align-self: stretch;
     }
     #nwrite p{font-size: 23px;font-weight: 700;}
+@media (max-width:1194px) {
+   #wrap{width:100%;}
+   #nwrite{width:90%;}
+    .writer{width:100%;}
+    label{width:100%;}
+   #line{width:100%;border: 1px solid black;}
+   #name{width:100%;}
+   #admin{width:100%;}
+    #nwrite p{width:100%;font-size: 23px;font-weight: 700;}
+  }
+
+@media (max-width: 490px) {
+    #wrap{width:calc(100vw - 20px);} 
+  }
 </style>
