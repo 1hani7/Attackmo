@@ -5,25 +5,17 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
 import { Chart } from 'chart.js/auto';
 
 export default {
     name: 'radarChart',
     setup() {
 
-        const isShow = ref(false);
-        const myChart = ref('')
-
         window.addEventListener('scroll', function(){
             const chartWrap = document.getElementById('chartWrap');
             const rect = chartWrap.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom >= 0){
-                isShow.value = true;
                 chartMaker();
-            }
-            else{
-
             }
         })
 
@@ -46,7 +38,7 @@ export default {
                 },
                 options: {
                     animation: {
-                        duration: 1000,
+                        duration: 2000,
                         easing: 'easeInOutQuad'
                     },
                     responsive: true,
