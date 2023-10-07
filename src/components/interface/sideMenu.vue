@@ -10,6 +10,31 @@ export default {
         const isLogin = inject('isLogin');
         const router = useRouter();
 
+        const btPath1 = ref('/src/images/beforeRoll.svg');
+        const btPath2 = ref('/src/images/beforeRoll.svg');
+
+
+        const menuDrawerOne = () => {
+          const t = document.querySelectorAll('.drawer')[0];
+          const bt = document.querySelectorAll('.drawBt1')[0];
+          t.classList.toggle('drawOne');
+          if(t.classList.contains('drawOne')){
+            btPath1.value = '/src/images/afterRoll.svg';
+          }else{
+            btPath1.value = '/src/images/beforeRoll.svg';
+          }
+        }
+
+        const menuDrawerTwo = () => {
+          const t = document.querySelectorAll('.drawer')[1];
+          t.classList.toggle('drawTwo');
+          if(t.classList.contains('drawTwo')){
+            btPath2.value = '/src/images/afterRoll.svg';
+          }else{
+            btPath2.value = '/src/images/beforeRoll.svg';
+          }
+        }
+
         onMounted(()=>{
           const sideMenu = document.querySelector('.side-menu');
           router.beforeEach((to, from) => {
@@ -33,7 +58,8 @@ export default {
 
 
         return { isSlideMenuToggle, sideMenuOpen,
-            loginToggle,  isLogin };
+            loginToggle,  isLogin, menuDrawerOne, menuDrawerTwo,
+            btPath1, btPath2 };
     },
     components: { RouterLink }
 }
@@ -61,10 +87,18 @@ export default {
       </div>
     </div>
     <div class="category">
-      <RouterLink to="/MovieMain" class="c-title">
-        <div class="div">영화</div>
-      </RouterLink>
-      <div class="c-childs">
+      <div class="c-title" @click="menuDrawerOne()">
+        <div class="div">
+          영화
+          <img class="drawBt drawBt1" :src="btPath1">
+        </div>
+      </div>
+      <!-- <RouterLink to="/MovieMain" class="c-title">
+      </RouterLink> -->
+      <div class="c-childs drawer">
+        <RouterLink to="/MovieMain" class="child">
+          <div class="normalFont">- 영화 메인</div>
+        </RouterLink>
         <RouterLink to="/Mnow" class="child">
           <div class="normalFont">- 상영중인 영화</div>
         </RouterLink>
@@ -80,12 +114,15 @@ export default {
       </div>
     </div>
     <div class="category">
-      <RouterLink to="/ReviewBoard">
-        <div class="c-title">
-          <div class="div">리뷰</div>
+      <div class="c-title" @click="menuDrawerTwo()">
+        <div class="div">
+          리뷰
+          <img class="drawBt drawBt2" :src="btPath2">
         </div>
-      </RouterLink>
-      <div class="c-childs">
+      </div>
+      <!-- <RouterLink to="/ReviewBoard">
+      </RouterLink> -->
+      <div class="c-childs drawer">
         <div class="child">
           <RouterLink to="/ReviewBoard"><div class="normalFont">- 리뷰페이지</div></RouterLink>
         </div>
