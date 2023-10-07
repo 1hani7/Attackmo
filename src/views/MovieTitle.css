@@ -13,10 +13,17 @@
     }
   }
   @media(max-width:490px){
-    .content{ padding:30px 0px; gap:30px; }
+    .content{ padding:30px 0px; gap:40px; }
   }
 
   .bookMark_Bt{cursor:pointer}
+  @media(max-width:490px){
+    .bookMark_Bt{
+      position: absolute;
+      top:13px;
+      align-self: end;
+    }
+  }
   
   /**영화정보*/
   .content .movie-info-box {
@@ -83,7 +90,10 @@
     object-fit: cover;
   }
   @media(max-width:490px){
-    .content .poster{ width:100%; height:100%; }
+    .content .poster{
+      width:60%; height:100%;
+      margin:0 auto;
+    }
   }
   
   .content .frame {
@@ -100,7 +110,7 @@
     .content .frame { width:calc(100% - (185px + 25px)) }
   }
   @media(max-width:490px){
-    .content .frame{ width:100%; height:fit-content; gap:20px; }
+    .content .frame{ width:100%; height:fit-content; gap:10px; }
   }
   
   .content .movieName {
@@ -194,6 +204,11 @@
       width:100%;
     }
   }
+  @media(max-width:490px){
+    .content .subWrap:nth-child(3){
+      gap:0;
+    }
+  }
   
   .content .subTitle {
     width: fit-content;
@@ -271,6 +286,8 @@
     width: 73px;
     height: 73px;
     left: 113px;
+    opacity: 0.8;
+    pointer-events: none;
   }
   
   .content .trailerTitle {
@@ -319,6 +336,7 @@
       width:100%;
     }
   }
+  
 
   .content .chartBox:first-child{
     border-right:0px solid transparent;
@@ -343,14 +361,14 @@
     }
   }
   @media(max-width:490px){
-    .content .chartBox{height:fit-content; padding:15px;}
+    .content .chartBox{
+      height:fit-content; padding:15px;
+      border:none; padding:0}
     .content .chartBox:first-child{
-      margin-bottom:20px;
-      border-bottom:1px solid black;
+      border-right:none;
     }
     .content .chartBox h3{font-size:12px;}
   }
-  
 
 
   #darkBg{
