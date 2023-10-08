@@ -38,8 +38,8 @@ export default {
     const login = () =>{
       loginToggle();
       router.go(-1);
-    }
-    return { login, isLogin }
+    };
+    return { login,isLogin }
   },methods:{
     openWindow(linkUrl){
       window.open(linkUrl,'_blank','width=600 height=600');

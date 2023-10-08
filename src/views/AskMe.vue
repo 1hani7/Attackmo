@@ -129,7 +129,7 @@ export default {
     font-weight:700;
     margin-bottom:50px;
 }
- #write{
+#write{
     width:50px;
     height:50px;
     background:#F9C041;
@@ -174,7 +174,7 @@ export default {
     padding:0 20px;
     width:280px;
     outline: 0;
-    background:rgba(0,0,0,0)
+    background:rgba(0,0,0,0);
 }
 .list{
     width:100%;
