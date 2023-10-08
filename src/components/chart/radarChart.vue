@@ -6,29 +6,33 @@
 
 <script>
 import { Chart } from 'chart.js/auto';
-import { onMounted } from 'vue'
-
+import { onMounted, onBeforeMount, ref } from 'vue'
+import { useRouter } from 'vue-router';
 export default {
     name: 'radarChart',
     setup() {
 
-        onMounted(() => {
-            const ctx = document.getElementById('radar');
+        const isCharted = ref(false);
+        const router = useRouter();
 
-            window.addEventListener('scroll', function () {
+        onMounted(() => {
+
+            const makeRadar = () => {
                 const chartWrap = document.getElementById('chartWrap');
                 const rect = chartWrap.getBoundingClientRect();
-                const ctx = document.getElementById('radar');
-                if (rect.top < window.innerHeight && rect.bottom >= 0 ) {
+                if ( isCharted.value == false && rect.top < window.innerHeight && rect.bottom >= 0 ) {
                     chartMaker();
+                    isCharted.value = true;
                 }
-            })
+            }
+
+            window.addEventListener('scroll', makeRadar)
 
             const chartMaker = () => {
                 const ctx = document.getElementById('radar');
                 const label = ['작품성', '음악', '연출력', '연기력', '오락성'];
                 const data = [5, 4.3, 4, 5, 3.4];
-                const myChart = new Chart(ctx, {
+                new Chart(ctx, {
                     type: 'radar',
                     data: {
                         labels: label,
@@ -77,11 +81,13 @@ export default {
                     }
                 });
             }
+            router.beforeEach(()=>{
+                window.removeEventListener('scroll', makeRadar);
+            })
         })
+        
 
-
-
-        return {};
+        return {isCharted};
     }
 }
 </script>

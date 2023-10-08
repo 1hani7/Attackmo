@@ -13,7 +13,7 @@ export default {
     topAds, topHeader, botAds, botFooter
   },
   setup() {
-    console.log(set);
+    // console.log(set);
 
     const isLogin = ref(false);
     provide('isLogin', isLogin);

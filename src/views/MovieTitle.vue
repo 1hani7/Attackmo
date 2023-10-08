@@ -29,6 +29,12 @@
             </div>
           </div>
         </div>
+        <div class="scenarioBox">
+          <div class="bold" style="margin-bottom:10px;">줄거리</div>
+          <div class="normalFont">
+            《오펜하이머》는 2023년 공개된 크리스토퍼 놀란 감독의 전기 영화이다. 최초의 핵무기를 개발한 제2차 세계 대전 프로젝트인 맨해튼 프로젝트에서 역할로 "원자 폭탄의 아버지"로 인정받은 미국의 이론 물리학자 J. 로버트 오펜하이머 역으로 킬리언 머피가 주연을 맡았다. 
+          </div>
+        </div>
       </div>
       <div class="subWrap">
         <div class="subTitle">예고편</div>

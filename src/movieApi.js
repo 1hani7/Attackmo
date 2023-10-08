@@ -2,7 +2,7 @@ let data = null;
 let set = {};
 
 
-$(async function(){
+window.onload = async function(){
     data = await getMovies();
     // console.log(data);
 
@@ -35,7 +35,7 @@ $(async function(){
     //     )
     // })
 
-})
+};
 
 
 async function getMovies(){
