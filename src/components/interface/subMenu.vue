@@ -36,7 +36,7 @@
   height: 248px;
   align-items: center;
   justify-content: center;
-  position: absolute; top:190px;
+  position: absolute; top:186px;
   left:50%; transform:translateX(-50%);
   background-color: #ffffff;
   width: 100%; z-index:2; border-top:1px solid black;
