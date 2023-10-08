@@ -128,7 +128,8 @@ export default {
    #find_e{width:660px;} 
 }
 @media (max-width:490px) {
-  #wrap{width:calc(100vw-30px);font-size: 17px;}
+  #wrap{width:calc(100vw-30px);font-size: 17px;
+    margin-top:30px; margin-bottom:30px;}
   #find{width:90%;}
   #find_e{width:90vw;}
   #mine{height:80%;width:90vw;}

@@ -212,7 +212,6 @@ export default {
     }
     #num{ 
         width: 915px;
-        height: 60px;
         display: flex;
         align-items: center;
         gap:50px;
@@ -268,16 +267,17 @@ export default {
     @media (max-width:490px) {
       input{outline:none;}
       label, .bi-asterisk{font-size: 17px;}
-      #wrap{width:calc(100vw - 30px);
-        padding:0px;margin:0px;}
-      #sign_box,#email,#pw{width:100%;}
-      #email input,#pw input,#pw_ck input,#nickname input{width:100%;}
-      #pw_ck,#nickname,#phone{width:100%;}
-      #pw_ck p{width:100%;font-size:13px;padding:0px;}
-      #button_box{width:100%;}
-      #button_box button{width:130px;font-size: 17px;}
-      #num{margin:0px;padding:0px;width:20%;}
-      #num input{width:70px;}
+      #wrap{width:calc(100vw - 30px);}
+      #email,#pw{width:90%;}
+      #email input,#pw input,#pw_ck input,#nickname input{width:100%;outline:none;}
+      #pw_ck,#nickname{width:90%;}
+      #pw_ck p{width:100%;font-size:13px;padding:0px;font-size:12px;}
+      #button_box{width:100%;padding:0px;}
+      #button_box button{width:120px;font-size: 17px;}
+      #sign_box{padding:0px;width:90%;}
+      #phone{ width:90%;padding:0px;}
+      #num{gap:0;}  
+      #num input{width:100%;padding:20px;}  
 }
   
     

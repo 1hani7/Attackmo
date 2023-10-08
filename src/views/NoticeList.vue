@@ -2,19 +2,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <section id="section">
     <div id="wrap">
-            <p id="title">공지사항</p>
+            <p id="title">공지사항</p> 
         <div class="main">
-            <table id="list">
-              <thead>
-                <tr>
-                    <td class="n">번호</td>
-                    <td class="t">제목</td>
-                    <td class="w">작성자</td>
-                    <td class="d">날짜</td>
-                </tr>
-              </thead>
-            <tbody class="con">
-                <tr v-for="(value,i) in visiblePosts" :key="value.id" >
+            <div id="search_box">
+                    <input type="text" id="search" placeholder="검색어를 입력해주세요">
+                    <i class="bi bi-search"></i>
+            </div>
+            <table class="list">
+                <thead>
+                    <tr>
+                        <td class="n">번호</td>
+                        <td class="t">제목</td>
+                        <td class="w">작성자</td>
+                        <td class="d">날짜</td>
+                     </tr>
+                </thead>
+            <tbody>
+                <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" >
                     <td class="n">{{ i + 1 }}</td>
                     <td class="t" @click="gonote">{{ value.title }}</td>
                     <td class="w">{{ value.writer }}</td>
@@ -22,18 +26,24 @@
                 </tr>
             </tbody>
           </table>
-        </div>
+          <div class="mobileList">
+                    <div class="post" v-for="(value,i) in visiblePosts" :key="value.id">
+                        <div class="m_t"><RouterLink to="/notice">{{value.title }}</RouterLink></div>
+                        <div class="m_w">{{ value.writer }}</div>
+                        <div class="m_d">{{ getCurrentDate() }}</div>
+                    </div>
+                </div>
+            </div>
             <div id="totalPage">
-                <i @click="before()" class="bi bi-chevron-bar-left"></i>   
-                <i @click="before()" class="bi bi-chevron-compact-left"></i>
+                <i @click="before()" class="bi bi-chevron-double-left"></i>   
+                <i @click="before()" class="bi bi-chevron-left"></i>
                     <div id="page">
                         <button id="pgnum" v-for="block in blocks" :key="block" @click="changePage(block)">{{ block }}</button>
                     </div>
-                <i @click="next()" class="bi bi-chevron-compact-right"></i>  
-                <i @click="next()" class="bi bi-chevron-bar-right"></i>
+                <i @click="next()" class="bi bi-chevron-right"></i>  
+                <i @click="next()" class="bi bi-chevron-double-right"></i>
             </div>
-
-        </div>
+          </div>
  </section>
 </template>
 <script>
@@ -114,23 +124,41 @@ export default {
     margin-bottom:50px;
 }
 #write{
-    width:30px;
-    height:30px;
+    width:50px;
+    height:50px;
     background:#F9C041;
-    position:absolute;
     border-radius: 50px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
-    line-height: 30px;
-    top:210px;
-    right:390px;
+    line-height: 50px;
+    position:absolute;
+    top:200px;
+    right:-100px;
 }
 .main{
     display:flex;
     flex-direction: column;
+    align-items: flex-end;
 } 
+#search_box{
+    width:330px;
+    height:40px;
+    border:1px solid #000;
+    border-radius:30px;
+    font-size: 20px;
+    margin-bottom:20px;
+}
+#search{
+    font-size:23px;
+    border:0;
+    height:40px;
+    padding:0 20px;
+    width:280px;
+    outline: 0;
+    background:rgba(0,0,0,0)
+}
 .list{
-    width:1000px;
+    width:100%;
     border-radius:10px;
     border-collapse:collapse;
 }
@@ -141,17 +169,16 @@ export default {
 .t{
     text-decoration: none;
     color:#000;
-    text-align: center;
+    cursor: pointer;
 }
 thead tr{
     text-align:center;
     height:60px;
     border-bottom:3px double #000;
+}tbody{
+    width:100%;
 }
 .con{
-    width:1000px;
-}
-.con tr{
     height:50px;
     border-bottom:1px solid #000;
 }
@@ -174,12 +201,15 @@ thead tr{
     border:none;
     background: white;
 }
+.mobileList{
+    display:none;
+}
 @media (max-width:1194px) {
-    #section{width:100vw; font-size: 17px;;}
+    #section{width:100vw; font-size: 17px;}
     #wrap{width:90%;margin: 0 auto;}
     #write{top:70px;right:30px;}
     .main{width:100%;align-items:flex-start;}
-    #search{font-size: 17px;;}
+    #search{font-size: 17px;}
 
 }
 @media (max-width:490px) {
@@ -203,8 +233,6 @@ thead tr{
         font-size:12px;
         padding:0 10px;
     }
-    .page_list{width:50%;font-size: 12px;}
-    .list{display:none;}
     .mobileList{display:block;}
     .post{
         display:flex;
@@ -213,5 +241,6 @@ thead tr{
         padding: 3px;}
     .m_t{width:100%; font-size:14px;} 
     .m_w,.m_d{font-size:8px; color:#aaa;}
+    .list{display:none;}
 }
 </style>

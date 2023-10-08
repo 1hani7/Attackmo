@@ -1,41 +1,55 @@
 <template>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<section id="section">
+    <section id="section">
     <div id="wrap">
             <p id="title">문의사항</p>
-                <RouterLink to="/Anotice" id="write">
-                    <i class="bi bi-pencil-square"></i>
-                </RouterLink>
+            <RouterLink to="/Anotice" id="write">
+                <i class="bi bi-pencil-square"></i>
+            </RouterLink> 
+            <RouterLink to="/ArWrite" id="Adwrite">
+                <i class="bi bi-pencil-square"></i>
+            </RouterLink>
         <div class="main">
-            <table id="list">
-              <thead>
-                <tr>
-                    <td class="n">번호</td>
-                    <td class="t">제목</td>
-                    <td class="w">작성자</td>
-                    <td class="d">날짜</td>
-                </tr>
-              </thead>
-            <tbody class="con">
-                <tr v-for="(value,i) in visiblePosts" :key="value.id" >
+            <div id="search_box">
+                    <input type="text" id="search" placeholder="검색어를 입력해주세요">
+                    <i class="bi bi-search"></i>
+            </div>
+            <table class="list">
+                <thead>
+                    <tr>
+                        <td class="n">번호</td>
+                        <td class="t">제목</td>
+                        <td class="w">작성자</td>
+                        <td class="d">날짜</td>
+                     </tr>
+                </thead>
+            <tbody>
+                <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" >
                     <td class="n">{{ i + 1 }}</td>
-                    <td class="t" @click="aread_list">{{ value.title }}</td>
+                    <td class="t" @click="gonote">{{ value.title }}</td>
                     <td class="w">{{ value.writer }}</td>
                     <td class="d">{{ getCurrentDate()}}</td>
                 </tr>
             </tbody>
           </table>
-        </div>
+          <div class="mobileList">
+                    <div class="post" v-for="(value,i) in visiblePosts" :key="value.id">
+                        <div class="m_t"><RouterLink to="/notice">{{value.title }}</RouterLink></div>
+                        <div class="m_w">{{ value.writer }}</div>
+                        <div class="m_d">{{ getCurrentDate() }}</div>
+                    </div>
+                </div>
+            </div>
             <div id="totalPage">
-                <i @click="before()" class="bi bi-chevron-bar-left"></i>   
-                <i @click="before()" class="bi bi-chevron-compact-left"></i>
+                <i @click="before()" class="bi bi-chevron-double-left"></i>   
+                <i @click="before()" class="bi bi-chevron-left"></i>
                     <div id="page">
                         <button id="pgnum" v-for="block in blocks" :key="block" @click="changePage(block)">{{ block }}</button>
                     </div>
-                <i @click="next()" class="bi bi-chevron-compact-right"></i>  
-                <i @click="next()" class="bi bi-chevron-bar-right"></i>
+                <i @click="next()" class="bi bi-chevron-right"></i>  
+                <i @click="next()" class="bi bi-chevron-double-right"></i>
             </div>
-        </div>
+          </div>
  </section>
 </template>
 <script>
@@ -46,8 +60,8 @@ export default {
     data() {
         return {
             data: data,
-            itemsPerPage: 10,
-            currentPage: 1,
+            itemsPerPage: 10, //목록 몇개까지 표시할것인가
+            currentPage: 1, //페이지 이동 수 
         }
     },
     computed: {
@@ -56,8 +70,8 @@ export default {
                 // 날짜를 기준으로 내림차순 정렬
                 return new Date(b.Date) - new Date(a.Date);
             });
-        },
-        totalPage() { //하단목록숫자표시
+        }, 
+        totalPage() {//하단목록숫자표시
             return Math.ceil(this.data.length / this.itemsPerPage);
         }, 
         visiblePosts() { //작성폼에서 작성해서 저장하면 목록에 추가해줌
@@ -72,7 +86,7 @@ export default {
         }
          return blocks;
         },
-    },
+  },
     methods: {
         getCurrentDate() { //날짜 형식 YYYY-MM-DD
             const currentDate = new Date();
@@ -81,11 +95,11 @@ export default {
             const day = String(currentDate.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         },
-        aread_list(){ //제목누르면 이동
+        gonote(){
            //alert("클릭미");
             this.$router.push({path:"/Aread"});
         },
-        changePage(page) { 
+        changePage(page) {
             this.currentPage = page;
         },
         before(){
@@ -98,11 +112,9 @@ export default {
             //alert("다음");
             if(this.currentPage < this.totalPage){
                 this.currentPage++;
-                   
             }
         }
     },
-
 }
 </script>
 <style scoped>
@@ -117,25 +129,55 @@ export default {
     font-weight:700;
     margin-bottom:50px;
 }
-#write{
-    width:30px;
-    height:30px;
+ #write{
+    width:50px;
+    height:50px;
     background:#F9C041;
-    position:absolute;
     border-radius: 50px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
-    line-height: 30px;
+    line-height: 50px;
+    position:absolute;
+    top:200px;
+    right:-100px;
+} 
+#Adwrite{
+    width:50px;
+    height:50px;
+    background:black;
+    color:white;
+    border-radius: 50px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    position:absolute;
     top:100px;
-    right:-60px;
-}
+    right:-100px;
+} 
 .main{
     display:flex;
     flex-direction: column;
-
+    align-items: flex-end;
+} 
+#search_box{
+    width:330px;
+    height:40px;
+    border:1px solid #000;
+    border-radius:30px;
+    font-size: 20px;
+    margin-bottom:20px;
+}
+#search{
+    font-size:23px;
+    border:0;
+    height:40px;
+    padding:0 20px;
+    width:280px;
+    outline: 0;
+    background:rgba(0,0,0,0)
 }
 .list{
-    width:1000px;
+    width:100%;
     border-radius:10px;
     border-collapse:collapse;
 }
@@ -146,22 +188,19 @@ export default {
 .t{
     text-decoration: none;
     color:#000;
-    text-align: center;
+    cursor: pointer;
 }
-#list thead tr{
+thead tr{
     text-align:center;
     height:60px;
     border-bottom:3px double #000;
+}tbody{
+    width:100%;
 }
 .con{
-    width:1000px;
-}
-.con tr{
     height:50px;
     border-bottom:1px solid #000;
 }
-
-
 #totalPage{
     display: flex;
     width: 100%;
@@ -181,13 +220,16 @@ export default {
     border:none;
     background: white;
 }
-
+.mobileList{
+    display:none;
+}
 @media (max-width:1194px) {
-    #section{width:100vw; font-size: 17px;;}
+    #section{width:100vw; font-size: 17px;}
     #wrap{width:90%;margin: 0 auto;}
     #write{top:70px;right:30px;}
     .main{width:100%;align-items:flex-start;}
-    #search{font-size: 17px;;}
+    #search{font-size: 17px;}
+    #Adwrite{display:none;}
 
 }
 @media (max-width:490px) {
@@ -202,6 +244,7 @@ export default {
         top:80px;
         right:20px;
     }
+    #Adwrite{display:none;}
     #search_box{width:50%;height:30px;}
     #search_box i{display:none;}
     #search{
@@ -211,8 +254,6 @@ export default {
         font-size:12px;
         padding:0 10px;
     }
-    .page_list{width:50%;font-size: 12px;}
-    .list{display:none;}
     .mobileList{display:block;}
     .post{
         display:flex;
@@ -221,5 +262,6 @@ export default {
         padding: 3px;}
     .m_t{width:100%; font-size:14px;} 
     .m_w,.m_d{font-size:8px; color:#aaa;}
+    .list{display:none;}
 }
 </style>

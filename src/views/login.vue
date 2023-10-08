@@ -27,12 +27,10 @@
   </div>
 </template>
 <script>
-//import axios from 'axios';
 import { inject } from 'vue';
 import { useRouter } from 'vue-router';
 export default {
   setup(){
-
     const isLogin = inject('isLogin');
     const loginToggle = inject('loginToggle');
     const router = useRouter();
@@ -41,8 +39,14 @@ export default {
       loginToggle();
       router.go(-1);
     }
-
-    // const login = () => {
+    return { login, isLogin }
+  },methods:{
+    openWindow(linkUrl){
+      window.open(linkUrl,'_blank','width=600 height=600');
+    }
+  }
+  //import axios from 'axios';
+  // const login = () => {
     //   const sessionStorage = window.sessionStorage;
     //   if( sessionStorage.getItem('login') === 'false' ){
     //     sessionStorage.setItem('login', true);
@@ -61,13 +65,6 @@ export default {
     //   const sessionStorage = window.sessionStorage;
     //   sessionStorage.setItem('login', false);
     // })
-
-    return { login, isLogin }
-  },methods:{
-    openWindow(linkUrl){
-      window.open(linkUrl,'_blank','width=600 height=600');
-    }
-  }
   // data: function() {
   //   return {
   //     user_email: '',
@@ -229,12 +226,11 @@ export default {
   }
 
   @media (max-width: 490px) {
-    #wrap{width:100%;}
+    #wrap{width:100%;margin-top:0px; margin-bottom:0px;}
     #login_box{width:90%;}
     #title{width:100%;}
     #content input{width:100%;outline:none;}
     #login_bt{width:100%;}
     .social_bt img{width:50%;}
-    
   }
 </style>
