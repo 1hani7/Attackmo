@@ -94,8 +94,9 @@ a{color:black;}
   
   .side-menu .person-icon {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+    margin-right:10px;
   }
   
   .side-menu .category {
@@ -244,7 +245,7 @@ a{color:black;}
     100%{
       border-bottom:1px solid black;
       opacity: 1;
-      height:176px;
+      height:186px;
     }
   }
 
@@ -252,7 +253,7 @@ a{color:black;}
     0%{
       border-bottom:1px solid black;
       opacity: 1;
-      height:176px;
+      height:186px;
     }
     100%{
       opacity: 0;

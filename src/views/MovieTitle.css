@@ -354,10 +354,9 @@
     }
   }
   @media(max-width:810px){
-    .content .chartBox{width:100%;}
+    .content .chartBox{width:100%; border:none; }
     .content .chartBox:first-child{
-      border-right:1px solid black;
-      border-bottom:none;
+      border:none;
     }
   }
   @media(max-width:490px){

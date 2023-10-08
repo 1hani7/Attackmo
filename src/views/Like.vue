@@ -6,13 +6,15 @@
             </p>
             <div class="review_wrap">
                 <div class="r_box">
-                    <a href="/Rread" class="review" v-for="(review, index) in reviews" :key="index" @mouseover="showReview(index)" 
+                    <a class="review" v-for="(review, index) in reviews" :key="index" @mouseover="showReview(index)" 
                     @mouseleave="hideReview()">
-                        <div class="likeReview" :class="{ 'active': showReviewIndex === index }">
-                            <p class="user">@활동명</p>
-                            <p class="review_l">{{ review.text }}</p>
-                        </div>
-                        <img :src="review.image" alt="">
+                        <RouterLink to="/Rread">
+                          <div class="likeReview" :class="{ 'active': showReviewIndex === index }">
+                              <p class="user">@활동명</p>
+                              <p class="review_l">{{ review.text }}</p>
+                          </div>
+                          <img :src="review.image" alt="">
+                        </RouterLink>
                     </a>
                 </div>
             </div>
