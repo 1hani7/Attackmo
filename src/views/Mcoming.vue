@@ -655,8 +655,21 @@
 </template>
 
 <script>
+import {onMounted} from 'vue'
+import {useRouter} from 'vue-router'
 export default{
     name:'Mcoming',
+    setup(){
+      const router = useRouter();
+      onMounted(()=>{
+        const box = document.querySelectorAll(".poster-box");
+        for( var item of box ){
+          item.addEventListener("click", function(){
+            router.push("/MovieTitle");
+          })
+        }
+      })
+    }
 }
 </script>
 
