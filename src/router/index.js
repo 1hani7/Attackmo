@@ -121,10 +121,7 @@ const router = createRouter({
     {
       path:"/Anotice",
       name:"anotice",
-      component:()=>import('@/views/Anotice.vue'),beforeEnter: (to, from, next) => {
-        const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
-        else return next();
+      component:()=>import('@/views/Anotice.vue')
       }
     },
     {
