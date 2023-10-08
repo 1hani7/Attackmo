@@ -139,7 +139,7 @@ export default {
         font-weight: 400;
         cursor: pointer;
     }
-    #cancel{color:red;}
+    #cancel{color:red;background:white;}
     #check{background:red;color:white;}
     label{font-size:23px;font-weight: 700;}
     
