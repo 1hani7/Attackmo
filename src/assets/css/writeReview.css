@@ -110,6 +110,7 @@
     width:1000px;
     height:300px;
     resize:none;
+    padding: 20px;
 }
 #bt_wrap{
     width:250px;

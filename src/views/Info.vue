@@ -37,7 +37,7 @@
                 <div class="slider">
                     <div class="slide-container">
                         <div class="slide" v-for="(movie, index) in recommendedMovies" :key="index">
-                            <RouterLink to="" class="rec_movie">
+                            <RouterLink to="/MovieTitle" class="rec_movie">
                                 <img class="poster" :src="movie.imgSrc" :alt="movie.altText">
                                 <div class="summary">{{ movie.text }}</div>
                             </RouterLink>
