@@ -71,24 +71,27 @@ export default {
 <style scoped>
 #parentDiv{
     width:100%;
-}
-div {
     height: 90px;
-}
-
-div img {
-    height: 90px;
+    display: flex;
+    justify-content: center;
 }
 
 @media(max-width:1194px) {
-    div {
+    #parentDiv {
         display: none;
     }
 }
 
 img {
+    height:100%;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-}</style>
+}
+@media(max-width:1440px){
+    #parentDiv {
+    height: fit-content;
+    }
+    img{
+        width:100%;
+    }
+}
+</style>
