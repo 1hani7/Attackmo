@@ -57,7 +57,7 @@ a{
   left:50%; transform:translateX(-50%);
   background-color: #ffffff;
   width: 100%; z-index:2; border-top:1px solid black;
-  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+  
 }
 @media(max-width:1194px){
   .sub-menu{display:none;}
@@ -68,10 +68,10 @@ a{
 
 @keyframes foldingIn {
   0%{height:0px;}
-  100%{height:248px;}
+  100%{height:248px; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);}
 }
 @keyframes foldingOut {
-  0%{height:248px;}
+  0%{height:248px; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);}
   100%{height:0px;}
 }
 
