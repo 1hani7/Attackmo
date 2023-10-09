@@ -133,10 +133,6 @@
     white-space: nowrap;
     font-style: var(--semi-title-font-style);
   }
-
-  @media(max-width:1194px){
-    .screen .more {  }
-  }
   
   .screen .chevron-right {
     position: relative;

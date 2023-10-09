@@ -55,7 +55,6 @@ a{
 .sub-menu {
   display: flex;
   height: 0px; overflow:hidden;
-  /* height: 248px; */
   align-items: center;
   justify-content: center;
   position: absolute; top:160px;
@@ -63,6 +62,7 @@ a{
   background-color: #ffffff;
   width: 100%; z-index:2;
   border-top:1px solid black;
+  opacity: 0;
 }
 @media(max-width:1194px){
   .sub-menu{display:none;}
@@ -72,12 +72,12 @@ a{
 .foldingOut{animation:foldingOut 0.5s ease-in-out forwards;}
 
 @keyframes foldingIn {
-  0%{height:0px;}
-  100%{height:248px; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);}
+  0%{height:0px; opacity: 0;}
+  100%{height:248px; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25); opacity: 1;}
 }
 @keyframes foldingOut {
-  0%{height:248px; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);}
-  100%{height:0px;}
+  0%{height:248px; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25); opacity: 1;}
+  100%{height:0px; opacity: 0;}
 }
 
 .sub-menu .frame {
@@ -90,7 +90,7 @@ a{
 .sub-menu .div {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 201px;
   height: 200px;
   align-items: center;
   position: relative;

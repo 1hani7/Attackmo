@@ -53,7 +53,7 @@
                     </div>
                     <div class="post_menu">
                         <div class="rePost"><RouterLink to="/Rwrite">수정</RouterLink></div>
-                        <div class="del">삭제</div>
+                        <div class="del" @click="postDel">삭제</div>
                         <div class="siren" @click="openSirenPopup">신고</div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                             <div class="wDate">{{ reply.date }}</div>
                             <div class="reply_menu">
                                 <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
-                                <p class="del_reply">삭제</p>
+                                <p class="del_reply" @click="() => deleteComment(index)">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="mReply_menu">
                                 <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
-                                <p class="del_reply">삭제</p>
+                                <p class="del_reply" @click="() => deleteComment(index)">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
                         </div>
@@ -302,6 +302,27 @@ const openSirenPopup = () => {
         });
     }else{
         alert('로그인이 필요한 서비스입니다.')
+    }
+}
+
+const deleteComment = (index) => {
+    if (isLogin.value) {
+        if (confirm('댓글을 삭제하시겠습니까?')) {
+            replies.value.splice(index, 1);
+            alert('댓글이 삭제되었습니다.');
+        }
+    } else {
+        alert('로그인이 필요한 서비스입니다.');
+    }
+}
+
+const postDel = () => {
+    if(isLogin.value){
+        if(confirm('리뷰를 삭제하시겠습니까?')){
+            alert('리뷰가 삭제되었습니다.')
+        }
+    }else{
+        alert('로그인이 필요할 서비스 입니다.')
     }
 }
 </script>
