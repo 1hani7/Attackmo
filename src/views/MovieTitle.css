@@ -17,13 +17,18 @@
   }
 
   .mark{
-    position:relative;
+    position:absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: end;
+    top:10px;
   }
 
-  .bookMark_Bt{cursor:pointer}
+  .bookMark_Bt{
+    cursor:pointer;
+    width:25px;
+  }
   @media(max-width:490px){
     .mark{
       position: absolute;

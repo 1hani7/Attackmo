@@ -148,13 +148,13 @@ export default {
       const frame = document.querySelector('.iframe');
       const temp = Math.floor(Math.random()*3)+1;
       if( temp == 1 ){
-        frame.style.height = '510px';
+        frame.style.height = 'fit-content';
         path.value = 'https://adimg.cgv.co.kr/images/202309/Boston/0927_Boston1080x608_PC.mp4';
       }else if( temp == 2 ){
-        frame.style.height = '600px';
+        frame.style.height = 'fit-content';
         path.value = 'https://adimg.cgv.co.kr/images/202309/Expend4bles/1004_Expend4bles_1080x608.mp4';
       }else if( temp == 3 ){
-        frame.style.height = '660px';
+        frame.style.height = 'fit-content';
         path.value = 'https://adimg.cgv.co.kr/images/202309/MissFortune/1006_1080x608_PC.mp4'
       }
     }

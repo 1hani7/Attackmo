@@ -106,7 +106,10 @@ export default {
     <div class="category">
       <div class="c-title" @click="menuDrawerOne()">
         <div class="div">
-          영화
+          <div>
+            <i class="bi bi-camera-reels menuIcon"></i>
+            영화
+          </div>
           <img class="drawBt drawBt1" :src="btPath1">
         </div>
       </div>
@@ -133,7 +136,10 @@ export default {
     <div class="category">
       <div class="c-title" @click="menuDrawerTwo()">
         <div class="div">
-          리뷰
+          <div>
+            <i class="bi bi-pencil-square menuIcon"></i>
+            리뷰
+          </div>
           <img class="drawBt drawBt2" :src="btPath2">
         </div>
       </div>
@@ -154,14 +160,24 @@ export default {
   <div class="category">
     <RouterLink to="/NoticeList">
       <div class="c-title">
-        <div class="div">공지사항</div>
+        <div class="div">
+          <div>
+            <i class="bi bi-bell menuIcon"></i>
+            공지사항
+          </div>
+        </div>
       </div>
     </RouterLink>
   </div>
   <div class="category">
     <RouterLink to="/AskMe">
       <div class="c-title">
-        <div class="div">문의사항</div>
+        <div class="div">
+         <div>
+          <i class="bi bi-question-square menuIcon"></i>
+          문의사항
+        </div>
+        </div>
       </div>
     </RouterLink>
   </div>

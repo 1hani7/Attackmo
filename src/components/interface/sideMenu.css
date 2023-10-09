@@ -122,9 +122,9 @@ a{color:black;}
     align-self: stretch;
     width: 100%;
     flex: 0 0 auto;
-    border-bottom-width: 1px;
+    /* border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-color: #000000;
+    border-color: #000000; */
     background: white;
   }
   @media(max-width:490px){
@@ -137,6 +137,8 @@ a{color:black;}
     cursor:pointer;
     background:rgba(0,0,0,0.25);
   }
+
+  .menuIcon {margin-right:10px;}
   
   .side-menu .div {
     width: 100%;
