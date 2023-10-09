@@ -295,8 +295,8 @@
 
 
   
-  /* ::-webkit-scrollbar{
-    height:10px;
+  ::-webkit-scrollbar{
+    height:0px;
     background: gray;
     border-radius: 10px;
   }
@@ -311,4 +311,4 @@
     ::-webkit-scrollbar{
       height:0px;
     }
-  } */
+  }

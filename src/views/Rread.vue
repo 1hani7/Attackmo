@@ -1,13 +1,16 @@
 <template>
     <section id="section">
         <div id="review_wrap">
-            <b class="page_title">리뷰 게시판</b>
+            <b class="page_title">리뷰</b>
             <div class="review_con">
                 <div class="main_content">
                     <div class="review_title">
                         <p class="title">별 기대 안 하고 가볍게 봤는데 진짜 대박이네요...</p>
-                        <i class="bi bi-heart" @click="toggleLike" :class="{ 'hidden' : liked }"></i>
-                        <i class="bi bi-heart-fill" @click="toggleLike" :class="{ 'hidden' : !liked }"></i>
+                        <div class="heart_wrap">
+                            <i class="bi bi-heart" @click="toggleLike" :class="{ 'hidden' : liked }"></i>
+                            <i class="bi bi-heart-fill" @click="toggleLike" :class="{ 'hidden' : !liked }"></i>
+                            <div class="ani"></div>
+                        </div>
                     </div>
                     <div class="write_info">
                         <div class="writer">귤까고뒹굴뒹굴</div>
@@ -39,17 +42,17 @@
                         없는 전개라 계속 손에 땀을 쥐고 봤네요.<br />팝콘 다 남기고 왔음 ㄹㅇ ㅋㅋㅋㅋㅋ
                     </p>
                     <div class="star_score">
-                        <p>별점 5/5</p>
+                        <p class="star_rate">별점 5/5</p>
                         <div class="stars">
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
                         </div>
                     </div>
                     <div class="post_menu">
-                        <div class="rePost">수정</div>
+                        <div class="rePost"><RouterLink to="/Rwrite">수정</RouterLink></div>
                         <div class="del">삭제</div>
                         <div class="siren" @click="openSirenPopup">신고</div>
                     </div>
@@ -67,7 +70,7 @@
                             <div class="nickName">{{ reply.nickName }}</div>
                             <div class="wDate">{{ reply.date }}</div>
                             <div class="reply_menu">
-                                <p class="rePost_reply">수정</p>
+                                <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
                                 <p class="del_reply">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
@@ -81,7 +84,7 @@
                                 {{ reply.text }}
                             </div>
                             <div class="mReply_menu">
-                                <p class="rePost_reply">수정</p>
+                                <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
                                 <p class="del_reply">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
@@ -99,6 +102,8 @@ import { ref, inject } from 'vue'
 const liked = ref(false)
 
 const toggleLike = () => {
+    const ani = document.querySelector('.ani');
+    ani.classList.toggle('ani_active');
     liked.value = !liked.value
 }
 
