@@ -146,16 +146,15 @@ export default {
     // 랜덤 예고편
     const randomTrailer = () => {
       const frame = document.querySelector('.iframe');
-      const temp = Math.floor(Math.random()*3)+1;
+      const temp = Math.floor(Math.random()*4)+1;
       if( temp == 1 ){
-        frame.style.height = 'fit-content';
-        path.value = 'https://adimg.cgv.co.kr/images/202309/Boston/0927_Boston1080x608_PC.mp4';
+        path.value = 'https://adimg.cgv.co.kr/images/202309/FlowerMoon/FlowerMoon_1080x608.mp4';
       }else if( temp == 2 ){
-        frame.style.height = 'fit-content';
         path.value = 'https://adimg.cgv.co.kr/images/202309/Expend4bles/1004_Expend4bles_1080x608.mp4';
       }else if( temp == 3 ){
-        frame.style.height = 'fit-content';
         path.value = 'https://adimg.cgv.co.kr/images/202309/MissFortune/1006_1080x608_PC.mp4'
+      }else if( temp == 4 ){
+        path.value = 'https://adimg.cgv.co.kr/images/202309/BlueGiant/BlueGiant_1080X608_PC.mp4'
       }
     }
 

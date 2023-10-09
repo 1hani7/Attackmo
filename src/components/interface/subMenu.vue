@@ -7,17 +7,13 @@
           <div class="navBt">이벤트</div>
           <div class="navBt">시사회</div>
         </div>
-        <img class="line" src="@/images/subMenuLine.svg" />
         <div class="div">
           <RouterLink to="/ReviewBoard"><div class="navBt">리뷰</div></RouterLink>
           <RouterLink to="/Like"><div class="navBt">좋아요</div></RouterLink>
           <RouterLink to="/Mark"><div class="navBt">북마크</div></RouterLink>
         </div>
-        <img class="line" src="@/images/subMenuLine.svg" />
         <div class="div"><RouterLink to="/NoticeList"><div class="navBt">공지사항</div></RouterLink></div>
-        <img class="line" src="@/images/subMenuLine.svg" />
         <div class="div"><RouterLink to="/AskMe"><div class="navBt">문의사항</div></RouterLink></div>
-        <img class="line" src="@/images/subMenuLine.svg" />
         <div class="div">
           <RouterLink to="/Info"><div class="navBt">내 정보</div></RouterLink>
           <RouterLink to="/RecHistory"><div class="navBt">추천 기록</div></RouterLink>
@@ -36,7 +32,7 @@
   height: 248px;
   align-items: center;
   justify-content: center;
-  position: absolute; top:186px;
+  position: absolute; top:160px;
   left:50%; transform:translateX(-50%);
   background-color: #ffffff;
   width: 100%; z-index:2; border-top:1px solid black;
@@ -60,6 +56,7 @@
   height: 200px;
   align-items: center;
   position: relative;
+  border-right:0.5px solid gray;
 }
 
 .sub-menu a{width:100%;}

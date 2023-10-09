@@ -9,10 +9,15 @@
     gap: 10px;
     /* position: relative; top:0; */
     margin:0 auto;
+    margin-top:20px;
     background-color: #ffffff;
   }
   @media(max-width:1194px){
-    .header{position:sticky; z-index:2;}
+    .header{
+      width:calc(100% - 30px);
+      position:sticky; z-index:2;
+      margin-top:0;
+    }
   }
   
   .header .frame {
@@ -20,12 +25,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 25px;
-    padding: 25px 0px 0px;
     position: relative;
     flex: 0 0 auto;
   }
   @media(max-width:1194px){
-    .header .frame {padding:0px; width:100vw;}
+    .header .frame {padding:0px; width:100%;}
   }
 
   
@@ -41,7 +45,7 @@
   @media(max-width:1194px){
     .header .logo-frame {
       justify-content: space-between;
-      width:calc(100vw - 30px ); gap:0;
+      width:100%; gap:0;
       margin:0 auto;
     }
   }

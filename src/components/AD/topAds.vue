@@ -69,12 +69,14 @@ export default {
 </script>
 
 <style scoped>
+#parentDiv{
+    width:100%;
+}
 div {
     height: 90px;
 }
 
 div img {
-    width: fit-content;
     height: 90px;
 }
 
