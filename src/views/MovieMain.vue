@@ -6,90 +6,102 @@
         </div>
         <div class="cont">
           <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
+          </RouterLink>
           <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
         </div>
       </div>
@@ -100,104 +112,118 @@
         </div>
         <div class="cont">
           <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          <RouterLink to="MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
+          </RouterLink>
           <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
         </div>
       </div>
@@ -208,104 +234,118 @@
         </div>
         <div class="cont">
           <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
+          </RouterLink>
           <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
         </div>
       </div>
@@ -316,104 +356,118 @@
         </div>
         <div class="cont">
           <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
+          </RouterLink>
           <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
         </div>
       </div>
@@ -424,104 +478,118 @@
         </div>
         <div class="cont">
           <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+          </RouterLink>
+          <RouterLink to="/MovieTitle">
+            <div class="poster-box">
+              <img class="image" src="@/images/poster.png" />
+              <div class="view">
+                <div class="movieTitle">영화제목</div>
+                <div class="movieDate">개봉일</div>
+              </div>
+              <div class="starBox">
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starYellow">★</div>
+                <div class="starBlack">★</div>
+              </div>
             </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-          <div class="poster-box">
-            <img class="image" src="@/images/poster.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
+          </RouterLink>
           <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
         </div>
       </div>

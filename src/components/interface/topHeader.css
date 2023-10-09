@@ -1,5 +1,4 @@
 *{text-decoration: none;}
-
 .header {
     display: flex;
     flex-direction: column;
@@ -219,8 +218,9 @@
   }
   
   .header .nav-b-ox {
-    display: flex;
+    display: grid;
     width: 1004px;
+    grid-template-columns: repeat(5, 1fr);
     align-items: flex-start;
     justify-content: space-between;
     position: relative;
@@ -233,13 +233,12 @@
   @media(max-width:1194px){
     .header .nav-b-ox {display:none;}
   }
-  
+
   .header .menu {
     cursor:pointer;
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    gap: 10px;
     padding: 16px 0px;
     position: relative;
     flex: 1;

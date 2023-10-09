@@ -7,7 +7,7 @@
                 <input id="input_pw" type="password" placeholder="비밀번호를 입력해주세요">
             </div>
             <div id="button_bt">
-                <button id="cancel" class="bt">취소</button>
+                <RouterLink to="Info"><button id="cancel" class="bt">취소</button></RouterLink>
                 <button @click="move" type="submit" id="check" class="bt">확인</button> 
             </div>
         </div>

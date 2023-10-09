@@ -91,7 +91,7 @@
   .screen .cont .bi{
     z-index:10;
     position:fixed;
-    height:443.87px;
+    height:40%;
     font-size:40px; color:white;
     display:flex; align-items: center;
   }
@@ -104,10 +104,10 @@
     background-color: rgba(0,0,0, 0.5);
   }
   .screen .cont .bi-chevron-compact-left{
-    left:0;
+    left:0%;
   }
   .screen .cont .bi-chevron-compact-right{
-    right:0;
+    right:0%;
   }
   
   .screen .cont {
@@ -136,6 +136,7 @@
         overflow-x: scroll;
     }
   }
+
   
   .screen .poster-box {
     display: flex;
@@ -146,7 +147,7 @@
     position: relative;
   }
   @media(max-width:1194px){
-    .screen .poster-box{width:25%; height: fit-content;}
+    .screen .poster-box{width:100%; height: fit-content;}
   }
   @media(max-width:490px){
     .screen .poster-box{width:100%;}

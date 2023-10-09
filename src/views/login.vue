@@ -109,6 +109,7 @@ export default {
         flex-direction: column;
         align-items: center;
         gap: 150px;
+        margin:0 auto;
     }
     #title{
         display: flex;

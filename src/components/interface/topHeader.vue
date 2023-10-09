@@ -38,31 +38,31 @@
                 </div>
             </div>
             <div @mouseover="MenuHover()" class="nav-b-ox">
-                <div class="menu">
-                    <RouterLink to="/MovieMain">
+                <RouterLink to="/MovieMain">
+                    <div class="menu">
                         <div class="menuName">영화</div>
-                    </RouterLink>
-                </div>
-                <div class="menu">
-                    <RouterLink to="/ReviewBoard">
+                    </div>
+                </RouterLink>
+                <RouterLink to="/ReviewBoard">
+                    <div class="menu">
                         <div class="menuName">리뷰</div>
-                    </RouterLink>
-                </div>
-                <div class="menu">
-                    <RouterLink to="/NoticeList">
+                    </div>
+                </RouterLink>
+                <RouterLink to="/NoticeList">
+                    <div class="menu">
                         <div class="menuName">공지사항</div>
-                    </RouterLink>
-                </div>
-                <div class="menu">
-                    <RouterLink to="/AskMe">
+                    </div>
+                </RouterLink>
+                <RouterLink to="/AskMe">
+                    <div class="menu">
                         <div class="menuName">문의사항</div>
-                    </RouterLink>
-                </div>
-                <div class="menu">
-                    <RouterLink to="/Info">
+                    </div>
+                </RouterLink>
+                <RouterLink to="/Info">
+                    <div class="menu">
                         <div class="menuName">마이페이지</div>
-                    </RouterLink>
-                </div>
+                    </div>
+                </RouterLink>
             </div>
             <subMenu @mouseleave="MenuLeave()" />
         </div>
