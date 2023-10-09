@@ -29,6 +29,10 @@
     cursor:pointer;
     width:25px;
   }
+  .bookMark_Bt:hover{
+    transition: all 1s;
+    transform: scale(1.3);
+  }
   @media(max-width:490px){
     .mark{
       position: absolute;
@@ -203,6 +207,51 @@
   @media(max-width:490px){
     .content .p{font-size:12px;}
   }
+
+  .content .scenarioTitle{
+    display:flex; width:100%;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+  }
+
+  .content .searchTitle{
+    position: relative;
+    width:fit-content;
+    border-radius: 20px; overflow:hidden;
+  }
+
+  .content .revBt{
+    font-size:20px; padding:5px 10px;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius: 20px;
+    border: none;
+    background: transparent;
+    transition:all 1s ease;
+    backdrop-filter: blur(7px);
+  }
+  @media(max-width:490px){
+    .content .revBt{font-size:12px;}
+  }
+
+  .content .animationTool{
+    position:absolute; top:0;
+    background:#8a8a8a;
+    width:10px; height:33px;
+    opacity: 0;
+    animation-iteration-count: 1;
+    z-index: -1;
+  }
+  .content .revBt:hover + .animationTool {
+    animation: glowing 0.5s ease forwards;
+    animation-iteration-count: 1;
+  }
+  @keyframes glowing {
+    0%{opacity: 1; left:0;}
+    100%{opacity:0; left:100%;}
+  }
+
   
   /**예고편*/
   .content .subWrap {
@@ -292,6 +341,12 @@
     height: 210px;
     object-fit: cover;
     cursor: pointer;
+  }
+  @media(min-width:1194px){
+    .content .trailer:hover{
+      transform: scale(1.1);
+      transition:all 0.5s;
+    }
   }
   
   .content .play-bt {
@@ -420,7 +475,7 @@
     }
     100%{
       opacity:0;
-      width:50px;
-      height:50px;
+      width:60px;
+      height:60px;
     }
   }

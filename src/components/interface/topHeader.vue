@@ -64,7 +64,7 @@
                     </RouterLink>
                 </div>
             </div>
-            <subMenu v-if="isMenuHover" @mouseleave="MenuLeave()" />
+            <subMenu @mouseleave="MenuLeave()" />
         </div>
     </div>
 
@@ -96,6 +96,7 @@ export default {
         const isMobileSearch = ref(false);
         const isTabletSearching = ref(false);
         const isMenuHover = ref(false);
+        provide('isMenuHover', isMenuHover);
 
         const router = useRouter();
 

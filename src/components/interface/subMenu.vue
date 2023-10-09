@@ -1,5 +1,5 @@
 <template>
-    <div class="sub-menu">
+    <div class="sub-menu foldingOut">
       <div class="frame">
         <div class="div">
           <RouterLink to="/Mnow"><div class="navBt">상영중인 영화</div></RouterLink>
@@ -22,14 +22,35 @@
     </div>
 </template>
 
-<script setup>
+<script>
+import {inject, onMounted, watch} from 'vue';
+export default{
+  name:'subMenu',
+  setup(){
+    const isMenuHover = inject('isMenuHover');
 
+    onMounted(()=>{
+      const subMenu = document.querySelector('.sub-menu');
+      watch(isMenuHover, (newVal, oldVal) => {
+        subMenu.classList.toggle('foldingIn');
+        subMenu.classList.toggle('foldingOut');
+      })
+    })
+
+    return {isMenuHover}
+  }
+}
 </script>
 
-<style>
+<style scoped>
+
+a{
+  width:100%;
+}
 .sub-menu {
   display: flex;
-  height: 248px;
+  height: 0px; overflow:hidden;
+  /* height: 248px; */
   align-items: center;
   justify-content: center;
   position: absolute; top:160px;
@@ -40,6 +61,18 @@
 }
 @media(max-width:1194px){
   .sub-menu{display:none;}
+}
+
+.foldingIn{animation:foldingIn 0.5s ease-out forwards;}
+.foldingOut{animation:foldingOut 0.5s ease-out forwards;}
+
+@keyframes foldingIn {
+  0%{height:0px;}
+  100%{height:248px;}
+}
+@keyframes foldingOut {
+  0%{height:248px;}
+  100%{height:0px;}
 }
 
 .sub-menu .frame {
@@ -58,6 +91,10 @@
   position: relative;
   border-right:0.5px solid gray;
 }
+
+.sub-menu .div:last-child{
+  border-right:none;
+}gray
 
 .sub-menu a{width:100%;}
 
@@ -83,6 +120,7 @@
 
 .sub-menu .navBt:hover,
 .sub-menu .navBt-2:hover{
+    transition:0.5s ease;
     background:rgba(0,0,0,0.2);
     cursor:pointer;
 }
