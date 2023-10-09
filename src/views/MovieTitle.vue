@@ -5,8 +5,12 @@
         <div class="movie-template">
           <img class="poster" src="https://file2.nocutnews.co.kr/newsroom/image/2023/08/21/202308210927594431_0.jpg" />
           <div class="frame">
-            <img class="bookMark_Bt" :src="path" />
+            <div class="mark">
+              <img class="bookMark_Bt" :src="path" />
+              <div class="ani"></div>
+            </div>
             <div class="movieName">오펜하이머</div>
+            <div v-if="isActive" class="notice">* 북마크가 완료되었습니다.</div>
             <div class="bold">2023.08.15 개봉</div>
             <div class="line"></div>
             <div class="infoFrame">
@@ -89,10 +93,15 @@ export default{
     name: 'MovieTitle',
     components:{lineChart, radarChart},
     setup(){
+      const isActive = ref(false);
       const isBig = ref(false);
       const isSwitched = ref(false);
       const path = ref('');
       const image = ref('');
+
+
+      const BMClicked = () => isActive.value = !isActive.value;
+
 
       const switcher = () => {
         isBig.value = !isBig.value;
@@ -119,19 +128,24 @@ export default{
         path.value = '/src/images/movieInfo/bookmark.svg'
 
         const bookMark_Bt = document.querySelector('.bookMark_Bt');
+        const ani = document.querySelector('.ani');
         bookMark_Bt.addEventListener('click', function(){
           if( !isSwitched.value ){
             path.value = '/src/images/movieInfo/bookmark_checked.svg';
             isSwitched.value = !isSwitched.value;
+            ani.classList.toggle('clicked')
+            BMClicked();
           }else if ( isSwitched.value ){
             path.value = '/src/images/movieInfo/bookmark.svg';
             isSwitched.value = !isSwitched.value;
+            ani.classList.toggle('clicked')
+            BMClicked();
           }
         })
         
       });
 
-      return{path, isBig, switcher, trailerScale, isSwitched, image}
+      return{path, isBig, switcher, trailerScale, isSwitched, image, isActive}
     }
 }
 </script>

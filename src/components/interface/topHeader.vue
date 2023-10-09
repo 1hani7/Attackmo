@@ -1,7 +1,7 @@
 <template>
-    <div class="header">
+    <div class="header" @mouseleave="MenuLeave()">
         <div class="frame">
-            <div class="logo-frame">
+            <div class="logo-frame" @mouseover="MenuLeave()">
                 <routerLink to="/"><img class="LOGO" src="@/images/LOGO.svg" /></routerLink>
                 <div class="inter-b-ox">
                     <div class="div">
@@ -236,6 +236,9 @@ export default {
                 const menu_bt = document.querySelector(".menu_bt");
                 const LOGO = document.querySelector(".LOGO");
                 const search_bt = document.querySelector(".search_bt");
+
+                isMenuHover.value = false;
+                isSearching.value = false;
 
                 if (490 <= window.innerWidth && window.innerWidth <= 1194) {
                     isSearching.value = false;
