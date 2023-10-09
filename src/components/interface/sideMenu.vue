@@ -16,32 +16,49 @@ export default {
 
         const menuDrawerOne = () => {
           const t = document.querySelectorAll('.drawer')[0];
-          const bt = document.querySelectorAll('.drawBt1')[0];
+          const title = document.querySelectorAll('.c-title')[0];
           t.classList.toggle('drawOne');
           if(t.classList.contains('drawOne')){
             btPath1.value = '/src/images/afterRoll.svg';
+            title.style.background = 'rgba(0,0,0,0.1)';
           }else{
             btPath1.value = '/src/images/beforeRoll.svg';
+            title.style.background = '';
           }
         }
 
         const menuDrawerTwo = () => {
           const t = document.querySelectorAll('.drawer')[1];
+          const title = document.querySelectorAll('.c-title')[1];
           t.classList.toggle('drawTwo');
           if(t.classList.contains('drawTwo')){
             btPath2.value = '/src/images/afterRoll.svg';
+            title.style.background = 'rgba(0,0,0,0.1)';
           }else{
             btPath2.value = '/src/images/beforeRoll.svg';
+            title.style.background = '';
           }
         }
 
         onMounted(()=>{
+          const t1 = document.querySelectorAll('.drawer')[0];
+          const t2 = document.querySelectorAll('.drawer')[1];
+          const title1 = document.querySelectorAll('.c-title')[0];
+          const title2 = document.querySelectorAll('.c-title')[1];
           const sideMenu = document.querySelector('.side-menu');
           router.beforeEach((to, from) => {
             isSlideMenuToggle.value = false;
           })
           router.beforeEach((to, from) => {
             sideMenu.classList.remove('rightZero');
+          })
+          router.beforeEach((to, from) => {
+            t1.classList.remove('drawOne')
+            t2.classList.remove('drawTwo')
+            title1.style.background = 'white';
+            title2.style.background = 'white';
+            btPath2.value = '/src/images/beforeRoll.svg';
+            btPath1.value = '/src/images/beforeRoll.svg';
           })
           watch(isSlideMenuToggle, (newVal, oldVal) => {
             if(newVal){
