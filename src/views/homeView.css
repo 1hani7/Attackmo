@@ -37,6 +37,23 @@
   @media(max-width:1194px){
     .screen .iframe{width:100%;}
   }
+  .screen .iframe:before,
+  .screen .iframe:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    
+  }
+  .screen .iframe:before{
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+    left:0;
+  }
+  .screen .iframe:after{
+    right:0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), transparent);
+  }
   
   .screen .rectangle {
     height: 100%;

@@ -1,9 +1,9 @@
 <template>
-  <div class="screen">
+  <div class="screen" ref="videoContainer">
     <div class="video">
       <!-- <div class="div"></div> -->
       <div class="iframe">
-        <video ref="videoPlayer" id="mainTrailer" class="vid" autoplay muted>
+        <video ref="videoPlayer" id="mainTrailer" class="vid" autoplay loop muted>
           <source :src="path">
         </video>
       </div>
@@ -148,15 +148,15 @@
 import { inject, ref, onMounted } from 'vue';
 export default {
   name: 'homeView',
-  setup(props, context) {
+  setup() {
     const videoPlayer = ref(null); // 비디오 요소에 대한 ref
     const isPlaying = ref(false); // 비디오 재생 상태
     const isMuted = ref(false);   // 음소거 상태
 
     const isLogin = inject('isLogin');
 
-
     const path = ref();
+    
 
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
@@ -168,10 +168,8 @@ export default {
       slider.scrollLeft -= 1000;
     }
 
-
     // 랜덤 예고편
     const randomTrailer = () => {
-      const frame = document.querySelector('.iframe');
       const temp = Math.floor(Math.random()*4)+1;
       if( temp == 1 ){
         path.value = 'https://adimg.cgv.co.kr/images/202309/FlowerMoon/FlowerMoon_1080x608.mp4';
@@ -226,7 +224,7 @@ export default {
       isLogin,
       path,
       slideScrollRight,
-      slideScrollLeft
+      slideScrollLeft,
     };
   }
 }
