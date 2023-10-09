@@ -1,3 +1,5 @@
+a{width:fit-content; height:fit-content;}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -5,9 +7,7 @@
     align-items: flex-start;
     gap: 50px;
     padding: 50px 0px 100px;
-    position: relative;
-    left:50%;
-    transform:translate(-50%);
+    margin:0 auto;
   }
   
   .content .title {
@@ -34,13 +34,11 @@
   }
   
   .content .results {
-    display: flex;
-    flex-wrap: wrap;
-    width: 1000px;
-    align-items: flex-start;
-    gap: 50px 86px;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(5, 185px);
+    gap:calc((1000px - (185px * 5)) / 4);
     position: relative;
-    flex: 0 0 auto;
   }
   
   .content .template {
@@ -55,7 +53,7 @@
   .content .rectangle {
     position: relative;
     width: 185px;
-    height: 260px;
+    height: fit-content;
     object-fit: cover;
   }
   

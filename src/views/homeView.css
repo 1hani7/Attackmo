@@ -218,6 +218,9 @@
     font-size:40px; color:white;
     display:flex; align-items: center;
   }
+  @media(max-width:490px){
+    .div-wrapper .posters .bi{display:none;}
+  }
   .div-wrapper .posters .bi:hover{
     transition:all 0.5s;
     cursor:pointer;
@@ -275,7 +278,7 @@
 
 
   
-  ::-webkit-scrollbar{
+  /* ::-webkit-scrollbar{
     height:10px;
     background: gray;
     border-radius: 10px;
@@ -291,4 +294,4 @@
     ::-webkit-scrollbar{
       height:0px;
     }
-  }
+  } */

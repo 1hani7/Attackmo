@@ -1,6 +1,6 @@
 <template>
     <div id="resBox">
-        <img src="@/images/exitBt.svg" class="exit" @click="searchingStart()">
+        <!-- <img src="@/images/exitBt.svg" class="exit" @click="searchingStart()"> -->
         <div class="searchWrap">
             <router-link to="/MovieTitle">
             <div class="posterWrap">

@@ -23,7 +23,7 @@
                         <img class="vector" src="@/images/search_icon.svg" />
                         <form action="/Search" method="get" @keypress.enter="searchMovie">
                             <div class="place-holder">
-                                <input @focus="searchingStart()" autocomplete="off" type="text" name="searchWord"
+                                <input @focus="searchingStart()" @blur="searchFocusOut()" autocomplete="off" type="text" name="searchWord"
                                     class="inputText searchWrite" placeholder="영화, 인물을 검색해보세요">
                             </div>
                         </form>
@@ -119,6 +119,9 @@ export default {
             isSlideMenuToggle.value = !isSlideMenuToggle.value;
         }
 
+        const searchFocusOut = () => {
+            if( window.innerWidth > 1194 ) searchingStart();
+        }
 
         const searchingStart = () => {
             if (isMobileSearch.value) {
@@ -270,7 +273,8 @@ export default {
             isSearching, searchingStart,
             isMobileSearch, searchMobile,
             isTabletSearching, isMenuHover, MenuHover, MenuLeave,
-            searchMovie, router, isLogin, loginToggle, uniqueKey
+            searchMovie, router, isLogin, loginToggle, uniqueKey,
+            searchFocusOut
         };
     }
 }

@@ -10,7 +10,7 @@
               <div class="ani"></div>
             </div>
             <div class="movieName">오펜하이머</div>
-            <div v-if="isActive" class="notice">* 북마크가 완료되었습니다.</div>
+            <div v-if="isActive" class="notice">* 북마크한 영화입니다.</div>
             <div class="bold">2023.08.15 개봉</div>
             <div class="line"></div>
             <div class="infoFrame">
