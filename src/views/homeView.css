@@ -1,4 +1,4 @@
-a{width:fit-content; height:fit-content; display:flex; gap:20px; align-items: center;}
+.link{width:fit-content; height:fit-content;}
 
 .screen {
     display: inline-flex;
@@ -89,6 +89,13 @@ a{width:fit-content; height:fit-content; display:flex; gap:20px; align-items: ce
     gap: 20px;
     position: relative;
     flex: 0 0 auto;
+  }
+
+  .screen .detail a {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
   }
   
   .screen .more {
@@ -186,9 +193,12 @@ a{width:fit-content; height:fit-content; display:flex; gap:20px; align-items: ce
     display: flex;
     width: 1000px;
     align-items: start;
-    justify-content: space-between;
     position: relative;
     flex: 0 0 auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    padding-bottom:10px;
+    column-gap:10px;
   }
   
   .div-wrapper .rectangle .div-wrapper .img {
@@ -204,17 +214,9 @@ a{width:fit-content; height:fit-content; display:flex; gap:20px; align-items: ce
   @media(max-width:1194px){
     .div-wrapper .posters{
       height:fit-content; width:calc(100vw - 30px);
+      column-gap:10px;
+      padding-bottom:0;
     }
-
-    .div-wrapper .img, .div-wrapper > .div,
-    .div-wrapper .rectangle, .div-wrapper .rectangle-2{
-      width:24%; height:fit-content;
-    }
-
-    .div-wrapper .link{
-      display:inline-block; width:24%; height:100%;
-    }
-    .div-wrapper .link .rectangle{width:100%; height:100%;}
   }
 
   @media(max-width:490px){
@@ -227,9 +229,6 @@ a{width:fit-content; height:fit-content; display:flex; gap:20px; align-items: ce
 
     .div-wrapper .top { gap:15px; }
 
-    .div-wrapper .posters{ gap:5px; overflow-x:scroll;}
-    .div-wrapper .posters::-webkit-scrollbar{ width:0; }
-
     .div-wrapper .img, .div-wrapper > .div,
     .div-wrapper .rectangle {
       width:93px; height:130px;
@@ -239,4 +238,21 @@ a{width:fit-content; height:fit-content; display:flex; gap:20px; align-items: ce
       display:inline-block; width:93px; height:130px;
     }
     .div-wrapper .link .rectangle{width:93px; height:130px;}
+  }
+
+
+
+  ::-webkit-scrollbar{
+    height:12px;
+    background: gray;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb{
+    background:#454545;
+    border-radius: 10px;
+  }
+  @media(max-width:490px){
+    ::-webkit-scrollbar{
+      height:0px;
+    }
   }
