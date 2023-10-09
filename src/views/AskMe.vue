@@ -119,6 +119,7 @@ export default {
 </script>
 <style scoped>
 *{padding:0;margin:0; box-sizing: border-box;}
+.bi-pencil-square{width:30px; height:30px;}
 #section{
     width:1000px;
     margin:50px auto;
@@ -136,10 +137,11 @@ export default {
     border-radius: 50px;
     font-size: 30px;
     text-align: center;
-    line-height: 50px;
     position:absolute;
     top:200px;
     right:-100px;
+    display:flex; align-items: center;
+    justify-content: center;
 } 
 #Adwrite{
     width:50px;
@@ -149,10 +151,11 @@ export default {
     border-radius: 50px;
     font-size: 30px;
     text-align: center;
-    line-height: 50px;
     position:absolute;
     top:100px;
     right:-100px;
+    display:flex; align-items: center;
+    justify-content: center;
 } 
 .main{
     display:flex;

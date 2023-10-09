@@ -23,19 +23,26 @@
 </template>
 
 <script>
+import {useRouter} from 'vue-router'
 import {inject, onMounted, watch} from 'vue';
 export default{
   name:'subMenu',
   setup(){
     const isMenuHover = inject('isMenuHover');
+    const router = useRouter();
+
+    
 
     onMounted(()=>{
       const subMenu = document.querySelector('.sub-menu');
+
       watch(isMenuHover, (newVal, oldVal) => {
         subMenu.classList.toggle('foldingIn');
         subMenu.classList.toggle('foldingOut');
       })
     })
+
+    
 
     return {isMenuHover}
   }
@@ -56,8 +63,8 @@ a{
   position: absolute; top:160px;
   left:50%; transform:translateX(-50%);
   background-color: #ffffff;
-  width: 100%; z-index:2; border-top:1px solid black;
-  
+  width: 100%; z-index:2;
+  border-top:1px solid black;
 }
 @media(max-width:1194px){
   .sub-menu{display:none;}
