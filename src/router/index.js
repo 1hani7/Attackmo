@@ -39,160 +39,159 @@ const router = createRouter({
       component: () => import('../views/Info.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
         else return next();
       }
     },
     {
-      path:'/RecHistory',
-      name:'RecHistory',
+      path: '/RecHistory',
+      name: 'RecHistory',
       component: () => import('../views/RecHistory.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
         else return next();
       }
     },
     {
-      path:'/Mark',
-      name:'Mark',
+      path: '/Mark',
+      name: 'Mark',
       component: () => import('../views/Mark.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
         else return next();
       }
     },
     {
-      path:'/Like',
-      name:'Like',
+      path: '/Like',
+      name: 'Like',
       component: () => import('../views/Like.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
         else return next();
       }
     },
     {
-      path:'/Rwrite',
-      name:'Rwrite',
+      path: '/Rwrite',
+      name: 'Rwrite',
       component: () => import('../views/Rwrite.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
         else return next();
       }
     },
     {
-      path:'/ReviewBoard',
-      name:'ReviewBoard',
+      path: '/ReviewBoard',
+      name: 'ReviewBoard',
       component: () => import('../views/ReviewBoard.vue')
     },
     {
-      path:'/Rread',
-      name:'Rread',
+      path: '/Rread',
+      name: 'Rread',
       component: () => import('../views/Rread.vue')
     },
     {
-      path:'/MyReview',
-      name:'MyReview',
+      path: '/MyReview',
+      name: 'MyReview',
       component: () => import('../views/MyReview.vue')
     },
     {
-      path:'/Siren',
-      name:'Siren',
+      path: '/Siren',
+      name: 'Siren',
       component: () => import('../views/SirenPop.vue')
     },
     {
-      path:"/login",
-      name:"login",
-      component:()=>import('@/views/login.vue')
+      path: "/login",
+      name: "login",
+      component: () => import('@/views/login.vue')
     },
     {
-      path:"/signup",
-      name:"signup",
-      component:()=>import('@/views/SignUp.vue')
+      path: "/signup",
+      name: "signup",
+      component: () => import('@/views/SignUp.vue')
     },
     {
-      path:"/Aread",
-      name:"aread",
-      component:()=>import('@/views/Aread.vue')
+      path: "/Aread",
+      name: "aread",
+      component: () => import('@/views/Aread.vue')
     },
     {
-      path:"/Anotice",
-      name:"anotice",
-      component:()=>import('@/views/Anotice.vue')
-      }
+      path: "/Anotice",
+      name: "anotice",
+      component: () => import('@/views/Anotice.vue')
     },
     {
-      path:"/InfoEdit",
-      name:"InfoEdit",
-      component:()=>import('@/views/InfoEdit.vue')
+      path: "/InfoEdit",
+      name: "InfoEdit",
+      component: () => import('@/views/InfoEdit.vue')
     },
     {
-      path:"/If_Eck",
-      name:"If_Eck",
-      component:()=>import('@/views/If_Eck.vue'),
+      path: "/If_Eck",
+      name: "If_Eck",
+      component: () => import('@/views/If_Eck.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
         else return next();
       }
     },
     {
-      path:"/FindP",
-      name:"findp",
-      component:()=>import('@/views/FindP.vue')
+      path: "/FindP",
+      name: "findp",
+      component: () => import('@/views/FindP.vue')
     },
     {
-      path:"/FindE",
-      name:"finde",
-      component:()=>import('@/views/FindE.vue')
+      path: "/FindE",
+      name: "finde",
+      component: () => import('@/views/FindE.vue')
     },
     {
-      path:"/notice",
-      name:"notice",
-      component:()=>import('@/views/notice.vue')
+      path: "/notice",
+      name: "notice",
+      component: () => import('@/views/notice.vue')
     },
     {
-      path:"/NoticeList",
-      name:"noticelist",
-      component:()=>import('@/views/NoticeList.vue')
+      path: "/NoticeList",
+      name: "noticelist",
+      component: () => import('@/views/NoticeList.vue')
     },
     {
-      path:"/AskMe",
-      name:"askme",
-      component:()=>import('@/views/AskMe.vue')
+      path: "/AskMe",
+      name: "askme",
+      component: () => import('@/views/AskMe.vue')
     },
     {
-      path:"/AdSign",
-      name:"AdSign",
-      component:()=>import('@/views/AdSign.vue')
+      path: "/AdSign",
+      name: "AdSign",
+      component: () => import('@/views/AdSign.vue')
     },
     {
-      path:"/AdSiren",
-      name:"AdSiren",
-      component:()=>import('@/views/AdSiren.vue')
+      path: "/AdSiren",
+      name: "AdSiren",
+      component: () => import('@/views/AdSiren.vue')
     },
     {
-      path:"/Adnotice",
-      name:"Adnotice",
-      component:()=>import('@/views/Adnotice.vue')
+      path: "/Adnotice",
+      name: "Adnotice",
+      component: () => import('@/views/Adnotice.vue')
     },
     {
-      path:"/ArWrite",
-      name:"ArWrite",
-      component:()=>import('@/views/ArWrite.vue'),
+      path: "/ArWrite",
+      name: "ArWrite",
+      component: () => import('@/views/ArWrite.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if( sessionStorage.getItem('login') === 'false' ) return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
         else return next();
       }
     },
     {
-      path:"/AdSpopup",
-      name:"AdSpopup",
-      component:()=>import('@/views/AdSpopup.vue')
+      path: "/AdSpopup",
+      name: "AdSpopup",
+      component: () => import('@/views/AdSpopup.vue')
     }
   ]
 })
