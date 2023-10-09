@@ -37,6 +37,7 @@
         <div class="div" id="top10Plus"><router-link to="/MovieMain">+</router-link></div>
       </div>
       <div class="posters">
+        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
         <RouterLink to="/MovieTitle" class="link">
           <img class="rectangle" src="../images/Rectangle695.png" />
         </RouterLink>
@@ -58,6 +59,16 @@
         <RouterLink to="/MovieTitle" class="link">
           <img class="rectangle" src="../images/Rectangle698.png" />
         </RouterLink>
+        <RouterLink to="/MovieTitle" class="link">
+          <img class="rectangle" src="../images/Rectangle695.png" />
+        </RouterLink>
+        <RouterLink to="/MovieTitle" class="link">
+          <img class="rectangle" src="../images/Rectangle696.png" />
+        </RouterLink>
+        <RouterLink to="/MovieTitle" class="link">
+          <img class="rectangle" src="../images/Rectangle697.png" />
+        </RouterLink>
+        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
     <div class="top">
@@ -66,6 +77,7 @@
         <div class="div"><router-link to="/Mnow">+</router-link></div>
       </div>
       <div class="posters">
+        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
         <RouterLink to="/MovieTitle">
           <img class="rectangle" src="../images/Rectangle618.png" />
         </RouterLink>
@@ -90,6 +102,7 @@
         <RouterLink to="/MovieTitle">
           <img class="rectangle" src="../images/Rectangle653.png" />
         </RouterLink>
+        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
     <div v-if="isLogin" class="top">
@@ -100,6 +113,7 @@
         </RouterLink>
       </div>
       <div class="posters">
+        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
         <RouterLink to="/MovieTitle">
           <img class="rectangle" src="../images/Rectangle698.png" />
         </RouterLink>
@@ -124,6 +138,7 @@
         <RouterLink to="/MovieTitle">
           <img class="rectangle" src="../images/Rectangle614.png" />
         </RouterLink>
+        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
   </div>
@@ -133,7 +148,7 @@
 import { inject, ref, onMounted } from 'vue';
 export default {
   name: 'homeView',
-  setup() {
+  setup(props, context) {
     const videoPlayer = ref(null); // 비디오 요소에 대한 ref
     const isPlaying = ref(false); // 비디오 재생 상태
     const isMuted = ref(false);   // 음소거 상태
@@ -142,6 +157,17 @@ export default {
 
 
     const path = ref();
+
+    // 슬라이드 스크롤
+    const slideScrollRight = (t, i) => {
+      const slider = event.target.parentNode;
+      slider.scrollLeft += 1000;
+    }
+    const slideScrollLeft = (t, i) => {
+      const slider = event.target.parentNode;
+      slider.scrollLeft -= 1000;
+    }
+
 
     // 랜덤 예고편
     const randomTrailer = () => {
@@ -198,7 +224,9 @@ export default {
       togglePlayPause,
       toggleMuteUnmute,
       isLogin,
-      path
+      path,
+      slideScrollRight,
+      slideScrollLeft
     };
   }
 }

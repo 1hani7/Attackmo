@@ -63,8 +63,8 @@ a{
   .sub-menu{display:none;}
 }
 
-.foldingIn{animation:foldingIn 0.5s ease-out forwards;}
-.foldingOut{animation:foldingOut 0.5s ease-out forwards;}
+.foldingIn{animation:foldingIn 0.5s ease-in-out forwards;}
+.foldingOut{animation:foldingOut 0.5s ease-in-out forwards;}
 
 @keyframes foldingIn {
   0%{height:0px;}
