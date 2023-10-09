@@ -1,7 +1,9 @@
 <template>
-    <div id="pc"><img :src="pcPath" alt=""></div>
-    <div id="tablet"><img :src="tabletPath" alt=""></div>
-    <div id="mobile"><img :src="mobilePath" alt=""></div>
+    <div class="sizeWrapper" :style="{ backgroundColor: backgroundColor }">
+        <div id="pc"><img id="imagePc" :src="pcPath" @load="findMostFrequentColor"></div>
+        <div id="tablet"><img :src="tabletPath" alt=""></div>
+        <div id="mobile"><img :src="mobilePath" alt=""></div>
+    </div>
 </template>
 
 <script>
@@ -15,6 +17,52 @@ export default{
 
         const isSiren = ref(true);
 
+
+
+        const backgroundColor = ref('white'); // 초기 배경색
+
+        const findMostFrequentColor = (event) => {
+            const img = event.target;
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            context.drawImage(img, 0, 0, img.width, img.height);
+
+            const imageData = context.getImageData(0, 0, img.width, img.height).data;
+
+            // 색상 히스토그램 생성
+            const colorCounts = {};
+
+            for (let i = 0; i < imageData.length; i += 4) {
+                const red = imageData[i];
+                const green = imageData[i + 1];
+                const blue = imageData[i + 2];
+                const rgb = `rgb(${red},${green},${blue})`;
+
+                if (colorCounts[rgb]) {
+                    colorCounts[rgb]++;
+                } else {
+                    colorCounts[rgb] = 1;
+                }
+            }
+
+            // 가장 많이 분포된 색상 찾기
+            let mostFrequentColor = 'white'; // 기본값 설정
+            let maxCount = 0;
+
+            for (const color in colorCounts) {
+                if (colorCounts[color] > maxCount) {
+                    mostFrequentColor = color;
+                    maxCount = colorCounts[color];
+                }
+            }
+
+            backgroundColor.value = mostFrequentColor;
+        };
+
+
+
         onMounted(()=>{
             const random = Math.floor(Math.random()*4)+1;
             pcPath.value = '/src/images/botAd/botAd'+random+'.png'
@@ -27,21 +75,34 @@ export default{
             } else {
                 isSiren.value = true;
             }
+
+
+            const img = document.getElementById('imagePc');
+            img.addEventListener('load', findMostFrequentColor);
         })
 
-        return {pcPath, tabletPath, mobilePath, isSiren}
+        return {pcPath, tabletPath, mobilePath, isSiren, backgroundColor}
     }
 }
 </script>
 <style scoped>
-img{
-    position: relative; left:50%;
-    transform:translateX(-50%);
+
+.sizeWrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
     width:100%;
+    margin:0 auto;
 }
 
-div{
-    width:100%; height:fit-content;
+.sizeWrapper div{
+    height:100%;
+}
+
+img{
+    height:100%;
+    margin: 0 auto;
     margin-bottom:-4px;
 }
 
@@ -58,8 +119,10 @@ div{
 }
 
 @media(max-width:490px){
+    .sizeWrapper{height:fit-content;}
+    img{width:100%; height:fit-content;}
     #pc{ display:none; }
     #tablet{ display:none;}
-    #mobile{ display:block; }
+    #mobile{display:block;}
 }
 </style>
