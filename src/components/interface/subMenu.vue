@@ -23,14 +23,11 @@
 </template>
 
 <script>
-import {useRouter} from 'vue-router'
 import {inject, onMounted, watch} from 'vue';
 export default{
   name:'subMenu',
   setup(){
     const isMenuHover = inject('isMenuHover');
-    const router = useRouter();
-
     
 
     onMounted(()=>{
@@ -40,6 +37,7 @@ export default{
         subMenu.classList.toggle('foldingIn');
         subMenu.classList.toggle('foldingOut');
       })
+
     })
 
     
