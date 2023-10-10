@@ -1,15 +1,18 @@
 export default [
     {
         option: '[욕설,비방,차별,혐오]',
-        name: 'alsurhkddls@naver.com',
+        name: '미녀광인',
+        date:'YYYY-MM-DD'
     },
     {
         option: '[홍보,영리목적]',
-        name: 'fnqhtm@naver.com',
+        name: '클릭라잌',
+        date:'YYYY-MM-DD'
     },
     {
         option: '[욕설,비방,차별,혐오]',
-        name:  'nick@naver.com',
+        name:  '로다주재계약해',
+        date:'YYYY-MM-DD'
     },
  
 ]

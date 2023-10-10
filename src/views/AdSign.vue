@@ -1,48 +1,72 @@
 <template>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <section id="section">
     <div id="wrap">
-        <div id="nwrite">
-            <p>회원관리(관리자)</p>
-            <span>목록{{ sortedData.length}}</span>
-            <table id="list">
-                <tr>
-                    <td>회원</td>
-                    <td>회원 이메일</td>
-                    <td>회원 전화번호</td>
-                    <td>계정상태</td>
-                    <td>가입일자</td>
+            <p id="title">회원관리(관리자)
+                <i class="bi bi-box-arrow-right" @click="back"></i>
+            </p> 
+            <span>목록{{sortedData.length}}</span>
+            <div id="app" v-show="isModalOn">
+                    <div class="modal-window">
+                        <div class="close-area" @click="modalOff">
+                             <i class="bi bi-x-lg"></i>
+                         </div>
+                         <div class="title">
+                            <h2>미녀광인</h2>
+                        </div>
+                        <div class="content">
+                             경고 / 1회
+                        </div>
+                        <div class="content">
+                            정지 / 0회 남음
+                        </div>
+                        <div id="button_box">
+                            <div id="warring">
+                                <p @click="plus()">경고 1회 누적</p>
+                            </div>
+                            <div id="delete">
+                                <button @click="deleteMember()">회원 삭제</button>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+        <div class="main">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <td class="n">회원</td>
+                        <td class="t">회원 이메일</td>
+                        <td class="w">회원 전화번호</td>
+                        <td class="d">계정상태</td>
+                        <td class="e">가입일자</td>
+                     </tr>
+                </thead>
+            <tbody>
+                <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" @click="modalOn">
+                    <td class="n">{{ value.name }}</td>
+                    <td class="t">{{ value.email }}</td>
+                    <td class="w">{{ value.number}}</td>
+                    <td class="d">{{ value.level}}</td>
+                    <td class="e">{{ value.date}}</td>
                 </tr>
-            </table> 
-            <table id="list2">
-                <tr v-for="(value) in visiblePosts" 
-                :key="value.id" >
-                    <td @click="open()">{{ value.name}}</td>
-                    <td>{{ value.email }}</td>
-                    <td>{{ value.number }}</td>
-                    <td>{{ value.level }}</td>
-                    <td>{{ getCurrentDate() }}</td>
-                </tr>
-            </table>
+            </tbody>
+          </table> 
+        </div>
             <div id="totalPage">
-                <i @click="before()" class="bi bi-chevron-bar-left"></i>   
-                <i @click="before()" class="bi bi-chevron-compact-left"></i>
+                <i @click="before()" class="bi bi-chevron-double-left"></i>   
+                <i @click="before()" class="bi bi-chevron-left"></i>
                     <div id="page">
                         <button id="pgnum" v-for="block in blocks" :key="block" @click="changePage(block)">{{ block }}</button>
                     </div>
-                <i @click="next()" class="bi bi-chevron-compact-right"></i>  
-                <i @click="next()" class="bi bi-chevron-bar-right"></i>
+                <i @click="next()" class="bi bi-chevron-right"></i>  
+                <i @click="next()" class="bi bi-chevron-double-right"></i>
             </div>
-            <div id="search_box">
-                <input type="text" id="search" placeholder="활동명으로 검색">
-                <i class="bi bi-search"></i>
-            </div>
-        </div>
-        
-    </div>
+          </div>
+          
+ </section>
 </template>
 <script>
 import data from '../data/sign.js'
-
 
 export default {
     name: 'Read',
@@ -50,8 +74,11 @@ export default {
         return {
             data: data,
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
-            currentPage: 1, //페이지 이동 수 
+            currentPage: 1, //페이지 이동 수
+            isModalOn: false,//모달창
+            
         }
+        
     },
     computed: {
         sortedData() {
@@ -60,15 +87,15 @@ export default {
                 return new Date(b.Date) - new Date(a.Date);
             });
         }, 
-        totalPage() {
+        totalPage() {//하단목록숫자표시
             return Math.ceil(this.data.length / this.itemsPerPage);
         }, 
-        visiblePosts() {
+        visiblePosts() { //작성폼에서 작성해서 저장하면 목록에 추가해줌
             const start = (this.currentPage - 1) * this.itemsPerPage;
             const end = start + this.itemsPerPage;
             return this.sortedData.slice(start, end);
         }, 
-        blocks() {
+        blocks() { //페이지 이동
             const blocks = [];
             for (let i = 1; i <= this.totalPage; i++) {
                 blocks.push(i);
@@ -84,9 +111,7 @@ export default {
             const day = String(currentDate.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         },
-        open(){
-            window.open('./AdSpopup','_blank','width:150','height:150');
-        },
+
         changePage(page) {
             this.currentPage = page;
         },
@@ -101,43 +126,100 @@ export default {
             if(this.currentPage < this.totalPage){
                 this.currentPage++;
             }
+        },
+        modalOn() {
+            this.isModalOn = true; // 모달 열기
+        },
+        modalOff() {
+            this.isModalOn = false; // 모달 닫기
+        },
+        plus(){
+            alert("경고1회추가");
+        },
+        deleteMember(){
+            alert("회원삭제");
+        },
+        back(){
+            this.$router.push('./TotalAdmin');
         }
-    },
+        
+    }
 }
 </script>
 <style scoped>
-#wrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-#nwrite{
-    display: flex;
-    margin-top: 50px;
-    margin-bottom:100px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 55px;
-    width:1020px;
-    height: 1166px;
-}
-#nwrite p{font-size: 23px;font-weight: 700;}
-#list{
+*{padding:0;margin:0; box-sizing: border-box;}
+#section{
     width:1000px;
-    text-align: center;
-    border-bottom: 1px solid black;
+    margin:50px auto;
+    position:relative;
+}
+#title{
+    font-size:23px;
+    font-weight:700;
+    margin-bottom:50px;
     display: flex;
-    padding: 20px 0px;
-    align-items: flex-start;
+    justify-content: space-between;
 }
-#list2{
-    width:1000px;
+#write{
+    width:50px;
+    height:50px;
+    background:#F9C041;
+    border-radius: 50px;
+    font-size: 30px;
     text-align: center;
-    gap:20px;
+    line-height: 50px;
+    position:absolute;
+    top:200px;
+    right:-100px;
 }
-#list2:hover{cursor: pointer;}
-table tr td{width:200px;padding:15px;}
-table tr td:nth-child(2){width:480px;}
+.main{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+} 
+#search_box{
+    width:330px;
+    height:40px;
+    border:1px solid #000;
+    border-radius:30px;
+    font-size: 20px;
+    margin-bottom:20px;
+}
+#search{
+    font-size:23px;
+    border:0;
+    height:40px;
+    padding:0 20px;
+    width:280px;
+    outline: 0;
+    background:rgba(0,0,0,0)
+}
+.bi-search{cursor: pointer;}
+.list{
+    width:100%;
+    border-radius:10px;
+    border-collapse:collapse;
+    cursor: pointer;
+}
+.n{width:10%;}.t{width:20%;text-align: center;}.w{width:40%;}.d{width:15%;}.e{width:15%;text-align: center;}
+.n,.w,.d{
+    text-align:center;
+}
+.t{
+    text-decoration: none;
+    color:#000;
+}
+thead tr{
+    text-align:center;
+    height:60px;
+    border-bottom:3px double #000;
+}tbody{
+    width:100%;
+}
+.con{
+    height:50px;
+    border-bottom:1px solid #000;
+}
 #totalPage{
     display: flex;
     width: 100%;
@@ -157,20 +239,70 @@ table tr td:nth-child(2){width:480px;}
     border:none;
     background: white;
 }
-
-#search_box{width:100%;display:flex; justify-content: flex-end;}
-#search{
-    width:330px;
-    height:40px;
-    border:1px solid black;
-    font-size:20px;
-    margin-bottom:20px;
-    border-radius: 20px;
-    padding:20px;
-    outline:none;
+.mobileList{
+    display:none;
 }
-.bi-search{
-    margin-left:-40px;
-    font-size: 30px;
-}
+span{font-weight: 700;}
+.bi-box-arrow-right{cursor: pointer;}
+.bi-box-arrow-right:hover{color:#B91646;}
+        #app{
+            position:absolute;
+            top:188px;
+            left:120px;
+            border-radius: 10px;
+            padding:20px;  
+            background: white;  
+            height:250px;   
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); 
+        }
+        .title {
+            padding-left: 10px;
+            display: inline;
+            color: black;     
+        }
+         .title h2 {
+            display: inline;
+        }
+        .close-area {
+            display: inline;
+            float: right;
+            padding-right: 10px;
+            cursor: pointer;
+            color: black;
+        }
+        
+        .content {
+            margin-top: 20px;
+            padding: 0px 10px;
+            color: black;
+            font-weight: 700;
+        }
+        #button_box{margin:20px;}
+        #delete button{
+            width:230px;
+            height:33px;
+            border-radius: 10px;
+            border:none;
+            color:white; 
+            background: #B91646;
+            font-size: 23px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top:10px;
+           
+        }
+        #warring p{
+            width:230px;
+            height:33px;
+            border-radius: 10px;
+            border:1px solid black;
+            color:black;
+            background: white;
+            font-size: 23px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+        }
+       
+       
 </style>

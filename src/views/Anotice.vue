@@ -18,7 +18,7 @@
                 <textarea v-model="content"></textarea>
             </div>
             <div id="button_box">
-                <button id="cancel" class="bt">취소</button>
+                <button  id="cancel" class="bt">취소</button>
                 <button @click="write" id="check" class="bt">등록하기</button>
             </div>
         </form>
@@ -53,7 +53,8 @@ export default {
         handleFileChange(event) {
             // 파일 변경 이벤트를 처리하고 선택한 파일을 저장합니다.
             this.file = event.target.files[0];
-        }
+        },
+       
     }
 }      
 </script>

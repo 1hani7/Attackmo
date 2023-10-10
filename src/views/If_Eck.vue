@@ -23,6 +23,7 @@ export default{
       }, 
       methods: {
           move(){
+              alert('확인되었습니다.');
               this.$router.push('/InfoEdit');
           } 
       }

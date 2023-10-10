@@ -12,7 +12,7 @@
         <div class="main">
             <div id="search_box">
                     <input type="text" id="search" placeholder="검색어를 입력해주세요">
-                    <i class="bi bi-search"></i>
+                    <i class="bi bi-search" @click="search"></i>
             </div>
             <table class="list">
                 <thead>
@@ -71,6 +71,7 @@ export default {
                 return new Date(b.Date) - new Date(a.Date);
             });
         }, 
+        
         totalPage() {//하단목록숫자표시
             return Math.ceil(this.data.length / this.itemsPerPage);
         }, 
@@ -94,6 +95,9 @@ export default {
             const month = String(currentDate.getMonth() + 1).padStart(2, '0');
             const day = String(currentDate.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
+        },
+        search(){
+            alert("검색한다");
         },
         gonote(){
            //alert("클릭미");
@@ -179,10 +183,12 @@ export default {
     outline: 0;
     background:rgba(0,0,0,0);
 }
+.bi-search{cursor: pointer;}
 .list{
     width:100%;
     border-radius:10px;
     border-collapse:collapse;
+    text-align: center;
 }
 .n{width:10%;}.t{width:60%;}.w{width:15%;}.d{width:15%;}
 .n,.w,.d{

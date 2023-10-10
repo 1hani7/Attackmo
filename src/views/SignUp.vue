@@ -189,6 +189,7 @@ export default {
         height: 75px;
         outline:none;
         padding:20px;
+        font-size: 23px;
     }
     #pw_ck p{
         display: flex;
@@ -220,6 +221,8 @@ export default {
         width: 918px;
         height: 75px;
         padding: 20px;
+        font-size: 15px;
+        outline:none;
     }
     label{font-size: 23px;font-weight: 700;}
     label i {font-size: 23px;color:#B91646;}

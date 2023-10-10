@@ -11,7 +11,7 @@
                 <textarea v-model="content"></textarea>
             </div>
             <div id="button_box">
-                <button id="cancel" class="bt">취소</button>
+                <button  id="cancel" class="bt">취소</button>
                 <button @click="write" id="check" class="bt">등록하기</button>
             </div>
         </form>
@@ -19,14 +19,13 @@
     </div>
 </template>
 <script> 
-import data from '../data/data.js'
+import data from '../data/notice.js'
 
 export default {
     name: 'Create',
     data() {
         return {
             data: data,
-            writer: "",
             title: "",
             content: ""
         }
@@ -34,7 +33,6 @@ export default {
     methods: {
         write() {
             this.data.push({
-                Number:this.Number,
                 title: this.title,
                 writer: this.writer,
             })
@@ -91,6 +89,8 @@ export default {
         align-self: stretch;
         height: 436px;
         width: 100%;
+        padding:20px;
+        font-size: 23px;
         
     }
     #button_box{

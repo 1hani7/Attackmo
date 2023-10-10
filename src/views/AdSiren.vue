@@ -1,35 +1,42 @@
 <template>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <section id="section">
     <div id="wrap">
-        <div id="nwrite">
-            <p>신고관리(관리자)</p>
-            <span>목록{{ sortedData.length}}</span>
-            <table id="list">
-                <tr>
-                    <td>사유</td>
-                    <td>신고대상</td>
-                    <td>일자</td>
+            <p id="title">신고관리(관리자)
+                <i class="bi bi-box-arrow-right" @click="back"></i>
+            </p> 
+            <span>목록{{sortedData.length}}</span>
+        <div class="main">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <td class="n">사유</td>
+                        <td class="t">신고대상</td>
+                        <td class="w">일자</td>
+                     </tr>
+                </thead>
+            <tbody>
+                <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" @click="open()">
+                    <td class="n">{{ value.option}}</td>
+                    <td class="t">{{ value.name }}</td>
+                    <td class="w">{{ value.date}}</td>
+       
                 </tr>
-            </table> 
-            <table id="list2">
-                <tr v-for="(value) in visiblePosts" :key="value.id" @click="gonote">
-                    <td>{{ value.option}}</td>
-                    <td>{{ value.name }}</td>
-                    <td>{{ getCurrentDate() }}</td>
-                </tr>
-            </table>
+            </tbody>
+          </table> 
+        </div>
             <div id="totalPage">
-                <i @click="before()" class="bi bi-chevron-bar-left"></i>   
-                <i @click="before()" class="bi bi-chevron-compact-left"></i>
+                <i @click="before()" class="bi bi-chevron-double-left"></i>   
+                <i @click="before()" class="bi bi-chevron-left"></i>
                     <div id="page">
                         <button id="pgnum" v-for="block in blocks" :key="block" @click="changePage(block)">{{ block }}</button>
                     </div>
-                <i @click="next()" class="bi bi-chevron-compact-right"></i>  
-                <i @click="next()" class="bi bi-chevron-bar-right"></i>
+                <i @click="next()" class="bi bi-chevron-right"></i>  
+                <i @click="next()" class="bi bi-chevron-double-right"></i>
             </div>
-        </div>
-        
-    </div>
+            
+          </div>
+ </section>
 </template>
 <script>
 import data from '../data/siren.js'
@@ -40,8 +47,9 @@ export default {
         return {
             data: data,
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
-            currentPage: 1, //페이지 이동 수 
+            currentPage: 1, //페이지 이동 수
         }
+        
     },
     computed: {
         sortedData() {
@@ -50,16 +58,15 @@ export default {
                 return new Date(b.Date) - new Date(a.Date);
             });
         }, 
-        totalPage() {
+        totalPage() {//하단목록숫자표시
             return Math.ceil(this.data.length / this.itemsPerPage);
         }, 
-        visiblePosts() {
+        visiblePosts() { //작성폼에서 작성해서 저장하면 목록에 추가해줌
             const start = (this.currentPage - 1) * this.itemsPerPage;
             const end = start + this.itemsPerPage;
             return this.sortedData.slice(start, end);
         }, 
-       
-        blocks() {
+        blocks() { //페이지 이동
             const blocks = [];
             for (let i = 1; i <= this.totalPage; i++) {
                 blocks.push(i);
@@ -68,16 +75,11 @@ export default {
         },
   },
     methods: {
-        getCurrentDate() { //날짜 형식 YYYY-MM-DD
-            const currentDate = new Date();
-            const year = currentDate.getFullYear();
-            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-            const day = String(currentDate.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
+        open(){
+            window.open('./AdSirenPop','_blank','width:150','height:150');
         },
-        gonote(){
-           this.$router.push('./AdSpopup');
-            
+        search(){
+            alert("검색한다");
         },
         changePage(page) {
             this.currentPage = page;
@@ -98,38 +100,77 @@ export default {
 }
 </script>
 <style scoped>
-#wrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-#nwrite{
-    display: flex;
-    margin-top: 50px;
-    margin-bottom:100px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 55px;
-    width:1020px;
-    height: 1166px;
-}
-#nwrite p{font-size: 23px;font-weight: 700;}
-#list{
+*{padding:0;margin:0; box-sizing: border-box;}
+#section{
     width:1000px;
-    text-align: center;
-    border-bottom: 1px solid black;
-    display: flex;
-    padding: 20px 0px;
-    align-items: flex-start;
+    margin:50px auto;
+    position:relative;
 }
-#list2{
-    width:1000px;
-    text-align: center;
-    gap:20px;
+#title{
+    font-size:23px;
+    font-weight:700;
+    margin-bottom:50px;
 }
-#list2:hover{cursor: pointer;}
-table tr td{width:200px;padding:15px;}
-table tr td:nth-child(2){width:480px;}
+#write{
+    width:50px;
+    height:50px;
+    background:#F9C041;
+    border-radius: 50px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    position:absolute;
+    top:200px;
+    right:-100px;
+}
+.main{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+} 
+#search_box{
+    width:330px;
+    height:40px;
+    border:1px solid #000;
+    border-radius:30px;
+    font-size: 20px;
+    margin-bottom:20px;
+}
+#search{
+    font-size:23px;
+    border:0;
+    height:40px;
+    padding:0 20px;
+    width:280px;
+    outline: 0;
+    background:rgba(0,0,0,0)
+}
+.bi-search{cursor: pointer;}
+.list{
+    width:100%;
+    border-radius:10px;
+    border-collapse:collapse;
+    cursor: pointer;
+}
+.n{width:20%;font-weight: 700;}.t{width:30%;text-align: center;}.w{width:20%;}
+.n,.w,.d{
+    text-align:center;
+}
+.t{
+    text-decoration: none;
+    color:#000;
+}
+thead tr{
+    text-align:center;
+    height:60px;
+    border-bottom:3px double #000;
+}tbody{
+    width:100%;
+}
+.con{
+    height:50px;
+    border-bottom:1px solid #000;
+}
 #totalPage{
     display: flex;
     width: 100%;
@@ -149,4 +190,8 @@ table tr td:nth-child(2){width:480px;}
     border:none;
     background: white;
 }
+.mobileList{
+    display:none;
+}
+span{font-weight: 700;}
 </style>
