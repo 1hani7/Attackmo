@@ -4,32 +4,34 @@
     </div>
     <div id="wrap">
         <div>
-            <input type="radio" id="abuse" name="siren">
+            <input type="radio" id="abuse" name="siren" value="abuse">
             <label for="abuse">욕설, 비방, 차별, 혐오</label>
         </div>
         <div>
-            <input type="radio" id="promotion" name="siren">
+            <input type="radio" id="promotion" name="siren" value="promotion">
             <label for="promotion">홍보, 영리목적</label>
         </div>
         <div>
-            <input type="radio" id="illegal" name="siren">
+            <input type="radio" id="illegal" name="siren" value="illegal">
             <label for="illegal">불법정보</label>
         </div>
         <div>
-            <input type="radio" id="lewd" name="siren">
+            <input type="radio" id="lewd" name="siren" value="lewd">
             <label for="lewd">음란, 청소년 유해</label>
         </div>
         <div>
-            <input type="radio" id="personal" name="siren">
+            <input type="radio" id="personal" name="siren" value="personal">
             <label for="personal">개인정보 노출, 금융 거래</label>
         </div>
         <div>
-            <input type="radio" id="spam" name="siren">
+            <input type="radio" id="spam" name="siren" value="spam">
             <label for="spam">도배, 스팸</label>
         </div>
         <div>
-            <input type="radio" id="etc" name="siren">
-            <label for="etc">기타</label>
+            <input type="radio" id="etc" name="siren" value="etc" v-model="radioOption">
+            <label for="etc">기타</label><br>
+            <input type="text" id="etc" class="etcText" placeholder="신고사유를 적어주세요"
+            v-if="radioOption === 'etc'">
         </div>
     </div>
     <div id="bt_wrap">
@@ -45,6 +47,11 @@ export default {
     // window.opener.postMessage('팝업 창이 로드되었습니다.', '*');
     
   },
+data(){
+    return{
+        radioOption:'',
+    }
+},
   methods: {
     close() {
         const sirenClose = window.close();
@@ -75,6 +82,13 @@ export default {
 #wrap div label{
     margin-left:10px;
 }
+.etcText{
+    height:30px;
+    border-radius:30px;
+    outline:0;
+    padding-left:20px;
+    border:1px solid #ccc;
+}
 #bt_wrap{
     width:100%;
     display:flex;
@@ -86,6 +100,7 @@ export default {
     font-weight:700;
     padding:10px 30px;
     border-radius:10px;
+    cursor: pointer;
 }
 .cancel{
     background:#fff;
