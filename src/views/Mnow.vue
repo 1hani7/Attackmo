@@ -41,6 +41,7 @@ export default{
   setup(){
     const router = useRouter();
 
+    // const now = inject('now');
 
     const titleModal = (e) => {
       const modal = document.getElementById("movieName");

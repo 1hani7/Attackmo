@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import {onMounted, ref} from 'vue'
+import {onMounted, ref, inject} from 'vue'
 import {useRouter} from 'vue-router'
 import mComing from '../data/mComing.json';
 export default{
@@ -41,6 +41,7 @@ export default{
     setup(){
       const router = useRouter();
 
+      // const coming = inject('coming');
 
       const titleModal = (e) => {
         const modal = document.getElementById("movieName");

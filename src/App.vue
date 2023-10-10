@@ -16,6 +16,9 @@ export default {
   },
   setup() {
     // console.log(set);
+    provide('set', set);
+    provide('coming', coming);
+    provide('now', now);
 
     const isLogin = ref(false);
     provide('isLogin', isLogin);
