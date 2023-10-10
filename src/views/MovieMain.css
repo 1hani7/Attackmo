@@ -91,7 +91,7 @@
   .screen .cont .bi{
     z-index:10;
     position:fixed;
-    height:40%;
+    height:15.3%;
     font-size:40px; color:white;
     display:flex; align-items: center;
   }
