@@ -97,14 +97,17 @@
   }
   @media(max-width:490px){
     .screen .controler{
-      width:100%;
-      bottom:1%;
+      width:fit-content;
+      bottom:3%;
       transform-origin: 100% 100%;
       transform: scale(0.65);
       flex-direction: column-reverse;
       align-items: end;
+      gap:5px;
     }
+    .screen .playPause{display:none;}
   }
+
   
   .screen .detail {
     display: inline-flex;
@@ -112,6 +115,7 @@
     gap: 20px;
     position: relative;
     flex: 0 0 auto;
+    cursor:pointer;
   }
 
   .screen .detail a {
@@ -119,6 +123,7 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 10px;
+    cursor:pointer;
   }
   
   .screen .more {
@@ -253,6 +258,7 @@
     width: 232px;
     height: 322px;
     object-fit: cover;
+    cursor:pointer;
   }
 
   @media(max-width:1194px){

@@ -3,7 +3,7 @@
     <div class="video">
       <!-- <div class="div"></div> -->
       <div class="iframe">
-        <video ref="videoPlayer" id="mainTrailer" class="vid" autoplay loop muted>
+        <video @click="togglePlayPause()" ref="videoPlayer" id="mainTrailer" class="vid" autoplay loop muted>
           <source :src="path">
         </video>
       </div>
@@ -16,10 +16,10 @@
         </RouterLink>
       </div>
 
-      <img @click="togglePlayPause()" v-if="!isPlaying" class="img" style="cursor:pointer"
+      <img @click="togglePlayPause()" v-if="!isPlaying" class="img playPause" style="cursor:pointer"
         src="../images/play_circle.svg" />
 
-      <img @click="togglePlayPause()" v-if="isPlaying" class="img" style="cursor:pointer"
+      <img @click="togglePlayPause()" v-if="isPlaying" class="img playPause" style="cursor:pointer"
         src="../images/pause_circle.svg" />
 
       <img @click="toggleMuteUnmute()" v-if="!isMuted" class="img" style="cursor:pointer" src="../images/sound.svg" />

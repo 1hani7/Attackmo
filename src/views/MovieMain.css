@@ -145,6 +145,7 @@
     align-items: flex-start;
     gap: 10px;
     position: relative;
+    cursor:pointer;
   }
   @media(max-width:1194px){
     .screen .poster-box{width:100%; height: fit-content;}
