@@ -181,18 +181,24 @@ const router = createRouter({
     {
       path: "/ArWrite",
       name: "ArWrite",
-      component: () => import('@/views/ArWrite.vue'),
-      beforeEnter: (to, from, next) => {
-        const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
-        else return next();
-      }
+      component: () => import('@/views/ArWrite.vue')
+    }, 
+    {
+      path: "/AreadTest",
+      name: "AreadTest",
+      component: () => import('@/views/AreadTest.vue')
     },
     {
-      path: "/AdSpopup",
-      name: "AdSpopup",
-      component: () => import('@/views/AdSpopup.vue')
-    }
+      path: "/AdSirenPop",
+      name: "AdSirenPop",
+      component: () => import('@/views/AdSirenPop.vue')
+    },
+    {
+      path: "/TotalAdmin",
+      name: "TotalAdmin",
+      component: () => import('@/views/TotalAdmin.vue')
+    },
+    
   ]
 })
 

@@ -4,9 +4,12 @@
     <div id="wrap">
             <p id="title">공지사항</p> 
         <div class="main">
+            <RouterLink to="/Adnotice" id="Adwrite">
+                <i class="bi bi-pencil-square"></i>
+            </RouterLink>
             <div id="search_box">
                     <input type="text" id="search" placeholder="검색어를 입력해주세요">
-                    <i class="bi bi-search"></i>
+                    <i class="bi bi-search" @click="search"></i>
             </div>
             <table class="list">
                 <thead>
@@ -31,7 +34,7 @@
                         <div class="m_t"><RouterLink to="/notice">{{value.title }}</RouterLink></div>
                         <div class="m_w">{{ value.writer }}</div>
                         <div class="m_d">{{ getCurrentDate() }}</div>
-                    </div>
+                    </div>    
                 </div>
             </div>
             <div id="totalPage">
@@ -55,8 +58,9 @@ export default {
         return {
             data: data,
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
-            currentPage: 1, //페이지 이동 수 
+            currentPage: 1, //페이지 이동 수
         }
+        
     },
     computed: {
         sortedData() {
@@ -92,6 +96,9 @@ export default {
         gonote(){
            //alert("클릭미");
             this.$router.push({path:"/notice"});
+        },
+        search(){
+            alert("검색한다");
         },
         changePage(page) {
             this.currentPage = page;
@@ -157,10 +164,26 @@ export default {
     outline: 0;
     background:rgba(0,0,0,0)
 }
+.bi-search{cursor: pointer;}
+#Adwrite{
+    width:50px;
+    height:50px;
+    background:black;
+    color:white;
+    border-radius: 50px;
+    font-size: 30px;
+    text-align: center;
+    position:absolute;
+    top:100px;
+    right:-100px;
+    display:flex; align-items: center;
+    justify-content: center;
+} 
 .list{
     width:100%;
     border-radius:10px;
     border-collapse:collapse;
+    text-align: center;
 }
 .n{width:10%;}.t{width:60%;}.w{width:15%;}.d{width:15%;}
 .n,.w,.d{

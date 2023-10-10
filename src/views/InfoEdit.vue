@@ -37,11 +37,13 @@ export default {
   },
   methods: {
     updateProfile() {
+      alert("수정이 완료되었습니다.");
       // 여기에서 사용자 프로필 업데이트를 위한 로직을 작성합니다.
       if (this.newPassword !== this.confirmPassword) {
         alert("비밀번호가 일치하지 않습니다.");
         return;
      }
+     this.$router.push('/Info');
   },
      cancel() {
         // 취소 버튼 클릭 시 이전 페이지로 돌아가거나 다른 작업을 수행할 수 있습니다.
@@ -106,6 +108,7 @@ export default {
        border:none;
        font-size: 23px;
        font-weight: 700;
+       cursor: pointer;
     }
     #cancel{background:#B91646;}
     #check{background:black;}

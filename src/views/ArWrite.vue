@@ -31,15 +31,32 @@
 </template>
 <script>
 
+import data from '../data/AreadTest.js'
+
 export default {
+    name: 'Create',
+    data() {
+        return {
+            data: data,
+            title:"",
+            writer: "",
+            content: "",
+        }
+    },
     methods: {
         write() {
-            this.$router.push({
-                path:"/Aread"
+            this.data.push({
+                title:this.title,
+                writer: this.writer,
+                content: this.content,
+                
             })
-        }
+            this.$router.push({
+                path:"/AreadTest"
+            })
+        },
     }
-}      
+} 
 </script>
 <style scoped>
 #wrap{
