@@ -15,6 +15,7 @@
                         placeholder="영화제목을 입력해주세요"
                         @focus="showSearchResult"
                         @blur="hideSearchResult"
+                        @click="toggleSearchResult"
                     />
                     <div class="search-result" v-show="isSearchResultVisible">
                         <div class="movie_p" v-for="movie in filteredMovies" :key="movie">
@@ -42,25 +43,25 @@
                 <div id="movie_point">
                     <p>감상포인트</p>
                     <div class="point_wrap">
-                        <div class="point artpoint">
-                            <label for="art">작품성</label>
-                            <input type="checkbox" v-model="checkboxes[0]" @change="checkSelections" name="art" id="art">
+                        <div class="point">
+                            <input type="checkbox" v-model="checkboxes[0]" @change="checkSelections" name="art" id="art" class="pointInput">
+                            <label for="art" class="cheM">작품성</label>
                         </div>
-                        <div class="point funpoint">
-                            <label for="fun">오락성</label>
-                            <input type="checkbox" v-model="checkboxes[1]" @change="checkSelections" name="fun" id="fun">
+                        <div class="point">
+                            <input type="checkbox" v-model="checkboxes[1]" @change="checkSelections" name="fun" id="fun" class="pointInput">
+                            <label for="fun" class="cheM">오락성</label>
                         </div>
-                        <div class="point ostpoint">
-                            <label for="ost">음악</label>
-                            <input type="checkbox" v-model="checkboxes[2]" @change="checkSelections" name="ost" id="ost">
+                        <div class="point">
+                            <input type="checkbox" v-model="checkboxes[2]" @change="checkSelections" name="ost" id="ost" class="pointInput">
+                            <label for="ost" class="cheM">음악</label>
                         </div>
-                        <div class="point artpoint">
-                            <label for="act">연기력</label>
-                            <input type="checkbox" v-model="checkboxes[3]" @change="checkSelections" name="act" id="act">
+                        <div class="point">
+                            <input type="checkbox" v-model="checkboxes[3]" @change="checkSelections" name="act" id="act" class="pointInput">
+                            <label for="act" class="cheM">연기력</label>
                         </div>
-                        <div class="point directpoint">
-                            <label for="direct">연출력</label>
-                            <input type="checkbox" v-model="checkboxes[4]" @change="checkSelections" name="direct" id="direct">
+                        <div class="point">
+                            <input type="checkbox" v-model="checkboxes[4]" @change="checkSelections" name="direct" id="direct" class="pointInput">
+                            <label for="direct" class="cheM">연출력</label>
                         </div>
                     </div>
                 </div>
@@ -70,7 +71,7 @@
                 </div>
             </div>
             <div id="bt_wrap">
-                <button>취소</button>
+                <RouterLink to="/ReviewBoard"><button>취소</button></RouterLink>
                 <button>등록하기</button>
             </div>
         </div>
@@ -101,11 +102,6 @@ export default {
             return `../src/images/img/${movie}.jpg`;
         };
 
-        const pickMovie = (movie) => {
-            searchQuery.value = movie;
-            isSearchResultVisible.value = false; // 영화 선택 시 검색 결과를 숨깁니다.
-        };
-
         const isSearchResultVisible = ref(false);
 
         const filteredMovies = computed(() => {
@@ -119,6 +115,7 @@ export default {
 
         const hideSearchResult = () => {
             isSearchResultVisible.value = false;
+            this.scrollTo(0,0);
         };
 
         onMounted(() => {
@@ -142,6 +139,16 @@ export default {
             }
         };
 
+        const toggleSearchResult = () => {
+            isSearchResultVisible.value = !isSearchResultVisible.value;
+            if (!isSearchResultVisible.value) {
+                const searchResultContainer = document.querySelector('.search-result');
+                if (searchResultContainer) {
+                    searchResultContainer.scrollTop = 0; 
+                }
+            }
+        };
+
         return {
             searchQuery,
             filteredMovies,
@@ -151,6 +158,7 @@ export default {
             getImageUrl,
             checkboxes, 
             checkSelections,
+            toggleSearchResult,
         };
     },
 };
