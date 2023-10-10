@@ -140,10 +140,12 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue'
+import { ref, inject } from 'vue';
+import { useRouter} from 'vue-router';
 
 const liked = ref(false)
 const isModalOpen = ref(false)
+const router = useRouter();
 
 const toggleLike = () => {
     const ani = document.querySelector('.ani');
@@ -256,6 +258,7 @@ const openSirenPopup = () => {
         });
     }else{
         alert('로그인이 필요한 서비스입니다.')
+        router.push('/login');
     }
 }
 
@@ -264,6 +267,7 @@ const openSirenModal = () => {
         isModalOpen.value=true;
     }else{
         alert('로그인이 필요한 서비스입니다.')
+        router.push('/login');
     }
 }
 const closeModal = () => {
@@ -278,6 +282,7 @@ const deleteComment = (index) => {
         }
     } else {
         alert('로그인이 필요한 서비스입니다.');
+        router.push('/login');
     }
 }
 
@@ -288,6 +293,7 @@ const postDel = () => {
         }
     }else{
         alert('로그인이 필요한 서비스 입니다.')
+        router.push('/login');
     }
 }
 </script>
