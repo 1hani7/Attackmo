@@ -42,21 +42,16 @@
 
 <script>
 export default {
-  mounted() {
-    // 팝업 창이 로드될 때, 부모 창에 메시지를 보냅니다.
-    // window.opener.postMessage('팝업 창이 로드되었습니다.', '*');
-    
-  },
-data(){
-    return{
-        radioOption:'',
+    data(){
+        return{
+            radioOption:'',
+        }
+    },
+    methods: {
+        close() {
+            const sirenClose = window.close();
+        }
     }
-},
-  methods: {
-    close() {
-        const sirenClose = window.close();
-    }
-}
 };
 </script>
 
