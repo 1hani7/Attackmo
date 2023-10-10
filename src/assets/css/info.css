@@ -56,6 +56,10 @@
 .rec_movie{
     position:relative;
 }
+.rec_movie img{
+    width:230px;
+    height:328.5px;
+}
 .summary{
     width:230px;
     height:328px;
@@ -69,10 +73,6 @@
     overflow:hidden;
     text-align: center;
     display:none;
-}
-.rec_movie img{
-    width:230px;
-    height:328.5px;
 }
 #rec_history{
     margin-bottom:100px;
@@ -126,6 +126,7 @@
     .title b{font-size: 15px; width: 50%;}
     .title p{font-size: 10px; width: 40%; text-align: end;}
     #rec, #rec_history{width:100%; margin:0 auto;}
+    .rec_movie img{width:140px; height:200px;}
     .slider{overflow-x: scroll;}
     .slide-container{flex-wrap:nowrap;}
     #history_wrap{overflow-x:scroll;margin-bottom:40px;}
