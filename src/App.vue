@@ -6,6 +6,8 @@ import topAds from './components/AD/topAds.vue';
 import botAds from './components/AD/botAds.vue';
 import {ref, provide, onMounted } from 'vue';
 import {set} from './movieApi';
+import {coming} from './mComing';
+import {now} from './mNow';
 
 
 export default {
@@ -29,6 +31,13 @@ export default {
 
     const isSiren = ref(true);
 
+    // const mouseCursor = (e) => {
+    //   const cursor = document.querySelector('.cursor');
+    //   cursor.style.left = e.pageX + 'px';
+    //   cursor.style.top = e.pageY + 'px';
+    // }
+
+
     onMounted(() => {
       const sessionStorage = window.sessionStorage;
       sessionStorage.setItem('login', isLogin.value);
@@ -38,6 +47,8 @@ export default {
       } else {
         isSiren.value = true;
       }
+
+      // window.addEventListener('mousemove', mouseCursor);
     })
 
     useRouter().afterEach(()=>{
@@ -46,7 +57,8 @@ export default {
 
 
     return{
-      isSiren
+      isSiren,
+      // mouseCursor
     }
   }
 }
@@ -54,8 +66,11 @@ export default {
 </script>
 
 <template>
+  <!-- 마우스커서 -->
+  <!-- <div class="cursor"></div> -->
+
   <!-- 최상단으로 버튼 -->
-  <div v-if="isSiren" id="topBt">
+  <div v-if="isSiren" id="toTheTopBt">
     <a href="#">
       <img src="@/images/topBt.svg">
     </a>
@@ -83,13 +98,28 @@ export default {
   </footer>
 </template>
 
-<style scoped>
-#topBt{
+<style>
+*{
+  /* cursor: url('./components/icons/Acursor.svg'), auto; */
+}
+/* .cursor{
+  position:absolute;
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  mix-blend-mode:color-dodge;
+  border-radius: 50%;
+  z-index:99;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+} */
+#toTheTopBt{
   position:fixed; right:5%; bottom:10%;
   z-index:15; cursor:pointer;
 }
 @media(max-width:490px){
-  #topBt{transform: scale(0.7);}
+  .cursor{display:none;}
+  #toTheTopBt{transform: scale(0.7);}
 }
 @media(max-width:1194px){
   section:first-child{display:none;}

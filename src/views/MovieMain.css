@@ -1,10 +1,11 @@
+*{box-sizing: border-box;}
 .screen {
     display: inline-flex;
     flex-direction: column;
     height: fit-content;
     align-items: center;
     justify-content: center;
-    gap: 80px; margin:60px auto;
+    gap: 100px; margin:100px auto;
     position: relative;
     left:50%; transform: translateX(-50%);
   }
@@ -16,10 +17,7 @@
   }
   
   .screen .div {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
+
   }
   @media(max-width:490px){
     .screen .div{ height:165px; left:0;}
@@ -31,7 +29,7 @@
     align-items: flex-start;
     justify-content: space-between;
     position: relative;
-    flex: 0 0 auto; padding: 20px 0;
+    flex: 0 0 auto; padding: 0 0 20px 0;
   }
   @media(max-width:1194px){
     .screen .title{
@@ -88,40 +86,17 @@
     transform: rotate(180deg);
   }
 
-  .screen .cont .bi{
-    z-index:10;
-    position:fixed;
-    height:40%;
-    font-size:40px; color:white;
-    display:flex; align-items: center;
-  }
-  @media(max-width:490px){
-    .screen .cont .bi{display:none;}
-  }
-  .screen .cont .bi:hover{
-    transition:all 0.5s;
-    cursor:pointer;
-    background-color: rgba(0,0,0, 0.5);
-  }
-  .screen .cont .bi-chevron-compact-left{
-    left:0%;
-  }
-  .screen .cont .bi-chevron-compact-right{
-    right:0%;
-  }
   
   .screen .cont {
     display: flex;
-    width: 1000px;
+    width: 1000px;  height:fit-content;
     align-items: flex-start;
     justify-content: space-between;
     position: relative;
     flex: 0 0 auto;
-    margin-bottom: -17.49px;
     overflow-x:scroll;
     overflow:hidden;
     gap:10px;
-    padding-bottom:10px;
     scroll-behavior: smooth;
   }
   @media(max-width:1194px){
@@ -137,6 +112,31 @@
     }
   }
 
+  .screen .cont .bi {
+    z-index:10;
+    position:fixed;
+    height:427px;
+    font-size:40px; color:white;
+    display:flex; align-items: center;
+  }
+  @media(max-width:1194px){
+    .screen .cont .bi{height:15%;}
+  }
+  @media(max-width:490px){
+    .screen .cont .bi{display:none;}
+  }
+  .screen .cont .bi:hover{
+    transition:all 0.5s;
+    cursor:pointer;
+    background-color: rgba(0,0,0, 0.5);
+  }
+  .screen .cont .bi-chevron-compact-left{
+    left:0%;
+  }
+  .screen .cont .bi-chevron-compact-right{
+    right:0%;
+  }
+
   
   .screen .poster-box {
     display: flex;
@@ -145,6 +145,7 @@
     align-items: flex-start;
     gap: 10px;
     position: relative;
+    cursor:pointer;
   }
   @media(max-width:1194px){
     .screen .poster-box{width:100%; height: fit-content;}
@@ -223,8 +224,6 @@
   }
   
   .screen .starYellow {
-    width: 20px;
-    height: 22.86px;
     margin-top: -1px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
@@ -237,8 +236,6 @@
   }
   
   .screen .starBlack {
-    width: 20px;
-    height: 22.86px;
     margin-top: -1px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;

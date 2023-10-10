@@ -23,6 +23,7 @@ strong{margin-right:15px; color:black;}
 .posterWrap img{width:100%;}
 
 @media(min-width:1194px){
+    .posterWrap{cursor:auto;}
     .searchWrap{align-items: start;}
     .onMobile{display:none;}
 }
