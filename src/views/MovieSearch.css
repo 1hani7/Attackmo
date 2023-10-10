@@ -36,8 +36,8 @@ a{width:fit-content; height:fit-content;}
   .content .results {
     width:100%;
     display: grid;
-    grid-template-columns: repeat(5, 185px);
-    gap:calc((1000px - (185px * 5)) / 4);
+    grid-template-columns: repeat(4, 185px);
+    gap:calc((1000px - (185px * 4)) / 3);
     position: relative;
   }
   

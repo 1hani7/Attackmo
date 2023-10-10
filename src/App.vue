@@ -6,6 +6,8 @@ import topAds from './components/AD/topAds.vue';
 import botAds from './components/AD/botAds.vue';
 import {ref, provide, onMounted } from 'vue';
 import {set} from './movieApi';
+import {coming} from './mComing';
+import {now} from './mNow';
 
 
 export default {
@@ -13,7 +15,7 @@ export default {
     topAds, topHeader, botAds, botFooter
   },
   setup() {
-    console.log(set);
+    // console.log(set);
 
     const isLogin = ref(false);
     provide('isLogin', isLogin);

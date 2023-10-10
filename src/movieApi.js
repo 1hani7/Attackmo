@@ -14,6 +14,7 @@ $(async function(){
 
     organize();
     // console.log(set);
+    // console.log(JSON.stringify(set,null, 2));
     // let keys = Object.keys(set);
 
     // $.each(set,function(key, val){
@@ -44,7 +45,8 @@ async function getMovies(){
     let detail = 'detail=Y&'
     // let title = 'title='+encodeURIComponent('오펜하이머')+'&';
     let listCount = 'listCount=1000&'
-    let releaseDts = 'releaseDts=20140101&';
+    // let releaseDts = 'releaseDts=20220101&';
+    let releaseDts = `releaseDts=${fromRlsDateFilter()}&`;
     // let releaseDts = `releaseDts=${todayYYYYMMDD()}&`;
     // let releaseDte = 'releaseDte=20241231&';
     // let releaseDts = `releaseDts=${releaseFilter()}&`;
@@ -102,7 +104,7 @@ function stCuts(data){
 //     return data.sort( (a,b) => a['title'].localeCompare(b['title']) )
 // }
 function sortIt(data){
-    return data.sort( (a,b) => a['repRlsDate'] - (b['repRlsDate']) )
+    return data.sort( (a,b) => b['repRlsDate'] - (a['repRlsDate']) )
 }
 
 
@@ -142,6 +144,18 @@ function releaseFilter(){
     year = yesterday.getFullYear();
     month = String(yesterday.getMonth() + 1).padStart(2, '0');
     day = String(yesterday.getDate()).padStart(2, '0');
+    return `${year}${month}${day}`
+}
+
+function fromRlsDateFilter(){
+    const timeBackNumber = 365;
+    const currentDate = new Date();
+    const yesterday = new Date(currentDate);
+    yesterday.setDate(currentDate.getDate() - timeBackNumber);
+    console.log(yesterday)
+    var year = yesterday.getFullYear();
+    var month = String(yesterday.getMonth() + 1).padStart(2, '0');
+    var day = String(yesterday.getDate()).padStart(2, '0');
     return `${year}${month}${day}`
 }
 
