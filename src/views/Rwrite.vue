@@ -18,10 +18,11 @@
                     />
                     <div class="search-result" v-show="isSearchResultVisible">
                         <div class="movie_p" v-for="movie in filteredMovies" :key="movie">
-                            <img :src="getImageUrl(movie)" alt="Movie Poster" />
+                            <img :src="getImageUrl(movie)" alt="Movie Poster" @click="pickMovie(movie)"/>
                             <p>{{ movie }}</p>
                         </div>
                     </div>
+                    
                 </div>
                 <div id="star">
                     <p>별점</p>
@@ -100,6 +101,11 @@ export default {
             return `../src/images/img/${movie}.jpg`;
         };
 
+        const pickMovie = (movie) => {
+            searchQuery.value = movie;
+            isSearchResultVisible.value = false; // 영화 선택 시 검색 결과를 숨깁니다.
+        };
+
         const isSearchResultVisible = ref(false);
 
         const filteredMovies = computed(() => {
@@ -123,13 +129,11 @@ export default {
 
         const checkSelections = () => {
             const selectedCount = checkboxes.value.filter(checked => checked).length;
-            // 3개 이상을 선택한 경우 체크박스를 다시 선택하지 못하도록 해제
             if (selectedCount >= 2) {
                 if (selectedCount > 2) {
                     alert('2개 이상의 체크박스가 선택되었습니다.');
                 }
                 checkboxes.value = checkboxes.value.map((checked, index) => {
-                    // 이미 선택된 체크박스 중에서 다른 체크박스 1개만 선택되도록 유지
                     if (checked && selectedCount > 2) {
                         return false;
                     }
@@ -145,8 +149,8 @@ export default {
             showSearchResult,
             hideSearchResult,
             getImageUrl,
-            checkboxes, // 체크박스 상태 배열을 반환합니다.
-            checkSelections, // 체크박스 선택 검사 메서드를 반환합니다.
+            checkboxes, 
+            checkSelections,
         };
     },
 };

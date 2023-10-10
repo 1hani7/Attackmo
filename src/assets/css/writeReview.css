@@ -123,21 +123,16 @@
     padding: 10px 20px;
     border:0;
     border-radius:10px;
+    cursor: pointer;
 }
 #bt_wrap button:nth-child(1){
     border:1px solid #B91646;
     color:#B91646;
     background:#fff;
 }
-#bt_wrap button:nth-child(1):hover{
-   background:#F1D0DA;
-}
 #bt_wrap button:nth-child(2){
     background:#B91646;
     color:#fff;
-}
-#bt_wrap button:nth-child(2):hover{
-    background:#810F31;
 }
 @media (max-width:1194px) {
     #section{width:100vw;}
