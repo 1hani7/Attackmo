@@ -29,11 +29,11 @@ export default {
 
     const isSiren = ref(true);
 
-    const mouseCursor = (e) => {
-      const cursor = document.querySelector('.cursor');
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
-    }
+    // const mouseCursor = (e) => {
+    //   const cursor = document.querySelector('.cursor');
+    //   cursor.style.left = e.pageX + 'px';
+    //   cursor.style.top = e.pageY + 'px';
+    // }
 
 
     onMounted(() => {
@@ -55,7 +55,8 @@ export default {
 
 
     return{
-      isSiren, mouseCursor
+      isSiren,
+      // mouseCursor
     }
   }
 }
@@ -64,7 +65,7 @@ export default {
 
 <template>
   <!-- 마우스커서 -->
-  <div class="cursor"></div>
+  <!-- <div class="cursor"></div> -->
 
   <!-- 최상단으로 버튼 -->
   <div v-if="isSiren" id="toTheTopBt">
@@ -99,7 +100,7 @@ export default {
 *{
   /* cursor: url('./components/icons/Acursor.svg'), auto; */
 }
-.cursor{
+/* .cursor{
   position:absolute;
   width: 40px;
   height: 40px;
@@ -109,7 +110,7 @@ export default {
   z-index:99;
   pointer-events: none;
   transform: translate(-50%, -50%);
-}
+} */
 #toTheTopBt{
   position:fixed; right:5%; bottom:10%;
   z-index:15; cursor:pointer;

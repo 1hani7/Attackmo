@@ -231,10 +231,11 @@
 
   .div-wrapper .posters .bi{
     z-index:10;
-    height:322px;
+    height:321px;
     position:fixed;
     font-size:40px; color:white;
     display:flex; align-items: center;
+    transform: translateY(-2px);
   }
   @media(max-width:490px){
     .div-wrapper .posters .bi{display:none;}
