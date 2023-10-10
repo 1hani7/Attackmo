@@ -119,14 +119,13 @@ export default {
           isShowSummary = null;
         };
         
-        return {
+        return { 
             recommendedMovies,
             isShowSummary, 
             handleMouseOut,
             handleMouseOver,
             information,
         }
-        console.log(information);
     }
 }
 </script>
