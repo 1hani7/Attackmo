@@ -46,7 +46,7 @@ export default {
         isSiren.value = true;
       }
 
-      window.addEventListener('mousemove', mouseCursor);
+      // window.addEventListener('mousemove', mouseCursor);
     })
 
     useRouter().afterEach(()=>{
