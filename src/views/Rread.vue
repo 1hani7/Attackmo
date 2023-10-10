@@ -17,7 +17,7 @@
                         <div class="write_d">2023.09.08</div>
                     </div>
                     <div class="con_detail">
-                        <div class="p_box"><img class="poster" src="../images/img/잠.jpg" /></div>
+                        <RouterLink to="/MovieTitle"><div class="p_box"><img class="poster" src="../images/img/잠.jpg" /></div></RouterLink>
                         <div class="movie_info">
                             <div class="movie_name">잠</div>
                             <div class="movie_release">2023.09.06 개봉</div>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="post_menu">
-                        <div class="rePost"><RouterLink to="/Rwrite">수정</RouterLink></div>
+                        <div class="rePost">수정</div>
                         <div class="del" @click="postDel">삭제</div>
                         <div class="siren" @click="openSirenPopup">신고</div>
                     </div>
@@ -70,7 +70,7 @@
                             <div class="nickName">{{ reply.nickName }}</div>
                             <div class="wDate">{{ reply.date }}</div>
                             <div class="reply_menu">
-                                <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
+                                <p class="rePost_reply">수정</p>
                                 <p class="del_reply" @click="() => deleteComment(index)">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
@@ -84,7 +84,7 @@
                                 {{ reply.text }}
                             </div>
                             <div class="mReply_menu">
-                                <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
+                                <p class="rePost_reply">수정</p>
                                 <p class="del_reply" @click="() => deleteComment(index)">삭제</p>
                                 <p class="siren_reply" @click="openSirenModal">신고</p>
                             </div>
@@ -140,10 +140,12 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue'
+import { ref, inject } from 'vue';
+import { useRouter} from 'vue-router';
 
 const liked = ref(false)
 const isModalOpen = ref(false)
+const router = useRouter();
 
 const toggleLike = () => {
     const ani = document.querySelector('.ani');
@@ -256,6 +258,7 @@ const openSirenPopup = () => {
         });
     }else{
         alert('로그인이 필요한 서비스입니다.')
+        router.push('/login');
     }
 }
 
@@ -264,6 +267,7 @@ const openSirenModal = () => {
         isModalOpen.value=true;
     }else{
         alert('로그인이 필요한 서비스입니다.')
+        router.push('/login');
     }
 }
 const closeModal = () => {
@@ -278,6 +282,7 @@ const deleteComment = (index) => {
         }
     } else {
         alert('로그인이 필요한 서비스입니다.');
+        router.push('/login');
     }
 }
 
@@ -288,6 +293,7 @@ const postDel = () => {
         }
     }else{
         alert('로그인이 필요한 서비스 입니다.')
+        router.push('/login');
     }
 }
 </script>
