@@ -3,30 +3,30 @@
         <div id="content">
             <div class="account">
                 <div class="info">
-                    <p class="nickname">@활동명</p>
+                    <p class="nickname">@{{ information.name }}</p>
                     <RouterLink to="/MyReview" class="my_review">내가 쓴 리뷰보기 ></RouterLink>
-                    <p class="email">email@email.com</p>
+                    <p class="email">{{ information.email }}</p>
                     <RouterLink to="/If_Eck" class="change">회원정보 변경 ></RouterLink>
                 </div>
                 <div class="review">
                     <b>작성리뷰 수</b>
-                    <p class="num">132개</p>
+                    <p class="num">{{ information.re }} 개</p>
                 </div>
                 <div class="comment">
                     <b>작성 댓글 수</b>
-                    <p class="num">32개</p>
+                    <p class="num">{{ information.reply }}개</p>
                 </div>
                 <div class="like">
                     <b>좋아요 한 수</b>
-                    <p class="num">1,024개</p>
+                    <p class="num">{{ information.like }}개</p>
                 </div>
                 <div class="mark">
                     <b>북마크 한 수</b>
-                    <p class="num">10개</p>
+                    <p class="num">{{ information.mark }}개</p>
                 </div>
                 <div class="sign_date">
                     <b>가입일</b>
-                    <p class="num">2023.06.27</p>
+                    <p class="num">{{ information.signDate }}</p>
                 </div>
             </div>
             <div id="rec">
@@ -98,6 +98,18 @@ export default {
             { imgSrc: '../src/images/img/캐롤.jpg', altText: '케롤' ,text:''},
             { imgSrc: '../src/images/img/인어공주.jpg', altText: '인어공주' ,text:''},
         ]);
+
+        const information = ref({
+            name: '미녀광인',
+            email: 'email@email.com',
+            re: '123',
+            reply: '342',
+            like: '2345',
+            mark: '351',
+            signDate: '2022.10.21'
+        });
+
+
         const isShowSummary = ref(null);
         
         const handleMouseOver = (movie) => {
@@ -107,7 +119,14 @@ export default {
           isShowSummary = null;
         };
         
-        return { recommendedMovies, isShowSummary, handleMouseOut, handleMouseOver }
+        return {
+            recommendedMovies,
+            isShowSummary, 
+            handleMouseOut,
+            handleMouseOver,
+            information,
+        }
+        console.log(information);
     }
 }
 </script>
