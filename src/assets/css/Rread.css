@@ -235,7 +235,7 @@ input { outline:none; }
     .write_info div{font-size:12px;}
     .review_title{padding:10px 15px; display:block;}
     .review_title .title{font-size: 15px;}
-    .post_menu{position:absolute; top: 30px; right:10px;}
+    .post_menu{position:absolute; top: 20px; right:10px;}
     .post_menu div{font-size: 12px;}
     .con_detail{display:block;margin:0;}
     .p_box{ text-align: center;}
