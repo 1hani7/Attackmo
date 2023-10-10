@@ -39,7 +39,10 @@ const router = createRouter({
       component: () => import('../views/Info.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false'){
+          alert('로그인이 필요합니다.');
+          useRouter().push('/login')
+        }
         else return next();
       }
     },
@@ -49,7 +52,10 @@ const router = createRouter({
       component: () => import('../views/RecHistory.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false'){
+          alert('로그인이 필요합니다.');
+          useRouter().push('/login')
+        }
         else return next();
       }
     },
@@ -59,7 +65,10 @@ const router = createRouter({
       component: () => import('../views/Mark.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false'){
+          alert('로그인이 필요합니다.');
+          useRouter().push('/login')
+        }
         else return next();
       }
     },
@@ -69,7 +78,10 @@ const router = createRouter({
       component: () => import('../views/Like.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false'){
+          alert('로그인이 필요합니다.');
+          useRouter().push('/login')
+        }
         else return next();
       }
     },
@@ -79,7 +91,10 @@ const router = createRouter({
       component: () => import('../views/Rwrite.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false'){
+          alert('로그인이 필요합니다.');
+          useRouter().push('/login')
+        }
         else return next();
       }
     },
@@ -134,7 +149,10 @@ const router = createRouter({
       component: () => import('@/views/If_Eck.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false'){
+          alert('로그인이 필요합니다.');
+          useRouter().push('/login')
+        }
         else return next();
       }
     },
@@ -184,7 +202,10 @@ const router = createRouter({
       component: () => import('@/views/ArWrite.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false') return alert('로그인이 필요합니다.')
+        if (sessionStorage.getItem('login') === 'false'){
+          alert('로그인이 필요합니다.');
+          useRouter().push('/login')
+        }
         else return next();
       }
     },
