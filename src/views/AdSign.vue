@@ -2,9 +2,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <section id="section">
     <div id="wrap">
-            <p id="title">회원관리(관리자)
-                <i class="bi bi-box-arrow-right" @click="back"></i>
-            </p> 
+            <p id="title">회원관리(관리자)</p> 
             <span>목록{{sortedData.length}}</span>
             <div id="app" v-show="isModalOn">
                     <div class="modal-window">
@@ -139,9 +137,7 @@ export default {
         deleteMember(){
             alert("회원삭제");
         },
-        back(){
-            this.$router.push('./TotalAdmin');
-        }
+        
         
     }
 }
@@ -243,8 +239,7 @@ thead tr{
     display:none;
 }
 span{font-weight: 700;}
-.bi-box-arrow-right{cursor: pointer;}
-.bi-box-arrow-right:hover{color:#B91646;}
+/* 모달창 */
         #app{
             position:absolute;
             top:188px;

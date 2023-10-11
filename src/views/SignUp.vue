@@ -158,6 +158,7 @@ export default {
     },
 };
 </script>
+
 <style>
     #wrap{
         display: flex;

@@ -6,12 +6,9 @@
             <RouterLink to="/Anotice" id="write">
                 <i class="bi bi-pencil-square"></i>
             </RouterLink> 
-            <RouterLink to="/ArWrite" id="Adwrite">
-                <i class="bi bi-pencil-square"></i>
-            </RouterLink>
         <div class="main">
             <div id="search_box">
-                    <input type="text" id="search" placeholder="검색어를 입력해주세요">
+                    <input type="text" id="search"  placeholder="검색어를 입력해주세요">
                     <i class="bi bi-search" @click="search"></i>
             </div>
             <table class="list">
@@ -62,6 +59,7 @@ export default {
             data: data,
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
             currentPage: 1, //페이지 이동 수 
+            
         }
     },
     computed: {
@@ -147,20 +145,7 @@ export default {
     display:flex; align-items: center;
     justify-content: center;
 } 
-#Adwrite{
-    width:50px;
-    height:50px;
-    background:black;
-    color:white;
-    border-radius: 50px;
-    font-size: 30px;
-    text-align: center;
-    position:absolute;
-    top:100px;
-    right:-100px;
-    display:flex; align-items: center;
-    justify-content: center;
-} 
+
 .main{
     display:flex;
     flex-direction: column;

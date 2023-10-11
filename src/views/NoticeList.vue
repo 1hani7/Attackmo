@@ -4,11 +4,8 @@
     <div id="wrap">
             <p id="title">공지사항</p> 
         <div class="main">
-            <RouterLink to="/Adnotice" id="Adwrite">
-                <i class="bi bi-pencil-square"></i>
-            </RouterLink>
             <div id="search_box">
-                    <input type="text" id="search" placeholder="검색어를 입력해주세요">
+                    <input type="text" id="search"  placeholder="검색어를 입력해주세요">
                     <i class="bi bi-search" @click="search"></i>
             </div>
             <table class="list">
@@ -59,6 +56,7 @@ export default {
             data: data,
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
             currentPage: 1, //페이지 이동 수
+            searchQuery:'',//검색어
         }
         
     },
@@ -75,6 +73,7 @@ export default {
         visiblePosts() { //작성폼에서 작성해서 저장하면 목록에 추가해줌
             const start = (this.currentPage - 1) * this.itemsPerPage;
             const end = start + this.itemsPerPage;
+           
             return this.sortedData.slice(start, end);
         }, 
         blocks() { //페이지 이동
@@ -165,20 +164,7 @@ export default {
     background:rgba(0,0,0,0)
 }
 .bi-search{cursor: pointer;}
-#Adwrite{
-    width:50px;
-    height:50px;
-    background:black;
-    color:white;
-    border-radius: 50px;
-    font-size: 30px;
-    text-align: center;
-    position:absolute;
-    top:100px;
-    right:-100px;
-    display:flex; align-items: center;
-    justify-content: center;
-} 
+
 .list{
     width:100%;
     border-radius:10px;

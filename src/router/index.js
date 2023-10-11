@@ -216,6 +216,12 @@ const router = createRouter({
       name: "TotalAdmin",
       component: () => import('@/views/TotalAdmin.vue')
     },
+    {
+      path: "/logSign",
+      name: "logSign",
+      component: () => import('@/views/logSign.vue')
+    },
+   
     
   ]
 })
