@@ -3,7 +3,7 @@
     <div class="now-show-wrap">
       <div class="title"><div class="mainTitle">상영 중인 영화</div></div>
       <div class="posters">
-        <div v-for="(value, key) in mNow" :key="key" class="poster-box">
+        <div v-for="(value, key) in now" :key="key" class="poster-box">
           <form action="/MovieTitle" name="movieName" method="get">
             <input type="hidden" name="movieName" :value="value.제목">
             <button type="submit">
@@ -33,16 +33,12 @@
 </template>
 
 <script>
-import {onMounted, ref} from 'vue'
-import {useRouter} from 'vue-router'
-import mNow from '../data/mNow.json';
+import {onMounted} from 'vue'
+// import mNow from '../data/mNow.json';
+import {now} from '../mNow';
 export default{
   name:'Mnow',
   setup(){
-    const router = useRouter();
-
-    // const now = inject('now');
-
     const titleModal = (e) => {
       const modal = document.getElementById("movieName");
       if( window.innerWidth > 1194 ){
@@ -60,25 +56,17 @@ export default{
     
 
     onMounted(()=>{
-      // const box = document.querySelectorAll(".poster-box");
-      // for( var item of box ){
-      //   item.addEventListener("click", function(){
-      //     router.push("/MovieTitle");
-      //   })
-      // }
-
       const title = document.querySelectorAll(".div");
       for( var item of title ){
         item.addEventListener("mouseover", titleModal);
         item.addEventListener("mouseout", titleModalOff);
       }
     })
-    return {mNow, titleModal}
+    return {now, titleModal}
   }
 }
 </script>
 
 <style scoped>
 @import url(./Mnow.css);
-
 </style>

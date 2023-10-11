@@ -1,5 +1,5 @@
 let data = null;
-let coming = {};
+let coming = [];
 
 
 $(async function(){
@@ -17,7 +17,8 @@ async function getMovies(){
     let key = 'ServiceKey=K0B3Y48HAF56XXL0ADR2&';
     let detail = 'detail=Y&'
     let listCount = 'listCount=1000&'
-    let releaseDts = `releaseDts=${todayYYYYMMDD()}&`;
+    // let releaseDts = `releaseDts=${todayYYYYMMDD()}&`;
+    let releaseDts = `releaseDts=${releaseFilter()}&`;
     let releaseDte = `releaseDts=${comingMovie()}&`;
 
     
@@ -33,18 +34,34 @@ function organize(dt){
         var m = item.repRlsDate.slice(4, 6)
         var d = item.repRlsDate.slice(6, 8)
 
-        coming[item.title] = new Object();
-        coming[item.title]['제목'] = item.title;
-        coming[item.title]['포스터'] = item.posters.split("|")[0];
-        coming[item.title]['장르'] = item.genre;
-        coming[item.title]['줄거리'] = item.plots.plot[0].plotText;
-        coming[item.title]['감독'] = item.staffs.staff[0].staffNm;
-        coming[item.title]['배우'] = actors(item.actors.actor);
-        coming[item.title]['러닝타임'] = item.runtime + '분';
-        coming[item.title]['개봉일'] = `${y}.${m}.${d} 개봉`;
-        coming[item.title]['스틸컷'] = stCuts(item);
-        coming[item.title]['예고편영상'] = stTrailer(item.vods.vod, false);
-        coming[item.title]['예고편타이틀'] = stTrailer(item.vods.vod, true);
+        coming.push(
+            {
+                '제목' : item.title,
+                '포스터' : item.posters.split("|")[0],
+                '장르' : item.genre,
+                '줄거리' : item.plots.plot[0].plotText,
+                '감독' : item.staffs.staff[0].staffNm,
+                '배우' : actors(item.actors.actor),
+                '러닝타임' : item.runtime + '분',
+                '개봉일': `${y}.${m}.${d} 개봉`,
+                '스틸컷' : stCuts(item),
+                '예고편영상' : stTrailer(item.vods.vod, false),
+                '예고편타이틀' : stTrailer(item.vods.vod, true)
+            }
+        )
+
+        // coming[item.title] = new Object();
+        // coming[item.title]['제목'] = item.title;
+        // coming[item.title]['포스터'] = item.posters.split("|")[0];
+        // coming[item.title]['장르'] = item.genre;
+        // coming[item.title]['줄거리'] = item.plots.plot[0].plotText;
+        // coming[item.title]['감독'] = item.staffs.staff[0].staffNm;
+        // coming[item.title]['배우'] = actors(item.actors.actor);
+        // coming[item.title]['러닝타임'] = item.runtime + '분';
+        // coming[item.title]['개봉일'] = `${y}.${m}.${d} 개봉`;
+        // coming[item.title]['스틸컷'] = stCuts(item);
+        // coming[item.title]['예고편영상'] = stTrailer(item.vods.vod, false);
+        // coming[item.title]['예고편타이틀'] = stTrailer(item.vods.vod, true);
     })
 }
 
@@ -67,7 +84,7 @@ function stCuts(data){
 }
 
 function sortIt(data){
-    return data.sort( (a,b) => b['repRlsDate'] - (a['repRlsDate']) )
+    return data.sort( (a,b) => a['repRlsDate'] - (b['repRlsDate']) )
 }
 
 
@@ -77,7 +94,7 @@ function filtering(dt){
         item.genre != "뮤직" &&
         item.genre != "인물,뮤직" &&
         item.posters != '' &&
-        item.vods.vod.length > 1 ;
+        item.repRlsDate.length >= 6;
     })
 }
 
@@ -89,14 +106,14 @@ function actors(item){
     return arr;
 }
 
-function todayYYYYMMDD() {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1을 해줍니다.
-    const day = String(date.getDate()).padStart(2, '0');
+// function todayYYYYMMDD() {
+//     const date = new Date();
+//     const year = date.getFullYear();
+//     const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1을 해줍니다.
+//     const day = String(date.getDate()).padStart(2, '0');
     
-    return `${year}${month}${day}`;
-}
+//     return `${year}${month}${day}`;
+// }
 
 
 function comingMovie(){
@@ -104,6 +121,18 @@ function comingMovie(){
     const currentDate = new Date();
     const yesterday = new Date(currentDate);
     yesterday.setDate(currentDate.getDate() + timeFuture);
+    console.log(yesterday)
+    var year = yesterday.getFullYear();
+    var month = String(yesterday.getMonth() + 1).padStart(2, '0');
+    var day = String(yesterday.getDate()).padStart(2, '0');
+    return `${year}${month}${day}`
+}
+
+function releaseFilter(){
+    const timeBackNumber = 1
+    const currentDate = new Date();
+    const yesterday = new Date(currentDate);
+    yesterday.setDate(currentDate.getDate() + timeBackNumber);
     console.log(yesterday)
     var year = yesterday.getFullYear();
     var month = String(yesterday.getMonth() + 1).padStart(2, '0');

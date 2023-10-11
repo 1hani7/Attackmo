@@ -70,7 +70,7 @@ export default {
         })
 
         onBeforeUnmount(()=>{
-          window.removeEventListener('popstate');
+          // window.removeEventListener('popstate');
         })
 
 

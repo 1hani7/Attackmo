@@ -1,5 +1,5 @@
 let data = null;
-let now = {};
+let now = [];
 
 
 $(async function(){
@@ -34,18 +34,34 @@ function organize(dt){
         var m = item.repRlsDate.slice(4, 6)
         var d = item.repRlsDate.slice(6, 8)
 
-        now[item.title] = new Object();
-        now[item.title]['제목'] = item.title;
-        now[item.title]['포스터'] = item.posters.split("|")[0];
-        now[item.title]['장르'] = item.genre;
-        now[item.title]['줄거리'] = item.plots.plot[0].plotText;
-        now[item.title]['감독'] = item.staffs.staff[0].staffNm;
-        now[item.title]['배우'] = actors(item.actors.actor);
-        now[item.title]['러닝타임'] = item.runtime + '분';
-        now[item.title]['개봉일'] = `${y}.${m}.${d} 개봉`;
-        now[item.title]['스틸컷'] = stCuts(item);
-        now[item.title]['예고편영상'] = stTrailer(item.vods.vod, false);
-        now[item.title]['예고편타이틀'] = stTrailer(item.vods.vod, true);
+        now.push(
+            {
+                '제목' : item.title,
+                '포스터' : item.posters.split("|")[0],
+                '장르' : item.genre,
+                '줄거리' : item.plots.plot[0].plotText,
+                '감독' : item.staffs.staff[0].staffNm,
+                '배우' : actors(item.actors.actor),
+                '러닝타임' : item.runtime + '분',
+                '개봉일': `${y}.${m}.${d} 개봉`,
+                '스틸컷' : stCuts(item),
+                '예고편영상' : stTrailer(item.vods.vod, false),
+                '예고편타이틀' : stTrailer(item.vods.vod, true)
+            }
+        )
+
+        // now[item.title] = new Object();
+        // now[item.title]['제목'] = item.title;
+        // now[item.title]['포스터'] = item.posters.split("|")[0];
+        // now[item.title]['장르'] = item.genre;
+        // now[item.title]['줄거리'] = item.plots.plot[0].plotText;
+        // now[item.title]['감독'] = item.staffs.staff[0].staffNm;
+        // now[item.title]['배우'] = actors(item.actors.actor);
+        // now[item.title]['러닝타임'] = item.runtime + '분';
+        // now[item.title]['개봉일'] = `${y}.${m}.${d} 개봉`;
+        // now[item.title]['스틸컷'] = stCuts(item);
+        // now[item.title]['예고편영상'] = stTrailer(item.vods.vod, false);
+        // now[item.title]['예고편타이틀'] = stTrailer(item.vods.vod, true);
     })
 }
 
@@ -78,8 +94,7 @@ function filtering(dt){
         return item.genre != "에로" &&
         item.genre != "뮤직" &&
         item.genre != "인물,뮤직" &&
-        item.posters != '' &&
-        item.vods.vod.length > 1 ;
+        item.posters != '';
     })
 }
 
@@ -101,7 +116,7 @@ function todayYYYYMMDD() {
 }
 
 function releaseFilter(){
-    const timeBackNumber = 31
+    const timeBackNumber = 15
     const currentDate = new Date();
     const yesterday = new Date(currentDate);
     yesterday.setDate(currentDate.getDate() - timeBackNumber);

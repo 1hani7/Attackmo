@@ -3,7 +3,7 @@
     <div class="now-show-wrap">
       <div class="title"><div class="mainTitle">상영 예정 영화</div></div>
       <div class="posters">
-        <div v-for="(value, key) in mComing" :key="key" class="poster-box">
+        <div v-for="(value, key) in coming" :key="key" class="poster-box">
           <form action="/MovieTitle" name="movieName" method="get">
             <input type="hidden" name="movieName" :value="value.제목">
             <button type="submit">
@@ -35,13 +35,13 @@
 <script>
 import {onMounted, ref, inject} from 'vue'
 import {useRouter} from 'vue-router'
-import mComing from '../data/mComing.json';
+// import mComing from '../data/mComing.json';
 export default{
     name:'Mcoming',
     setup(){
       const router = useRouter();
 
-      // const coming = inject('coming');
+      const coming = inject('coming');
 
       const titleModal = (e) => {
         const modal = document.getElementById("movieName");
@@ -73,7 +73,7 @@ export default{
           item.addEventListener("mouseout", titleModalOff);
         }
       })
-      return {mComing, titleModal}
+      return {coming, titleModal}
     }
 }
 </script>

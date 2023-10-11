@@ -78,30 +78,12 @@
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle618.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle642.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle643.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle653.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle618.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle642.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle643.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle653.png" />
-        </RouterLink>
+        <form v-for="(value, key) in now" :key="key" action="/MovieTitle" name="movieName" method="get">
+          <input type="hidden" name="movieName" :value="value.제목">
+          <button type="submit">
+            <img class="rectangle" :src="value.포스터" />
+          </button>
+        </form>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -146,6 +128,8 @@
 
 <script>
 import { inject, ref, onMounted } from 'vue';
+import {now} from '../mNow';
+
 export default {
   name: 'homeView',
   setup() {
@@ -156,28 +140,28 @@ export default {
     const isLogin = inject('isLogin');
 
     const path = ref();
-    
+
 
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
       const slider = event.target.parentNode;
-      slider.scrollLeft += 1000;
+      slider.scrollLeft += ((232 * 4) + (10 * 4));
     }
     const slideScrollLeft = (t, i) => {
       const slider = event.target.parentNode;
-      slider.scrollLeft -= 1000;
+      slider.scrollLeft -= ((232 * 4) + (10 * 4));
     }
 
     // 랜덤 예고편
     const randomTrailer = () => {
-      const temp = Math.floor(Math.random()*4)+1;
-      if( temp == 1 ){
+      const temp = Math.floor(Math.random() * 4) + 1;
+      if (temp == 1) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/FlowerMoon/FlowerMoon_1080x608.mp4';
-      }else if( temp == 2 ){
+      } else if (temp == 2) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/Expend4bles/1004_Expend4bles_1080x608.mp4';
-      }else if( temp == 3 ){
+      } else if (temp == 3) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/MissFortune/1006_1080x608_PC.mp4'
-      }else if( temp == 4 ){
+      } else if (temp == 4) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/BlueGiant/BlueGiant_1080X608_PC.mp4'
       }
     }
@@ -216,6 +200,7 @@ export default {
     });
 
     return {
+      now,
       videoPlayer,
       isPlaying,
       isMuted,
