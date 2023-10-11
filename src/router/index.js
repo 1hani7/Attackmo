@@ -13,10 +13,10 @@ const router = createRouter({
       name: 'homeView',
       component: () => import('../views/homeView.vue'),
       beforeEnter: async (to, from, next) => {
-        if( localStorage.getItem('now') == null ){
+        if( localStorage.getItem('now') == null || localStorage.getItem('now') == "[]" ){
           localStorage.setItem('now', JSON.stringify(now));
         }
-        if( localStorage.getItem('topTenList') == null ){
+        if( localStorage.getItem('topTenList') == null || localStorage.getItem('topTenList') == "[]" ){
           localStorage.setItem('topTenList', JSON.stringify(topTenList));
         }
         try{

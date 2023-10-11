@@ -44,7 +44,7 @@
               </form>
             </div>
           </div>
-          <div class="normalFont">
+          <div class="normalFont storyLine">
             {{ value.줄거리 }}
           </div>
         </div>
