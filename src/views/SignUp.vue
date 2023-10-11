@@ -29,8 +29,8 @@
                 </div>       
              </div>
              <div id="button_box">
-                <button type="submit" @click="register" id="sign" class="bt">가입하기</button>
-                <button @click="goBack" type="button" id="cancel" class="bt">취소</button>
+                <button type="submit" id="sign" class="bt">가입하기</button>
+                <button type="button" id="cancel" class="bt">취소</button>
              </div>
         </form>
   </div>
@@ -68,13 +68,53 @@ export default {
         console.log("등록 성공:", userCredential);
         alert("가입완료");
         // 이후 로그인 페이지로 리다이렉트 등의 동작 수행
-        router.push('/'); // 로그인 페이지 경로로 리다이렉트
+        router.push('/login'); // 로그인 페이지 경로로 리다이렉트
       } catch (error) {
         console.error("등록 실패:", error);
         alert("가입 실패: " + error.message);
+        router.push('/SignUp'); // 페이지 그대로
       }
     };
-    
+     // checkMail 함수 추가
+     const checkMail = (mail) => {
+      const emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+      if (!emailRegExp.test(mail)) {
+        alert("이메일 형식이 올바르지 않습니다!");
+        return false;
+      }
+      return true;
+    };
+    // checkPassword 함수 추가
+      const checkPassword = (password, password2) => {
+        if (password !== password2) {
+          alert("비밀번호가 맞지않습니다");   
+          return false;
+        }
+        if (password.length < 6) {
+          alert("비밀번호는 6자리 이상이어야 합니다.");
+          return false;
+        }
+        return true; // 확인이 완료되었을 때
+      };
+      //활동명
+      const checkName = (n_name) => {
+      if (!n_name) {
+        alert("활동명을 입력해주세요!");
+        return false;
+      }
+      const nameRegExp = /^[가-힣]{2,4}$/;
+      if (!nameRegExp.test(n_name)) {
+        alert("이름이 올바르지 않습니다.");
+        return false;
+      }
+      return true;
+    };
+    const submitForm = () => {
+      if (checkMail(email.value) && checkPassword(password.value, password2.value) && checkName(n_name.value)) {
+        // 모든 유효성 검사 통과한 경우에만 등록 수행
+        register();
+      }
+    };
 
     return {
       email,
@@ -82,6 +122,11 @@ export default {
       n_name, // 활동명 변수 추가
       goBack,
       register,
+      checkMail, // checkMail 함수를 setup에서 반환
+      checkPassword,
+      checkName,
+      submitForm,
+
     };
   },
 };
