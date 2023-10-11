@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, useRouter } from 'vue-router'
+import list from '../views/ReviewBoard.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -101,7 +102,13 @@ const router = createRouter({
     {
       path: '/ReviewBoard',
       name: 'ReviewBoard',
+      redirect:'/ReviewBoard/:1',
       component: () => import('../views/ReviewBoard.vue')
+    },
+    {
+      path:'/ReviewBoard/:page',
+      name:'ReviewBoard',
+      component:list,
     },
     {
       path: '/Rread',
@@ -226,4 +233,4 @@ const router = createRouter({
   ]
 })
 
-export default router
+export default router;

@@ -147,7 +147,7 @@ export default {
       </RouterLink> -->
       <div class="c-childs drawer">
         <div class="child">
-          <RouterLink to="/ReviewBoard"><div class="normalFont">- 리뷰페이지</div></RouterLink>
+          <RouterLink to="/ReviewBoard/:1"><div class="normalFont">- 리뷰페이지</div></RouterLink>
         </div>
         <div class="child">
           <RouterLink to="/Like"><div class="normalFont">- 좋아요</div></RouterLink>
