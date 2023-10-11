@@ -16,8 +16,23 @@ $(async function(){
     // console.log(set);
     // console.log(JSON.stringify(set,null, 2));
     // let keys = Object.keys(set);
-
 });
+// $(async function(){
+//     data = await getMovies();
+//     // console.log(data);
+
+//     // let genre = new Set();
+//     // $.each(data,function(idx, val){
+//     //     genre.add(val.genre);
+//     // })
+//     // console.log(s);
+
+//     organize();
+//     // console.log(set);
+//     // console.log(JSON.stringify(set,null, 2));
+//     // let keys = Object.keys(set);
+//     console.log(set);
+// });
 
 
 async function getMovies(){

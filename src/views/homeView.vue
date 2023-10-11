@@ -106,6 +106,8 @@
 <script>
 import { inject, ref, onMounted } from 'vue';
 import {useRouter} from 'vue-router'
+// import {now} from '../mNow'
+// import {topTenList} from '../topTenList'
 export default {
   name: 'homeView',
   setup() {
@@ -116,7 +118,6 @@ export default {
     const path = ref();
     const now = JSON.parse(localStorage.getItem('now')).slice(0, 10);
     const topTenList = JSON.parse(localStorage.getItem('topTenList'));
-
     
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {

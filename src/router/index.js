@@ -3,6 +3,7 @@ import list from '../views/ReviewBoard.vue';
 import {now} from '../mNow'
 import {coming} from '../Mcoming'
 import {topTenList} from '../topTenList'
+// import {set} from '../movieApi'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +12,7 @@ const router = createRouter({
       path: '/',
       name: 'homeView',
       component: () => import('../views/homeView.vue'),
-      beforeEnter: () => {
+      beforeEnter: async () => {
         if( localStorage.getItem('now') == null ){
           localStorage.setItem('now', JSON.stringify(now));
         }
@@ -47,7 +48,7 @@ const router = createRouter({
       path: '/Mcoming',
       name: 'Mcoming',
       component: () => import('../views/Mcoming.vue'),
-      beforeEnter: () => {
+      beforeEnter: async () => {
         if( localStorage.getItem('coming') == null ){
           localStorage.setItem('coming', JSON.stringify(coming));
         }

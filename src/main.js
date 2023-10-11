@@ -28,7 +28,6 @@ var sessionOptions = {
     persist:true,
 }
 
-
 app.use(createPinia())
 app.use(router)
 app.use(VueSession, sessionOptions)

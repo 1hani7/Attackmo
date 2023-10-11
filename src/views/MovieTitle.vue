@@ -95,9 +95,10 @@
 </template>
 
 <script>
+import {useRouter} from 'vue-router'
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, inject} from 'vue'
 export default{
     name: 'MovieTitle',
     components:{lineChart, radarChart},
@@ -107,6 +108,8 @@ export default{
       const isSwitched = ref(false);
       const path = ref('');
       const image = ref('');
+      // const set = inject('set');
+      // console.log(set);
 
 
       const BMClicked = () => isActive.value = !isActive.value;
@@ -130,6 +133,11 @@ export default{
           })
         }
       }
+
+      const router = useRouter();
+        router.beforeEach(() => {
+        localStorage.removeItem('set');
+      })
       
       onMounted(()=>{
         trailerScale();
