@@ -17,7 +17,7 @@ export default {
   setup() {
     provide('set', set);
     provide('coming', coming);
-
+    provide('now', now);
 
 
 
