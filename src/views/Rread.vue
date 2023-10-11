@@ -136,152 +136,152 @@ const toggleLike = () => {
 const replies = ref([
     {
         nickName:'로고와스미스',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.18',
         text:'저도 진짜 재밌게 봤는데 영화 많이 보신분들한테는 좀 식상할 수도 있음'
     },
     {
         nickName:'동과젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.18',
         text:'그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로'
     },
     {
         nickName:'망고젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.18',
         text:'간만에 친구 만나서 같이 봤는데 생각했던 것보다 엄청 재밌어서 놀람 이선균이 이런 연기도 하네'
     },
     {
         nickName:'우웅증말기환자',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.19',
         text:'이제 무서워서 잠 어떻게 가는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
     },
     {
         nickName:'성현박사맘',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.19',
         text:'몽유병이 진짜 같이 사는 사람끼리는 이보다 무서운게 없는 병이거든요... 뭔가 남 일 같지 않아서 계속 손에 땀을 쥐면서 봤네요...'
     },
     {
         nickName:'바재부팅부',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.19',
         text:'나도 혹시 자는 중에 이러는거 아닌가 싶어서 무서워지네'
     },
     {
         nickName:'로고와스미스',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.19',
         text:'저도 진짜 재밌게 봤는데 영화 많이 보신분들한테는 좀 식상할 수도 있음'
     },
     {
         nickName:'동과젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.19',
         text:'그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로'
     },
     {
         nickName:'망고젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.19',
         text:'간만에 친구 만나서 같이 봤는데 생각했던 것보다 엄청 재밌어서 놀람 이선균이 이런 연기도 하네'
     },
     {
         nickName:'우웅증말기환자',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.19',
         text:'이제 무서워서 잠 어떻게 가는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
     },
     {
         nickName:'성현박사맘',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.20',
         text:'몽유병이 진짜 같이 사는 사람끼리는 이보다 무서운게 없는 병이거든요... 뭔가 남 일 같지 않아서 계속 손에 땀을 쥐면서 봤네요...'
     },
     {
         nickName:'바재부팅부',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.20',
         text:'나도 혹시 자는 중에 이러는거 아닌가 싶어서 무서워지네'
     },
     {
         nickName:'로고와스미스',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.20',
         text:'저도 진짜 재밌게 봤는데 영화 많이 보신분들한테는 좀 식상할 수도 있음'
     },
     {
         nickName:'동과젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.20',
         text:'그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로'
     },
     {
         nickName:'망고젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.21',
         text:'간만에 친구 만나서 같이 봤는데 생각했던 것보다 엄청 재밌어서 놀람 이선균이 이런 연기도 하네'
     },
     {
         nickName:'우웅증말기환자',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.21',
         text:'이제 무서워서 잠 어떻게 가는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
     },
     {
         nickName:'성현박사맘',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.21',
         text:'몽유병이 진짜 같이 사는 사람끼리는 이보다 무서운게 없는 병이거든요... 뭔가 남 일 같지 않아서 계속 손에 땀을 쥐면서 봤네요...'
     },
     {
         nickName:'바재부팅부',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.21',
         text:'나도 혹시 자는 중에 이러는거 아닌가 싶어서 무서워지네'
     },
     {
         nickName:'로고와스미스',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.21',
         text:'저도 진짜 재밌게 봤는데 영화 많이 보신분들한테는 좀 식상할 수도 있음'
     },
     {
         nickName:'동과젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.21',
         text:'그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로'
     },
     {
         nickName:'망고젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.22',
         text:'간만에 친구 만나서 같이 봤는데 생각했던 것보다 엄청 재밌어서 놀람 이선균이 이런 연기도 하네'
     },
     {
         nickName:'우웅증말기환자',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.22',
         text:'이제 무서워서 잠 어떻게 가는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
     },
     {
         nickName:'성현박사맘',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.22',
         text:'몽유병이 진짜 같이 사는 사람끼리는 이보다 무서운게 없는 병이거든요... 뭔가 남 일 같지 않아서 계속 손에 땀을 쥐면서 봤네요...'
     },
     {
         nickName:'바재부팅부',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.22',
         text:'나도 혹시 자는 중에 이러는거 아닌가 싶어서 무서워지네'
     },
     {
         nickName:'로고와스미스',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.22',
         text:'저도 진짜 재밌게 봤는데 영화 많이 보신분들한테는 좀 식상할 수도 있음'
     },
     {
         nickName:'동과젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.23',
         text:'그럭저럭 나쁘진 않았는데 예고편에 나온 것만큼 대단하진 않았던 걸로'
     },
     {
         nickName:'망고젤리',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.23',
         text:'간만에 친구 만나서 같이 봤는데 생각했던 것보다 엄청 재밌어서 놀람 이선균이 이런 연기도 하네'
     },
     {
         nickName:'우웅증말기환자',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.23',
         text:'이제 무서워서 잠 어떻게 가는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
     },
     {
         nickName:'성현박사맘',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.23',
         text:'몽유병이 진짜 같이 사는 사람끼리는 이보다 무서운게 없는 병이거든요... 뭔가 남 일 같지 않아서 계속 손에 땀을 쥐면서 봤네요...'
     },
     {
         nickName:'바재부팅부',
-        date:'YYYY.MM.DD',
+        date:'YYYY.MM.23',
         text:'나도 혹시 자는 중에 이러는거 아닌가 싶어서 무서워지네'
     },
 ]);
@@ -347,22 +347,18 @@ const postDel = () => {
     }
 }
 
-// Reverse the replies array to display them in ascending order by registration date
-const sortedReplies = ref(replies.value.slice().reverse());
+const sortedReplies = ref(replies.value.slice());
 
-// Initialize displayedReplies with the first 10 comments
-displayedReplies.value = sortedReplies.value.slice(0, commentsToShow);
+displayedReplies.value = sortedReplies.value.slice(-commentsToShow);
 
 function loadMore() {
-  // Calculate the range of comments to display
-  const startIndex = displayedReplies.value.length;
-  const endIndex = startIndex + commentsToShow;
+    const startIndex = displayedReplies.value.length;
+    const endIndex = startIndex + commentsToShow;
 
-  // Check if there are more comments to display
-  if (startIndex < sortedReplies.value.length) {
-    // Prepend the next batch of comments to displayedReplies
-    displayedReplies.value = sortedReplies.value.slice(startIndex, endIndex).concat(displayedReplies.value);
-  }
+    if (startIndex < sortedReplies.value.length) {
+        const newReplies = sortedReplies.value.slice(-endIndex, -startIndex).reverse(); // 역순으로 댓글 로드
+        displayedReplies.value = newReplies.concat(displayedReplies.value);
+    }
 }
 
 </script>
