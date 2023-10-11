@@ -38,166 +38,25 @@
       </div>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle613.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
+        <form v-for="(value, key) in now" :key="key" action="/MovieTitle" name="movieName" method="get"
+          class="poster-box">
+          <input type="hidden" name="movieName" :value="value.제목">
+          <button type="submit">
+            <img class="image" :src="value.포스터" />
+          </button>
+          <div class="view">
+            <div @mouseover="titleModal" @mouseout="titleModal" class="movieTitle">{{ value.제목 }}</div>
+            <div class="movieDate">{{ value.개봉일 }}</div>
           </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle614.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
+          <div class="starBox">
+            <div class="starYellow">★</div>
+            <div class="starYellow">★</div>
+            <div class="starYellow">★</div>
+            <div class="starYellow">★</div>
+            <div class="starBlack">★</div>
           </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle618.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle629.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle642.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle643.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle653.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle695.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle696.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle698.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
+          <div class="movieName show">{{ value.제목 }}</div>
+        </form>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -726,7 +585,7 @@ export default {
   name: 'MovieMain',
   setup() {
     const isLogin = inject('isLogin');
-    // const now = JSON.parse(localStorage.getItem('now')).slice(0, 10);
+    const now = JSON.parse(localStorage.getItem('now'));
     const topTenList = JSON.parse(localStorage.getItem('topTenList')).slice(0, 10);
 
 
@@ -746,7 +605,7 @@ export default {
     }
 
     return {
-      isLogin, topTenList, titleModal,
+      isLogin, topTenList, titleModal, now,
       slideScrollRight, slideScrollLeft
     }
   }
