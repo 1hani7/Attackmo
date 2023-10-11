@@ -8,7 +8,6 @@
             </div>
             <div class="file_box">
                 <label>첨부파일</label>
-                
                 <input type="file" accept =".gif, .jpg, .png" 
                 name="file" id="file" @change="handleFileChange" >
                 <p>*gif,jpg,png 선택 가능합니다</p>
