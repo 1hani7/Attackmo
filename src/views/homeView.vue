@@ -38,36 +38,12 @@
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle695.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle696.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle697.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle698.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle696.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle697.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle698.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle695.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle696.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle" class="link">
-          <img class="rectangle" src="../images/Rectangle697.png" />
-        </RouterLink>
+        <form v-for="(value, key) in topTenList" :key="key" action="/MovieTitle" name="movieName" method="get">
+          <input type="hidden" name="movieName" :value="value.제목">
+          <button type="submit">
+            <img class="rectangle" :src="value.포스터" />
+          </button>
+        </form>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -141,6 +117,7 @@ export default {
     const path = ref();
 
     const now = JSON.parse(localStorage.getItem('now')).slice(0, 10);
+    const topTenList = JSON.parse(localStorage.getItem('topTenList'));
 
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
@@ -202,9 +179,11 @@ export default {
     const router = useRouter();
     router.beforeEach(() => {
       localStorage.removeItem('now');
+      localStorage.removeItem('topTenList');
     })
 
     return {
+      topTenList,
       now,
       videoPlayer,
       isPlaying,

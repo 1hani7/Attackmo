@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import list from '../views/ReviewBoard.vue';
 import {now} from '../mNow'
 import {coming} from '../Mcoming'
+import {topTenList} from '../topTenList'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,9 @@ const router = createRouter({
       beforeEnter: () => {
         if( localStorage.getItem('now') == null ){
           localStorage.setItem('now', JSON.stringify(now));
+        }
+        if( localStorage.getItem('topTenList') == null ){
+          localStorage.setItem('topTenList', JSON.stringify(topTenList));
         }
       }
     },
