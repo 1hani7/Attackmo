@@ -3,7 +3,7 @@ import list from '../views/ReviewBoard.vue';
 import {now} from '../mNow'
 import {coming} from '../Mcoming'
 import {topTenList} from '../topTenList'
-// import {set} from '../movieApi'
+import {set} from '../movieApi'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,12 +12,20 @@ const router = createRouter({
       path: '/',
       name: 'homeView',
       component: () => import('../views/homeView.vue'),
-      beforeEnter: async () => {
+      beforeEnter: async (to, from, next) => {
         if( localStorage.getItem('now') == null ){
           localStorage.setItem('now', JSON.stringify(now));
         }
         if( localStorage.getItem('topTenList') == null ){
           localStorage.setItem('topTenList', JSON.stringify(topTenList));
+        }
+        try{
+          if( localStorage.getItem('set') == null || localStorage.getItem('set') === "[]" ){
+            localStorage.setItem('set', JSON.stringify(set));
+          }
+          next();
+        } catch(error){
+          console.error('데이터 저장 중 오류 발생:', error);
         }
       }
     },
