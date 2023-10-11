@@ -43,7 +43,7 @@
                         <div class="menuName">영화</div>
                     </div>
                 </RouterLink>
-                <RouterLink to="/ReviewBoard">
+                <RouterLink to="/ReviewBoard/:1">
                     <div class="menu">
                         <div class="menuName">리뷰</div>
                     </div>

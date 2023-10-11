@@ -8,7 +8,7 @@
           <div class="navBt">시사회</div>
         </div>
         <div class="div">
-          <RouterLink to="/ReviewBoard"><div class="navBt">리뷰</div></RouterLink>
+          <RouterLink to="/ReviewBoard/:1"><div class="navBt">리뷰</div></RouterLink>
           <RouterLink to="/Like"><div class="navBt">좋아요</div></RouterLink>
           <RouterLink to="/Mark"><div class="navBt">북마크</div></RouterLink>
         </div>

@@ -8,7 +8,7 @@
                   <input type="email" placeholder="이메일" v-model="user_email" id="email-new">
                   <input type="password" placeholder="비밀번호" v-model="user_pw" id="pw-new">
                   <!-- <button @click="togo" @keyup="togo" id="login_bt">로그인</button>   -->
-                  <button @click="login()" id="login_bt">로그인</button> 
+                  <button type=submit @click="login()" id="login_bt">로그인</button> 
               
                     <div id="find">
                         <label><RouterLink to="./FindE">ID</RouterLink><RouterLink to="./FindP">/PW찾기</RouterLink></label>
@@ -29,6 +29,8 @@
 <script>
 import { inject } from 'vue';
 import { useRouter } from 'vue-router';
+
+
 export default {
   setup(){
     const isLogin = inject('isLogin');
@@ -45,59 +47,8 @@ export default {
       window.open(linkUrl,'_blank','width=600 height=600');
     }
   }
-  //import axios from 'axios';
-  // const login = () => {
-    //   const sessionStorage = window.sessionStorage;
-    //   if( sessionStorage.getItem('login') === 'false' ){
-    //     sessionStorage.setItem('login', true);
-    //     isLogin.value = true;
-
-    //     console.log('login is : ' + sessionStorage.getItem('login'));
-    //   }else{
-    //     sessionStorage.setItem('login', false);
-    //     isLogin.value = false;
-
-    //     console.log('login is : ' + sessionStorage.getItem('login'));
-    //   }
-    // }
-
-    // onMounted(() => {
-    //   const sessionStorage = window.sessionStorage;
-    //   sessionStorage.setItem('login', false);
-    // })
-  // data: function() {
-  //   return {
-  //     user_email: '',
-  //     user_pw: ''
-  //   }
-  // },
-  // methods: {
-  //   Login: function() {
-  //     //event.preventDefault();
-  //     console.log(this.user_email, this.user_pw);
-  //     const url = 'https://jsonplaceholder.typicode.com/users';
-  //     const data = {
-  //       email: this.user_email,
-  //       password: this.user_pw
-  //     }
-  //     axios.post(url, data)
-  //       .then(function(response) {
-  //         console.log('로그인 성공', response);
-  //         alert("로그인 성공");
-  //         //this.togo();
-  //       })
-  //       .catch(function(error) {
-  //         console.log(error);
-  //       });
-  //    },
-  //   togo() {
-  //     this.$router.push('/');
-  //   }
-  // }
 }
 </script>
-
- 
 <style scoped>
 
     a{color:black;cursor:pointer}

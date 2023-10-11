@@ -2,9 +2,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <section id="section">
     <div id="wrap">
-            <p id="title">신고관리(관리자)
-                <i class="bi bi-box-arrow-right" @click="back"></i>
-            </p> 
+            <p id="title">신고관리(관리자)</p> 
             <span>목록{{sortedData.length}}</span>
         <div class="main">
             <table class="list">
