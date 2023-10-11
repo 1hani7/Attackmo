@@ -33,20 +33,22 @@
 </template>
 
 <script>
-import {onMounted, ref, inject} from 'vue'
-import {useRouter} from 'vue-router'
-// import mComing from '../data/mComing.json';
+import {onMounted, reactive, inject} from 'vue'
 export default{
     name:'Mcoming',
     setup(){
-      const router = useRouter();
 
-      const coming = inject('coming');
+      let coming = inject('coming');
 
       const titleModal = (event) => {
       const t = event.target.parentNode.parentNode.nextSibling;
       t.classList.toggle('show');
-    }
+      }
+
+      onMounted(()=>{
+        
+      })
+
       return {coming, titleModal}
     }
 }

@@ -5,7 +5,7 @@
         <div class="mainTitle">상영 중인 영화</div>
       </div>
       <div class="posters">
-        <div v-for="(value, key) in now" :key="key" class="poster-box">
+        <div v-for="(value, key) in nowData" :key="key" class="poster-box">
           <form action="/MovieTitle" name="movieName" method="get">
             <input type="hidden" name="movieName" :value="value.제목">
             <button type="submit">
@@ -35,22 +35,23 @@
 </template>
 
 <script>
-import { onMounted, ref, inject } from 'vue'
-import { useRouter } from 'vue-router'
-// import mNow from '../data/mNow.json';
+import {useRouter} from 'vue-router'
 export default {
   name: 'Mnow',
   setup() {
-    const router = useRouter();
+    const nowData = JSON.parse(localStorage.getItem('now'));
 
-    const now = inject('now');
+    const router = useRouter();
+    router.beforeEach(() => {
+      localStorage.removeItem('now');
+    })
 
     const titleModal = (event) => {
       const t = event.target.parentNode.parentNode.nextSibling;
       t.classList.toggle('show');
     }
 
-    return { now, titleModal }
+    return {nowData, titleModal }
   }
 }
 </script>

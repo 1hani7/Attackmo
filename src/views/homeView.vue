@@ -128,8 +128,7 @@
 
 <script>
 import { inject, ref, onMounted } from 'vue';
-import {now} from '../mNow';
-
+import {now} from '../mNow'
 export default {
   name: 'homeView',
   setup() {

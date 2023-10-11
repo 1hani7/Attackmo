@@ -5,21 +5,17 @@ import botFooter from './components/interface/botFooter.vue';
 import topAds from './components/AD/topAds.vue';
 import botAds from './components/AD/botAds.vue';
 import {ref, provide, onMounted, reactive } from 'vue';
-import {set} from './movieApi';
-import {coming} from './mComing';
-import {now} from './mNow';
-import {topTenList} from './topTenList';
 
 export default {
   components: {
     topAds, topHeader, botAds, botFooter
   },
   setup() {
-    provide('set', set);
-    provide('coming', coming);
-    provide('now', now);
-
-
+    // const nowMovie = reactive(now);
+    // provide('now', nowMovie);
+    // const comingMovie = reactive(coming);
+    // provide('coming', comingMovie);
+    
 
     const isLogin = ref(false);
     provide('isLogin', isLogin);
@@ -31,7 +27,6 @@ export default {
       console.log('login is = ' + sessionStorage.getItem('login'))
     }
     provide('loginToggle', loginToggle);
-
 
     const isSiren = ref(true);
 
@@ -54,10 +49,9 @@ export default {
     //   console.log(topTenSet)
     //   provide('topTenSet', topTenSet);
     // }
-
-
     onMounted(() => {
       // topTenMake();
+      localStorage.setItem('now', JSON.stringify(now));
 
       const sessionStorage = window.sessionStorage;
       sessionStorage.setItem('login', isLogin.value);
@@ -75,8 +69,7 @@ export default {
 
 
     return{
-      isSiren, topTenList, now
-      // mouseCursor
+      isSiren
     }
   }
 }
@@ -103,7 +96,9 @@ export default {
   <topHeader v-if="isSiren"/>
 
   <!-- 컨텐츠 -->
-  <RouterView />
+  <Suspense>
+    <RouterView />
+  </Suspense>
 
   <!-- 하단광고 위치 -->
   <section v-if="isSiren">
