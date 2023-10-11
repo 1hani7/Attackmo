@@ -113,10 +113,10 @@ export default {
         const isShowSummary = ref(null);
         
         const handleMouseOver = (movie) => {
-          isShowSummary = movie;
+          isShowSummary.value = movie;
         };
         const handleMouseOut = () => {
-          isShowSummary = null;
+          isShowSummary.value = null;
         };
         
         return { 
