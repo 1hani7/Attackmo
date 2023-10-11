@@ -23,7 +23,15 @@ const router = createRouter({
     {
       path: '/MovieMain',
       name: 'MovieMain',
-      component: () => import('../views/MovieMain.vue')
+      component: () => import('../views/MovieMain.vue'),
+      beforeEnter: () => {
+        if( localStorage.getItem('now') == null ){
+          localStorage.setItem('now', JSON.stringify(now));
+        }
+        if( localStorage.getItem('topTenList') == null ){
+          localStorage.setItem('topTenList', JSON.stringify(topTenList));
+        }
+      }
     },
     {
       path: '/Mnow',

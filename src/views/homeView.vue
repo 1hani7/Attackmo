@@ -40,6 +40,7 @@
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
         <form v-for="(value, key) in topTenList" :key="key" action="/MovieTitle" name="movieName" method="get">
           <input type="hidden" name="movieName" :value="value.제목">
+          <div class="ranking">{{ value.랭킹 }}</div>
           <button type="submit">
             <img class="rectangle" :src="value.포스터" />
           </button>
@@ -111,14 +112,12 @@ export default {
     const videoPlayer = ref(null); // 비디오 요소에 대한 ref
     const isPlaying = ref(false); // 비디오 재생 상태
     const isMuted = ref(false);   // 음소거 상태
-
     const isLogin = inject('isLogin');
-
     const path = ref();
-
     const now = JSON.parse(localStorage.getItem('now')).slice(0, 10);
     const topTenList = JSON.parse(localStorage.getItem('topTenList'));
 
+    
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
       const slider = event.target.parentNode;

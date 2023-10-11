@@ -11,12 +11,6 @@ export default {
     topAds, topHeader, botAds, botFooter
   },
   setup() {
-    // const nowMovie = reactive(now);
-    // provide('now', nowMovie);
-    // const comingMovie = reactive(coming);
-    // provide('coming', comingMovie);
-    
-
     const isLogin = ref(false);
     provide('isLogin', isLogin);
 
@@ -30,28 +24,7 @@ export default {
 
     const isSiren = ref(true);
 
-
-
-    // const topTenSet = reactive([]);
-    // const topTenMake = () => {
-    //   for( var i in now ){
-    //     for( var k in topTenList ){
-    //       if( now[i].제목.indexOf(topTenList[k]) > -1 ){
-    //         topTenSet.push(
-    //           {
-    //             '제목' : now[i].제목,
-    //             '포스터' : now[i].포스터
-    //           }
-    //         )
-    //       }
-    //     }
-    //   }
-    //   console.log(topTenSet)
-    //   provide('topTenSet', topTenSet);
-    // }
     onMounted(() => {
-      // topTenMake();
-
       const sessionStorage = window.sessionStorage;
       sessionStorage.setItem('login', isLogin.value);
 

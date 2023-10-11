@@ -11,7 +11,8 @@ $(async function(){
                     {
                         '제목' : item.title,
                         '포스터' : item.posters.split("|")[0],
-                        '랭킹' : tem.rank
+                        '랭킹' : tem.rank,
+                        '개봉일' : item.repRlsDate
                     }
                 )
             }
@@ -110,7 +111,7 @@ function todayYYYYMMDD() {
 }
 
 function releaseFilter(){
-    const timeBackNumber = 15
+    const timeBackNumber = 60
     const currentDate = new Date();
     const yesterday = new Date(currentDate);
     yesterday.setDate(currentDate.getDate() - timeBackNumber);
