@@ -128,7 +128,7 @@
 
 <script>
 import { inject, ref, onMounted } from 'vue';
-import {now} from '../mNow'
+import {useRouter} from 'vue-router'
 export default {
   name: 'homeView',
   setup() {
@@ -140,6 +140,7 @@ export default {
 
     const path = ref();
 
+    const now = JSON.parse(localStorage.getItem('now')).slice(0, 10);
 
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
@@ -197,6 +198,11 @@ export default {
         isMuted.value = videoPlayer.value.muted;
       });
     });
+
+    const router = useRouter();
+    router.beforeEach(() => {
+      localStorage.removeItem('now');
+    })
 
     return {
       now,

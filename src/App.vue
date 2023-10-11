@@ -51,7 +51,6 @@ export default {
     // }
     onMounted(() => {
       // topTenMake();
-      localStorage.setItem('now', JSON.stringify(now));
 
       const sessionStorage = window.sessionStorage;
       sessionStorage.setItem('login', isLogin.value);

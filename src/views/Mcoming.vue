@@ -1,7 +1,9 @@
 <template>
   <div class="main-content">
     <div class="now-show-wrap">
-      <div class="title"><div class="mainTitle">상영 예정 영화</div></div>
+      <div class="title">
+        <div class="mainTitle">상영 예정 영화</div>
+      </div>
       <div class="posters">
         <div v-for="(value, key) in coming" :key="key" class="poster-box">
           <form action="/MovieTitle" name="movieName" method="get">
@@ -10,7 +12,7 @@
               <img class="rectangle" :src="value.포스터" />
             </button>
             <button type="submit">
-            <div class="view">
+              <div class="view">
                 <div @mouseover="titleModal" @mouseout="titleModal" class="div">{{ value.제목 }}</div>
                 <div class="normalFont">{{ value.개봉일 }}</div>
                 <div class="normalFont onMobile">{{ value.장르 }}</div>
@@ -33,27 +35,30 @@
 </template>
 
 <script>
-import {onMounted, reactive, inject} from 'vue'
-export default{
-    name:'Mcoming',
-    setup(){
+import {useRouter} from 'vue-router'
+import { onMounted, reactive, inject } from 'vue'
+export default {
+  name: 'Mcoming',
+  setup() {
+    const coming = JSON.parse(localStorage.getItem('coming'));
 
-      let coming = inject('coming');
+    const router = useRouter();
+    router.beforeEach(() => {
+      localStorage.removeItem('coming');
+    })
 
-      const titleModal = (event) => {
+    const titleModal = (event) => {
       const t = event.target.parentNode.parentNode.nextSibling;
       t.classList.toggle('show');
-      }
-
-      onMounted(()=>{
-        
-      })
-
-      return {coming, titleModal}
     }
+
+    onMounted(() => {
+
+    })
+
+    return { coming, titleModal }
+  }
 }
 </script>
 
-<style scoped>
-@import url(./Mcoming.css);
-</style>
+<style scoped>@import url(./Mcoming.css);</style>

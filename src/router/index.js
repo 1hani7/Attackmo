@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import list from '../views/ReviewBoard.vue';
+import {now} from '../mNow'
+import {coming} from '../Mcoming'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +9,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'homeView',
-      component: () => import('../views/homeView.vue')
+      component: () => import('../views/homeView.vue'),
+      beforeEnter: () => {
+        if( localStorage.getItem('now') == null ){
+          localStorage.setItem('now', JSON.stringify(now));
+        }
+      }
     },
     {
       path: '/MovieMain',
@@ -17,12 +24,22 @@ const router = createRouter({
     {
       path: '/Mnow',
       name: 'Mnow',
-      component: () => import('../views/Mnow.vue')
+      component: () => import('../views/Mnow.vue'),
+      beforeEnter: () => {
+        if( localStorage.getItem('now') == null ){
+          localStorage.setItem('now', JSON.stringify(now));
+        }
+      }
     },
     {
       path: '/Mcoming',
       name: 'Mcoming',
-      component: () => import('../views/Mcoming.vue')
+      component: () => import('../views/Mcoming.vue'),
+      beforeEnter: () => {
+        if( localStorage.getItem('coming') == null ){
+          localStorage.setItem('coming', JSON.stringify(coming));
+        }
+      }
     },
     {
       path: '/Search',
