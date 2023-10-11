@@ -859,6 +859,8 @@ export default{
     setup(){
       const isLogin = inject('isLogin');
 
+      const now = inject('now');
+
       // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
       const slider = event.target.parentNode;
@@ -869,7 +871,7 @@ export default{
       slider.scrollLeft -= 900;
     }
 
-      return {isLogin,
+      return {isLogin, now,
         slideScrollRight, slideScrollLeft}
     }
 }

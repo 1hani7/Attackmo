@@ -3,7 +3,7 @@
     <div class="now-show-wrap">
       <div class="title"><div class="mainTitle">상영 예정 영화</div></div>
       <div class="posters">
-        <div v-for="(value, key) in mComing" :key="key" class="poster-box">
+        <div v-for="(value, key) in coming" :key="key" class="poster-box">
           <form action="/MovieTitle" name="movieName" method="get">
             <input type="hidden" name="movieName" :value="value.제목">
             <button type="submit">
@@ -11,7 +11,7 @@
             </button>
             <button type="submit">
             <div class="view">
-                <div class="div">{{ value.제목 }}</div>
+                <div @mouseover="titleModal" @mouseout="titleModal" class="div">{{ value.제목 }}</div>
                 <div class="normalFont">{{ value.개봉일 }}</div>
                 <div class="normalFont onMobile">{{ value.장르 }}</div>
                 <div class="normalFont onMobile">{{ value.러닝타임 }}</div>
@@ -24,55 +24,30 @@
                 <div class="starBlack">★</div>
               </div>
             </button>
+            <div class="movieName show">{{ value.제목 }}</div>
           </form>
         </div>
       </div>
     </div>
   </div>
-  <div id="movieName"></div>
 </template>
 
 <script>
-import {onMounted, ref} from 'vue'
+import {onMounted, ref, inject} from 'vue'
 import {useRouter} from 'vue-router'
-import mComing from '../data/mComing.json';
+// import mComing from '../data/mComing.json';
 export default{
     name:'Mcoming',
     setup(){
       const router = useRouter();
 
+      const coming = inject('coming');
 
-      const titleModal = (e) => {
-        const modal = document.getElementById("movieName");
-        if( window.innerWidth > 1194 ){
-          modal.style.left = e.pageX + 'px';
-          modal.style.top = e.pageY + 'px';
-          modal.textContent = e.target.textContent;
-          modal.style.opacity = '1';
-        }
-      }
-
-      const titleModalOff = () => {
-        const modal = document.getElementById("movieName");
-        modal.style.opacity = '0';
-      }
-      
-
-      onMounted(()=>{
-        const box = document.querySelectorAll(".poster-box");
-        for( var item of box ){
-          item.addEventListener("click", function(){
-            router.push("/MovieTitle");
-          })
-        }
-
-        const title = document.querySelectorAll(".div");
-        for( var item of title ){
-          item.addEventListener("mouseover", titleModal);
-          item.addEventListener("mouseout", titleModalOff);
-        }
-      })
-      return {mComing, titleModal}
+      const titleModal = (event) => {
+      const t = event.target.parentNode.parentNode.nextSibling;
+      t.classList.toggle('show');
+    }
+      return {coming, titleModal}
     }
 }
 </script>

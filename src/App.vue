@@ -4,18 +4,22 @@ import topHeader from './components/interface/topHeader.vue';
 import botFooter from './components/interface/botFooter.vue';
 import topAds from './components/AD/topAds.vue';
 import botAds from './components/AD/botAds.vue';
-import {ref, provide, onMounted } from 'vue';
+import {ref, provide, onMounted, reactive } from 'vue';
 import {set} from './movieApi';
 import {coming} from './mComing';
 import {now} from './mNow';
-
+import {topTenList} from './topTenList';
 
 export default {
   components: {
     topAds, topHeader, botAds, botFooter
   },
   setup() {
-    // console.log(set);
+    provide('set', set);
+    provide('coming', coming);
+    provide('now', now);
+
+
 
     const isLogin = ref(false);
     provide('isLogin', isLogin);
@@ -31,14 +35,30 @@ export default {
 
     const isSiren = ref(true);
 
-    // const mouseCursor = (e) => {
-    //   const cursor = document.querySelector('.cursor');
-    //   cursor.style.left = e.pageX + 'px';
-    //   cursor.style.top = e.pageY + 'px';
+
+
+    // const topTenSet = reactive([]);
+    // const topTenMake = () => {
+    //   for( var i in now ){
+    //     for( var k in topTenList ){
+    //       if( now[i].제목.indexOf(topTenList[k]) > -1 ){
+    //         topTenSet.push(
+    //           {
+    //             '제목' : now[i].제목,
+    //             '포스터' : now[i].포스터
+    //           }
+    //         )
+    //       }
+    //     }
+    //   }
+    //   console.log(topTenSet)
+    //   provide('topTenSet', topTenSet);
     // }
 
 
     onMounted(() => {
+      // topTenMake();
+
       const sessionStorage = window.sessionStorage;
       sessionStorage.setItem('login', isLogin.value);
 
@@ -47,8 +67,6 @@ export default {
       } else {
         isSiren.value = true;
       }
-
-      // window.addEventListener('mousemove', mouseCursor);
     })
 
     useRouter().afterEach(()=>{
@@ -57,7 +75,7 @@ export default {
 
 
     return{
-      isSiren,
+      isSiren, topTenList, now
       // mouseCursor
     }
   }
