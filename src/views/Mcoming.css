@@ -1,4 +1,4 @@
-button{border:none; cursor:pointer; text-align: left; background:white;}
+button{border:none; text-align: left; background:white;}
 .main-content {
   display: inline-flex;
   flex-direction: column;
@@ -105,7 +105,7 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   gap: 10px;
   position: relative;
   flex: 0 0 auto;
-  cursor:pointer;
+  /* cursor:pointer; */
 }
 @media(max-width:1194px){
   .main-content .poster-box{
@@ -172,7 +172,7 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   position: relative;
   line-height: normal;
   background:white;
-  cursor:pointer;
+  /* cursor:pointer; */
   pointer-events: visible;
 }
 @media(max-width:1194px){

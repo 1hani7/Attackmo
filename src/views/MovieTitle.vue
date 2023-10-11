@@ -1,35 +1,35 @@
 <template>
-    <div class="content">
+    <div v-for="(value, key) in filtered" :key="key" class="content">
       <div class="movie-info-box">
         <div class="mainTitle">영화정보</div>
         <div class="movie-template">
-          <img class="poster" src="https://file2.nocutnews.co.kr/newsroom/image/2023/08/21/202308210927594431_0.jpg" />
+          <img class="poster" :src="value.포스터" />
           <div class="frame">
             <div class="mark">
               <img class="bookMark_Bt" :src="path" />
               <div class="ani"></div>
             </div>
-            <div class="movieName">오펜하이머</div>
+            <div class="movieName">{{ value.제목 }}</div>
             <div v-if="isActive" class="notice">* 북마크한 영화입니다.</div>
-            <div class="bold">2023.08.15 개봉</div>
+            <div class="bold">{{ value.개봉일 }}</div>
             <div class="line"></div>
             <div class="infoFrame">
               <div class="bold">감독</div>
-              <div class="normalFont">크리스토퍼 놀란</div>
+              <div class="normalFont">{{ value.감독 }}</div>
             </div>
             <div class="infoFrame">
               <div class="bold">출연</div>
-              <p class="normalFont">
-                킬리언 머피, 에밀리 블런트, 맷 데이면, 로버트 다우니 주니어, 플로렌스 퓨, 조쉬 하트넷
-              </p>
+              <div  class="actorNameBox">
+                <span v-for="name in actors" class="normalFont">{{ name }} / </span>
+              </div>
             </div>
             <div class="infoFrame">
               <div class="bold">장르</div>
-              <p class="p">드라마 / 정치 / 전기</p>
+              <p class="p">{{ value.장르 }}</p>
             </div>
             <div class="infoFrame">
               <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
+              <div class="normalFont">{{ value.러닝타임 }}</div>
             </div>
           </div>
         </div>
@@ -40,12 +40,12 @@
               <form name="searchTitle" action="/ReviewBoard" method="get">
                 <input class="revBt" type="submit" value="리뷰 보러 가기 >"/>
                 <div class="animationTool"></div>
-                <input type="hidden" name="searchTitle" value="오펜하이머"/>
+                <input type="hidden" name="searchTitle" :value="value.제목"/>
               </form>
             </div>
           </div>
           <div class="normalFont">
-            《오펜하이머》는 2023년 공개된 크리스토퍼 놀란 감독의 전기 영화이다. 최초의 핵무기를 개발한 제2차 세계 대전 프로젝트인 맨해튼 프로젝트에서 역할로 "원자 폭탄의 아버지"로 인정받은 미국의 이론 물리학자 J. 로버트 오펜하이머 역으로 킬리언 머피가 주연을 맡았다. 
+            {{ value.줄거리 }}
           </div>
         </div>
       </div>
@@ -54,10 +54,11 @@
         <div class="trailer-template">
           <div class="trailerBox">
             <div class="trailerBox">
-              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle421.png" />
+              <!-- <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle421.png" /> -->
+              <iframe @click="trailerScale()" :src="value.예고편영상[0]"></iframe>
               <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
             </div>
-            <div class="trailerTitle">티저 예고편</div>
+            <div class="trailerTitle">{{ value.예고편타이틀[0] }}</div>
           </div>
           <div class="trailerBox">
             <div class="trailerBox">
@@ -95,10 +96,10 @@
 </template>
 
 <script>
-import {useRouter} from 'vue-router'
+import {useRouter, useRoute} from 'vue-router'
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
-import {ref, onMounted, inject} from 'vue'
+import {ref, onMounted, computed} from 'vue'
 export default{
     name: 'MovieTitle',
     components:{lineChart, radarChart},
@@ -108,8 +109,13 @@ export default{
       const isSwitched = ref(false);
       const path = ref('');
       const image = ref('');
-      // const set = inject('set');
-      // console.log(set);
+      const set = JSON.parse(localStorage.getItem('set'));
+      const param = useRoute().query.movieName;
+      const filtered = set.filter(function(item, idx){
+        return item.제목 == param;
+      })
+      const actors = filtered[0].배우 ;
+      console.log( actors )
 
 
       const BMClicked = () => isActive.value = !isActive.value;
@@ -133,11 +139,6 @@ export default{
           })
         }
       }
-
-      const router = useRouter();
-        router.beforeEach(() => {
-        localStorage.removeItem('set');
-      })
       
       onMounted(()=>{
         trailerScale();
@@ -162,7 +163,7 @@ export default{
         
       });
 
-      return{path, isBig, switcher, trailerScale, isSwitched, image, isActive}
+      return{path, isBig, switcher, trailerScale, isSwitched, image, isActive, filtered, actors}
     }
 }
 </script>

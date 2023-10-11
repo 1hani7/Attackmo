@@ -81,11 +81,11 @@
   }
   
   .content .movie-template {
-    display: inline-flex;
-    align-items: flex-start;
+    display: flex;
     column-gap: 25px;
     position: relative;
     flex: 0 0 auto;
+    width:calc( 1000px - 25px - 185px );
   }
   @media(max-width:1194px){
     .content .movie-template{
@@ -114,9 +114,11 @@
   }
   
   .content .frame {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    width:calc(100% - (185px + 25px));
+    /* width:calc(1000px - 185px ); */
+    width:100%;
+    flex-grow:1;
     height: fit-content;
     row-gap:5px;
     align-items: flex-start;
@@ -136,15 +138,14 @@
     font-family: 'SUITE-Regular';
     font-weight: 400;
     font-size: 40px;
-    white-space: nowrap;
+    white-space: break-word;
     position: relative;
     color: var(--collection-1-black);
-    letter-spacing: 0;
-    line-height: normal;
   }
-  @media(max-width:490){
+  @media(max-width:490px){
     .content .movieName{
-      font-size:25px;
+      width:100%;
+      font-size:20px;
     }
   }
   
@@ -180,13 +181,15 @@
   }
   
   .content .normalFont {
-    width:auto;
+    width:fit-content;
     font-family: 'SUITE-Regular';
     font-weight: 400;
     font-size: 20px;
     position: relative;
     color: var(--collection-1-black);
-    width:calc(100%);
+  }
+  .content .actorNameBox{
+    width:100%;
   }
   @media(max-width:490px){
     .content .normalFont{font-size:12px;}

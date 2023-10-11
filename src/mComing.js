@@ -121,7 +121,7 @@ function comingMovie(){
     const currentDate = new Date();
     const yesterday = new Date(currentDate);
     yesterday.setDate(currentDate.getDate() + timeFuture);
-    console.log(yesterday)
+    // console.log(yesterday)
     var year = yesterday.getFullYear();
     var month = String(yesterday.getMonth() + 1).padStart(2, '0');
     var day = String(yesterday.getDate()).padStart(2, '0');
@@ -133,7 +133,7 @@ function releaseFilter(){
     const currentDate = new Date();
     const yesterday = new Date(currentDate);
     yesterday.setDate(currentDate.getDate() + timeBackNumber);
-    console.log(yesterday)
+    // console.log(yesterday)
     var year = yesterday.getFullYear();
     var month = String(yesterday.getMonth() + 1).padStart(2, '0');
     var day = String(yesterday.getDate()).padStart(2, '0');
