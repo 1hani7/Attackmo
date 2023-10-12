@@ -165,13 +165,11 @@ export default {
     border-radius: 50px;
     font-size: 30px;
     text-align: center;
+    line-height: 50px;
     position:absolute;
     top:200px;
     right:-100px;
-    display:flex; align-items: center;
-    justify-content: center;
-} 
-
+}
 .main{
     display:flex;
     flex-direction: column;
