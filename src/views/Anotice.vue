@@ -8,7 +8,7 @@
             </div>
             <div class="file_box">
                 <label>첨부파일</label>
-                <input type="file" accept =".gif, .jpg, .png" name="file" id="file" @change="handleFileChange" >
+                <input type="file" accept =".gif, .jpg, .png" name="file" id="file" @change="handleFileChange">
                 <p>*gif,jpg,png 선택 가능합니다</p>
             </div>
             <div id="notice">
@@ -67,7 +67,6 @@ export default {
                 });
                 console.log("Document written with ID: ", docRef.id);
 
-                // 이 부분에서 파일 업로드를 처리하는 로직을 추가
             // 업로드가 완료되면 알림 표시
             window.alert("업로드가 완료되었습니다!");
             } catch (error) {
