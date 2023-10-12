@@ -1,13 +1,12 @@
 <template>
-    <div id="wrap">
+    <div id="app" class="wrap">
       <div id="login_box">          
           <div id="title">
               <label>로그인</label>
           </div>
-              <form v-on:submit.prevent="registerUser" id="content">
+              <form @submit.prevent="login" id="content">
                   <input type="email" placeholder="이메일" v-model="user_email" id="email-new">
                   <input type="password" placeholder="비밀번호" v-model="user_pw" id="pw-new">
-                  <!-- <button @click="togo" @keyup="togo" id="login_bt">로그인</button>   -->
                   <button type=submit @click="login()" id="login_bt">로그인</button> 
               
                     <div id="find">
@@ -27,33 +26,82 @@
   </div>
 </template>
 <script>
-import { inject } from 'vue';
-import { useRouter } from 'vue-router';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
 
+  const firebaseConfig = {
+      apiKey: "AIzaSyC_4wWcRfgtT-dVPlL7BsjBMWbO0F2z7xc",
+      authDomain: "attackmo-86940.firebaseapp.com",
+      projectId: "attackmo-86940",
+      storageBucket: "attackmo-86940.appspot.com",
+      messagingSenderId:  "375478701538",
+      appId: "1:375478701538:web:c22eea3ee90ff0b813fdbb"
+    };
+    
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
 export default {
-  setup(){
-    const isLogin = inject('isLogin');
-    const loginToggle = inject('loginToggle');
-    const router = useRouter();
-
-    const login = () =>{
-      loginToggle();
-      router.go(-1);
+  data() {
+    return {
+      user_email: "",
+      user_pw: "",
     };
-    return { login,isLogin }
-  },methods:{
-    openWindow(linkUrl){
-      window.open(linkUrl,'_blank','width=600 height=600');
-    }
-  }
-}
+  },
+  methods: {
+    login() {
+      const email = this.user_email;
+      const password = this.user_pw;
+      const auth = getAuth();
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // 인증 성공 시, 다른 페이지로 리디렉션 할 수 있습니다.
+          const user = userCredential.user;
+          this.$router.push("/"); // // 대시보드 페이지 또는 다른 페이지로 리디렉션
+        })
+        
+        .catch((error) => {
+          // Authentication failed, handle the error
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Authentication error:", errorCode, errorMessage);
+        });
+        
+    },
+    openWindow(linkUrl) {
+      window.open(linkUrl, "_blank", "width=600,height=600");
+    },
+  },
+};
+// import { inject } from 'vue';
+// import { useRouter } from 'vue-router';
+
+
+// export default {
+//   setup(){
+//     const isLogin = inject('isLogin');
+//     const loginToggle = inject('loginToggle');
+//     const router = useRouter();
+
+//     const login = () =>{
+//       loginToggle();
+//       router.go(-1);
+//     };
+//     return { login,isLogin }
+//   },methods:{
+//     openWindow(linkUrl){
+//       window.open(linkUrl,'_blank','width=600 height=600');
+      
+//     }
+//   }
+// }
 </script>
 <style scoped>
 
     a{color:black;cursor:pointer}
 
-    #wrap{
+    .wrap{
         display: flex;
         padding-top: 150px;
         padding-bottom:150px;
@@ -132,7 +180,7 @@ export default {
     
     /*반응형*/
     @media (max-width:1194px) {
-      #wrap {
+      .wrap {
         width: 834px;
         height: 800px;
       }
@@ -178,7 +226,7 @@ export default {
   }
 
   @media (max-width: 490px) {
-    #wrap{width:100%;margin-top:0px; margin-bottom:0px;}
+    .wrap{width:100%;margin-top:0px; margin-bottom:0px;}
     #login_box{width:90%;}
     #title{width:100%;}
     #content input{width:100%;outline:none;}
