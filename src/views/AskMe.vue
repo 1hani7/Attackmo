@@ -23,7 +23,8 @@
             <tbody>
                 <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" >
                     <td class="n">{{ i + 1 }}</td>
-                    <td class="t" @click="gonote">{{ value.title }}</td>
+                    <!--<td class="t" @click="gonote">{{ value.title }}</td>-->
+                    <td class="t" @click="gonote(value)"> {{ value.title }}</td>
                     <td class="w">{{ value.writer }}</td>
                     <td class="d">{{ getCurrentDate()}}</td>
                 </tr>
@@ -112,9 +113,13 @@ export default {
         search(){
             alert("검색한다");
         },
-        gonote(){
+        /*gonote(){
            //alert("클릭미");
             this.$router.push({path:"/Aread"});
+        },*/
+        gonote(selectedData) {
+        // 'selectedData'에 선택한 데이터가 포함됩니다.
+        this.$router.push({ path: "/AreadTest", query: { data: selectedData } });
         },
         changePage(page) {
             this.currentPage = page;

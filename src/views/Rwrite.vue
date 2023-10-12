@@ -19,7 +19,7 @@
                     />
                     <div class="search-result" v-show="isSearchResultVisible">
                         <div class="movie_p" v-for="movie in set" :key="movie">
-                            <img :src="movie.포스터" alt="Movie Poster" @click="pickMovie(movie)"/>
+                            <img :src="movie.포스터                                                                                                                                                                               " alt="Movie Poster" @click="pickMovie(movie)"/>
                             <p>{{ movie.제목 }}</p>
                         </div>
                     </div>
