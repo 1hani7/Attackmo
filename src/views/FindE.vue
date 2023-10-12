@@ -6,7 +6,6 @@
                 <label>휴대폰번호</label>
                 <div id="num">
                   <input v-model="formData.number" type="number" name="number" placeholder="010" >-<input type="number" name="number" >-<input type="number" name="number">
-                  <!-- <input v-model="formData.number" type="number" name="number" placeholder="010" > -->
                 </div>       
              </div>
                 <div id="button_box">
@@ -24,6 +23,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -79,7 +79,8 @@ export default {
         height: 60px;
         padding:20px;
         border-radius: 10px;
-        outline:none;    
+        outline:none;  
+        border:1px solid black;  
     }
     #num{ 
         width: 100%;
@@ -87,6 +88,7 @@ export default {
         display: flex;
         align-items: center;
         gap:32px;
+        
     } 
     #find_e{    
         width: 831px;
