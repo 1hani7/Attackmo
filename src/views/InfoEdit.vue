@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { getAuth, updatePassword } from "firebase/auth";
+import { getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { useRouter } from 'vue-router';
 
@@ -49,11 +49,12 @@ export default {
       newPassword: "",
       confirmPassword: "",
       phoneNumber: ["", "", ""],
+      email: "", // 사용자 이메일을 저장하는 데이터 추가
+      password: "", // 사용자 비밀번호를 저장하는 데이터 추가
     };
   },
   methods: {
-    updateProfile() {
-      // 사용자가 비밀번호를 변경하려면 Firebase Authentication을 사용합니다.
+    async updateProfile() {
       const auth = getAuth();
       const user = auth.currentUser;
       const newPassword = this.newPassword;
@@ -63,17 +64,19 @@ export default {
         return;
       }
 
-      updatePassword(user, newPassword)
-        .then(() => {
-          alert("비밀번호가 성공적으로 변경되었습니다.");
-          this.$router.push('/Info');
-        })
-        .catch((error) => {
-          alert("비밀번호 변경 중 오류가 발생했습니다: " + error.message);
-        });
+      // 사용자의 이메일과 비밀번호를 사용하여 재인증(credentials)합니다.
+      const credential = EmailAuthProvider.credential(this.email, this.password);
+
+      try {
+        await reauthenticateWithCredential(user, credential);
+        await updatePassword(user, newPassword);
+        alert("비밀번호가 성공적으로 변경되었습니다.");
+        this.$router.push('/Info');
+      } catch (error) {
+        alert("비밀번호 변경 중 오류가 발생했습니다: " + error.message);
+      }
     },
     cancel() {
-      // 취소 버튼 클릭 시 이전 페이지로 돌아가거나 다른 작업을 수행할 수 있습니다.
       this.$router.push('/');
     }
   }

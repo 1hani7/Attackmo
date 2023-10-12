@@ -78,7 +78,11 @@ export default {
             // 파일 변경 이벤트를 처리하고 선택한 파일을 저장합니다.
             this.file = event.target.files[0];
         },
-        // write() {
+        created() {
+            // 'AreadTest' 페이지가 로드될 때 전달된 데이터를 수신합니다.
+            this.selectedData = this.$route.query.data;
+        },
+                // write() {
         //     this.data.push({
         //         Number:this.Number,
         //         title: this.title,
