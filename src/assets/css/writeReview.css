@@ -174,6 +174,7 @@
     .point_wrap{flex-wrap:wrap; gap:3px;margin-top:10px;}
     .point{margin:5px 0;}
     .ckeM{font-size:12px; width:80px;}
+    #detail_input{width:100%;}
     #de_con{margin: 10px 0;}
     #bt_wrap{width:150px;}
     #bt_wrap button{padding:5px 10px;font-size: 12px;border-radius: 7px;}

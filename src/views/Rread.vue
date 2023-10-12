@@ -56,6 +56,11 @@
                         <div class="del" @click="postDel">삭제</div>
                         <div class="siren" @click="openSirenPopup">신고</div>
                     </div>
+                    <div class="mPost_menu">
+                        <div class="rePost">수정</div>
+                        <div class="del" @click="postDel">삭제</div>
+                        <div class="siren" @click="openSirenModal">신고</div>
+                    </div>
                 </div>
             </div>
             <div class="reply_wrap">
