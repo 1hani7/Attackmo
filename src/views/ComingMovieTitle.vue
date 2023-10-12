@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      <div class="subWrap">
+      <div v-if="isTrailer" class="subWrap">
         <div class="subTitle">예고편</div>
         <div class="trailer-template">
           <div class="trailerBox">
@@ -115,6 +115,7 @@ export default{
         return item.제목 == param;
       })
       const actors = filtered[0].배우 ;
+      const isTrailer = filtered[0].예고편영상.length == 1? false : true;
 
 
       const BMClicked = () => isActive.value = !isActive.value;
@@ -162,7 +163,7 @@ export default{
         
       });
 
-      return{path, isBig, switcher, trailerScale, isSwitched, image, isActive, filtered, actors}
+      return{path, isBig, switcher, trailerScale, isSwitched, image, isActive, filtered, actors, isTrailer}
     }
 }
 </script>
