@@ -227,11 +227,12 @@ export default {
                     search_box.style.width = 'calc(100vw - 30px)';
                 }
             } else {
-                if (window < 1194) {
+                if (window > 1194) {
                     menu_bt.classList.add('hide');
                     search_box.style.width = '';
                 }
                 else if (490 <= window && window <= 1194) {
+                    menu_bt.classList.remove('hide');
                     search_box.style.width = '';
                     search_bt.style.display = 'none';
                 } else if (window < 490) {
