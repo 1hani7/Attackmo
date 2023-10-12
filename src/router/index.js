@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import list from '../views/ReviewBoard.vue';
-import { now } from '../mNow'
-import { coming } from '../mComing'
-import { topTenList } from '../topTenList'
-import { set } from '../movieApi'
+import  now  from '../data/mNow.json'
+import  coming  from '../data/coming.json'
+import  topTenList  from '../data/topTenList.json'
+import  set  from '../data/set.json'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
