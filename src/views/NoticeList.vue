@@ -68,10 +68,8 @@ export default {
         return {
             data: [],
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
-            currentPage: 1, //페이지 이동 수
-            
-        }
-        
+            currentPage: 1, //페이지 이동 수   
+        }   
     },
     computed: {
         sortedData() {

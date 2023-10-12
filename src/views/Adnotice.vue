@@ -19,7 +19,7 @@
     </div>
 </template>
 <script> 
-// import data from '../data/notice.js'
+
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { useRouter } from 'vue-router';
@@ -46,7 +46,7 @@ export default {
     name: 'Create',
     data() {
         return {
-            //data: data,
+       
             title: "",
             content: ""
         }
