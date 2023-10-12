@@ -28,6 +28,12 @@ button{border:none; background: white; text-align: left; cursor:pointer;}
     color: #000000;
     font-size: 30px;
   }
+
+  .content .blankMsg{
+    width:100%;
+    font-size:30px;
+    text-align: center;
+  }
   
   .content .results {
     width:100%;

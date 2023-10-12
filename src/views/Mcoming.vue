@@ -5,12 +5,12 @@
         <div class="mainTitle">상영 예정 영화</div>
       </div>
       <div style="position: absolute; width:100%; text-align: right; top:calc(15px);">
-        * 미개봉 영화는 상세정보와 리뷰를 제공하지 않습니다.
+        <!-- * 미개봉 영화는 상세정보와 리뷰를 제공하지 않습니다. -->
       </div>
       <div class="posters">
         <div v-for="(value, key) in coming" :key="key" class="poster-box">
-          <form>
-            <input type="hidden" name="movieName" :value="value.제목">
+          <form action="/ComingMovieTitle" name="movieComing" method="get">
+            <input type="hidden" name="movieComing" :value="value.제목">
             <button type="submit">
               <img class="rectangle" :src="value.포스터" />
             </button>

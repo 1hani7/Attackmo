@@ -1,4 +1,4 @@
-button{border:none; text-align: left; background:white;}
+button{border:none; text-align: left; background:white; cursor:pointer;}
 .main-content {
   display: inline-flex;
   flex-direction: column;

@@ -1,57 +1,74 @@
 <template>
-    <div class="content">
-      <div class="title">
-        <div class="mainTitle">영화 검색결과 {{ resNum }}건</div>
-        <div class="word">검색어 : {{ word }}</div>
-      </div>
-      <div class="results">
-        <form v-for="value in res" :key="value.제목" action="/MovieTitle" method="get" name="movieName">
-          <input type="hidden" :value="value.제목" name="movieName">
-          <button type="submit" class="template">
-            <img class="rectangle" :src="value.포스터" />
-            <div class="info">
-              <div class="div">{{ value.제목 }}</div>
-              <div class="line"></div>
-              <div class="normalFont">{{ value.개봉일 }}</div>
-              <div class="running-time">
-                <div class="bold">러닝타임</div>
-                <div class="normalFont">{{ value.러닝타임 }}</div>
-              </div>
-            </div>
-          </button>
-        </form>
-      </div>
+  <div class="content">
+    <div class="title">
+      <div class="mainTitle">영화 검색결과 {{ resNum }}건</div>
+      <div class="word">검색어 : {{ word }}</div>
     </div>
+    <div class="blankMsg" v-if="isBlank">검색 결과가 없습니다.</div>
+    <div v-if="!isBlank" class="results">
+      <form v-for="value in res" :key="value.제목" action="/MovieTitle" method="get" name="movieName">
+        <input type="hidden" :value="value.제목" name="movieName">
+        <button type="submit" class="template">
+          <img class="rectangle" :src="value.포스터" />
+          <div class="info">
+            <div class="div">{{ value.제목 }}</div>
+            <div class="line"></div>
+            <div class="normalFont">{{ value.개봉일 }}</div>
+            <div class="running-time">
+              <div class="bold">러닝타임</div>
+              <div class="normalFont">{{ value.러닝타임 }}</div>
+            </div>
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script>
 import { ref } from 'vue';
-import {useRouter} from 'vue-router';
-export default{
-    name:'MovieSearch',
-    setup(){
-      const router = useRouter();
-      const query = router.currentRoute.value.query.searchWord;
-      const set = JSON.parse(localStorage.getItem('set'));
+import { useRouter, useRoute } from 'vue-router';
+export default {
+  name: 'MovieSearch',
+  setup() {
+    const isBlank = ref(false);
+    const router = useRouter();
+    const path = useRoute().path;
+    const query = router.currentRoute.value.query.searchWord;
+    const set = JSON.parse(localStorage.getItem('set'));
+    const res = ref(null);
+    const word = ref('');
+    const resNum = ref('');
 
-      const word = ref('');
-      const resNum = ref('');
 
-      const res = set.filter(function(item){
+    if (query != '') {
+      word.value = query;
+      res.value = set.filter(function (item) {
         return item.제목.indexOf(query) > -1;
       });
-
-      resNum.value = res.length;
-      word.value = query;
-
-      window.addEventListener('resize', function(){
-        if( path == '/Search' && this.window.innerWidth <= 1194 ){
-          router.push('/')
-        }
-      })
-
-      return { res, word, resNum }
+      resNum.value = res.value.length;
+      if (res.value.length == 0) {
+        isBlank.value = true;
+        res.value = null;
+        resNum.value = '0';
+      }
+    } else if (query == '') {
+      isBlank.value = true;
+      res.value = null;
+      word.value = '없음';
+      resNum.value = '0';
     }
+
+
+
+    window.addEventListener('resize', function () {
+      if (path == '/Search' && this.window.innerWidth <= 1194) {
+        router.push('/')
+      }
+    })
+
+    return { res, word, resNum, isBlank }
+  }
 }
 </script>
 

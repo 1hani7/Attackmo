@@ -36,7 +36,7 @@ export default {
       }
     })
 
-    useRouter().afterEach(()=>{
+    useRouter().beforeEach(()=>{
       window.scrollTo(0, 0);
     })
 
