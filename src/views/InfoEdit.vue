@@ -27,6 +27,22 @@
 </template>
 
 <script>
+import { getAuth, updatePassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { useRouter } from 'vue-router';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC_4wWcRfgtT-dVPlL7BsjBMWbO0F2z7xc",
+    authDomain: "attackmo-86940.firebaseapp.com",
+    projectId: "attackmo-86940",
+    storageBucket: "attackmo-86940.appspot.com",
+    messagingSenderId:  "375478701538",
+    appId: "1:375478701538:web:c22eea3ee90ff0b813fdbb"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
 export default {
   data() {
     return {
@@ -37,18 +53,29 @@ export default {
   },
   methods: {
     updateProfile() {
-      alert("수정이 완료되었습니다.");
-      // 여기에서 사용자 프로필 업데이트를 위한 로직을 작성합니다.
+      // 사용자가 비밀번호를 변경하려면 Firebase Authentication을 사용합니다.
+      const auth = getAuth();
+      const user = auth.currentUser;
+      const newPassword = this.newPassword;
+
       if (this.newPassword !== this.confirmPassword) {
         alert("비밀번호가 일치하지 않습니다.");
         return;
-     }
-     this.$router.push('/Info');
-  },
-     cancel() {
-        // 취소 버튼 클릭 시 이전 페이지로 돌아가거나 다른 작업을 수행할 수 있습니다.
-        this.$router.push('/');
-     }
+      }
+
+      updatePassword(user, newPassword)
+        .then(() => {
+          alert("비밀번호가 성공적으로 변경되었습니다.");
+          this.$router.push('/Info');
+        })
+        .catch((error) => {
+          alert("비밀번호 변경 중 오류가 발생했습니다: " + error.message);
+        });
+    },
+    cancel() {
+      // 취소 버튼 클릭 시 이전 페이지로 돌아가거나 다른 작업을 수행할 수 있습니다.
+      this.$router.push('/');
+    }
   }
 };
 </script>
