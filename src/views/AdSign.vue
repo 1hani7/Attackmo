@@ -133,12 +133,13 @@ export default {
         },
         plus(){
             alert("경고1회추가");
+            this.isModalOn = false; // 모달 닫기
+
         },
         deleteMember(){
-            alert("회원삭제");
+            alert("삭제되었습니다");
+            this.isModalOn = false; // 모달 닫기
         },
-        
-        
     }
 }
 </script>

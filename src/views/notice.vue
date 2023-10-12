@@ -2,7 +2,11 @@
     <div id="wrap">
         <div id="nwrite">
             <p>공지사항</p>
-            <label>공지 확인 부탁드립니다.</label>        
+            <template v-for="(value, index) in data" :key="index">
+                <div class="note">
+                    <label>{{ value.title }}</label> 
+                </div>
+            </template>
         <div class="writer">
             <p>관리자</p><p>{{ getCurrentDate() }}</p>
         </div>
@@ -10,7 +14,6 @@
             <template v-for="(value, index) in data" :key="index">
                 <div class="note">
                     <span>{{ value.content }}</span>
-                    <span>{{ value.title }}</span>
                 </div>
             </template>
         </div>
@@ -102,6 +105,7 @@ label{
     align-self: stretch;
 }
 #nwrite p{font-size: 23px;font-weight: 700;}
+.note{width:100%;}
 .note span{
     font-size: 17px;
     font-weight: 400;
