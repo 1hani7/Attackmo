@@ -57,6 +57,7 @@ export default {
   setup() {
     const email = ref("");
     const password = ref("");
+    const password2 = ref(""); // 비밀번호확인
     const n_name = ref(""); // 활동명 변수 추가
     const router = useRouter();
 
@@ -119,6 +120,7 @@ export default {
     return {
       email,
       password,
+      password2,
       n_name, // 활동명 변수 추가
       goBack,
       register,

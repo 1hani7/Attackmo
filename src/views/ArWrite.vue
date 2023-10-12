@@ -10,7 +10,7 @@
             <span>혹시 이 사이트에 성인 영화는 없나요? 찾으려던 영화가 있는데 안 보이네요</span>
         </div>
         <div id="line"></div>
-        <div id="admin">
+        <form @submit.prevent="uploadData" id="admin">
             <div class="writer">
                 <h6>작성자</h6><h3>관리자</h3>
             </div>
@@ -25,35 +25,59 @@
             <div id="button_box">
                 <button class="bt" type="submit" @click="write">답변등록</button>
             </div>
-        </div>
+        </form>
       </div>
     </div>
 </template>
 <script>
 
-import data from '../data/AreadTest.js'
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { useRouter } from 'vue-router';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC_4wWcRfgtT-dVPlL7BsjBMWbO0F2z7xc",
+  authDomain: "attackmo-86940.firebaseapp.com",
+  projectId: "attackmo-86940",
+  storageBucket: "attackmo-86940.appspot.com",
+  messagingSenderId: "375478701538",
+  appId: "1:375478701538:web:c22eea3ee90ff0b813fdbb"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore();
+const noticeCollection = collection(db, "AreadTest");
 
 export default {
+    setup(){
+        const router = useRouter();
+        return {
+            router,
+        };
+    },
     name: 'Create',
     data() {
         return {
-            data: data,
+            //data: data,
             title:"",
             writer: "",
             content: "",
         }
     },
     methods: {
-        write() {
-            this.data.push({
-                title:this.title,
-                writer: this.writer,
+        async uploadData() {
+            try {
+                const docRef = await addDoc(noticeCollection, {
+                title: this.title,
                 content: this.content,
-                
-            })
-            this.$router.push({
-                path:"/AreadTest"
-            })
+                });
+                console.log("Document written with ID: ", docRef.id);
+
+            // 업로드가 완료되면 알림 표시
+            window.alert("업로드가 완료되었습니다!");
+            } catch (error) {
+                console.error("Error adding document: ", error);
+            }
+            this.router.push('/Aread');
         },
     }
 } 

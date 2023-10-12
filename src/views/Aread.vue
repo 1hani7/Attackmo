@@ -18,17 +18,53 @@
                     <h6>작성자</h6><h3>관리자</h3>
                 </div>
                 <div class="question">
-                    <span>안녕하십니까,ATTACKMO 문의사항 관리자입니다.<br>
-                    현재 저희 사이트는 성인 등급 영화 및 에로 영화 관련 정보제공/리뷰 서비스를 제공하고 있지 않습니다.<br>
-                    이용해주셔서 감사하며, 지금까지 ATTACKMO 문의 사항 관리자였습니다.
-                    </span>
+                    <template v-for="(value, index) in data" :key="index">
+                        <div class="note">
+                            <span>{{ value.content }}</span>
+                            <span>{{ value.title }}</span>
+                        </div>
+                     </template>
                 </div>
             </div>
           </div>
         </div>
 </template>
 <script>
-    
+import { getFirestore, collection, getDocs} from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC_4wWcRfgtT-dVPlL7BsjBMWbO0F2z7xc",
+  authDomain: "attackmo-86940.firebaseapp.com",
+  projectId: "attackmo-86940",
+  storageBucket: "attackmo-86940.appspot.com",
+  messagingSenderId: "375478701538",
+  appId: "1:375478701538:web:c22eea3ee90ff0b813fdbb"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore();
+const noticeCollection = collection(db, "AreadTest");
+
+export default {
+    name: 'Read',
+    data() {
+        return {
+            data: [],
+        }
+    },
+    methods: { },
+    async created() {
+    try {
+      const querySnapshot = await getDocs(noticeCollection);
+      querySnapshot.forEach((doc) => {
+        this.data.push(doc.data()); 
+        // Firestore에서 가져온 데이터를 this.data 배열에 추가
+      });
+    } catch (error) {
+      console.error("데이터 가져오기 실패: ", error);
+    }
+  },
+};
 </script>
 <style scoped>
    #wrap{

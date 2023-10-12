@@ -50,13 +50,28 @@
  </section>
 </template>
 <script>
-import data from '../data/data.js'
+import { getFirestore, collection, getDocs} from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC_4wWcRfgtT-dVPlL7BsjBMWbO0F2z7xc",
+  authDomain: "attackmo-86940.firebaseapp.com",
+  projectId: "attackmo-86940",
+  storageBucket: "attackmo-86940.appspot.com",
+  messagingSenderId: "375478701538",
+  appId: "1:375478701538:web:c22eea3ee90ff0b813fdbb"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore();
+const noticeCollection = collection(db, "Anotice");
+
 
 export default {
     name: 'Read',
     data() {
+
         return {
-            data: data,
+            data: [],//firebase에서 가져온 데이터를 저장할 배열
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
             currentPage: 1, //페이지 이동 수 
             
@@ -117,7 +132,18 @@ export default {
             }
         }
     },
-}
+    async created() {
+    try {
+      const querySnapshot = await getDocs(noticeCollection);
+      querySnapshot.forEach((doc) => {
+        this.data.push(doc.data()); 
+        // Firestore에서 가져온 데이터를 this.data 배열에 추가
+      });
+    } catch (error) {
+      console.error("데이터 가져오기 실패: ", error);
+    }
+  },
+};
 </script>
 <style scoped>
 *{padding:0;margin:0; box-sizing: border-box;}
@@ -139,13 +165,11 @@ export default {
     border-radius: 50px;
     font-size: 30px;
     text-align: center;
+    line-height: 50px;
     position:absolute;
     top:200px;
     right:-100px;
-    display:flex; align-items: center;
-    justify-content: center;
-} 
-
+}
 .main{
     display:flex;
     flex-direction: column;
