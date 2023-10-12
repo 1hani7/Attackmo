@@ -7,7 +7,7 @@
             </RouterLink>
             <div class="main">
                 <div id="search_box">
-                    <input type="text" id="search" placeholder="검색어를 입력해주세요">
+                    <input type="text" id="search" placeholder="검색어를 입력해주세요" @input="searchReview">
                     <i class="bi bi-search"></i>
                 </div>
                 <table class="list">
@@ -148,9 +148,18 @@ export default {
     },
     computed: {
         displayedList() {
+            const sortedList = this.list
+                .slice() // 원본 데이터를 변경하지 않도록 복제합니다.
+                .sort((a, b) => {
+                    // 'rDate' 속성을 비교하여 내림차순으로 정렬합니다.
+                    const dateA = new Date(a.rDate).getTime();
+                    const dateB = new Date(b.rDate).getTime();
+                    return dateB - dateA;
+                });
+
             const startIndex = (this.currentPage - 1) * this.itemsPerPage;
             const endIndex = startIndex + this.itemsPerPage;
-            return this.list.slice(startIndex, endIndex);
+            return sortedList.slice(startIndex, endIndex);
         },
         pageCount() {
             return Math.ceil(this.list.length / this.itemsPerPage);
@@ -166,6 +175,18 @@ export default {
             this.currentPage = page;
 
             this.$router.push('/ReviewBoard/:' + page);
+        },
+        searchReview() {
+            const searchTerm = this.$refs.searchInput.value.toLowerCase();
+            const filteredList = this.list.filter(item => {
+                // 검색어가 제목 또는 작성자에 포함된 게시물을 찾습니다.
+                return (
+                    item.rTitle.toLowerCase().includes(searchTerm) ||
+                    item.rWriter.toLowerCase().includes(searchTerm)
+                );
+            });
+            this.currentPage = 1; // 검색 결과를 첫 번째 페이지로 초기화
+            this.displayedList = filteredList;
         },
     },
 };
