@@ -52,27 +52,12 @@
       <div v-if="isTrailer" class="subWrap">
         <div class="subTitle">예고편</div>
         <div class="trailer-template">
-          <div class="trailerBox">
-            <div class="trailerBox">
-              <!-- <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle421.png" /> -->
-              <iframe @click="trailerScale()" :src="value.예고편영상[0]"></iframe>
+          <div v-for="(v, idx) in value.예고편영상" class="trailerBox">
+            <div class="iframBox">
+              <iframe @click="trailerScale()" :src="v"></iframe>
               <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
             </div>
-            <div class="trailerTitle">{{ value.예고편타이틀[0] }}</div>
-          </div>
-          <div class="trailerBox">
-            <div class="trailerBox">
-              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle422.png" />
-              <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
-            </div>
-            <div class="trailerTitle">메인 예고편</div>
-          </div>
-          <div class="trailerBox">
-            <div class="trailerBox">
-              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle423.png" />
-              <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
-            </div>
-            <div class="trailerTitle">메인 예고편 2</div>
+            <div class="trailerTitle">{{ value.예고편타이틀[idx] }}</div>
           </div>
         </div>
       </div>
