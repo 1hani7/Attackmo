@@ -107,13 +107,8 @@
     #wrap{width:100vw;}
     #content{width:90%;}
     .info a, .info p{width:35%;margin:10px 10px;}
-    .slide-container{width:100%;}
-    .rec_movie img{width:200px; height:286px;}
+    .slide-container{width:100%;gap: 26px;}
     .card{width:100%;}
-    .card_n{width:200px; height:286px;}
-    .history{width:200px; height:200px;}
-    .thumbnail{width:80px;height:80px; border-radius:7px;}
-    .thumbnail img{width:80px; height:114px;}
     .card_title{width:100%;height:20px;font-size: 17px;}
     .card_title b{top:10px;}
 }
