@@ -125,8 +125,7 @@
 <script>
 import { inject, ref, onMounted } from 'vue';
 import {useRouter} from 'vue-router'
-// import {now} from '../mNow'
-// import {topTenList} from '../topTenList'
+
 export default {
   name: 'homeView',
   setup() {

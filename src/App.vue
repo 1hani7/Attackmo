@@ -11,7 +11,7 @@ export default {
     topAds, topHeader, botAds, botFooter
   },
   setup() {
-
+    
     const isLogin = ref(false);
     provide('isLogin', isLogin);
 
@@ -69,9 +69,7 @@ export default {
   <topHeader v-if="isSiren"/>
 
   <!-- 컨텐츠 -->
-  <Suspense>
-    <RouterView />
-  </Suspense>
+  <RouterView />
 
   <!-- 하단광고 위치 -->
   <section v-if="isSiren">

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import list from '../views/ReviewBoard.vue';
 import {now} from '../mNow'
-import {coming} from '../Mcoming'
+import {coming} from '../mComing'
 import {topTenList} from '../topTenList'
 import {set} from '../movieApi'
 
@@ -25,7 +25,7 @@ const router = createRouter({
         if( localStorage.getItem('set') == null || localStorage.getItem('set') == "[]" ){
           localStorage.setItem('set', JSON.stringify(set));
         }
-        try{
+try{
           if( localStorage.getItem('set') == null || localStorage.getItem('set') === "[]" ){
             localStorage.setItem('set', JSON.stringify(set));
           }
