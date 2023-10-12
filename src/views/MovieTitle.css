@@ -273,7 +273,7 @@
     position: relative;
     flex: 0 0 auto;
   }
-  .content .subWrap:nth-child(2){ gap:0px; }
+  .content .subWrap:nth-child(3){ gap:0px; }
   @media(max-width:1194px){
     .content .subWrap{
       width:100%;

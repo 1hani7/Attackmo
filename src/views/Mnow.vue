@@ -41,11 +41,6 @@ export default {
   setup() {
     const nowData = JSON.parse(localStorage.getItem('now'));
 
-    const router = useRouter();
-    router.beforeEach(() => {
-      localStorage.removeItem('now');
-    })
-
     const titleModal = (event) => {
       const t = event.target.parentNode.parentNode.nextSibling;
       t.classList.toggle('show');

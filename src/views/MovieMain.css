@@ -191,7 +191,6 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     /* width: 215px; */
     align-items: flex-start;
     gap: 5px;
-    padding: 0px 5px;
     position: relative;
     flex: 0 0 auto;
   }
