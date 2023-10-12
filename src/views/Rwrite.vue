@@ -18,9 +18,9 @@
                         @click="toggleSearchResult"
                     />
                     <div class="search-result" v-show="isSearchResultVisible">
-                        <div class="movie_p" v-for="movie in filteredMovies" :key="movie">
-                            <img :src="getImageUrl(movie)" alt="Movie Poster" @click="pickMovie(movie)"/>
-                            <p>{{ movie }}</p>
+                        <div class="movie_p" v-for="movie in set" :key="movie">
+                            <img :src="movie.포스터" alt="Movie Poster" @click="pickMovie(movie)"/>
+                            <p>{{ movie.제목 }}</p>
                         </div>
                     </div>
                     
@@ -99,6 +99,7 @@ export default {
         selectMovie,
     },
     setup() {
+        const set = JSON.parse(localStorage.getItem('set'));
         const m_name =["1947보스톤","가디언즈","공조2_인터내셔날","나를찾아줘","나를 찾아줘(한국)","나이브스아웃",
                 "내부자들_디오리지널","노바디","눈물이주룩주룩","더랍스터","더문","더 웨일","더킹","데드풀","독전","드림",
                 "레이니데이인뉴욕","메기","모노노케히메","미션임파서블_데드레코닝partone","범죄도시3","빅쇼트","사도","상견니",
@@ -169,6 +170,7 @@ export default {
             checkboxes, 
             checkSelections,
             toggleSearchResult,
+            set
         };
     },
 };
