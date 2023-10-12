@@ -95,14 +95,15 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     justify-content: space-between;
     position: relative;
     flex: 0 0 auto;
-    overflow-x:scroll;
     overflow:hidden;
+    overflow-x:scroll;
     gap:10px;
     scroll-behavior: smooth;
   }
   @media(max-width:1194px){
     .screen .cont{
         width:calc(100vw - 30px); height:fit-content; gap:11px;
+        padding-bottom:10px;
     }
   }
   @media(max-width:490px){
