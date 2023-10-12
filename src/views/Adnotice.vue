@@ -1,6 +1,6 @@
 <template>
     <div id="wrap">
-        <form @submit.prevent="write" id="admin">
+        <form @submit.prevent="uploadData" id="admin">
             <label>공지사항(관리자)</label>
             <div id="title">
                 <label>제목</label>
@@ -12,34 +12,70 @@
             </div>
             <div id="button_box">
                 <button  id="cancel" class="bt">취소</button>
-                <button @click="write" id="check" class="bt">등록하기</button>
+                <button  id="check" class="bt">등록하기</button>
             </div>
         </form>
       
     </div>
 </template>
 <script> 
-import data from '../data/notice.js'
+// import data from '../data/notice.js'
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { useRouter } from 'vue-router';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC_4wWcRfgtT-dVPlL7BsjBMWbO0F2z7xc",
+  authDomain: "attackmo-86940.firebaseapp.com",
+  projectId: "attackmo-86940",
+  storageBucket: "attackmo-86940.appspot.com",
+  messagingSenderId: "375478701538",
+  appId: "1:375478701538:web:c22eea3ee90ff0b813fdbb"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore();
+const noticeCollection = collection(db, "Adnotice");
 
 export default {
+    setup(){
+        const router = useRouter();
+        return {
+            router,
+        };
+    },
     name: 'Create',
     data() {
         return {
-            data: data,
+            //data: data,
             title: "",
             content: ""
         }
     },
     methods: {
-        write() {
-            this.data.push({
+        async uploadData() {
+            try {
+                const docRef = await addDoc(noticeCollection, {
                 title: this.title,
-                writer: this.writer,
-            })
-            this.$router.push({
-                path:"/NoticeList"
-            })
-        }
+                content: this.content,
+                });
+                console.log("Document written with ID: ", docRef.id);
+
+            // 업로드가 완료되면 알림 표시
+            window.alert("업로드가 완료되었습니다!");
+            } catch (error) {
+                console.error("Error adding document: ", error);
+            }
+            this.router.push('/NoticeList');
+        },
+        // write() {
+        //     this.data.push({
+        //         title: this.title,
+        //         writer: this.writer,
+        //     })
+        //     this.$router.push({
+        //         path:"/NoticeList"
+        //     })
+        // }
     }
 }      
 </script>
@@ -112,6 +148,7 @@ export default {
         background: none;
         font-size:15px;
         font-weight: 400;
+        cursor: pointer;
     }
     #cancel{color:red;}
     #check{background:red;color:white;}
