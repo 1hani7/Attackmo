@@ -4,7 +4,7 @@
       <div class="title">
         <div class="mainTitle">상영 예정 영화</div>
       </div>
-      <div style="width:100%; text-align: right; margin-bottom:10px;">
+      <div style="position: absolute; width:100%; text-align: right; top:calc(15px);">
         * 미개봉 영화는 상세정보와 리뷰를 제공하지 않습니다.
       </div>
       <div class="posters">

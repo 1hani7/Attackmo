@@ -20,7 +20,7 @@
             <div class="infoFrame">
               <div class="bold">출연</div>
               <div  class="actorNameBox">
-                <span v-for="name in actors" class="normalFont">{{ name }} / </span>
+                <span v-for="name in actors" class="normalFont">{{ name }}, </span>
               </div>
             </div>
             <div class="infoFrame">
@@ -115,7 +115,6 @@ export default{
         return item.제목 == param;
       })
       const actors = filtered[0].배우 ;
-      console.log( actors )
 
 
       const BMClicked = () => isActive.value = !isActive.value;

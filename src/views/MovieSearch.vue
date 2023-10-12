@@ -1,133 +1,60 @@
 <template>
     <div class="content">
-      <div class="title"><div class="mainTitle">영화 검색결과 N건</div></div>
+      <div class="title">
+        <div class="mainTitle">영화 검색결과 {{ resNum }}건</div>
+        <div class="word">검색어 : {{ word }}</div>
+      </div>
       <div class="results">
-        <RouterLink to="/MovieTitle">
-          <div class="template">
-            <img class="rectangle" src="@/images/rectangle408.png" />
+        <form v-for="value in res" :key="value.제목" action="/MovieTitle" method="get" name="movieName">
+          <input type="hidden" :value="value.제목" name="movieName">
+          <button type="submit" class="template">
+            <img class="rectangle" :src="value.포스터" />
             <div class="info">
-              <div class="div">오펜하이머</div>
+              <div class="div">{{ value.제목 }}</div>
               <div class="line"></div>
-              <div class="normalFont">2023.08.15 개봉</div>
+              <div class="normalFont">{{ value.개봉일 }}</div>
               <div class="running-time">
-                <div class="bold">러닝</div>
-                <div class="normalFont">180분</div>
+                <div class="bold">러닝타임</div>
+                <div class="normalFont">{{ value.러닝타임 }}</div>
               </div>
             </div>
-          </div>
-        </RouterLink>
-        <div class="template">
-          <img class="rectangle" src="@/images/rectangle408.png" />
-          <div class="info">
-            <div class="div">오펜하이머</div>
-            <div class="line"></div>
-            <div class="normalFont">2023.08.15 개봉</div>
-            <div class="running-time">
-              <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
-            </div>
-          </div>
-        </div>
-        <div class="template">
-          <img class="rectangle" src="@/images/rectangle408.png" />
-          <div class="info">
-            <div class="div">오펜하이머</div>
-            <div class="line"></div>
-            <div class="normalFont">2023.08.15 개봉</div>
-            <div class="running-time">
-              <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
-            </div>
-          </div>
-        </div>
-        <div class="template">
-          <img class="rectangle" src="@/images/rectangle408.png" />
-          <div class="info">
-            <div class="div">오펜하이머</div>
-            <div class="line"></div>
-            <div class="normalFont">2023.08.15 개봉</div>
-            <div class="running-time">
-              <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
-            </div>
-          </div>
-        </div>
-        <div class="template">
-          <img class="rectangle" src="@/images/rectangle408.png" />
-          <div class="info">
-            <div class="div">오펜하이머</div>
-            <div class="line"></div>
-            <div class="normalFont">2023.08.15 개봉</div>
-            <div class="running-time">
-              <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
-            </div>
-          </div>
-        </div>
-        <div class="template">
-          <img class="rectangle" src="@/images/rectangle408.png" />
-          <div class="info">
-            <div class="div">오펜하이머</div>
-            <div class="line"></div>
-            <div class="normalFont">2023.08.15 개봉</div>
-            <div class="running-time">
-              <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
-            </div>
-          </div>
-        </div>
-        <div class="template">
-          <img class="rectangle" src="@/images/rectangle408.png" />
-          <div class="info">
-            <div class="div">오펜하이머</div>
-            <div class="line"></div>
-            <div class="normalFont">2023.08.15 개봉</div>
-            <div class="running-time">
-              <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
-            </div>
-          </div>
-        </div>
-        <div class="template">
-          <img class="rectangle" src="@/images/rectangle408.png" />
-          <div class="info">
-            <div class="div">오펜하이머</div>
-            <div class="line"></div>
-            <div class="normalFont">2023.08.15 개봉</div>
-            <div class="running-time">
-              <div class="bold">러닝</div>
-              <div class="normalFont">180분</div>
-            </div>
-          </div>
-        </div>
+          </button>
+        </form>
       </div>
     </div>
 </template>
 
 <script>
+import { ref } from 'vue';
 import {useRouter} from 'vue-router';
-import {onMounted} from 'vue'
 export default{
     name:'MovieSearch',
     setup(){
-
       const router = useRouter();
-      const path = router.currentRoute.value.path;
+      const query = router.currentRoute.value.query.searchWord;
+      const set = JSON.parse(localStorage.getItem('set'));
 
-      onMounted(()=>{
-        const query = router.currentRoute.value.query.searchWord;
-        console.log(query);
-      })
+      const word = ref('');
+      const resNum = ref('');
+
+      const res = set.filter(function(item){
+        return item.제목.indexOf(query) > -1;
+      });
+
+      resNum.value = res.length;
+      word.value = query;
 
       window.addEventListener('resize', function(){
         if( path == '/Search' && this.window.innerWidth <= 1194 ){
           router.push('/')
         }
       })
+
+      return { res, word, resNum }
     }
 }
 </script>
 
-<style>
+<style scoped>
 @import url(./MovieSearch.css);
 </style>

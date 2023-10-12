@@ -1,6 +1,6 @@
 <template>
     <div id="chartWrap">
-        <canvas id="chart" width="500" height="220"></canvas>
+        <canvas id="chart" width="500" height="320"></canvas>
     </div>
 </template>
 
@@ -82,6 +82,9 @@ export default {
 }
 
 #chart {
-    width: 450px; height:220px;
+    width: 450px; height:320px;
+}
+@media(max-width:490px){
+    #chart{ height:250px; }
 }
 </style>

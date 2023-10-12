@@ -23,11 +23,13 @@
                         <img class="vector" src="@/images/search_icon.svg" />
                         <form action="/Search" method="get" @keypress.enter="searchMovie">
                             <div class="place-holder">
-                                <input @focus="searchingStart()" @blur="searchFocusOut()" autocomplete="off" type="text" name="searchWord"
-                                    class="inputText searchWrite" placeholder="영화, 인물을 검색해보세요">
+                                <input @focus="searchingStart()" @blur="searchFocusOut()"
+                                @keyup="getSearchWord"
+                                autocomplete="off" type="text" name="searchWord"
+                                class="inputText searchWrite" placeholder="영화 제목을 검색해보세요">
                             </div>
                         </form>
-                        <div v-if="isSearching" class="searchBar">
+                        <div v-show="isSearching" class="searchBar">
                             <searchBar />
                         </div>
                         <div v-if="isTabletSearching" @click="searchingStart()" class="darkBg2"></div>
@@ -85,6 +87,12 @@ export default {
         sideMenu, subMenu, searchBar
     },
     setup() {
+        const searchVal = ref('');
+        const getSearchWord = (event) => {
+            const word = event.target.value;
+            searchVal.value = word;
+        }
+        provide('searchVal', searchVal);
 
         const uniqueKey = 0;
 
@@ -213,17 +221,22 @@ export default {
                 } else if (window < 490) {
                     isTabletSearching.value = false;
                     LOGO.classList.add('hide');
-                    menu_bt.style.display = 'none';
+                    menu_bt.classList.add('hide');
                     search_bt.style.display = 'none';
                     search_box.style.display = 'flex';
                     search_box.style.width = 'calc(100vw - 30px)';
                 }
             } else {
-                if (490 <= window && window <= 1194) {
+                if (window < 1194) {
+                    menu_bt.classList.add('hide');
+                    search_box.style.width = '';
+                }
+                else if (490 <= window && window <= 1194) {
                     search_box.style.width = '';
                     search_bt.style.display = 'none';
                 } else if (window < 490) {
                     search_bt.style.display = 'block';
+                    menu_bt.classList.remove('hide');
                 }
             }
         })
@@ -274,7 +287,7 @@ export default {
             isMobileSearch, searchMobile,
             isTabletSearching, isMenuHover, MenuHover, MenuLeave,
             searchMovie, router, isLogin, loginToggle, uniqueKey,
-            searchFocusOut
+            searchFocusOut, searchVal, getSearchWord
         };
     }
 }
