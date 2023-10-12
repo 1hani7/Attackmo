@@ -58,6 +58,7 @@
               <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
             </div>
             <div class="trailerTitle">{{ value.예고편타이틀[idx] }}</div>
+            <div class="sub">{{ value.예고편타이틀[idx] }}</div>
           </div>
         </div>
       </div>
@@ -105,6 +106,7 @@ export default{
 
       const BMClicked = () => isActive.value = !isActive.value;
 
+      
 
       const switcher = () => {
         isBig.value = !isBig.value;

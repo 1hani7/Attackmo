@@ -19,6 +19,9 @@ const router = createRouter({
         if( localStorage.getItem('topTenList') == null || localStorage.getItem('topTenList') == "[]" ){
           localStorage.setItem('topTenList', JSON.stringify(topTenList));
         }
+        if( localStorage.getItem('coming') == null || localStorage.getItem('coming') == "[]" ){
+          localStorage.setItem('coming', JSON.stringify(coming));
+        }
         try{
           if( localStorage.getItem('set') == null || localStorage.getItem('set') === "[]" ){
             localStorage.setItem('set', JSON.stringify(set));
