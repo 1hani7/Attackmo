@@ -276,8 +276,6 @@ export default {
                     search_box.style.display = '';
                     isMobileSearch.value = false;
                 }
-
-
             })
         })
 

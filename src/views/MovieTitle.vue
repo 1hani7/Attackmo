@@ -65,6 +65,16 @@
       </div>
       <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
     </div>
+    <div v-if="isImage" class="subWrap">
+      <div class="subTitle" style="padding-bottom:20px;">스틸컷</div>
+      <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
+      <div class="trailer-template" style="">
+        <div v-for="(v, idx) in value.스틸컷">
+          <img :src="v">
+        </div>
+      </div>
+      <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
+    </div>
     <div class="subWrap">
       <div class="subTitle">차트</div>
       <div class="chartWrap">
@@ -105,6 +115,7 @@ export default {
     })
     const actors = filtered[0].배우;
     const isTrailer = filtered[0].예고편영상.length == 1 ? false : true;
+    const isImage = filtered[0].스틸컷.length == 1 ? false : true;
 
 
     // 슬라이드 스크롤
@@ -164,7 +175,7 @@ export default {
     return {
       path, isBig, switcher, trailerScale, isSwitched,
       image, isActive, filtered, actors, isTrailer, titleModal,
-      slideScrollRight, slideScrollLeft
+      slideScrollRight, slideScrollLeft, isImage
     }
   }
 }
