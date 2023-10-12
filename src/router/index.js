@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import list from '../views/ReviewBoard.vue';
-import {now} from '../mNow'
-import {coming} from '../mComing'
-import {topTenList} from '../topTenList'
-import {set} from '../movieApi'
+import { now } from '../mNow'
+import { coming } from '../mComing'
+import { topTenList } from '../topTenList'
+import { set } from '../movieApi'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,24 +13,24 @@ const router = createRouter({
       name: 'homeView',
       component: () => import('../views/homeView.vue'),
       beforeEnter: async (to, from, next) => {
-        if( localStorage.getItem('now') == null || localStorage.getItem('now') == "[]" ){
+        if (localStorage.getItem('now') == null || localStorage.getItem('now') == "[]") {
           localStorage.setItem('now', JSON.stringify(now));
         }
-        if( localStorage.getItem('topTenList') == null || localStorage.getItem('topTenList') == "[]" ){
+        if (localStorage.getItem('topTenList') == null || localStorage.getItem('topTenList') == "[]") {
           localStorage.setItem('topTenList', JSON.stringify(topTenList));
         }
-        if( localStorage.getItem('coming') == null || localStorage.getItem('coming') == "[]" ){
+        if (localStorage.getItem('coming') == null || localStorage.getItem('coming') == "[]") {
           localStorage.setItem('coming', JSON.stringify(coming));
         }
-        if( localStorage.getItem('set') == null || localStorage.getItem('set') == "[]" ){
+        if (localStorage.getItem('set') == null || localStorage.getItem('set') == "[]") {
           localStorage.setItem('set', JSON.stringify(set));
         }
-try{
-          if( localStorage.getItem('set') == null || localStorage.getItem('set') === "[]" ){
+        try {
+          if (localStorage.getItem('set') == null || localStorage.getItem('set') === "[]") {
             localStorage.setItem('set', JSON.stringify(set));
           }
           next();
-        } catch(error){
+        } catch (error) {
           console.error('데이터 저장 중 오류 발생:', error);
         }
       }
@@ -40,10 +40,10 @@ try{
       name: 'MovieMain',
       component: () => import('../views/MovieMain.vue'),
       beforeEnter: () => {
-        if( localStorage.getItem('now') == null ){
+        if (localStorage.getItem('now') == null) {
           localStorage.setItem('now', JSON.stringify(now));
         }
-        if( localStorage.getItem('topTenList') == null ){
+        if (localStorage.getItem('topTenList') == null) {
           localStorage.setItem('topTenList', JSON.stringify(topTenList));
         }
       }
@@ -53,7 +53,7 @@ try{
       name: 'Mnow',
       component: () => import('../views/Mnow.vue'),
       beforeEnter: () => {
-        if( localStorage.getItem('now') == null ){
+        if (localStorage.getItem('now') == null) {
           localStorage.setItem('now', JSON.stringify(now));
         }
       }
@@ -63,7 +63,7 @@ try{
       name: 'Mcoming',
       component: () => import('../views/Mcoming.vue'),
       beforeEnter: async () => {
-        if( localStorage.getItem('coming') == null ){
+        if (localStorage.getItem('coming') == null) {
           localStorage.setItem('coming', JSON.stringify(coming));
         }
       }
@@ -89,7 +89,7 @@ try{
       component: () => import('../views/Info.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false'){
+        if (sessionStorage.getItem('login') === 'false') {
           alert('로그인이 필요합니다.');
           useRouter().push('/login')
         }
@@ -102,7 +102,7 @@ try{
       component: () => import('../views/RecHistory.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false'){
+        if (sessionStorage.getItem('login') === 'false') {
           alert('로그인이 필요합니다.');
           useRouter().push('/login')
         }
@@ -115,7 +115,7 @@ try{
       component: () => import('../views/Mark.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false'){
+        if (sessionStorage.getItem('login') === 'false') {
           alert('로그인이 필요합니다.');
           useRouter().push('/login')
         }
@@ -128,7 +128,7 @@ try{
       component: () => import('../views/Like.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false'){
+        if (sessionStorage.getItem('login') === 'false') {
           alert('로그인이 필요합니다.');
           useRouter().push('/login')
         }
@@ -141,7 +141,7 @@ try{
       component: () => import('../views/Rwrite.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false'){
+        if (sessionStorage.getItem('login') === 'false') {
           alert('로그인이 필요합니다.');
           useRouter().push('/login')
         }
@@ -151,13 +151,13 @@ try{
     {
       path: '/ReviewBoard',
       name: 'ReviewBoard',
-      redirect:'/ReviewBoard/:1',
+      redirect: '/ReviewBoard/:1',
       component: () => import('../views/ReviewBoard.vue')
     },
     {
-      path:'/ReviewBoard/:page',
-      name:'ReviewBoard',
-      component:list,
+      path: '/ReviewBoard/:page',
+      name: 'ReviewBoard',
+      component: list,
     },
     {
       path: '/Rread',
@@ -205,7 +205,7 @@ try{
       component: () => import('@/views/If_Eck.vue'),
       beforeEnter: (to, from, next) => {
         const sessionStorage = window.sessionStorage;
-        if (sessionStorage.getItem('login') === 'false'){
+        if (sessionStorage.getItem('login') === 'false') {
           alert('로그인이 필요합니다.');
           useRouter().push('/login')
         }
@@ -256,7 +256,7 @@ try{
       path: "/ArWrite",
       name: "ArWrite",
       component: () => import('@/views/ArWrite.vue')
-    }, 
+    },
     {
       path: "/AreadTest",
       name: "AreadTest",
@@ -272,7 +272,7 @@ try{
       name: "TotalAdmin",
       component: () => import('@/views/TotalAdmin.vue')
     },
-    
+
   ]
 })
 
