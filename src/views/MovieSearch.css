@@ -1,4 +1,6 @@
 a{width:fit-content; height:fit-content;}
+button{border:none; background: white; text-align: left; cursor:pointer;}
+form{position:relative;}
 
 .content {
     display: flex;
@@ -12,32 +14,41 @@ a{width:fit-content; height:fit-content;}
   
   .content .title {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: end;
+    justify-content: space-between;
     position: relative;
     align-self: stretch;
     width: 100%;
     flex: 0 0 auto;
   }
-  
+
   .content .mainTitle {
     position: relative;
-    width: 1020px;
-    margin-top: -1px;
-    margin-right: -20px;
-    font-family: "Inter-Bold", Helvetica;
+    font-family: var(--semi-title-font-family);
     font-weight: 700;
     color: #000000;
     font-size: 30px;
-    letter-spacing: 0;
-    line-height: normal;
+  }
+
+  .content .blankMsg{
+    width:100%;
+    font-size:30px;
+    text-align: center;
+  }
+
+  .content .isRls{
+    width:100%;
+    padding-top:50px;
+    /* border-top:5px double gray; */
+    font-size:20px; font-weight: bolder;
   }
   
   .content .results {
     width:100%;
     display: grid;
-    grid-template-columns: repeat(4, 185px);
-    gap:calc((1000px - (185px * 4)) / 3);
+    grid-template-columns: repeat(5, 1fr);
+    gap:calc((1000px - (185px * 5)) / 4);
+    row-gap: 40px;;
     position: relative;
   }
   
@@ -53,7 +64,7 @@ a{width:fit-content; height:fit-content;}
   .content .rectangle {
     position: relative;
     width: 185px;
-    height: fit-content;
+    height: 265px;
     object-fit: cover;
   }
   
@@ -69,7 +80,9 @@ a{width:fit-content; height:fit-content;}
   }
   
   .content .div {
-    width: fit-content;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow:hidden;
     margin-top: -1px;
     font-family: var(--semi-title-font-family);
     font-weight: var(--semi-title-font-weight);
@@ -115,7 +128,7 @@ a{width:fit-content; height:fit-content;}
   .content .bold {
     width: fit-content;
     margin-top: -1px;
-    font-family: "Inter-Bold", Helvetica;
+    font-family: var(--semi-title-font-family);
     font-weight: 900;
     font-size: 17px;
     position: relative;
@@ -124,3 +137,20 @@ a{width:fit-content; height:fit-content;}
     line-height: normal;
   }
   
+  .content .movieName{
+    position:absolute;
+    top:84%; left:30%;
+    text-align: center;
+    border-radius: 10px;
+    white-space:nowrap;
+    font-size:22px;
+    font-weight:900;
+    background:rgba(255, 255, 255, 0.452);
+    backdrop-filter: blur(10px);
+    z-index:1000;
+    padding:3px 15px;
+    transform-origin: 50% 50%;
+    transform:translate();
+  }
+  
+  .show{display:none;}

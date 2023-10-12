@@ -1,8 +1,26 @@
 span{color:#B3B3B3;}
 strong{margin-right:15px; color:black;}
-#resBox{ margin:10px 10px 0px 10px; }
+@media(max-width:1194px){
+    form{cursor:pointer;}
+}
+button{
+    background:white; outline:none; 
+    border:none; text-align: left; 
+    display:flex; gap:10px;
+}
+@media(max-width:1194px){
+    button{cursor:pointer;}
+}
+
+#resBox{
+    width:250px; height:450px;
+    padding:10px 10px 0px 10px; overflow-y: scroll;
+}
+@media(max-width:1194px){
+    #resBox{width:100%;}
+}
 .searchWrap{
-    display:flex; column-gap:10px;
+    display:flex;
     width:100%; align-items: center;
     border-bottom:1px solid #B3B3B3;
     padding: 10px 0;
@@ -20,7 +38,14 @@ strong{margin-right:15px; color:black;}
 .posterWrap{
     width:64px; height:fit-content; background:#B3B3B3;
 }
-.posterWrap img{width:100%;}
+.posterWrap img{width:64px;}
+@media(max-width:1194px){
+    .posterWrap img{width:82px;}
+}
+
+.staring{display:flex; color:#B3B3B3}
+.staring div {width:fit-content;}
+.staring strong {white-space: nowrap;}
 
 @media(min-width:1194px){
     .posterWrap{cursor:auto;}
@@ -33,3 +58,13 @@ strong{margin-right:15px; color:black;}
         width:82px; height:fit-content; background:#B3B3B3;
     }
 }
+
+::-webkit-scrollbar{
+    width:8px;
+    background: gray;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb{
+    background:#454545;
+    border-radius: 10px;
+  }

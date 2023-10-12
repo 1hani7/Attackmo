@@ -1,7 +1,7 @@
 <template>
     <div v-for="(value, key) in filtered" :key="key" class="content">
       <div class="movie-info-box">
-        <div class="mainTitle">영화정보</div>
+        <div class="mainTitle">영화 정보</div>
         <div class="movie-template">
           <img class="poster" :src="value.포스터" />
           <div class="frame">
@@ -11,7 +11,7 @@
             </div>
             <div class="movieName">{{ value.제목 }}</div>
             <div v-if="isActive" class="notice">* 북마크한 영화입니다.</div>
-            <div class="bold">{{ value.개봉일 }}</div>
+            <div class="bold">{{ value.개봉일 }}예정</div>
             <div class="line"></div>
             <div class="infoFrame">
               <div class="bold">감독</div>
@@ -52,12 +52,27 @@
       <div v-if="isTrailer" class="subWrap">
         <div class="subTitle">예고편</div>
         <div class="trailer-template">
-          <div v-for="(v, idx) in value.예고편영상" class="trailerBox">
-            <div class="iframBox">
-              <iframe @click="trailerScale()" :src="v"></iframe>
+          <div class="trailerBox">
+            <div class="trailerBox">
+              <!-- <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle421.png" /> -->
+              <iframe @click="trailerScale()" :src="value.예고편영상[0]"></iframe>
               <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
             </div>
-            <div class="trailerTitle">{{ value.예고편타이틀[idx] }}</div>
+            <div class="trailerTitle">{{ value.예고편타이틀[0] }}</div>
+          </div>
+          <div class="trailerBox">
+            <div class="trailerBox">
+              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle422.png" />
+              <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
+            </div>
+            <div class="trailerTitle">메인 예고편</div>
+          </div>
+          <div class="trailerBox">
+            <div class="trailerBox">
+              <img @click="trailerScale()" class="trailer" src="@/images/movieInfo/Rectangle423.png" />
+              <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
+            </div>
+            <div class="trailerTitle">메인 예고편 2</div>
           </div>
         </div>
       </div>
@@ -94,9 +109,9 @@ export default{
       const isSwitched = ref(false);
       const path = ref('');
       const image = ref('');
-      const set = JSON.parse(localStorage.getItem('set'));
-      const param = useRoute().query.movieName;
-      const filtered = set.filter(function(item, idx){
+      const coming = JSON.parse(localStorage.getItem('coming'));
+      const param = useRoute().query.movieComing;
+      const filtered = coming.filter(function(item, idx){
         return item.제목 == param;
       })
       const actors = filtered[0].배우 ;
@@ -148,8 +163,7 @@ export default{
         
       });
 
-      return{path, isBig, switcher, trailerScale, isSwitched,
-        image, isActive, filtered, actors, isTrailer}
+      return{path, isBig, switcher, trailerScale, isSwitched, image, isActive, filtered, actors, isTrailer}
     }
 }
 </script>

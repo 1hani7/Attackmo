@@ -116,6 +116,7 @@ img{
     #pc{ display:none; }
     #tablet{ display:block;}
     #mobile{ display:none; }
+    img{width:100%; height:fit-content;}
 }
 
 @media(max-width:490px){

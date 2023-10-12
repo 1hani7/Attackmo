@@ -10,10 +10,13 @@
     </div>
     <div class="controler">
       <div class="detail">
-        <RouterLink to="/MovieTitle">
-          <div class="more">상세보기</div>
-          <img class="chevron-right" src="../images/chevron_right.svg" />
-        </RouterLink>
+        <form action="/ComingMovieTitle" method="get" name="movieComing">
+          <input type="hidden" :value="movieName" name="movieComing">
+          <button type="submit">
+            <div class="more">상세보기</div>
+            <img class="chevron-right" src="../images/chevron_right.svg" />
+          </button>
+        </form>
       </div>
 
       <img @click="togglePlayPause()" v-if="!isPlaying" class="img playPause" style="cursor:pointer"
@@ -57,6 +60,22 @@
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
         <form v-for="(value, key) in now" :key="key" action="/MovieTitle" name="movieName" method="get">
           <input type="hidden" name="movieName" :value="value.제목">
+          <button type="submit">
+            <img class="rectangle" :src="value.포스터" />
+          </button>
+        </form>
+        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
+      </div>
+    </div>
+    <div class="top">
+      <div class="frame">
+        <div class="title">상영 예정</div>
+        <div class="div"><router-link to="/Mcoming">+</router-link></div>
+      </div>
+      <div class="posters">
+        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
+        <form v-for="(value, key) in coming" :key="key" action="/ComingMovieTitle" name="movieComing" method="get">
+          <input type="hidden" name="movieComing" :value="value.제목">
           <button type="submit">
             <img class="rectangle" :src="value.포스터" />
           </button>
@@ -111,12 +130,14 @@ import {useRouter} from 'vue-router'
 export default {
   name: 'homeView',
   setup() {
+    const movieName = ref(null);
     const videoPlayer = ref(null); // 비디오 요소에 대한 ref
     const isPlaying = ref(false); // 비디오 재생 상태
     const isMuted = ref(false);   // 음소거 상태
     const isLogin = inject('isLogin');
     const path = ref();
     const now = JSON.parse(localStorage.getItem('now')).slice(0, 10);
+    const coming = JSON.parse(localStorage.getItem('coming')).slice(0, 10);
     const topTenList = JSON.parse(localStorage.getItem('topTenList'));
     
     // 슬라이드 스크롤
@@ -134,12 +155,16 @@ export default {
       const temp = Math.floor(Math.random() * 4) + 1;
       if (temp == 1) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/FlowerMoon/FlowerMoon_1080x608.mp4';
+        movieName.value = ' 플라워 킬링 문';
       } else if (temp == 2) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/Expend4bles/1004_Expend4bles_1080x608.mp4';
+        movieName.value = ' 익스펜더블 4';
       } else if (temp == 3) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/MissFortune/1006_1080x608_PC.mp4'
+        movieName.value = ' 화사한 그녀';
       } else if (temp == 4) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/BlueGiant/BlueGiant_1080X608_PC.mp4'
+        movieName.value = ' 블루 자이언트';
       }
     }
 
@@ -176,12 +201,6 @@ export default {
       });
     });
 
-    const router = useRouter();
-    router.beforeEach(() => {
-      localStorage.removeItem('now');
-      localStorage.removeItem('topTenList');
-    })
-
     return {
       topTenList,
       now,
@@ -194,6 +213,8 @@ export default {
       path,
       slideScrollRight,
       slideScrollLeft,
+      movieName,
+      coming
     };
   }
 }

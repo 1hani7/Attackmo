@@ -18,9 +18,9 @@
                         @click="toggleSearchResult"
                     />
                     <div class="search-result" v-show="isSearchResultVisible">
-                        <div class="movie_p" v-for="movie in filteredMovies" :key="movie">
-                            <img :src="getImageUrl(movie)" alt="Movie Poster" @click="pickMovie(movie)"/>
-                            <p>{{ movie }}</p>
+                        <div class="movie_p" v-for="movie in set" :key="movie">
+                            <img :src="movie.포스터" alt="Movie Poster" @click="pickMovie(movie)"/>
+                            <p>{{ movie.제목 }}</p>
                         </div>
                     </div>
                     
@@ -29,15 +29,25 @@
                     <p>별점</p>
                     <div class="dv-rate">
                         <input type="radio" id="star5" value="5" name="rb_star" />
-                        <label for="star5" title="5">5</label>
+                        <label for="star5" title="5">
+                            <i class="bi bi-star-fill"></i>
+                        </label>
                         <input type="radio" id="star4" value="4" name="rb_star" />
-                        <label for="star4" title="4">4</label>
+                        <label for="star4" title="4">
+                            <i class="bi bi-star-fill"></i>
+                        </label>
                         <input type="radio" id="star3" value="3" name="rb_star" />
-                        <label for="star3" title="3">3</label>
+                        <label for="star3" title="3">
+                            <i class="bi bi-star-fill"></i>
+                        </label>
                         <input type="radio" id="star2" value="2" name="rb_star" />
-                        <label for="star2" title="2">2</label>
+                        <label for="star2" title="2">
+                            <i class="bi bi-star-fill"></i>
+                        </label>
                         <input type="radio" id="star1" value="1" name="rb_star" />
-                        <label for="star1" title="1">1</label>
+                        <label for="star1" title="1">
+                            <i class="bi bi-star-fill"></i>
+                        </label>
                     </div>
                 </div>
                 <div id="movie_point">
@@ -45,23 +55,23 @@
                     <div class="point_wrap">
                         <div class="point">
                             <input type="checkbox" v-model="checkboxes[0]" @change="checkSelections" name="art" id="art" class="pointInput">
-                            <label for="art" class="cheM">작품성</label>
+                            <label for="art" class="ckeM">작품성</label>
                         </div>
                         <div class="point">
                             <input type="checkbox" v-model="checkboxes[1]" @change="checkSelections" name="fun" id="fun" class="pointInput">
-                            <label for="fun" class="cheM">오락성</label>
+                            <label for="fun" class="ckeM">오락성</label>
                         </div>
                         <div class="point">
                             <input type="checkbox" v-model="checkboxes[2]" @change="checkSelections" name="ost" id="ost" class="pointInput">
-                            <label for="ost" class="cheM">음악</label>
+                            <label for="ost" class="ckeM">음악</label>
                         </div>
                         <div class="point">
                             <input type="checkbox" v-model="checkboxes[3]" @change="checkSelections" name="act" id="act" class="pointInput">
-                            <label for="act" class="cheM">연기력</label>
+                            <label for="act" class="ckeM">연기력</label>
                         </div>
                         <div class="point">
                             <input type="checkbox" v-model="checkboxes[4]" @change="checkSelections" name="direct" id="direct" class="pointInput">
-                            <label for="direct" class="cheM">연출력</label>
+                            <label for="direct" class="ckeM">연출력</label>
                         </div>
                     </div>
                 </div>
@@ -89,6 +99,7 @@ export default {
         selectMovie,
     },
     setup() {
+        const set = JSON.parse(localStorage.getItem('set'));
         const m_name =["1947보스톤","가디언즈","공조2_인터내셔날","나를찾아줘","나를 찾아줘(한국)","나이브스아웃",
                 "내부자들_디오리지널","노바디","눈물이주룩주룩","더랍스터","더문","더 웨일","더킹","데드풀","독전","드림",
                 "레이니데이인뉴욕","메기","모노노케히메","미션임파서블_데드레코닝partone","범죄도시3","빅쇼트","사도","상견니",
@@ -159,6 +170,7 @@ export default {
             checkboxes, 
             checkSelections,
             toggleSearchResult,
+            set
         };
     },
 };

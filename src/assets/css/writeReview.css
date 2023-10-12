@@ -2,7 +2,6 @@
 #section{width:1000px;margin:0 auto;}
 .dv-rate{
     float:left;
-    height:46px;
     padding:0 10px;
     display:block;
 }
@@ -12,15 +11,10 @@
 }
 .dv-rate:not(:checked) > label {
     float:right;
-    width:1em;
-    overflow:hidden;
+    width:30px;
     white-space :nowrap;
     cursor:pointer;
-    font-size:40px;
     color:#ccc;
-}
-.dv-rate:not(:checked) > label:before {
-    content:'★';
 }
 .dv-rate > input:checked ~ label{
     color:#ffc700;
@@ -102,7 +96,7 @@
     gap:15px;
 }
 .pointInput{opacity: 0;}
-.cheM{
+.ckeM{
     width:100px;
     text-align: center;
     font-size: 17px;
@@ -112,7 +106,7 @@
     padding:5px;
     cursor: pointer;
 }
-.pointInput:checked + .cheM{
+.pointInput:checked + .ckeM{
     color:#fff;
     background:#105652;
     transition: all 0.5s;
@@ -171,14 +165,17 @@
         margin-bottom:20px;
     }
     #star{height:30px;}
+    .dv-rate label i{font-size: 20px; width:20px;}
     .t_input label, .select_m label,#detail_input label,p{font-size:15px;font-weight:700;}
-    .search-result{
-        top:50px;
-    }
-    
-    .movie_p{
-        height:130px;
-    }
+    .search-result{top:50px;}
+    .movie_p{height:130px;}
     .movie_p img{width:71px;height:100px;}
     .movie_p p{font-size: 10px;}
+    .point_wrap{flex-wrap:wrap; gap:3px;margin-top:10px;}
+    .point{margin:5px 0;}
+    .ckeM{font-size:12px; width:80px;}
+    #detail_input{width:100%;}
+    #de_con{margin: 10px 0;}
+    #bt_wrap{width:150px;}
+    #bt_wrap button{padding:5px 10px;font-size: 12px;border-radius: 7px;}
 }
