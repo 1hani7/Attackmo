@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <div id="app" class="wrap">
         <form @submit.prevent="submitForm" id="sign_box">
-             <h1>회원가입</h1>
+             <p>회원가입</p>
              <div id="email">
                 <label><i class="bi bi-asterisk"></i>이메일</label>
                 <input type="email" class="form-control" v-model="email">
@@ -13,7 +13,7 @@
              </div>
              <div id="pw_ck">
                 <label><i class="bi bi-asterisk"></i>비밀번호 확인</label>
-                <p>*비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</p>
+                <span>*비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</span>
                 <input type="password" class="form-control" v-model="password2">
               </div>
              <div id="nickname">
@@ -151,6 +151,7 @@ export default {
       gap: 49px 42px;
       flex-wrap: wrap;
     }
+    #sign_box p{font-size: 25px;font-weight: 700;}
     #email,#pw,#pw_ck,#nickname{
         display: flex;
         flex-direction: column;
@@ -165,7 +166,7 @@ export default {
         padding:20px;
         font-size: 17px;
     }
-    #pw_ck p{
+    #pw_ck span{
       color:#F9C041;
       font-weight: 700;
       align-self: flex-end;
@@ -219,7 +220,7 @@ export default {
     
     #sign{ background: #F9C041;}
     #cancel{ background:  #B91646;}
-      label{font-size: 23px;font-weight: 700;}
+    label{font-size: 23px;font-weight: 700;}
     label i {font-size: 23px;color:#B91646;}
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
@@ -230,21 +231,18 @@ export default {
      .wrap{width:100%;}
      #email input,#pw input,#pw_ck input,#nickname input{width:100%;}
      #pw_ck,#nickname,#phone,#num{width:100%;}
-     #pw_ck p{width:100%;font-size: 17px;}
+     #pw_ck span{width:100%;font-size: 17px;}
      #num input{width:100%;}
      #button_box{width:100%;}
      #button_box button{width:350px;padding:0px;}
      input{outline:none;}
     }
     @media (max-width:490px) {
-      input{outline:none;}
       label, .bi-asterisk{font-size: 17px;}
       #sign_box{width:calc(100% - 30px);}
-      #button_box{width:100%;}
+      #button_box{width:100%;padding:0px;}
       #button_box button{width:100px;font-size:17px;}
-      #pw_ck p{font-size:15px;}
-      
-}
-  
-    
+      #pw_ck span{font-size:15px;}
+      #email input,#pw input,#pw_ck input,#nickname input, #num input{width:100%; height:30px;outline:none;}     
+    }
 </style>

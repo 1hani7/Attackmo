@@ -122,5 +122,6 @@ tbody{
         border-bottom:1px solid #ccc;
         padding: 6px;}
     .m_t{width:100%; font-size:14px;} 
-    .m_w,.m_d{font-size:8px; padding-right:3px; color:#aaa;}
+    .m_w,.m_d{font-size:8px; padding:0 3px; color:#aaa;}
+    .m_w{border-right: 1px solid #aaa;}
 }
