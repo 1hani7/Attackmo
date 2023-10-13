@@ -118,8 +118,8 @@ export default {
             this.$router.push({path:"/Aread"});
         },*/
         gonote(selectedData) {
-        this.$router.push({ path: "/AreadTest", query: { data: selectedData } }); // 'selectedData'에 선택한 데이터가 포함됩니다.
-        //this.$router.push({ path: "/Aread"});
+        //this.$router.push({ path: "/AreadTest", query: { data: selectedData } }); // 'selectedData'에 선택한 데이터가 포함됩니다.
+        this.$router.push({ path: "/Aread"});
         },
         changePage(page) {
             this.currentPage = page;
