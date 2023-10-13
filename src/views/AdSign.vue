@@ -148,11 +148,13 @@ export default {
             alert("정지되었습니다.");
             
         },
-        deleteMember(){
-           
-            alert("삭제되었습니다");
-            this.isModalOn = false; // 모달 닫기
-        },
+
+    
+        deleteMember() {
+            this.isModalOn = false;
+            alert("삭제되었습니다.");
+        }
+
     }
 }
 </script>
