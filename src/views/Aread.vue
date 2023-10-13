@@ -118,7 +118,7 @@ export default {
         align-self: stretch;
     }
     #nwrite p{font-size: 23px;font-weight: 700;}
-    .note{width:960px;padding:20px;}
+    .note{width:960px;padding:20px;padding:0px;margin-top:10px;}
 @media (max-width:1194px) {
    #wrap{width:100%;}
    #nwrite{width:90%;}

@@ -65,10 +65,11 @@ input { outline:none; }
 .write_info div{
     font-size:17px;
 }
-.con_detail{
+.con_detail {
     display:flex;margin-bottom:50px;
     justify-content: space-between;
 }
+.p_box{width:185px;}
 .poster{width:185px;height: 260px;}
 .movie_info{
     width:790px;
@@ -301,11 +302,10 @@ input { outline:none; }
     .write_info div{font-size:12px;}
     .review_title{padding:10px 15px; display:block;}
     .review_title .title{font-size: 15px;}
-    .mPost_menu{position:absolute; top: 20px; right:10px;}
     .mPost_menu div{display:block; }
     .post_menu{display:none;}
     .con_detail{display:block;margin:0;}
-    .p_box{ text-align: center;}
+    .p_box{width: 100%;text-align: center;}
     .movie_info{width:100%;margin:15px 0;height:fit-content;}
     .movie_name{font-size:25px; font-weight: 500;}
     .movie_detail{height: fit-content;}

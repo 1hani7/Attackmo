@@ -16,26 +16,30 @@
                         <div class="writer">귤까고뒹굴뒹굴</div>
                         <div class="write_d">2023.09.08</div>
                     </div>
-                    <div class="con_detail">
-                        <RouterLink to="/MovieTitle"><div class="p_box"><img class="poster" src="../images/img/잠.jpg" /></div></RouterLink>
-                        <div class="movie_info">
-                            <div class="movie_name">잠</div>
-                            <div class="movie_release">2023.09.06 개봉</div>
-                            <div class="movie_detail">
-                                <div class="info_l">
-                                    <p>감독</p>
-                                    <p>출연</p>
-                                    <p>장르</p>
-                                    <p>러닝</p>
-                                </div>
-                                <div class="info_r">
-                                    <p>유재선</p>
-                                    <p>정유미, 이선균, 김금순</p>
-                                    <p>호러 / 스릴러</p>
-                                    <p>94분</p>
+                    <div >
+                        <RouterLink to="/MovieTitle" class="con_detail">
+                            <div class="p_box">
+                                <img class="poster" src="../images/img/잠.jpg" />
+                            </div>
+                            <div class="movie_info">
+                                <div class="movie_name">잠</div>
+                                <div class="movie_release">2023.09.06 개봉</div>
+                                <div class="movie_detail">
+                                    <div class="info_l">
+                                        <p>감독</p>
+                                        <p>출연</p>
+                                        <p>장르</p>
+                                        <p>러닝</p>
+                                    </div>
+                                    <div class="info_r">
+                                        <p>유재선</p>
+                                        <p>정유미, 이선균, 김금순</p>
+                                        <p>호러 / 스릴러</p>
+                                        <p>94분</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </RouterLink>
                     </div>
                     <p class="review_text">
                         주변에서 재밌다고 추천해주길래 불금이기도 해서 바로 봤는데 이선균 연기 너무 잘하고 한 시도 긴장감을 늦출 수
@@ -70,7 +74,6 @@
                         <input type="text" placeholder="바른 말 고운 말, 함께 만드는 댓글 문화!">
                         <button class="reply_bt">등록하기</button>
                     </div>
-                    <div id="moreComment" @click="loadMore">이전 댓글 더보기 <i class="bi bi-chat-dots"></i></div>
                     <div class="reply" v-for="(reply, index) in displayedReplies" :key="index">
                         <div class="reply_info">
                             <div class="nickName">{{ reply.nickName }}</div>
@@ -96,6 +99,7 @@
                             </div>
                         </div>
                     </div>
+                    <div id="moreComment" @click="loadMore">이전 댓글 더보기 <i class="bi bi-chat-dots"></i></div>
                 </div>
             </div>
             <div class="sirenModal" v-if="isModalOpen">
@@ -354,18 +358,17 @@ const postDel = () => {
 
 const sortedReplies = ref(replies.value.slice());
 
-displayedReplies.value = sortedReplies.value.slice(-commentsToShow);
+displayedReplies.value = sortedReplies.value.slice(-commentsToShow).reverse(); // 역순으로 처음에 보여줄 댓글 설정
 
 function loadMore() {
-    const startIndex = displayedReplies.value.length;
-    const endIndex = startIndex + commentsToShow;
+  const startIndex = displayedReplies.value.length;
+  const endIndex = startIndex + commentsToShow;
 
-    if (startIndex < sortedReplies.value.length) {
-        const newReplies = sortedReplies.value.slice(-endIndex, -startIndex).reverse(); // 역순으로 댓글 로드
-        displayedReplies.value = newReplies.concat(displayedReplies.value);
-    }
+  if (startIndex < sortedReplies.value.length) {
+    const newReplies = sortedReplies.value.slice(-endIndex, -startIndex).reverse(); // 역순으로 댓글 로드
+    displayedReplies.value = displayedReplies.value.concat(newReplies);
+  }
 }
-
 </script>
 
 <style scoped>

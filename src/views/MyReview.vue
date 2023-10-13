@@ -5,7 +5,7 @@
             <div class="review_wrap">
                 <div class="mr_box">
                     <RouterLink to="/Rread" class="view" v-for="(review, index) in reviews" :key="index">
-                        <img class="poster" :src="review.img" />
+                        <div class="pBox"><img class="poster" :src="review.img" /></div>
                         <div class="myreview">
                             <div class="m_title">{{ review.mTitle }}</div>
                             <div class="r_title">{{ review.rTitle }}</div>
