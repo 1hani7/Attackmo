@@ -12,15 +12,16 @@ button{
 .screen {
     width:100%;
     position: relative;
+    left:50%; transform:translateX(-50%);
     background-color: #000000;
     margin:0 auto;
     display:flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
   }
   @media(max-width:1194px){
-    .screen{width:calc(100% - 30px);}
+    /* .screen{width:calc(100% - 30px);} */
+    .screen{width:100%;}
   }
 
   .screen .video{
@@ -258,11 +259,19 @@ button{
 
   .div-wrapper .posters .bi{
     z-index:10;
-    height:321px;
+    height:321.99px;
     position:fixed;
     font-size:40px; color:white;
     display:flex; align-items: center;
-    transform: translateY(-2px);
+    background-color: rgba(0,0,0, 0.);
+    transform:translateY(-2px);
+    background-color: rgba(0,0,0, 0.15);
+  }
+  @media(max-width:1194px){
+    .div-wrapper .posters .bi{
+      height:280px;
+      transform:translateY(-1.5px);
+    } 
   }
   @media(max-width:490px){
     .div-wrapper .posters .bi{display:none;}
@@ -281,7 +290,7 @@ button{
 
 
 
-  .div-wrapper .rectangle, .div-wrapper .img {
+  .div-wrapper .rectangle {
     position: relative;
     width: 232px;
     height: 322px;
@@ -300,6 +309,9 @@ button{
       column-gap:10px;
       padding-bottom:0;
     }
+    .div-wrapper .rectangle {
+      width:fit-content; height:280px;
+    }
   }
 
   @media(max-width:490px){
@@ -314,7 +326,7 @@ button{
 
     .div-wrapper .img, .div-wrapper > .div,
     .div-wrapper .rectangle {
-      width:93px; height:130px;
+      width:fit-content; height:200px;
     }
     
     .div-wrapper .link{

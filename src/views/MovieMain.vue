@@ -6,26 +6,26 @@
       </div>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <form v-for="(value, key) in topTenList" :key="key" action="/MovieTitle" name="movieName" method="get"
-          class="poster-box">
-          <div class="ranking">{{ value.랭킹 }}</div>
-          <input type="hidden" name="movieName" :value="value.제목">
-          <button type="submit">
-            <img class="image" :src="value.포스터" />
-          </button>
-          <div class="view">
-            <div @mouseover="titleModal" @mouseout="titleModal" class="movieTitle">{{ value.제목 }}</div>
-            <div class="movieDate">{{ value.개봉일 }}</div>
-          </div>
-          <div class="starBox">
-            <div class="starYellow">★</div>
-            <div class="starYellow">★</div>
-            <div class="starYellow">★</div>
-            <div class="starYellow">★</div>
-            <div class="starBlack">★</div>
-          </div>
-          <div class="movieName show">{{ value.제목 }}</div>
-        </form>
+        <div v-for="(value, key) in topTenList" :key="key" class="poster-box">
+          <router-link :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
+            <div class="ranking">{{ value.랭킹 }}</div>
+            <button type="submit">
+              <img class="image" :src="value.포스터" />
+            </button>
+            <div class="view">
+              <div @mouseover="titleModal" @mouseout="titleModal" class="movieTitle">{{ value.제목 }}</div>
+              <div class="movieDate">{{ value.개봉일 }}</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+            <div class="movieName show">{{ value.제목 }}</div>
+          </router-link>
+        </div>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -38,25 +38,25 @@
       </div>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <form v-for="(value, key) in now" :key="key" action="/MovieTitle" name="movieName" method="get"
-          class="poster-box">
-          <input type="hidden" name="movieName" :value="value.제목">
-          <button type="submit">
-            <img class="image" :src="value.포스터" />
-          </button>
-          <div class="view">
-            <div @mouseover="titleModal" @mouseout="titleModal" class="movieTitle">{{ value.제목 }}</div>
-            <div class="movieDate">{{ value.개봉일 }}</div>
-          </div>
-          <div class="starBox">
-            <div class="starYellow">★</div>
-            <div class="starYellow">★</div>
-            <div class="starYellow">★</div>
-            <div class="starYellow">★</div>
-            <div class="starBlack">★</div>
-          </div>
-          <div class="movieName show">{{ value.제목 }}</div>
-        </form>
+        <div v-for="(value, key) in now" :key="key" class="poster-box">
+          <router-link :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
+            <button type="submit">
+              <img class="image" :src="value.포스터" />
+            </button>
+            <div class="view">
+              <div @mouseover="titleModal" @mouseout="titleModal" class="movieTitle">{{ value.제목 }}</div>
+              <div class="movieDate">{{ value.개봉일 }}</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
+            <div class="movieName show">{{ value.제목 }}</div>
+          </router-link>
+        </div>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -464,4 +464,6 @@ export default {
 }
 </script>
 
-<style>@import url(./MovieMain.css);</style>
+<style scoped>
+@import url(./MovieMain.css);
+</style>

@@ -6,17 +6,16 @@
                 <div class="inter-b-ox">
                     <div class="div">
                         <RouterLink to="/login">
-                            <div v-if="!isLogin" class="normalFont" style="cursor:pointer">
+                            <div v-if="!isLogin" class="loginFont" style="cursor:pointer">
                                 로그인
                             </div>
                         </RouterLink>
-                        <div v-if="isLogin" @click="loginToggle()" class="normalFont" style="cursor:pointer">
+                        <div v-if="isLogin" @click="loginToggle()" class="loginFont" style="cursor:pointer">
                             로그아웃
                         </div>
                         <div class="normalFont">/</div>
-
                         <RouterLink to="/signup">
-                            <div class="normalFont">회원가입</div>
+                            <div class="loginFont">회원가입</div>
                         </RouterLink>
                     </div>
                     <div class="search-box">
@@ -66,7 +65,7 @@
                     </div>
                 </RouterLink>
             </div>
-            <subMenu @mouseleave="MenuLeave()" />
+            <subMenu v-show="isShowing" @mouseleave="MenuLeave()" />
         </div>
     </div>
 
@@ -105,11 +104,13 @@ export default {
         const isTabletSearching = ref(false);
         const isMenuHover = ref(false);
         provide('isMenuHover', isMenuHover);
+        const isShowing = ref(false);
 
         const router = useRouter();
 
         const MenuHover = () => {
             isMenuHover.value = true;
+            isShowing.value = true;
         }
         const MenuLeave = () => isMenuHover.value = false;
 
@@ -197,8 +198,6 @@ export default {
             const LOGO = document.querySelector(".LOGO");
             const search_box = document.querySelector(".search-box");
             const menu_bt = document.querySelector(".menu_bt");
-            const darkBg = document.querySelector(".darkBg");
-            const darkBg2 = document.querySelector(".darkBg2");
             const search_bt = document.querySelector(".search_bt");
             const window = this.window.innerWidth;
 
@@ -230,6 +229,7 @@ export default {
                 if (window > 1194) {
                     menu_bt.classList.add('hide');
                     search_box.style.width = '';
+                    search_bt.style.display = '';
                 }
                 else if (490 <= window && window <= 1194) {
                     menu_bt.classList.remove('hide');
@@ -286,7 +286,7 @@ export default {
             isMobileSearch, searchMobile,
             isTabletSearching, isMenuHover, MenuHover, MenuLeave,
             searchMovie, router, isLogin, loginToggle, uniqueKey,
-            searchFocusOut, searchVal, getSearchWord
+            searchFocusOut, searchVal, getSearchWord, isShowing
         };
     }
 }

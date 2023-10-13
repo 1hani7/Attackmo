@@ -17,13 +17,6 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     .screen{ margin: 30px auto; gap:30px;}
   }
   
-  .screen .div {
-
-  }
-  @media(max-width:490px){
-    .screen .div{ height:165px; left:0;}
-  }
-  
   .screen .title {
     display: flex;
     width: 1000px;
@@ -118,12 +111,12 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   .screen .cont .bi {
     z-index:10;
     position:fixed;
-    height:438px;
+    height:449.71px;
     font-size:40px; color:white;
     display:flex; align-items: center;
   }
   @media(max-width:1194px){
-    .screen .cont .bi{height:427px;}
+    .screen .cont .bi{ height:444.67px; }
   }
   @media(max-width:490px){
     .screen .cont .bi{display:none;}
@@ -154,7 +147,7 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     .screen .poster-box{width:100%; height: fit-content;}
   }
   @media(max-width:490px){
-    .screen .poster-box{width:100%;}
+
   }
 
   .screen .ranking{
@@ -177,20 +170,19 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   
   .screen .image {
     position: relative;
-    width: 230px;
+    width: 230px; height:328px;
     object-fit: cover;
   }
   @media(max-width:1194px){
-    .screen .image{width:230px; height:100%;}
+    .screen .image{width:230px; height:fit-content;}
   }
   @media(max-width:490px){
-    .screen .image{width:100px; height:100%;}
+    .screen .image{width:fit-content; height:230px;}
   }
   
   .screen .view {
     display: flex;
     flex-direction: column;
-    /* width: 215px; */
     align-items: flex-start;
     gap: 5px;
     position: relative;
@@ -290,8 +282,15 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
 
   ::-webkit-scrollbar {
     height: 8px;
-    background: gray;
+    background: rgb(163, 163, 163);
     border-radius: 10px;
+  }
+
+  @media(max-width:1194px){
+    ::-webkit-scrollbar { height:5px; }
+  }
+  @media(max-width:490px){
+    ::-webkit-scrollbar { display:none; }
   }
   
   ::-webkit-scrollbar-thumb {
