@@ -44,7 +44,8 @@
                 </thead>
             <tbody>
                 <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" @click="modalOn">
-                    <td class="n"><div></div>{{ value.name }}</td>
+                    <td class="n"><i class="bi bi-sign-stop-fill" 
+                        :class="{ 'hidden': hideIcon }"></i>{{ value.name }}</td>
                     <td class="t">{{ value.email }}</td>
                     <td class="w">{{ value.number}}</td>
                     <td class="d">{{ value.level}}</td>
@@ -78,6 +79,7 @@ export default {
             currentPage: 1, //페이지 이동 수
             isModalOn: false,//모달창
             number:0,//경고1추가
+            hideIcon:true,
             
         }
         
@@ -142,9 +144,12 @@ export default {
             } 
         },
         stop(){
+            this.hideIcon = !this.hideIcon;
             alert("정지되었습니다.");
+            
         },
         deleteMember(){
+           
             alert("삭제되었습니다");
             this.isModalOn = false; // 모달 닫기
         },
@@ -200,6 +205,7 @@ export default {
     background:rgba(0,0,0,0)
 }
 .bi-search{cursor: pointer;}
+.bi-sign-stop-fill.hidden{margin:5px;color:#B91646; display:none;}
 .list{
     width:100%;
     border-radius:10px;

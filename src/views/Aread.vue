@@ -133,5 +133,6 @@ export default {
 
 @media (max-width: 490px) {
     #wrap{width:calc(100vw - 20px);} 
+    
   }
 </style>

@@ -2,10 +2,10 @@
      <div id="wrap">
         <div id="nav">
             <ul class="list0">
-                <li><RouterLink to="./Adsign">회원관리</RouterLink></li>|&nbsp;
-                <li><RouterLink to="./Adsiren">신고내역</RouterLink></li>|&nbsp;
-                <li><RouterLink to="./Adnotice">공지관리</RouterLink></li>|&nbsp;
-                <li><RouterLink to="./Arwrite">문의</RouterLink></li>
+                <li><RouterLink to="./Adsign">회원관리</RouterLink></li>
+                <li><RouterLink to="./Adsiren">신고내역</RouterLink></li>
+                <li><RouterLink to="./Adnotice">공지관리</RouterLink></li>
+                <li><RouterLink to="./Arwrite">문의사항</RouterLink></li>
             </ul>
         </div>
         <div id="content">
