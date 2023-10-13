@@ -6,37 +6,9 @@
             </div>
             <div id="con_box">
                 <div id="content">
-                    <div class="movie">
-                        <img src="../images/img/왕의남자.jpg" alt="">
-                        <b>왕의 남자</b>
-                    </div>
-                    <div class="movie">
-                        <img src="../images/img/존윅_리로드.jpg" alt="">
-                        <b>존 윅:리로드</b>
-                    </div>
-                    <div class="movie">
-                        <img src="../images/img/친절한금자씨.jpg" alt="">
-                        <b>친절한 금자씨</b>
-                    </div>
-                    <div class="movie">
-                        <img src="../images/img/업.jpg" alt="">
-                        <b>업</b>
-                    </div>
-                    <div class="movie">
-                        <img src="../images/img/어벤져스_엔드게임.jpg" alt="">
-                        <b>어벤져스 : 엔드게임</b>
-                    </div>
-                    <div class="movie">
-                        <img src="../images/img/빅쇼트.jpg" alt="">
-                        <b>빅 쇼트</b>
-                    </div>
-                    <div class="movie">
-                        <img src="../images/img/내부자들_디오리지널.jpg" alt="">
-                        <b>내부자들  : 디 오리지널</b>
-                    </div>
-                    <div class="movie">
-                        <img src="../images/img/더킹.jpg" alt="">
-                        <b>더 킹</b>
+                    <div class="movie" v-for="data in randomMovies" :key="randomMovies">
+                        <img :src="data.포스터" :alt="data.제목">
+                        <b>{{ data.제목 }}</b>
                     </div>
                 </div>
             </div>
@@ -44,8 +16,23 @@
     </section>
 </template>
 
-<script>
+<script setup>
+const set = JSON.parse(localStorage.getItem('set'));
 
+const getRandomMovies = () => {
+  const numberOfMoviesToSelect = 12;
+  const randomMovies = [];
+
+  while (randomMovies.length < numberOfMoviesToSelect && set.length > 0) {
+    const randomIndex = Math.floor(Math.random() * set.length);
+    randomMovies.push(set[randomIndex]);
+    set.splice(randomIndex, 1); // 중복 선택 방지를 위해 이미 선택한 항목은 배열에서 제거
+  }
+
+  return randomMovies;
+};
+
+const randomMovies = getRandomMovies();
 </script>
 
 <style scoped>

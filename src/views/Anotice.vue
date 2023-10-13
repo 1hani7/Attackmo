@@ -9,6 +9,7 @@
             <div class="file_box">
                 <label>첨부파일</label>
                 <input type="file" accept =".gif, .jpg, .png" name="file" id="file" @change="handleFileChange">
+                <!-- @change="handleFileChange" 사용자가 파일을 선택하거나 파일 입력 필드에 변경을 가했을 때 호출되는 함수-->
                 <p>*gif,jpg,png 선택 가능합니다</p>
             </div>
             <div id="notice">
@@ -75,7 +76,7 @@ export default {
             this.router.push('/AskMe');
         },
         handleFileChange(event) {
-            // 파일 변경 이벤트를 처리하고 선택한 파일을 저장합니다.
+            // 파일 변경 이벤트를 처리하고 선택한 파일을 저장합니다. 1번째 파일을 가져옴
             this.file = event.target.files[0];
         },
         created() {
@@ -140,6 +141,7 @@ export default {
         background: #fff;
         border-radius: 30px;
         border:1px solid black;
+        cursor: pointer;
     }
     #notice{
         display: flex;

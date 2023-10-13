@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div id="bt_wrap">
-                <RouterLink to="/ReviewBoard"><button>취소</button></RouterLink>
+                <RouterLink to="/ReviewBoard/:1"><button>취소</button></RouterLink>
                 <button>등록하기</button>
             </div>
         </div>
@@ -100,33 +100,26 @@ export default {
     },
     setup() {
         const set = JSON.parse(localStorage.getItem('set'));
-        const m_name =["1947보스톤","가디언즈","공조2_인터내셔날","나를찾아줘","나를 찾아줘(한국)","나이브스아웃",
-                "내부자들_디오리지널","노바디","눈물이주룩주룩","더랍스터","더문","더 웨일","더킹","데드풀","독전","드림",
-                "레이니데이인뉴욕","메기","모노노케히메","미션임파서블_데드레코닝partone","범죄도시3","빅쇼트","사도","상견니",
-                "소울","신세계","아메리칸사이코","아바타_물의 길","아저씨","어벤져스_엔드게임","어벤져스","업","엘리멘탈","여름을향한터널,이별의출구",
-                "연애 빠진 로맨스","왕의남자","인생은 아름다워","인어공주","인타임","잠","존윅_리로드","지푸라기라도잡고 싶은짐승들","천박사퇴마연구소_설경의비밀",
-                "친절한금자씨","캐롤","타겟","토르_천둥의 신","토이스토리4"];
         const searchQuery = ref('');
         const checkboxes = ref([false, false, false, false, false]); // 체크박스 선택 상태를 저장하는 배열
-
-        const getImageUrl = (movie) => {
-            return `../src/images/img/${movie}.jpg`;
-        };
-
         const isSearchResultVisible = ref(false);
 
         const filteredMovies = computed(() => {
             const word = searchQuery.value.trim().toLowerCase();
-            return m_name.filter(movie => movie.toLowerCase().includes(word));
+            return set.filter(movie => movie.제목.toLowerCase().includes(word));
         });
 
         const showSearchResult = () => {
             isSearchResultVisible.value = true;
+            // 검색 결과 컨테이너가 다시 표시되면 스크롤을 초기화
+            const searchResultContainer = document.querySelector('.search-result');
+            if (searchResultContainer) {
+                searchResultContainer.scrollTop = 0;
+            }
         };
 
         const hideSearchResult = () => {
             isSearchResultVisible.value = false;
-            this.scrollTo(0,0);
         };
 
         onMounted(() => {
@@ -150,27 +143,15 @@ export default {
             }
         };
 
-        const toggleSearchResult = () => {
-            isSearchResultVisible.value = !isSearchResultVisible.value;
-            if (!isSearchResultVisible.value) {
-                const searchResultContainer = document.querySelector('.search-result');
-                if (searchResultContainer) {
-                    searchResultContainer.scrollTop = 0; 
-                }
-            }
-        };
-
         return {
             searchQuery,
             filteredMovies,
             isSearchResultVisible,
+            checkboxes,
             showSearchResult,
             hideSearchResult,
-            getImageUrl,
-            checkboxes, 
             checkSelections,
-            toggleSearchResult,
-            set
+            set,
         };
     },
 };
