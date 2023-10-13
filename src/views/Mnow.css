@@ -71,7 +71,7 @@ form{width:100%;}
   gap: 35px 10px;
   position: relative;
   flex: 0 0 auto;
-  overflow:hidden;
+  /* overflow:hidden; */
 }
 @media(max-width:1194px){
   .main-content .posters{

@@ -75,18 +75,6 @@
       </div>
       <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
     </div>
-    <div class="subWrap">
-      <div class="subTitle">차트</div>
-      <div class="chartWrap">
-        <div class="chartBox">
-          <radarChart />
-        </div>
-        <div class="chartBox">
-          <h3>지난 10일 간의 관객 수</h3>
-          <lineChart />
-        </div>
-      </div>
-    </div>
   </div>
 
   <div v-show="isBig" @click="switcher()" id="darkBg">

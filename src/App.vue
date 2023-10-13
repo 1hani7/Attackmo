@@ -6,11 +6,20 @@ import topAds from './components/AD/topAds.vue';
 import botAds from './components/AD/botAds.vue';
 import {ref, provide, onMounted, reactive } from 'vue';
 
+// import {coming} from './mComing'
+// import {now} from './mNow'
+// import {topTenList} from './topTenList'
+// import {set} from './movieApi'
+
 export default {
   components: {
     topAds, topHeader, botAds, botFooter
   },
   setup() {
+    // console.log(JSON.stringify(coming))
+    // console.log(JSON.stringify(now))
+    // console.log(JSON.stringify(topTenList))
+    // console.log(JSON.stringify(set))
     
     const isLogin = ref(false);
     provide('isLogin', isLogin);
