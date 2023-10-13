@@ -102,7 +102,7 @@ import { ref, onMounted, computed } from 'vue'
 export default {
   name: 'MovieTitle',
   components: { lineChart, radarChart },
-  setup() {
+  setup(props, context) {
     const isActive = ref(false);
     const isBig = ref(false);
     const isSwitched = ref(false);
@@ -110,6 +110,8 @@ export default {
     const image = ref('');
     const set = JSON.parse(localStorage.getItem('set'));
     const param = useRoute().query.movieName;
+    // const param = props.match.params;
+    console.log(param)
     const filtered = set.filter(function (item, idx) {
       return item.제목 == param;
     })

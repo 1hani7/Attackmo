@@ -9,28 +9,23 @@
       </div>
       <div class="posters">
         <div v-for="(value, key) in coming" :key="key" class="poster-box">
-          <form action="/ComingMovieTitle" name="movieComing" method="get">
-            <input type="hidden" name="movieComing" :value="value.제목">
-            <button type="submit">
-              <img class="rectangle" :src="value.포스터" />
-            </button>
-            <button type="submit">
-              <div class="view">
-                <div @mouseover="titleModal" @mouseout="titleModal" class="div">{{ value.제목 }}</div>
-                <div class="normalFont">{{ value.개봉일 }}</div>
-                <div class="normalFont onMobile">{{ value.장르 }}</div>
-                <div class="normalFont onMobile">{{ value.러닝타임 }}</div>
-              </div>
-              <div class="starBox">
-                <div class="starYellow">★</div>
-                <div class="starYellow">★</div>
-                <div class="starYellow">★</div>
-                <div class="starYellow">★</div>
-                <div class="starBlack">★</div>
-              </div>
-            </button>
+          <router-link :to="{ name: 'ComingMovieTitle', query:{ movieComing: value.제목 } }">
+            <img class="rectangle" :src="value.포스터" />
+            <div class="view">
+              <div @mouseover="titleModal" @mouseout="titleModal" class="div">{{ value.제목 }}</div>
+              <div class="normalFont">{{ value.개봉일 }}</div>
+              <div class="normalFont onMobile">{{ value.장르 }}</div>
+              <div class="normalFont onMobile">{{ value.러닝타임 }}</div>
+            </div>
+            <div class="starBox">
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starYellow">★</div>
+              <div class="starBlack">★</div>
+            </div>
             <div class="movieName show">{{ value.제목 }}</div>
-          </form>
+          </router-link>
         </div>
       </div>
     </div>
@@ -46,7 +41,7 @@ export default {
     const coming = JSON.parse(localStorage.getItem('coming'));
 
     const titleModal = (event) => {
-      const t = event.target.parentNode.parentNode.nextSibling;
+      const t = event.target.parentNode.nextSibling.nextSibling;
       t.classList.toggle('show');
     }
 

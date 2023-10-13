@@ -41,13 +41,12 @@
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <form v-for="(value, key) in topTenList" :key="key" action="/MovieTitle" name="movieName" method="get">
-          <input type="hidden" name="movieName" :value="value.제목">
-          <div class="ranking">{{ value.랭킹 }}</div>
-          <button type="submit">
+        <div v-for="(value, key) in topTenList" :key="key">
+          <router-link :to="{ name: 'MovieTitle', query:{ movieName: value.제목 } }">
+            <div class="ranking">{{ value.랭킹 }}</div>
             <img class="rectangle" :src="value.포스터" />
-          </button>
-        </form>
+          </router-link>
+        </div>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -58,12 +57,11 @@
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <form v-for="(value, key) in now" :key="key" action="/MovieTitle" name="movieName" method="get">
-          <input type="hidden" name="movieName" :value="value.제목">
-          <button type="submit">
+        <div v-for="(value, key) in now" :key="key">
+          <router-link :to="{ name: 'MovieTitle', query:{ movieName: value.제목 } }">
             <img class="rectangle" :src="value.포스터" />
-          </button>
-        </form>
+          </router-link>
+        </div>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -74,12 +72,11 @@
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <form v-for="(value, key) in coming" :key="key" action="/ComingMovieTitle" name="movieComing" method="get">
-          <input type="hidden" name="movieComing" :value="value.제목">
-          <button type="submit">
+        <div v-for="(value, key) in coming" :key="key">
+          <router-link :to="{ name: 'ComingMovieTitle', query:{ movieComing: value.제목 } }">
             <img class="rectangle" :src="value.포스터" />
-          </button>
-        </form>
+          </router-link>
+        </div>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>

@@ -14,7 +14,7 @@
             <div class="normalFont h" @click="Admin()" id="ceo">공동 대표 : 임상림</div>
             <div class="normalFont h">대표이메일 : imsangrim@attackmo.com</div>
             <div class="normalFont h">사업자등록 : 123-45-67890</div>
-            <p class="normalFont">COPYRIGHT © Attackmo All rights reserved</p>
+            <p class="normalFont copyRight">COPYRIGHT © Attackmo All rights reserved</p>
           </div>
         </div>
       </div>

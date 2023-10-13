@@ -126,3 +126,10 @@
   .footer .info-box p{font-size:14px;}
   .footer .info-box .h{display:none;}
 }
+
+.footer .copyRight{
+  text-align: center;
+  width:100%;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
