@@ -111,12 +111,12 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   .screen .cont .bi {
     z-index:10;
     position:fixed;
-    height:449.71px;
+    height:419px;
     font-size:40px; color:white;
     display:flex; align-items: center;
   }
   @media(max-width:1194px){
-    .screen .cont .bi{ height:444.67px; }
+    .screen .cont .bi{ height: 426px; }
   }
   @media(max-width:490px){
     .screen .cont .bi{display:none;}
@@ -174,7 +174,7 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     object-fit: cover;
   }
   @media(max-width:1194px){
-    .screen .image{width:230px; height:fit-content;}
+    .screen .image{}
   }
   @media(max-width:490px){
     .screen .image{width:fit-content; height:230px;}
@@ -287,7 +287,7 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   }
 
   @media(max-width:1194px){
-    ::-webkit-scrollbar { height:5px; }
+    ::-webkit-scrollbar { display:none; }
   }
   @media(max-width:490px){
     ::-webkit-scrollbar { display:none; }

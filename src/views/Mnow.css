@@ -125,7 +125,7 @@ form{width:100%;}
 
 .main-content .rectangle {
   position: relative;
-  width: 100%;
+  width: 100%; height:274px;
   object-fit: cover;
 }
 @media(max-width:1194px){

@@ -10,13 +10,14 @@
     </div>
     <div class="controler">
       <div class="detail">
-        <form action="/ComingMovieTitle" method="get" name="movieComing">
-          <input type="hidden" :value="movieName" name="movieComing">
-          <button type="submit">
-            <div class="more">상세보기</div>
-            <img class="chevron-right" src="../images/chevron_right.svg" />
-          </button>
-        </form>
+        <router-link v-if="!isComing" :to="{ name: 'MovieTitle', query:{ movieName: movieName } }">
+          <div class="more">상세보기</div>
+          <img class="chevron-right" src="../images/chevron_right.svg" />
+        </router-link>
+        <router-link v-if="isComing" :to="{ name: 'ComingMovieTitle', query:{ movieComing: movieName } }">
+          <div class="more">상세보기</div>
+          <img class="chevron-right" src="../images/chevron_right.svg" />
+        </router-link>
       </div>
 
       <img @click="togglePlayPause()" v-if="!isPlaying" class="img playPause" style="cursor:pointer"
@@ -126,6 +127,7 @@ import {useRouter} from 'vue-router'
 export default {
   name: 'homeView',
   setup() {
+    const isComing = ref(null);
     const movieName = ref(null);
     const videoPlayer = ref(null); // 비디오 요소에 대한 ref
     const isPlaying = ref(false); // 비디오 재생 상태
@@ -152,18 +154,23 @@ export default {
       if (temp == 1) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/FlowerMoon/FlowerMoon_1080x608.mp4';
         movieName.value = ' 플라워 킬링 문';
+        isComing.value = true;
       } else if (temp == 2) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/Expend4bles/1004_Expend4bles_1080x608.mp4';
         movieName.value = ' 익스펜더블 4';
+        isComing.value = true;
       } else if (temp == 3) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/MissFortune/1006_1080x608_PC.mp4'
         movieName.value = ' 화사한 그녀';
+        isComing.value = false;
       } else if (temp == 4) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/BlueGiant/BlueGiant_1080X608_PC.mp4'
         movieName.value = ' 블루 자이언트';
+        isComing.value = true;
       } else if (temp == 5) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/Sana/0926_SANA_1080x608_PC.mp4'
         movieName.value = ' 사나: 저주의 아이';
+        isComing.value = false;
       }
     }
 
@@ -213,7 +220,8 @@ export default {
       slideScrollRight,
       slideScrollLeft,
       movieName,
-      coming
+      coming,
+      isComing
     };
   }
 }

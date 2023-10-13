@@ -25,7 +25,7 @@
           </div>
           <div class="infoFrame">
             <div class="bold">장르</div>
-            <p class="p">{{ value.장르 }}</p>
+            <p class="normalFont">{{ value.장르 }}</p>
           </div>
           <div class="infoFrame">
             <div class="bold">러닝</div>
@@ -95,14 +95,14 @@
 </template>
 
 <script>
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 export default {
   name: 'MovieTitle',
   components: { lineChart, radarChart },
-  setup(props, context) {
+  setup() {
     const isActive = ref(false);
     const isBig = ref(false);
     const isSwitched = ref(false);
@@ -110,8 +110,6 @@ export default {
     const image = ref('');
     const set = JSON.parse(localStorage.getItem('set'));
     const param = useRoute().query.movieName;
-    // const param = props.match.params;
-    console.log(param)
     const filtered = set.filter(function (item, idx) {
       return item.제목 == param;
     })
@@ -130,15 +128,12 @@ export default {
         temp.push(t)
         localStorage.setItem('bookmark', JSON.stringify(temp));
       }else if( JSON.parse(localStorage.getItem('bookmark')).indexOf(t) > -1 ){
-        const item = new Array();
-        item.push(JSON.parse(localStorage.getItem('bookmark')));
+        const item = JSON.parse(localStorage.getItem('bookmark'));
         item.splice(item.indexOf(t), 1);
         localStorage.removeItem('bookmark');
-        localStorage.setItem('bookmark', JSON.stringify(item));
-        return;
+        localStorage.setItem('bookmark', JSON.stringify( item ));
       }else if( localStorage.getItem('bookmark') != null || localStorage.getItem('bookmark') != '[]' ){
         const em = JSON.parse(localStorage.getItem('bookmark'));
-        console.log(em)
         em.push(t);
         localStorage.removeItem('bookmark');
         localStorage.setItem('bookmark', JSON.stringify( em ));
@@ -172,6 +167,7 @@ export default {
 
     const trailerScale = (event) => {
       const t = event.target.previousSibling.children[0];
+      // const t = event.target;
       const big = document.querySelector('#big');
       const clonedT = t.cloneNode(true);
       switcher();
@@ -181,7 +177,9 @@ export default {
     onMounted(() => {
       path.value = '/src/images/movieInfo/bookmark.svg'
       const movieName = document.querySelector('.movieName').innerText;
-      if( JSON.parse(localStorage.getItem('bookmark')) != null && JSON.parse(localStorage.getItem('bookmark')).indexOf(movieName) > -1 ){
+      if( JSON.parse(localStorage.getItem('bookmark')) != null &&
+       JSON.parse(localStorage.getItem('bookmark')).indexOf(movieName) > -1 &&
+       sessionStorage.getItem('login') == 'true' ){
         path.value = '/src/images/movieInfo/bookmark_checked.svg';
         isActive.value = true;
       }

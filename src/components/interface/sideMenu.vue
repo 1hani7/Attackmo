@@ -110,7 +110,7 @@ export default {
             <i class="bi bi-camera-reels menuIcon"></i>
             영화
           </div>
-          <img class="drawBt drawBt1" :src="btPath1">
+          <!-- <img class="drawBt drawBt1" :src="btPath1"> -->
         </div>
       </div>
       <!-- <RouterLink to="/MovieMain" class="c-title">
@@ -140,7 +140,7 @@ export default {
             <i class="bi bi-pencil-square menuIcon"></i>
             리뷰
           </div>
-          <img class="drawBt drawBt2" :src="btPath2">
+          <!-- <img class="drawBt drawBt2" :src="btPath2"> -->
         </div>
       </div>
       <!-- <RouterLink to="/ReviewBoard">
