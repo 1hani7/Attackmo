@@ -132,8 +132,10 @@
     justify-content: space-between;
 }
 #bt_wrap button{
+    width:100px;
+    padding: 10px;
+    text-align: center;
     font-size: 15px;
-    padding: 10px 20px;
     border:0;
     border-radius:10px;
     cursor: pointer;
@@ -156,6 +158,7 @@
 @media (max-width:490px) {
     *,#t_input,#search_m{font-size:12px;}
     #section{width:100vw;}
+    #title{margin:20px auto;}
     #de_con{width:90vw;height:200px;}
     input[type=text]{
         height:30px;
@@ -176,6 +179,7 @@
     .ckeM{font-size:12px; width:80px;}
     #detail_input{width:100%;}
     #de_con{margin: 10px 0;}
-    #bt_wrap{width:150px;}
-    #bt_wrap button{padding:5px 10px;font-size: 12px;border-radius: 7px;}
+    #bt_wrap{width:190px;}
+    #bt_wrap button{
+        width:70px;padding:3px 0;font-size: 12px;border-radius: 7px;}
 }

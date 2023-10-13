@@ -21,14 +21,19 @@ border-bottom:2px solid #000;}
 @media (max-width:1194px){
     #section{width:97vw;}
     .content{width:90%;margin: 0 auto;}
-    .myreview{width:70%;}
+    .myreview{width:60%;}
 }
 @media (max-width:490px) {
-    #section{width:100vw;height:82vh;}
-    .content{width:90%;}
-    .review_wrap{margin:20vh 0;font-size:12px; overflow-x: scroll;}
+    #section{width:100vw;}
+    .content{width:90%}
+    .title{ margin: 20px 0;}
+    .review_wrap{margin:50px 0;height:590px;overflow:hidden; font-size:12px; overflow-x: scroll;}
     .mr_box{display:flex;}
-    .poster{width:150px;height:214px;}
-    .myreview{width:150px;margin-left:5px;}
-    .m_title{font-size: 17px;}
+    .view{display:block;margin:0 10px;}
+    .pBox{text-align: center;}
+    .poster{width:200px;height:285px;}
+    .myreview{width:250px;}
+    .m_title{font-size:20px;}
+    .r_title{font-size: 15px;}
+    .r_con{margin:10px 0;}
 }

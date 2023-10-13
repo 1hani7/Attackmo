@@ -54,23 +54,23 @@
                     <p>감상포인트</p>
                     <div class="point_wrap">
                         <div class="point">
-                            <input type="checkbox" v-model="checkboxes[0]" @change="checkSelections" name="art" id="art" class="pointInput">
+                            <input type="checkbox" name="art" id="art" class="pointInput">
                             <label for="art" class="ckeM">작품성</label>
                         </div>
                         <div class="point">
-                            <input type="checkbox" v-model="checkboxes[1]" @change="checkSelections" name="fun" id="fun" class="pointInput">
+                            <input type="checkbox" name="fun" id="fun" class="pointInput">
                             <label for="fun" class="ckeM">오락성</label>
                         </div>
                         <div class="point">
-                            <input type="checkbox" v-model="checkboxes[2]" @change="checkSelections" name="ost" id="ost" class="pointInput">
+                            <input type="checkbox" name="ost" id="ost" class="pointInput">
                             <label for="ost" class="ckeM">음악</label>
                         </div>
                         <div class="point">
-                            <input type="checkbox" v-model="checkboxes[3]" @change="checkSelections" name="act" id="act" class="pointInput">
+                            <input type="checkbox" name="act" id="act" class="pointInput">
                             <label for="act" class="ckeM">연기력</label>
                         </div>
                         <div class="point">
-                            <input type="checkbox" v-model="checkboxes[4]" @change="checkSelections" name="direct" id="direct" class="pointInput">
+                            <input type="checkbox" name="direct" id="direct" class="pointInput">
                             <label for="direct" class="ckeM">연출력</label>
                         </div>
                     </div>
@@ -101,7 +101,6 @@ export default {
     setup() {
         const set = JSON.parse(localStorage.getItem('set'));
         const searchQuery = ref('');
-        const checkboxes = ref([false, false, false, false, false]); // 체크박스 선택 상태를 저장하는 배열
         const isSearchResultVisible = ref(false);
 
         const filteredMovies = computed(() => {
@@ -128,29 +127,12 @@ export default {
             });
         });
 
-        const checkSelections = () => {
-            const selectedCount = checkboxes.value.filter(checked => checked).length;
-            if (selectedCount >= 2) {
-                if (selectedCount > 2) {
-                    alert('2개 이상의 체크박스가 선택되었습니다.');
-                }
-                checkboxes.value = checkboxes.value.map((checked, index) => {
-                    if (checked && selectedCount > 2) {
-                        return false;
-                    }
-                    return checked;
-                });
-            }
-        };
-
         return {
             searchQuery,
             filteredMovies,
             isSearchResultVisible,
-            checkboxes,
             showSearchResult,
             hideSearchResult,
-            checkSelections,
             set,
         };
     },
