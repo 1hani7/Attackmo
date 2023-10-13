@@ -92,18 +92,19 @@ tbody{
 
 }
 @media (max-width:490px) {
-    #section{width:100vw;}
+    #section{width:100vw;margin:20px auto;}
     #wrap{width:90%;}
     .main{width:100%;font-size:12px;}
+    #title{height: 40px; margin-bottom:20px;}
     #write{
-        width:25px;
-        height:25px;
-        line-height:25px;
-        font-size:15px;
-        top:80px;
+        width:30px;
+        height:30px;
+        line-height:30px;
+        font-size:20px;
+        top:60px;
         right:20px;
     }
-    #search_box{width:50%;height:30px;}
+    #search_box{width:70%;height:30px;}
     #search_box i{display:none;}
     #search{
         width:100%;
@@ -114,7 +115,7 @@ tbody{
     }
     .page_list{width:50%;font-size: 12px;}
     .list{display:none;}
-    .mobileList{display:block;}
+    .mobileList{display:block;width:100%;}
     .post{
         display:flex;
         flex-wrap:wrap;

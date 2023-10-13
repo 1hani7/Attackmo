@@ -6,7 +6,7 @@
         <img class="poster" :src="value.포스터" />
         <div class="frame">
           <div class="mark">
-            <img class="bookMark_Bt" :src="path" />
+            <img @click="bookMark" class="bookMark_Bt" :src="path" />
             <div class="ani"></div>
           </div>
           <div class="movieName">{{ value.제목 }}</div>
@@ -118,6 +118,32 @@ export default {
     const isImage = filtered[0].스틸컷.length == 1 ? false : true;
 
 
+    const bookMark = (event) => {
+      const t = event.target.parentNode.nextSibling.innerText;
+
+      if( sessionStorage.getItem('login') == 'false' ) return alert('로그인이 필요한 서비스입니다.');
+
+      if( localStorage.getItem('bookmark') == null || localStorage.getItem('bookmark') == '[]' ){
+        const temp = new Array();
+        temp.push(t)
+        localStorage.setItem('bookmark', JSON.stringify(temp));
+      }else if( JSON.parse(localStorage.getItem('bookmark')).indexOf(t) > -1 ){
+        const item = new Array();
+        item.push(JSON.parse(localStorage.getItem('bookmark')));
+        item.splice(item.indexOf(t), 1);
+        localStorage.removeItem('bookmark');
+        localStorage.setItem('bookmark', JSON.stringify(item));
+        return;
+      }else if( localStorage.getItem('bookmark') != null || localStorage.getItem('bookmark') != '[]' ){
+        const em = JSON.parse(localStorage.getItem('bookmark'));
+        console.log(em)
+        em.push(t);
+        localStorage.removeItem('bookmark');
+        localStorage.setItem('bookmark', JSON.stringify( em ));
+      }
+    }
+
+
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
       const slider = event.target.previousSibling;
@@ -151,13 +177,18 @@ export default {
     }
 
     onMounted(() => {
-
       path.value = '/src/images/movieInfo/bookmark.svg'
+      const movieName = document.querySelector('.movieName').innerText;
+      if( JSON.parse(localStorage.getItem('bookmark')) != null && JSON.parse(localStorage.getItem('bookmark')).indexOf(movieName) > -1 ){
+        path.value = '/src/images/movieInfo/bookmark_checked.svg';
+        isActive.value = true;
+      }
 
       const bookMark_Bt = document.querySelector('.bookMark_Bt');
       const ani = document.querySelector('.ani');
       bookMark_Bt.addEventListener('click', function () {
         if (!isSwitched.value) {
+          if( sessionStorage.getItem('login') == 'false' ) return;
           path.value = '/src/images/movieInfo/bookmark_checked.svg';
           isSwitched.value = !isSwitched.value;
           ani.classList.toggle('clicked')
@@ -175,7 +206,7 @@ export default {
     return {
       path, isBig, switcher, trailerScale, isSwitched,
       image, isActive, filtered, actors, isTrailer, titleModal,
-      slideScrollRight, slideScrollLeft, isImage
+      slideScrollRight, slideScrollLeft, isImage, bookMark
     }
   }
 }
