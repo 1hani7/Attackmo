@@ -8,6 +8,7 @@
         </video>
       </div>
     </div>
+    
     <div class="controler">
       <div class="detail">
         <router-link v-if="!isComing" :to="{ name: 'MovieTitle', query:{ movieName: movieName } }">
@@ -29,7 +30,7 @@
       <img @click="toggleMuteUnmute()" v-if="!isMuted" class="img" style="cursor:pointer" src="../images/sound.svg" />
 
       <img @click="toggleMuteUnmute()" v-if="isMuted" class="img" style="cursor:pointer" src="../images/volume_off.svg" />
-
+      
     </div>
   </div>
 
@@ -150,7 +151,7 @@ export default {
 
     // 랜덤 예고편
     const randomTrailer = () => {
-      const temp = Math.floor(Math.random() * 5) + 1;
+      let temp = Math.floor(Math.random() * 5) + 1;
       if (temp == 1) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/FlowerMoon/FlowerMoon_1080x608.mp4';
         movieName.value = ' 플라워 킬링 문';
@@ -221,7 +222,8 @@ export default {
       slideScrollLeft,
       movieName,
       coming,
-      isComing
+      isComing,
+      randomTrailer
     };
   }
 }

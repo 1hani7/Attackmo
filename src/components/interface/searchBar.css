@@ -3,24 +3,19 @@ strong{margin-right:15px; color:black;}
 @media(max-width:1194px){
     form{cursor:pointer;}
 }
-button{
-    background:white; outline:none; 
-    border:none; text-align: left; 
-    display:flex; gap:10px;
-}
 @media(max-width:1194px){
     button{cursor:pointer;}
 }
 
 #resBox{
-    width:250px; height:450px;
+    width:250px;
     padding:10px 10px 0px 10px; overflow-y: scroll;
 }
 @media(max-width:1194px){
     #resBox{width:100%;}
 }
 .searchWrap{
-    display:flex;
+    display:flex; column-gap: 20px;
     width:100%; align-items: center;
     border-bottom:1px solid #B3B3B3;
     padding: 10px 0;

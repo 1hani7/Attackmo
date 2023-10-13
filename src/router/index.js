@@ -4,6 +4,7 @@ import  now  from '../data/mNow.json'
 import  coming  from '../data/coming.json'
 import  topTenList  from '../data/topTenList.json'
 import  set  from '../data/set.json'
+import audienceNum from '../data/audienceNum.json'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,9 @@ const router = createRouter({
       name: 'homeView',
       component: () => import('../views/homeView.vue'),
       beforeEnter: async (to, from, next) => {
+        if (localStorage.getItem('aud') == null || localStorage.getItem('aud') == "[]") {
+          localStorage.setItem('aud', JSON.stringify(audienceNum));
+        }
         if (localStorage.getItem('now') == null || localStorage.getItem('now') == "[]") {
           localStorage.setItem('now', JSON.stringify(now));
         }

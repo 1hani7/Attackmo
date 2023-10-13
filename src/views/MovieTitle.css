@@ -499,6 +499,7 @@
 .content .chartWrap {
   display: inline-flex;
   align-items: flex-start;
+  justify-content: center;
   position: relative;
   flex: 0 0 auto;
 }

@@ -1,71 +1,64 @@
 <template>
     <div id="resBox">
-        <!-- <img src="@/images/exitBt.svg" class="exit" @click="searchingStart()"> -->
-        <div v-for="value in searchRes" :key="value" class="searchWrap">
-            <form action="/MovieTitle" method="get" name="movieName">
-                <input type="hidden" name="movieName" :value="value.제목">
-                <button type="submit">
-                    <div class="posterWrap">
-                        <img :src="value.포스터" alt="poster">
+        <div v-for="value in searchRes" :key="value">
+            <router-link :to="{ name: 'MovieTitle', query:{ movieName: value.제목 } }" class="searchWrap">
+                <div class="posterWrap">
+                    <img :src="value.포스터" alt="poster">
+                </div>
+                <div class="infoWrap">
+                    <div class="title">
+                        <strong>{{ value.제목 }}</strong>
                     </div>
-                    <div class="infoWrap">
-                        <div class="title">
-                            <strong>{{ value.제목 }}</strong>
+                    <div class="onMobile">
+                        <div class="director">
+                            <strong>감독</strong><span>{{ value.감독 }}</span>
                         </div>
-                        <div class="onMobile">
-                            <div class="director">
-                                <strong>감독</strong><span>{{ value.감독 }}</span>
-                            </div>
-                            <div class="staring">
-                                <div><strong>출연</strong></div>
-                                <div><span v-for="name in value.배우">{{ name }}, </span></div>
-                            </div>
-                            <div class="genre">
-                                <strong>장르</strong><span>{{ value.장르 }}</span>
-                            </div>
-                            <div class="time">
-                                <strong>러닝</strong><span>{{ value.러닝타임 }}</span>
-                            </div>
-                            <div class="date">
-                                <span>{{ value.개봉일 }}</span>
-                            </div>
+                        <div class="staring">
+                            <div><strong>출연</strong></div>
+                            <div><span v-for="name in value.배우">{{ name }}, </span></div>
+                        </div>
+                        <div class="genre">
+                            <strong>장르</strong><span>{{ value.장르 }}</span>
+                        </div>
+                        <div class="time">
+                            <strong>러닝</strong><span>{{ value.러닝타임 }}</span>
+                        </div>
+                        <div class="date">
+                            <span>{{ value.개봉일 }}</span>
                         </div>
                     </div>
-                </button>
-            </form>
+                </div>
+            </router-link>
         </div>
-        <div v-for="value in searchRes2" :key="value" class="searchWrap">
-            <form action="/MovieTitle" method="get" name="movieName">
-                <input type="hidden" name="movieName" :value="value.제목">
-                <button type="submit">
-                    <div class="posterWrap">
-                        <img :src="value.포스터" alt="poster">
+        <div v-for="value in searchRes2" :key="value">
+            <router-link :to="{ name: 'ComingMovieTitle', query:{ movieComing: value.제목 } }" class="searchWrap">
+                <div class="posterWrap">
+                    <img :src="value.포스터" alt="poster">
+                </div>
+                <div class="infoWrap">
+                    <div class="title">
+                        <strong>{{ value.제목 }}</strong>
                     </div>
-                    <div class="infoWrap">
-                        <div class="title">
-                            <strong>{{ value.제목 }}</strong>
+                    <div class="onMobile">
+                        <div class="director">
+                            <strong>감독</strong><span>{{ value.감독 }}</span>
                         </div>
-                        <div class="onMobile">
-                            <div class="director">
-                                <strong>감독</strong><span>{{ value.감독 }}</span>
-                            </div>
-                            <div class="staring">
-                                <div><strong>출연</strong></div>
-                                <div><span v-for="name in value.배우">{{ name }}, </span></div>
-                            </div>
-                            <div class="genre">
-                                <strong>장르</strong><span>{{ value.장르 }}</span>
-                            </div>
-                            <div class="time">
-                                <strong>러닝</strong><span>{{ value.러닝타임 }}</span>
-                            </div>
-                            <div class="date">
-                                <span>{{ value.개봉일 }}</span>
-                            </div>
+                        <div class="staring">
+                            <div><strong>출연</strong></div>
+                            <div><span v-for="name in value.배우">{{ name }}, </span></div>
+                        </div>
+                        <div class="genre">
+                            <strong>장르</strong><span>{{ value.장르 }}</span>
+                        </div>
+                        <div class="time">
+                            <strong>러닝</strong><span>{{ value.러닝타임 }}</span>
+                        </div>
+                        <div class="date">
+                            <span>{{ value.개봉일 }}</span>
                         </div>
                     </div>
-                </button>
-            </form>
+                </div>
+            </router-link>
         </div>
     </div>
 </template>

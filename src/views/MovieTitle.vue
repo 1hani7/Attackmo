@@ -81,8 +81,8 @@
         <div class="chartBox">
           <radarChart />
         </div>
-        <div class="chartBox">
-          <h3>지난 10일 간의 관객 수</h3>
+        <div v-if="!date.length == 0" class="chartBox">
+          <h3>지난 {{ date.length }}일 간의 관객 수</h3>
           <lineChart />
         </div>
       </div>
@@ -98,7 +98,7 @@
 import { useRoute } from 'vue-router'
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
-import { ref, onMounted } from 'vue'
+import { ref, reactive, onMounted, provide, watch } from 'vue'
 export default {
   name: 'MovieTitle',
   components: { lineChart, radarChart },
@@ -117,26 +117,43 @@ export default {
     const isTrailer = filtered[0].예고편영상.length == 1 ? false : true;
     const isImage = filtered[0].스틸컷.length == 1 ? false : true;
 
+    // 선 차트 데이터
+    const aud = JSON.parse(localStorage.getItem('aud'));
+    const pName = param.trim();
+    let date = reactive([]);
+    const audience = reactive([]);
+    for (var key in aud[pName]) date.push(key);
+    date = date.sort((a, b) => b - a).slice(0, 10);
+    for (var i of date) audience.push(aud[pName][i]);
+    date = [...date].map(function (d) {
+      var temp = d.substring(4, 8);
+      var a = temp.slice(0, 2);
+      var b = temp.slice(2, 4);
+      return a + '.' + b;
+    })
+    date.reverse(); audience.reverse();
+    provide('date', date); provide('audience', audience);
+
 
     const bookMark = (event) => {
       const t = event.target.parentNode.nextSibling.innerText;
 
-      if( sessionStorage.getItem('login') == 'false' ) return alert('로그인이 필요한 서비스입니다.');
+      if (sessionStorage.getItem('login') == 'false') return alert('로그인이 필요한 서비스입니다.');
 
-      if( localStorage.getItem('bookmark') == null || localStorage.getItem('bookmark') == '[]' ){
+      if (localStorage.getItem('bookmark') == null || localStorage.getItem('bookmark') == '[]') {
         const temp = new Array();
         temp.push(t)
         localStorage.setItem('bookmark', JSON.stringify(temp));
-      }else if( JSON.parse(localStorage.getItem('bookmark')).indexOf(t) > -1 ){
+      } else if (JSON.parse(localStorage.getItem('bookmark')).indexOf(t) > -1) {
         const item = JSON.parse(localStorage.getItem('bookmark'));
         item.splice(item.indexOf(t), 1);
         localStorage.removeItem('bookmark');
-        localStorage.setItem('bookmark', JSON.stringify( item ));
-      }else if( localStorage.getItem('bookmark') != null || localStorage.getItem('bookmark') != '[]' ){
+        localStorage.setItem('bookmark', JSON.stringify(item));
+      } else if (localStorage.getItem('bookmark') != null || localStorage.getItem('bookmark') != '[]') {
         const em = JSON.parse(localStorage.getItem('bookmark'));
         em.push(t);
         localStorage.removeItem('bookmark');
-        localStorage.setItem('bookmark', JSON.stringify( em ));
+        localStorage.setItem('bookmark', JSON.stringify(em));
       }
     }
 
@@ -175,11 +192,12 @@ export default {
     }
 
     onMounted(() => {
+
       path.value = '/src/images/movieInfo/bookmark.svg'
       const movieName = document.querySelector('.movieName').innerText;
-      if( JSON.parse(localStorage.getItem('bookmark')) != null &&
-       JSON.parse(localStorage.getItem('bookmark')).indexOf(movieName) > -1 &&
-       sessionStorage.getItem('login') == 'true' ){
+      if (JSON.parse(localStorage.getItem('bookmark')) != null &&
+        JSON.parse(localStorage.getItem('bookmark')).indexOf(movieName) > -1 &&
+        sessionStorage.getItem('login') == 'true') {
         path.value = '/src/images/movieInfo/bookmark_checked.svg';
         isActive.value = true;
       }
@@ -188,7 +206,7 @@ export default {
       const ani = document.querySelector('.ani');
       bookMark_Bt.addEventListener('click', function () {
         if (!isSwitched.value) {
-          if( sessionStorage.getItem('login') == 'false' ) return;
+          if (sessionStorage.getItem('login') == 'false') return;
           path.value = '/src/images/movieInfo/bookmark_checked.svg';
           isSwitched.value = !isSwitched.value;
           ani.classList.toggle('clicked')
@@ -206,10 +224,12 @@ export default {
     return {
       path, isBig, switcher, trailerScale, isSwitched,
       image, isActive, filtered, actors, isTrailer, titleModal,
-      slideScrollRight, slideScrollLeft, isImage, bookMark
+      slideScrollRight, slideScrollLeft, isImage, bookMark, date
     }
   }
 }
 </script>
 
-<style scoped>@import url(./MovieTitle.css);</style>
+<style scoped>
+@import url(./MovieTitle.css);
+</style>

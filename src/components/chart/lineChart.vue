@@ -6,11 +6,13 @@
 
 <script>
 import { Chart} from 'chart.js/auto';
-import {onMounted, onBeforeMount, ref} from 'vue'
-import { useRouter } from 'vue-router';
+import {onMounted, inject, ref} from 'vue'
+import { useRouter, useRoute } from 'vue-router';
 export default {
     name: 'lineChart',
     setup() {
+        const date = inject('date');        
+        const audience = inject('audience');  
 
         const isCharted = ref(false);
         const router = useRouter();
@@ -26,21 +28,17 @@ export default {
                 }
             }
 
-            
-
             window.addEventListener('scroll', makeLine);
 
             const chartMaker = () => {
                 const ctx = document.getElementById('chart');
-                const label = ['09.03', '09.04', '09.05', '09.06', '09.07', '09.08', '09.09', '09.10', '09.11', '09.12',];
-                const data = [80000, 21000, 20000, 19000, 15000, 55000, 45000, 11000, 10000, 16000];
                 new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
-                        labels: label,
+                        labels: date,
                         datasets: [{
-                            label: label,
-                            data: data,
+                            label: date,
+                            data: audience,
                             borderWidth: 3,
                             borderColor: '#F9C041',
                             pointBorderWidth: 0,
@@ -71,7 +69,9 @@ export default {
 
         
 
-        return { isCharted };
+        return {
+            isCharted, date, audience
+        };
     }
 }
 </script>
