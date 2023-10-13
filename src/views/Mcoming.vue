@@ -51,7 +51,7 @@ export default {
     }
 
     onMounted(() => {
-
+      
     })
 
     return { coming, titleModal }
