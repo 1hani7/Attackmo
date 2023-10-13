@@ -1,6 +1,6 @@
 iframe {
-  width: 880px;
-  height: 560px;
+  width: 883px;
+  height: 563px;
   transform: scale(0.415);
   transform-origin: 0% 0%;
   position: relative;
@@ -389,13 +389,13 @@ iframe {
 
 .content .trailer-template {
   align-items: flex-start;
-  gap: 50px;
+  gap: 50px; height:300px;
   display: flex;
   position: relative;
-  overflow: hidden;
   overflow-X: scroll;
-  padding-bottom: 15px;
+  overflow: hidden;
   scroll-behavior: smooth;
+  align-items: center;
 }
 
 @media(max-width:1194px) {
@@ -408,7 +408,26 @@ iframe {
 @media(max-width:490px) {
   .content .trailer-template {
     gap: 10px;
+    overflow: hidden;
+    overflow-X: scroll;
   }
+}
+
+.trailer-template div{
+  height:100%;
+}
+.trailer-template img{
+  height:100%;
+}
+
+/* @media(max-width:490px) {
+  .trailer-template img{
+    width:200px;
+  }
+} */
+
+.trailer-template img{
+
 }
 
 ::-webkit-scrollbar {
@@ -699,16 +718,24 @@ iframe {
 .bi-chevron-compact-right {
   display: inline-block;
   position: absolute;
-  top: 50px;
+  top: 68px;
   text-align: center;
-  height: 271px;
+  height: 300px;
   width: 40px;
   color: white;
-  line-height: 258px;
-  font-size: 20px;
-  background: rgba(0, 0, 0, 0.25);
+  line-height: 300px;
+  font-size: 40px;
   cursor: pointer;
   z-index: 100;
+  mix-blend-mode: difference;
+}
+
+.bi-chevron-compact-left:hover,
+.bi-chevron-compact-right:hover{
+  transition:all 1s ease;
+  color:white;
+  background: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: normal;
 }
 
 .bi-chevron-compact-right {

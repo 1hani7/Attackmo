@@ -13,7 +13,6 @@ $(async function(){
     // console.log(s);
 
     organize();
-    // console.log(set);
     // console.log(JSON.stringify(set,null, 2));
     // let keys = Object.keys(set);
 });

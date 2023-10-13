@@ -125,8 +125,7 @@
 <script>
 import { inject, ref, onMounted } from 'vue';
 import {useRouter} from 'vue-router'
-// import {now} from '../mNow'
-// import {topTenList} from '../topTenList'
+
 export default {
   name: 'homeView',
   setup() {
@@ -152,7 +151,7 @@ export default {
 
     // 랜덤 예고편
     const randomTrailer = () => {
-      const temp = Math.floor(Math.random() * 4) + 1;
+      const temp = Math.floor(Math.random() * 5) + 1;
       if (temp == 1) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/FlowerMoon/FlowerMoon_1080x608.mp4';
         movieName.value = ' 플라워 킬링 문';
@@ -165,6 +164,9 @@ export default {
       } else if (temp == 4) {
         path.value = 'https://adimg.cgv.co.kr/images/202309/BlueGiant/BlueGiant_1080X608_PC.mp4'
         movieName.value = ' 블루 자이언트';
+      } else if (temp == 5) {
+        path.value = 'https://adimg.cgv.co.kr/images/202309/Sana/0926_SANA_1080x608_PC.mp4'
+        movieName.value = ' 사나: 저주의 아이';
       }
     }
 

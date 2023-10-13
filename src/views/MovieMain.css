@@ -95,8 +95,8 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     justify-content: space-between;
     position: relative;
     flex: 0 0 auto;
-    overflow:hidden;
     overflow-x:scroll;
+    overflow:hidden;
     gap:10px;
     scroll-behavior: smooth;
   }
@@ -104,13 +104,14 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     .screen .cont{
         width:calc(100vw - 30px); height:fit-content; gap:11px;
         padding-bottom:10px;
+        overflow:hidden;
+        overflow-x:scroll;
     }
   }
   @media(max-width:490px){
     .screen .cont{
         width:calc(100vw -15px);
         left:0; gap:5px;
-        overflow-x: scroll;
     }
   }
 
@@ -285,3 +286,15 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   }
   
   .show{display:none;}
+
+
+  ::-webkit-scrollbar {
+    height: 8px;
+    background: gray;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #454545;
+    border-radius: 10px;
+  }
