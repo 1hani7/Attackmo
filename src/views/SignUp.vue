@@ -13,9 +13,9 @@
              </div>
              <div id="pw_ck">
                 <label><i class="bi bi-asterisk"></i>비밀번호 확인</label>
+                <p>*비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</p>
                 <input type="password" class="form-control" v-model="password2">
-                <p>비밀번호는 6자리 이상의 영문과 숫자에 조합하여야합니다</p>
-             </div>
+              </div>
              <div id="nickname">
                 <label><i class="bi bi-asterisk"></i>활동명</label>
                 <input type="text" class="form-control" name="n_name" id="aname"  v-model="n_name">
@@ -29,8 +29,8 @@
                 </div>       
              </div>
              <div id="button_box">
-                <button type="submit" id="sign" class="bt">가입하기</button>
-                <button type="button" id="cancel" class="bt">취소</button>
+                <button type="submit" id="sign" >가입하기</button>
+                <button type="button" id="cancel">취소</button>
              </div>
         </form>
   </div>
@@ -142,11 +142,9 @@ export default {
         align-items: center;
         gap: 150px;
     }
-    h1{text-align: center;}
     #sign_box{
       display: flex;
-      width: 1000px;
-      padding: 50px 41px;
+      width: 800px;
       justify-content: center;
       align-items: flex-start;
       align-content: flex-start;
@@ -158,62 +156,55 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+        width:100%;
     }
     #email input,#pw input,#pw_ck input,#nickname input{
-        width: 916px;
-        height: 75px;
+        width: 100%;
+        height: 55px;
         outline:none;
         padding:20px;
-        font-size: 23px;
+        font-size: 17px;
     }
     #pw_ck p{
-        display: flex;
-        width: 918px;
-        height: 75px;
-        padding: 22px 135px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        background: #F9C041;
-        color:white;
-        font-weight: 700;
-        font-size: 23px;
-        margin-top:10px;
+      color:#F9C041;
+      font-weight: 700;
+      align-self: flex-end;
+      font-size:20px;
     }
     #phone{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap:20px;
+        padding:0px;
+        width: 100%;
+        height: 75px;
+        outline:none;
+        font-size: 23px;
     }
     #num{ 
-        width: 915px;
+        width:100%;
+        padding:0px;
         display: flex;
         align-items: center;
-        gap:50px;
+        gap:20px;
+        margin-top:20px;
     }
     #num input{
-        width: 918px;
-        height: 75px;
-        padding: 20px;
-        font-size: 15px;
-        outline:none;
+      outline:none;
+      width: 100%;
+      height: 55px;
+      padding:20px;
+      font-size: 17px;
     }
-    label{font-size: 23px;font-weight: 700;}
-    label i {font-size: 23px;color:#B91646;}
     #button_box{
         display: flex;
-        width:100%;
+        width:90%;
         padding: 25px 368px;
         justify-content: center;
         align-items: center;
         gap: 42px;
     }
-    .bt{
+    #button_box button{
         display: flex;
-        width: 433px;
-        height: 66px;
-        padding: 21px 152px;
+        width: 250px;
+        height: 55px;
         justify-content: center;
         align-items: center;
         gap: 10px;
@@ -225,15 +216,18 @@ export default {
         font-weight: 700;
         cursor: pointer;
     }
+    
     #sign{ background: #F9C041;}
     #cancel{ background:  #B91646;}
+      label{font-size: 23px;font-weight: 700;}
+    label i {font-size: 23px;color:#B91646;}
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
     @media (max-width:1194px) {
-     .wrap,#sign_box,#email,#pw{width:100%;}
+     .wrap{width:100%;}
      #email input,#pw input,#pw_ck input,#nickname input{width:100%;}
      #pw_ck,#nickname,#phone,#num{width:100%;}
      #pw_ck p{width:100%;font-size: 17px;}
@@ -245,16 +239,11 @@ export default {
     @media (max-width:490px) {
       input{outline:none;}
       label, .bi-asterisk{font-size: 17px;}
-      .wrap{width:calc(100vw - 30px);
-        padding:0px;margin:0px;}
-      #sign_box,#email,#pw{width:100%;}
-      #email input,#pw input,#pw_ck input,#nickname input{width:100%;}
-      #pw_ck,#nickname,#phone{width:100%;}
-      #pw_ck p{width:100%;font-size:13px;padding:0px;}
+      #sign_box{width:calc(100% - 30px);}
       #button_box{width:100%;}
-      #button_box button{width:130px;font-size: 17px;}
-      #num{margin:0px;padding:0px;width:20%;}
-      #num input{width:70px;}
+      #button_box button{width:100px;font-size:17px;}
+      #pw_ck p{font-size:15px;}
+      
 }
   
     

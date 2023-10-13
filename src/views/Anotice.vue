@@ -8,9 +8,9 @@
             </div>
             <div class="file_box">
                 <label>첨부파일</label>
+                <p>*gif,jpg,png 선택 가능합니다</p>
                 <input type="file" accept =".gif, .jpg, .png" name="file" id="file" @change="handleFileChange">
                 <!-- @change="handleFileChange" 사용자가 파일을 선택하거나 파일 입력 필드에 변경을 가했을 때 호출되는 함수-->
-                <p>*gif,jpg,png 선택 가능합니다</p>
             </div>
             <div id="notice">
                 <label>내용</label>
@@ -134,7 +134,11 @@ export default {
         gap: 20px;
         font-size: 17px;
     }
-    .file_box p{width:100%;color:blue;font-weight: 700;font-size: 15px;}
+    .file_box p{
+        color:#F9C041;
+        font-weight: 700;
+        font-size: 15px;
+    }
     input[type=file]::file-selector-button {
         width: 99px;
         height: 33px;
@@ -154,7 +158,7 @@ export default {
         display: flex;
         gap: 20px;
         align-self: stretch;
-        height: 436px;
+        height: 435px;
         width: 100%;
         outline:none;
         padding:20px;

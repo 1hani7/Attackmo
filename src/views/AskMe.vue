@@ -119,7 +119,7 @@ export default {
         },*/
         gonote(selectedData) {
         //this.$router.push({ path: "/AreadTest", query: { data: selectedData } }); // 'selectedData'에 선택한 데이터가 포함됩니다.
-        this.$router.push({ path: "/Anotice" });
+        this.$router.push({ path: "/Aread"});
         },
         changePage(page) {
             this.currentPage = page;
@@ -246,6 +246,7 @@ thead tr{
 .mobileList{
     display:none;
 }
+
 @media (max-width:1194px) {
     #section{width:100vw; font-size: 17px;}
     #wrap{width:90%;margin: 0 auto;}

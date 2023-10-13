@@ -8,7 +8,7 @@
                 <input type="email" placeholder="이메일" v-model="user_email" id="email-new">
                 <input type="password" placeholder="비밀번호" v-model="user_pw" id="pw-new">
                 <!-- <button @click="togo" @keyup="togo" id="login_bt">로그인</button>   -->
-                <button type=submit @click="login()" id="login_bt">로그인</button> 
+                <button type=submit @click="login()" id="login_bt">LOGIN</button> 
             
                   <div id="find">
                       <label><RouterLink to="./FindE">ID</RouterLink><RouterLink to="./FindP">/PW찾기</RouterLink></label>
@@ -16,12 +16,12 @@
                   </div>
             </form>
             <div id="social_login">
-                <a @click="openWindow('https://www.facebook.com/?locale=ko_KR')" id="facebook" class="social_bt">
+                <a @click="openWindow('https://www.facebook.com/?locale=ko_KR')" id="facebook" >
                   <img src="../images/facebook.png"></a>
                 <a @click ="openWindow('https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D')" 
-                  id="twitter" class="social_bt"><img src="../images/twitter.svg"></a>
+                  id="twitter" ><img src="../images/twitter.svg"></a>
                 <a @click="openWindow('https://www.instagram.com/accounts/login/')" 
-                  id="instagram" class="social_bt"><img src="../images/instagram.png"></a>
+                  id="instagram" ><img src="../images/instagram.png"></a>
             </div>
     </div>
 </div>
@@ -50,139 +50,79 @@ setup(){
 }
 </script>
 <style scoped>
-
-    a{color:black;cursor:pointer}
-
     .wrap{
-        display: flex;
-        padding-top: 150px;
-        padding-bottom:150px;
-        flex-direction: column;
-        align-items: center;
-        gap: 150px;
-        margin:0 auto;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        width:100%;
     }
     #title{
-        display: flex;
-        width: 830px;
-        height: 136px;
-        padding: 41px 0px 41px 40px;
-        align-items: center;
-        gap: 10px;
-        border: none;
-        background: #F9C041;
-        font-size: 23px;
+        font-size: 25px;
         font-weight: 700;
-        color:white;
+        color:black;
+        text-align: center;
     }
     #login_box{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 30px;
-        height: 719px; 
     }
     #content{
         display: flex;
+        width: 466px;
+        padding-bottom: 0px;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 30px;
     }
     #content input{
-        display: flex;
-        width: 831px;
-        height: 85px;
-        padding: 20px;
-        outline: none;
-        align-items: center;
-        gap: 10px;
-        font-size: 23px;
-        font-weight: 700;
+        width:400px;
+        height:50px;
+        padding:20px;
+        outline:none;
+        font-size: 17px;
     }
     #login_bt{
-        width: 831px;
-        height: 85px;
-        padding: 25px 368px;
-        font-size: 23px;
-        border-radius: 8px;
-        background: #F9C041;
+        font-size: 20px;
+        font-weight: 700;
+        color:black;
+        width:400px;
+        height:50px;
+        border-radius: 10px;
         border:none;
+        background:#F9C041;
         color:white;
     }
-    #login_bt:hover{cursor: pointer;}
-    #social_login{
+    #login_bt:hover{cursor: pointer;background: black;}
+    #find{
+        width:85%;
         display: flex;
-        justify-content: space-around;
+        gap:20px;
     }
-    .social_bt{
-        font-size: 20px;
-        width: 108px;
+    #find a{color:gray;cursor:pointer}
+    #find a:hover{color:#F9C041;}
+    
+    #social_login{ 
+        display: flex;
+        gap:40px;
     }
-    .social_bt img{ 
+    #social_login:hover{ 
+        cursor: pointer;
+    }
+    #social_login img{ 
         width: 50px;
         height:50px;
     }
-    #find{
-        display: flex;
-        align-items: flex-start;
-        gap: 11px;
-    }
-    #find label{font-size: 17px;color:#7A7979;}
-    a{text-decoration: none;}
-    
-    /*반응형*/
-    @media (max-width:1194px) {
-      .wrap {
-        width: 834px;
-        height: 800px;
-      }
-      #title{
-        display: flex;
-        width: 433px;
-        height: 76px;
-        padding: 41px 0px 41px 40px;
-        align-items: center;
-        gap: 10px;
-        align-self: stretch;
-      }
-      #content{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-      }
-      #content input{
-        display: flex;
-        width: 430px;
-        height: 67px;
-        padding: 20px;
-        outline:none;
-        
-      }
-      #login_bt{
-        width:100%;
-        height: 67px;
-        padding: 10px 40px;
-      }
-      #login_bt:hover{cursor: pointer;}
-      #social_login{
-        width: 278px;
-        height: 77px; 
-      }
-      .social_bt img{ 
-        width: 50px;
-        height: 50px; 
-      }
-      #find label{font-size: 17px;color:#7A7979;}
-      a{text-decoration: none;}
-  }
+  
+
+  /*반응형*/
+  @media (max-width:1194px) { .wrap{width:100%;}}
 
   @media (max-width: 490px) {
-    .wrap{width:100%;margin-top:0px; margin-bottom:0px;}
-    #login_box{width:90%;}
-    #title{width:100%;}
-    #content input{width:100%;outline:none;}
+    .wrap{width:100%;}
+    #content{width:90%;}
+    #content input{width:100%;}
     #login_bt{width:100%;}
-    .social_bt img{width:50%;}
+    #social_login img{ width: 30px; height:30px;}
   }
 </style>
