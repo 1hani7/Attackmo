@@ -74,7 +74,6 @@
                         <input type="text" placeholder="바른 말 고운 말, 함께 만드는 댓글 문화!">
                         <button class="reply_bt">등록하기</button>
                     </div>
-                    <div id="moreComment" @click="loadMore">이전 댓글 더보기 <i class="bi bi-chat-dots"></i></div>
                     <div class="reply" v-for="(reply, index) in displayedReplies" :key="index">
                         <div class="reply_info">
                             <div class="nickName">{{ reply.nickName }}</div>
@@ -100,6 +99,7 @@
                             </div>
                         </div>
                     </div>
+                    <div id="moreComment" @click="loadMore">이전 댓글 더보기 <i class="bi bi-chat-dots"></i></div>
                 </div>
             </div>
             <div class="sirenModal" v-if="isModalOpen">
@@ -358,18 +358,17 @@ const postDel = () => {
 
 const sortedReplies = ref(replies.value.slice());
 
-displayedReplies.value = sortedReplies.value.slice(-commentsToShow);
+displayedReplies.value = sortedReplies.value.slice(-commentsToShow).reverse(); // 역순으로 처음에 보여줄 댓글 설정
 
 function loadMore() {
-    const startIndex = displayedReplies.value.length;
-    const endIndex = startIndex + commentsToShow;
+  const startIndex = displayedReplies.value.length;
+  const endIndex = startIndex + commentsToShow;
 
-    if (startIndex < sortedReplies.value.length) {
-        const newReplies = sortedReplies.value.slice(-endIndex, -startIndex).reverse(); // 역순으로 댓글 로드
-        displayedReplies.value = newReplies.concat(displayedReplies.value);
-    }
+  if (startIndex < sortedReplies.value.length) {
+    const newReplies = sortedReplies.value.slice(-endIndex, -startIndex).reverse(); // 역순으로 댓글 로드
+    displayedReplies.value = displayedReplies.value.concat(newReplies);
+  }
 }
-
 </script>
 
 <style scoped>
