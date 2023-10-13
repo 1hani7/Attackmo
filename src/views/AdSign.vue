@@ -13,14 +13,17 @@
                             <h2>미녀광인</h2>
                         </div>
                         <div class="content">
-                             경고 / 1회
+                             경고 / {{number}}회
                         </div>
                         <div class="content">
-                            정지 / 0회 남음
+                            정지 / 0회
                         </div>
                         <div id="button_box">
                             <div id="warring">
-                                <p @click="plus()">경고 1회 누적</p>
+                                <button @click="plus('plus')" >경고 1회 누적</button>
+                            </div>
+                            <div id="stop">
+                                <button @click="stop()" >회원 정지 </button>
                             </div>
                             <div id="delete">
                                 <button @click="deleteMember()">회원 삭제</button>
@@ -41,7 +44,7 @@
                 </thead>
             <tbody>
                 <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" @click="modalOn">
-                    <td class="n">{{ value.name }}</td>
+                    <td class="n"><div></div>{{ value.name }}</td>
                     <td class="t">{{ value.email }}</td>
                     <td class="w">{{ value.number}}</td>
                     <td class="d">{{ value.level}}</td>
@@ -74,6 +77,7 @@ export default {
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
             currentPage: 1, //페이지 이동 수
             isModalOn: false,//모달창
+            number:0,//경고1추가
             
         }
         
@@ -131,10 +135,14 @@ export default {
         modalOff() {
             this.isModalOn = false; // 모달 닫기
         },
-        plus(){
-            alert("경고1회추가");
-            this.isModalOn = false; // 모달 닫기
-
+        plus(type){
+            if(type === 'plus'){
+                this.number++;
+                alert("경고1회추가되었습니다.");
+            } 
+        },
+        stop(){
+            alert("정지되었습니다.");
         },
         deleteMember(){
             alert("삭제되었습니다");
@@ -248,7 +256,7 @@ span{font-weight: 700;}
             border-radius: 10px;
             padding:20px;  
             background: white;  
-            height:250px;   
+            height:290px;   
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); 
         }
         .title {
@@ -287,7 +295,7 @@ span{font-weight: 700;}
             margin-top:10px;
            
         }
-        #warring p{
+        #warring button{
             width:230px;
             height:33px;
             border-radius: 10px;
@@ -299,6 +307,19 @@ span{font-weight: 700;}
             text-align: center;
             cursor: pointer;
         }
+        #stop button{
+            width:230px;
+            height:33px;
+            border-radius: 10px;
+            border:none;
+            color:white; 
+            background: black;
+            font-size: 23px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top:10px;
+        }
+        
        
        
 </style>
