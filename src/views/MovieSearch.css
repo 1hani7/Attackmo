@@ -1,4 +1,4 @@
-a{width:fit-content; height:fit-content;}
+a{width:185px; height:fit-content; position: relative;}
 button{border:none; background: white; text-align: left; cursor:pointer;}
 form{position:relative;}
 
@@ -80,7 +80,7 @@ form{position:relative;}
   }
   
   .content .div {
-    width: 100%;
+    width: 185px;
     text-overflow: ellipsis;
     overflow:hidden;
     margin-top: -1px;
@@ -139,7 +139,7 @@ form{position:relative;}
   
   .content .movieName{
     position:absolute;
-    top:84%; left:30%;
+    top:40%; left:30%;
     text-align: center;
     border-radius: 10px;
     white-space:nowrap;

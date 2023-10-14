@@ -101,8 +101,8 @@ export default {
     let param = route.query.movieComing;
     const filtered = ref(coming.filter(item => item.제목 == param));
     const actors = filtered.value[0].배우;
-    const isTrailer = filtered.value[0].예고편영상.length == 1 ? false : true;
-    const isImage = filtered.value[0].스틸컷.length == 1 ? false : true;
+    const isTrailer = ref(filtered.value[0].예고편영상.length == 1 ? false : true);
+    const isImage = ref(filtered.value[0].스틸컷.length == 1 ? false : true);
     watchEffect(() => {
       param = route.query.movieComing;
       filtered.value = coming.filter(item => item.제목 == param);

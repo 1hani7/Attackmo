@@ -7,28 +7,26 @@
     <div class="blankMsg" v-if="isBlank">검색 결과가 없습니다.</div>
     <div v-if="!isBlank" class="isRls">개봉작</div>
     <div v-if="!isBlank" class="results">
-      <form v-for="value in res" :key="value.제목" action="/MovieTitle" method="get" name="movieName">
-        <input type="hidden" :value="value.제목" name="movieName">
-        <button type="submit" class="template">
+      <div v-for="value in res" :key="value.제목">
+        <RouterLink :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
           <img class="rectangle" :src="value.포스터" />
           <div class="info">
             <div @mouseover="titleModal" @mouseout="titleModal" class="div">{{ value.제목 }}</div>
-            <div class="line"></div>
+            <!-- <div class="line"></div> -->
             <div class="normalFont">{{ value.개봉일 }}</div>
             <div class="running-time">
               <div class="bold">러닝타임</div>
               <div class="normalFont">{{ value.러닝타임 }}</div>
             </div>
           </div>
-        </button>
-        <div class="movieName show">{{ value.제목 }}</div>
-      </form>
+          <div class="movieName show">{{ value.제목 }}</div>
+        </RouterLink>
+      </div>
     </div>
     <div v-if="!isBlank" class="isRls">개봉 예정작</div>
     <div v-if="!isBlank" class="results">
-      <form v-for="value in res2" :key="value.제목" action="/MovieTitle" method="get" name="movieName">
-        <input type="hidden" :value="value.제목" name="movieName">
-        <button type="submit" class="template">
+      <div v-for="value in res2" :key="value.제목">
+        <RouterLink :to="{ name: 'ComingMovieTitle', query: { movieComing: value.제목 } }">
           <img class="rectangle" :src="value.포스터" />
           <div class="info">
             <div @mouseover="titleModal" @mouseout="titleModal" class="div">{{ value.제목 }}</div>
@@ -39,9 +37,9 @@
               <div class="normalFont">{{ value.러닝타임 }}</div>
             </div>
           </div>
-        </button>
-        <div class="movieName show">{{ value.제목 }}</div>
-      </form>
+          <div class="movieName show">{{ value.제목 }}</div>
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>
@@ -87,7 +85,7 @@ export default {
     }
 
     const titleModal = (event) => {
-      const t = event.target.parentNode.parentNode.nextSibling;
+      const t = event.target.parentNode.nextSibling;
       t.classList.toggle('show');
     }
 

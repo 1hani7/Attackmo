@@ -84,6 +84,7 @@
         </div>
         <div v-if="!date.length == 0" class="chartBox">
           <h3>지난 {{ date.length }}일 간의 관객 수</h3>
+          <small>* 10위권에 진입했던 기록만 지원합니다.</small>
           <lineChart />
         </div>
       </div>
@@ -96,9 +97,9 @@
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
+import { useRoute } from 'vue-router'
 import { ref, reactive, onMounted, provide, watchEffect } from 'vue'
 export default {
   name: 'MovieTitle',

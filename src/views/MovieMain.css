@@ -85,7 +85,6 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     display: flex;
     width: 1000px;  height:fit-content;
     align-items: flex-start;
-    justify-content: space-between;
     position: relative;
     flex: 0 0 auto;
     overflow-x:scroll;
