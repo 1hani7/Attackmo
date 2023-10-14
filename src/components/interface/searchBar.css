@@ -1,12 +1,10 @@
 span{color:#B3B3B3;}
 strong{margin-right:15px; color:black;}
 @media(max-width:1194px){
-    form{cursor:pointer;}
+    .searchWrap{
+        cursor:pointer;
+    }
 }
-@media(max-width:1194px){
-    button{cursor:pointer;}
-}
-
 #resBox{
     width:250px;
     padding:10px 10px 0px 10px; overflow-y: scroll;

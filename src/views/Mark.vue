@@ -5,9 +5,22 @@
           영화 북마크
       </p>
       <div class="movie_wrap">
+        <h3>개봉 완료</h3>
         <div class="m_box">
-          <RouterLink to="" class="mark"
+          <RouterLink :to="{ name: 'MovieTitle', query: { movieName: mark.제목 } }" class="mark"
           v-for="(mark, index) in bm" :key="index"
+          @mouseover="showMark(index)" @mouseleave="hideMark()">
+            <div class="markMovie" :class="{'active' :showMarkIndex === index}">
+              <div class="movieTitle">{{ mark.제목 }}</div>
+              <div class="summary">{{ mark.줄거리 }}</div>
+            </div>
+            <img :src="mark.포스터" :alt="mark.제목" />
+          </RouterLink>
+        </div>
+        <h3>미개봉</h3>
+        <div class="m_box">
+          <RouterLink :to="{ name: 'ComingMovieTitle', query: { movieComing: mark.제목 } }" class="mark"
+          v-for="(mark, index) in bm2" :key="index"
           @mouseover="showMark(index)" @mouseleave="hideMark()">
             <div class="markMovie" :class="{'active' :showMarkIndex === index}">
               <div class="movieTitle">{{ mark.제목 }}</div>
@@ -30,6 +43,7 @@ export default {
     const data = JSON.parse(localStorage.getItem('set'));
     const coming = JSON.parse(localStorage.getItem('coming'));
     const bm = reactive([]);
+    const bm2 = reactive([]);
     const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
     const bookMarkList = () => {
       for( var i of data ){
@@ -37,15 +51,17 @@ export default {
           if( i.제목 == ' '+j ) bm.push(i);
         }
       }
+    }
+    const bookMarkList2 = () => {
       for( var i of coming ){
         for( var j of bookMark ){
-          if( i.제목 == ' '+j ) bm.push(i);
+          if( i.제목 == ' '+j ) bm2.push(i);
         }
       }
-      return ;
     }
     onMounted(()=>{
       bookMarkList();
+      bookMarkList2();
     })
 
     const showMarkIndex = ref(null);
@@ -66,7 +82,7 @@ export default {
       showMark,
       hideMark,
       // randomMarks,
-      bm
+      bm, bm2
     };
   },
 };

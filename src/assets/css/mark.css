@@ -12,7 +12,11 @@
     font-weight: 700;
     padding-bottom:60px;
 }
-.movie_wrap{width:100%;}
+.movie_wrap{
+    width:100%;
+    display:flex; flex-direction: column;
+    row-gap:30px;
+}
 .m_box{
     display: flex;
     flex-wrap: wrap;
@@ -30,9 +34,11 @@
     height:99%;
     background:rgba(0,0,0,0.5);
     color:white;
-    padding:20px;
+    padding:10px;
     position:absolute;
-    display:none;
+    /* display:none; */
+    opacity:0;
+    transition: opacity 0.5s ease;
 }
 .movieTitle{
     font-size:23px;
@@ -41,15 +47,17 @@
     padding:15px;
 }
 .summary{
-    height:208px;
-    overflow:hidden;
+    width:100%; height:208px; padding:0px;
+    text-overflow: ellipsis; overflow:hidden;
 }
 .mark img{ width:213px; height: 100%; }
 .mark:hover .markMovie.active {
-    display: block;
+    /* display: block; */
+    opacity:1;
 }
 .mark:hover {
-    display:block;
+    /* display:block; */
+    opacity:1;
 }
 @media (max-width:1194px) {
     #section{width:calc( 100% - 30px );}

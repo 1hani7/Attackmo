@@ -69,12 +69,14 @@
       </div>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle613.png" />
+        <div v-for="(value, key) in randomMovies" :key="key" class="poster-box">
+          <router-link :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
+            <button type="submit">
+              <img class="image" :src="value.포스터" />
+            </button>
             <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
+              <div @mouseover="titleModal" @mouseout="titleModal" class="movieTitle">{{ value.제목 }}</div>
+              <div class="movieDate">{{ value.개봉일 }}</div>
             </div>
             <div class="starBox">
               <div class="starYellow">★</div>
@@ -83,152 +85,9 @@
               <div class="starYellow">★</div>
               <div class="starBlack">★</div>
             </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle614.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle618.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle629.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle642.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle643.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle653.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle695.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle696.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <div class="poster-box">
-            <img class="image" src="@/images/Rectangle698.png" />
-            <div class="view">
-              <div class="movieTitle">영화제목</div>
-              <div class="movieDate">개봉일</div>
-            </div>
-            <div class="starBox">
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starYellow">★</div>
-              <div class="starBlack">★</div>
-            </div>
-          </div>
-        </RouterLink>
+            <div class="movieName show">{{ value.제목 }}</div>
+          </router-link>
+        </div>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -294,6 +153,25 @@ export default {
     const topTenList = JSON.parse(localStorage.getItem('topTenList')).slice(0, 10);
     const set = JSON.parse(localStorage.getItem('set'));
 
+
+    // 추천리스트
+    const getRandomMovies = () => {
+      const numberOfMoviesToSelect = 12;
+      const randomMovies = [];
+
+      while (randomMovies.length < numberOfMoviesToSelect && set.length > 0) {
+        const randomIndex = Math.floor(Math.random() * set.length);
+        randomMovies.push(set[randomIndex]);
+        set.splice(randomIndex, 1); // 중복 선택 방지를 위해 이미 선택한 항목은 배열에서 제거
+      }
+
+      return randomMovies;
+    };
+
+    const randomMovies = getRandomMovies();
+
+
+    // 북마크
     const bm = reactive([]);
     const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
     const bookMarkList = () => {
@@ -332,7 +210,7 @@ export default {
     return {
       isLogin, topTenList, titleModal, now,
       slideScrollRight, slideScrollLeft, bookMark, bookMarkList,
-      bm
+      bm, randomMovies
     }
   }
 }
