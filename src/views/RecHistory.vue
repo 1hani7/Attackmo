@@ -7,8 +7,10 @@
             <div id="con_box">
                 <div id="content">
                     <div class="movie" v-for="data in randomMovies" :key="randomMovies">
-                        <img :src="data.포스터" :alt="data.제목">
-                        <b>{{ data.제목 }}</b>
+                        <router-link :to="{ name: 'MovieTitle', query:{ movieName: data.제목 } }">
+                            <img :src="data.포스터" :alt="data.제목">
+                            <b>{{ data.제목 }}</b>
+                        </router-link>
                     </div>
                 </div>
             </div>

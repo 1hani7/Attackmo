@@ -6,7 +6,7 @@
       </p>
       <div class="review_wrap">
         <div class="r_box">
-          <RouterLink to="/Rread" v-for="(review, index) in randomReviews" :key="index" @mouseover="showReview(index)" @mouseleave="hideReview()">
+          <RouterLink to="/Rread" class="review" v-for="(review, index) in randomReviews" :key="index" @mouseover="showReview(index)" @mouseleave="hideReview()">
             <div class="likeReview" :class="{ 'active': showReviewIndex === index }">
               <p class="user">@활동명</p>
               <p class="review_l">{{ review.줄거리 }}</p>
