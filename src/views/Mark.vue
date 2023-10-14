@@ -45,6 +45,7 @@ export default {
     const bm = reactive([]);
     const bm2 = reactive([]);
     const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
+    const ComingBookmark = localStorage.getItem('ComingBookmark')==null?'':JSON.parse(localStorage.getItem('ComingBookmark'));
     const bookMarkList = () => {
       for( var i of data ){
         for( var j of bookMark ){
@@ -54,7 +55,7 @@ export default {
     }
     const bookMarkList2 = () => {
       for( var i of coming ){
-        for( var j of bookMark ){
+        for( var j of ComingBookmark ){
           if( i.제목 == ' '+j ) bm2.push(i);
         }
       }
