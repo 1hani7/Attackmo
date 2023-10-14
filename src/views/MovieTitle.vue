@@ -58,8 +58,9 @@
             <iframe :src="v"></iframe>
             <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
           </div>
-          <div @click="trailerScale" @mouseover="titleModal" @mouseout="titleModal" class="trailerTitle">{{
-            value.예고편타이틀[idx] }}</div>
+          <div @click="trailerScale" class="trailerTitle">
+          {{ value.예고편타이틀[idx] }}
+          </div>
           <div class="sub">{{ value.예고편타이틀[idx] }}</div>
         </div>
       </div>
@@ -98,7 +99,7 @@
 import { useRoute } from 'vue-router'
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
-import { ref, reactive, onMounted, provide, watch } from 'vue'
+import { ref, reactive, onMounted, provide, watchEffect } from 'vue'
 export default {
   name: 'MovieTitle',
   components: { lineChart, radarChart },
@@ -109,13 +110,19 @@ export default {
     const path = ref('');
     const image = ref('');
     const set = JSON.parse(localStorage.getItem('set'));
-    const param = useRoute().query.movieName;
-    const filtered = set.filter(function (item, idx) {
-      return item.제목 == param;
-    })
-    const actors = filtered[0].배우;
-    const isTrailer = filtered[0].예고편영상.length == 1 ? false : true;
-    const isImage = filtered[0].스틸컷.length == 1 ? false : true;
+    const route = useRoute();
+    let param = route.query.movieName;
+    const filtered = ref(set.filter(item => item.제목 == param));
+    const actors = filtered.value[0].배우;
+    const isTrailer = ref(filtered.value[0].예고편영상.length == 1 ? false : true);
+    const isImage = ref(filtered.value[0].스틸컷.length == 1 ? false : true);
+    watchEffect(() => {
+      param = route.query.movieName;
+      filtered.value = set.filter(item => item.제목 == param);
+      isTrailer.value = filtered.value[0].예고편영상.length == 1 ? false : true;
+      isImage.value = filtered.value[0].스틸컷.length == 1 ? false : true
+    });
+
 
     // 선 차트 데이터
     const aud = JSON.parse(localStorage.getItem('aud'));
@@ -184,11 +191,19 @@ export default {
 
     const trailerScale = (event) => {
       const t = event.target.previousSibling.children[0];
-      // const t = event.target;
+      const title = event.target;
       const big = document.querySelector('#big');
       const clonedT = t.cloneNode(true);
+      const clonedTitle = title.cloneNode(true);
       switcher();
       big.appendChild(clonedT);
+      big.appendChild(clonedTitle);
+      clonedTitle.style.position = 'fixed';
+      clonedTitle.style.color = 'white';
+      clonedTitle.style.fontSize = '30px';
+      clonedTitle.style.top = '71%';
+      clonedTitle.style.background = 'rgba(0,0,0,0.8)';
+      clonedTitle.style.padding = '0 20px';
     }
 
     onMounted(() => {

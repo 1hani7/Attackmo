@@ -58,7 +58,7 @@
             <iframe :src="v"></iframe>
             <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
           </div>
-          <div @click="trailerScale" @mouseover="titleModal" @mouseout="titleModal" class="trailerTitle">{{
+          <div @click="trailerScale" class="trailerTitle">{{
             value.예고편타이틀[idx] }}</div>
           <div class="sub">{{ value.예고편타이틀[idx] }}</div>
         </div>
@@ -86,7 +86,7 @@
 import { useRouter, useRoute } from 'vue-router'
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, watchEffect } from 'vue'
 export default {
   name: 'MovieTitle',
   components: { lineChart, radarChart },
@@ -97,13 +97,18 @@ export default {
     const path = ref('');
     const image = ref('');
     const coming = JSON.parse(localStorage.getItem('coming'));
-    const param = useRoute().query.movieComing;
-    const filtered = coming.filter(function (item, idx) {
-      return item.제목 == param;
-    })
-    const actors = filtered[0].배우;
-    const isTrailer = filtered[0].예고편영상.length == 1 ? false : true;
-    const isImage = filtered[0].스틸컷.length == 1 ? false : true;
+    const route = useRoute();
+    let param = route.query.movieComing;
+    const filtered = ref(coming.filter(item => item.제목 == param));
+    const actors = filtered.value[0].배우;
+    const isTrailer = filtered.value[0].예고편영상.length == 1 ? false : true;
+    const isImage = filtered.value[0].스틸컷.length == 1 ? false : true;
+    watchEffect(() => {
+      param = route.query.movieComing;
+      filtered.value = coming.filter(item => item.제목 == param);
+      isTrailer.value = filtered.value[0].예고편영상.length == 1 ? false : true;
+      isImage.value = filtered.value[0].스틸컷.length == 1 ? false : true
+    });
 
     const bookMark = (event) => {
       const t = event.target.parentNode.nextSibling.innerText;
@@ -157,10 +162,13 @@ export default {
 
     const trailerScale = (event) => {
       const t = event.target.previousSibling.children[0];
+      const title = event.target;
       const big = document.querySelector('#big');
       const clonedT = t.cloneNode(true);
+      const clonedTitle = title.cloneNode(true);
       switcher();
       big.appendChild(clonedT);
+      big.appendChild(clonedTitle);
     }
 
     onMounted(() => {

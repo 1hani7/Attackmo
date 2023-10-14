@@ -381,7 +381,7 @@
   overflow: hidden;
   scroll-behavior: smooth;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 @media(max-width:1194px) {
@@ -444,12 +444,12 @@
   top: -18px;
   width: 883px;
   height: 563px;
-  transform: scale(0.415);
+  transform: scale(0.531);
   transform-origin: 0% 0%;
 }
-@media(max-width:490px) {
+@media(max-width:1194px) {
   .content iframe{
-    transform: scale(0.415);
+    transform: scale(0.531);
   }
 }
 
@@ -594,7 +594,7 @@
 }
 
 #big {
-  width:856px; height:495px;
+  width:851px; height:495px;
   position: absolute;
   display: flex;
   align-items: center;

@@ -13,7 +13,7 @@
           <img class="rectangle" :src="value.포스터" />
           <div class="info">
             <div @mouseover="titleModal" @mouseout="titleModal" class="div">{{ value.제목 }}</div>
-            <!-- <div class="line"></div> -->
+            <div class="line"></div>
             <div class="normalFont">{{ value.개봉일 }}</div>
             <div class="running-time">
               <div class="bold">러닝타임</div>
