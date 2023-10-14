@@ -113,25 +113,22 @@ export default {
     const bookMark = (event) => {
       const t = event.target.parentNode.nextSibling.innerText;
 
-      if( sessionStorage.getItem('login') == 'false' ) return alert('로그인이 필요한 서비스입니다.');
+      if (sessionStorage.getItem('login') == 'false') return alert('로그인이 필요한 서비스입니다.');
 
-      if( localStorage.getItem('bookmark') == null || localStorage.getItem('bookmark') == '[]' ){
+      if (localStorage.getItem('ComingBookmark') == null || localStorage.getItem('ComingBookmark') == '[]') {
         const temp = new Array();
         temp.push(t)
-        localStorage.setItem('bookmark', JSON.stringify(temp));
-      }else if( JSON.parse(localStorage.getItem('bookmark')).indexOf(t) > -1 ){
-        const item = new Array();
-        item.push(JSON.parse(localStorage.getItem('bookmark')));
+        localStorage.setItem('ComingBookmark', JSON.stringify(temp));
+      } else if (JSON.parse(localStorage.getItem('ComingBookmark')).indexOf(t) > -1) {
+        const item = JSON.parse(localStorage.getItem('ComingBookmark'));
         item.splice(item.indexOf(t), 1);
-        localStorage.removeItem('bookmark');
-        localStorage.setItem('bookmark', JSON.stringify(item));
-        return;
-      }else if( localStorage.getItem('bookmark') != null || localStorage.getItem('bookmark') != '[]' ){
-        const em = JSON.parse(localStorage.getItem('bookmark'));
-        console.log(em)
+        localStorage.removeItem('ComingBookmark');
+        localStorage.setItem('ComingBookmark', JSON.stringify(item));
+      } else if (localStorage.getItem('bookmark') != null || localStorage.getItem('ComingBookmark') != '[]') {
+        const em = JSON.parse(localStorage.getItem('ComingBookmark'));
         em.push(t);
-        localStorage.removeItem('bookmark');
-        localStorage.setItem('bookmark', JSON.stringify( em ));
+        localStorage.removeItem('ComingBookmark');
+        localStorage.setItem('ComingBookmark', JSON.stringify(em));
       }
     }
 

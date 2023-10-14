@@ -69,7 +69,7 @@
       </div>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <div v-for="(value, key) in randomMovies" :key="key" class="poster-box">
+        <div v-for="(value, key) in rec.value" :key="key" class="poster-box">
           <router-link :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
             <button type="submit">
               <img class="image" :src="value.포스터" />
@@ -130,7 +130,7 @@
               <img class="image" :src="value.포스터" />
             </button>
             <div class="view">
-              <div @mouseover="titleModal" @mouseout="titleModal" class="movieTitle">{{ value.제목 }}</div>
+              <div class="movieTitle">{{ value.제목 }}</div>
               <div class="movieDate">{{ value.개봉일 }}</div>
             </div>
             <div class="movieName show">{{ value.제목 }}</div>
@@ -143,7 +143,7 @@
 </template>
 
 <script>
-import { inject, reactive, onMounted } from 'vue';
+import { inject, reactive, onMounted, ref } from 'vue';
 export default {
   name: 'MovieMain',
   setup() {
@@ -174,6 +174,7 @@ export default {
     // 북마크
     const bm = reactive([]);
     const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
+    const ComingBookmark = localStorage.getItem('ComingBookmark')==null?'':JSON.parse(localStorage.getItem('ComingBookmark'));
     const bookMarkList = () => {
       for( var i of set ){
         for( var j of bookMark ){
@@ -185,6 +186,16 @@ export default {
           if( i.제목 == ' '+j ) bm.push(i);
         }
       }
+      for( var i of set ){
+        for( var j of ComingBookmark ){
+          if( i.제목 == ' '+j ) bm.push(i);
+        }
+      }
+      for( var i of coming ){
+        for( var j of ComingBookmark ){
+          if( i.제목 == ' '+j ) bm.push(i);
+        }
+      }
       return ;
     }
     onMounted(()=>{
@@ -192,6 +203,47 @@ export default {
     })
 
 
+
+    // 추천리스트
+    const rec = reactive([]);
+    const getRecList = () => {
+      const target = bookMark[bookMark.length-1];
+      let recList = null;
+      let genre = '';
+      for( var i of set ){
+        if( i.제목 == ' '+target ){
+          genre = i.장르.split(',')[0];
+          break;
+        }
+      }
+      if( genre == null ){
+        for( var i of coming ){
+          if( i.제목 == ' '+target ){
+          genre = i.장르.split(',')[0];
+          break;
+        }
+        }
+      }
+      recList = set.filter( (item) => item.장르.indexOf(genre) > -1 );
+
+      const numberOfMoviesToSelect = 12;
+      const randomMovies = [];
+
+      while (randomMovies.length < numberOfMoviesToSelect && recList.length > 0) {
+        const randomIndex = Math.floor(Math.random() * recList.length);
+        randomMovies.push(recList[randomIndex]);
+        recList.splice(randomIndex, 1); // 중복 선택 방지를 위해 이미 선택한 항목은 배열에서 제거
+      }
+
+      rec.value = randomMovies;
+    }
+    onMounted(()=>{
+      getRecList()
+    })
+
+
+
+    // 제목 모달
     const titleModal = (event) => {
       const t = event.target.parentNode.nextSibling.nextSibling;
       t.classList.toggle('show');
@@ -210,7 +262,7 @@ export default {
     return {
       isLogin, topTenList, titleModal, now,
       slideScrollRight, slideScrollLeft, bookMark, bookMarkList,
-      bm, randomMovies
+      bm, randomMovies, rec
     }
   }
 }
