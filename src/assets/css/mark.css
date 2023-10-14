@@ -9,19 +9,20 @@
 }
 .mark_title{
     font-size:23px;
-    font-weight: 700;;
+    font-weight: 700;
     padding-bottom:60px;
 }
 .movie_wrap{width:100%;}
 .m_box{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    justify-content: space-between;
+    column-gap: calc( (100% - (213px*4))/3 );
     row-gap: 50px;
     flex-wrap: wrap;
 }
 .mark{
-    width:230px;
+    width:fit-content; height:305px;
     position:relative;
 }
 .markMovie{
@@ -35,7 +36,7 @@
 }
 .movieTitle{
     font-size:23px;
-    font-weight:900px;
+    font-weight:900;
     text-align:center;
     padding:15px;
 }
@@ -43,6 +44,7 @@
     height:208px;
     overflow:hidden;
 }
+.mark img{ width:213px; height: 100%; }
 .mark:hover .markMovie.active {
     display: block;
 }
@@ -50,9 +52,16 @@
     display:block;
 }
 @media (max-width:1194px) {
-    #section{width:100vw;}
-    #mark_wrap{width:90%; margin:0 auto;}
+    #section{width:calc( 100% - 30px );}
+    #mark_wrap{width:100%; margin:0 auto;}
 }
+@media (max-width:883px) {
+    .m_box{ column-gap: calc( (100% - (213px*3))/2 ); }
+}
+@media (max-width:669px) {
+    .m_box{ justify-content: space-between;column-gap: 0; }
+}
+
 @media (max-width:490px) {
     #section{width:100vw;}
     #mark_wrap{width:90%;margin:0 auto;}
