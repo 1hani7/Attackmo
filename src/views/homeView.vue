@@ -165,7 +165,6 @@ export default {
       }
 
       rec.value = randomMovies;
-      console.log(rec)
     }
 
     // 랜덤 예고편
