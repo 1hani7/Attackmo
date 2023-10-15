@@ -11,6 +11,7 @@
                 <div id="button_box">
                     <button @click="find" type="submit" id="find_e" class="fe_bt">이메일 찾기</button>
                 </div>
+               <div id="line"></div> 
                 <div id="find">
                     <label>본인인증찾기</label>
                     <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
@@ -53,33 +54,33 @@ export default {
 <style scoped>
     #wrap{
         display: flex;
-        margin-top: 150px;
-        margin-bottom:150px;
+        margin-top: 120px;
+        margin-bottom:120px;
         flex-direction: column;
         align-items: center;
     }
     #find_box{
-        padding: 73px 80px;
         flex-direction: column;
         align-items: center;
-        gap: 53px;
+        gap: 40px;
         display: flex;
-        width:1000px;
+        width:600px;
     }
     #phone{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
-        width: 831px;
+        width: 100%;
     }
     #phone label{font-size: 23px;font-weight: 700;}
     #phone input{
-        width: 820px;
+        width: 100%;
         height: 60px;
         padding:20px;
         border-radius: 10px;
-        outline:none;  
+        outline:none; 
+        font-size: 17px; 
         border:1px solid black;  
     }
     #num{ 
@@ -88,21 +89,22 @@ export default {
         display: flex;
         align-items: center;
         gap:32px;
-        
     } 
-    #find_e{    
-        width: 831px;
+   
+    #find_e{  
+        width: 335px;
         height: 85px;
-        border-radius: 10px;
-        background: #F9C041;
+        padding: 24px 84px;
         border:none;
         color:white; 
-        font-weight:700;
+        border-radius: 10px;
+        background: #F9C041;
         font-size:23px;
+        font-weight: 700;  
+        cursor: pointer;
     }
-    #find{
-        width:830px;
-    }
+
+    #find{ width:700px;}
     #find label{font-size:30px;font-weight: 700;}
     #find p{font-size:16px;font-weight: 400;color:#7A7979;}
     #mine{ 
@@ -112,18 +114,20 @@ export default {
         border:none;
         color:white; 
         border-radius: 10px;
-        background: #F9C041;
+        background: #B91646;
         font-size:23px;
         font-weight: 700;
+        cursor: pointer;
     }
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
+    #line{width:700px; height:2px; border: 3px solid whitesmoke;}
 @media (max-width:1194px) {
-   #wrap{width:100vw;}
-   #find_box{width: 100%;}
+   #wrap{width:90vw;}
+   #find_box{width: 90%;}
    #find{width:100%;}
    #phone{width:100%;}
    #phone input{width:100%;}
@@ -133,11 +137,12 @@ export default {
   #wrap{width:calc(100vw-30px);font-size: 17px;
     margin-top:30px; margin-bottom:30px;}
   #find{width:90%;}
-  #find_e{width:90vw;}
-  #mine{height:80%;width:90vw;}
+  #find_e{width:60vw;padding:0px;height:50px;}
+  #mine{width:60vw;padding:0px;height:50px;}
   #find_box{width: 100%;padding:0px;margin:0px;} 
   #phone{width:90%;}
   #phone input{width:90%;margin:0px;padding:20px;}
+  #line{width:90%;}
 }
 
 </style>
