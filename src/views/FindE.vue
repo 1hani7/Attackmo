@@ -94,7 +94,6 @@ export default {
     #find_e{  
         width: 335px;
         height: 85px;
-        padding: 24px 84px;
         border:none;
         color:white; 
         border-radius: 10px;
@@ -131,7 +130,7 @@ export default {
    #find{width:100%;}
    #phone{width:100%;}
    #phone input{width:100%;}
-   #find_e{width:660px;} 
+   #find_e{width:350px;} 
 }
 @media (max-width:490px) {
   #wrap{width:calc(100vw-30px);font-size: 17px;
@@ -143,6 +142,7 @@ export default {
   #phone{width:90%;}
   #phone input{width:90%;margin:0px;padding:20px;}
   #line{width:90%;}
+  #num{gap:10px;}
 }
 
 </style>
