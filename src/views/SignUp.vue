@@ -144,7 +144,7 @@ export default {
     }
     #sign_box{
       display: flex;
-      width: 800px;
+      width: 600px;
       justify-content: center;
       align-items: flex-start;
       align-content: flex-start;

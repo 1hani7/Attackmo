@@ -8,7 +8,7 @@
       <div id="phone">
         <label>휴대폰번호</label>
         <div id="num">
-          <input type="number" v-model="formData.number1" name="number1">- 
+          <input type="number" v-model="formData.number1" name="number1" placeholder="010">- 
           <input type="number" v-model="formData.number2" name="number2">-
           <input type="number" v-model="formData.number3" name="number3">
         </div>
@@ -20,7 +20,7 @@
         <label>본인인증찾기</label>
         <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
         <div id="num">
-          <input type="number" v-model="verification1" name="verification1">-
+          <input type="number" v-model="verification1" name="verification1" placeholder="010">-
           <input type="number" v-model="verification2" name="verification2">-
           <input type="number" v-model="verification3" name="verification3">
         </div>
@@ -103,24 +103,25 @@ methods: {
     }
     #find_box{
         display: flex;
-        width: 1000px;
-        padding: 73px 80px;
+        width: 500px;
+        padding: 0px;
         flex-direction: column;
         align-items: center;
         gap: 53px;  
     }
     #email{
-        width: 831px;
-        height: 85px;
+        width: 100%;
+        height: 65px;
     }
     #email input{
-        width: 831px;
-        height: 85px;
+        width: 100%;
+        height: 55px;
         padding: 20px;
         border-radius: 10px;
         font-size: 23px;
         color:#7A7979;
         outline:none;
+        border:1px solid black;
     }
     #phone{
        width:100%; 
@@ -134,21 +135,25 @@ methods: {
         gap: 30px;
         display: flex;
         justify-content: space-between;
+        width:100%;
     }
     #num input{
-        width: 230px;
-        height: 60px;
+        width: 100%;
+        height: 55px;
         padding: 20px;
         border-radius: 10px;
         outline:none;
+        font-size: 23px;
+        border:1px solid black;
     }
     #button_box{
-        width:1000px;
+        width:100%;
+        display: flex;
+        justify-content: center;
     }
     #find_p{
-        width: 831px;
-        height: 85px;
-        padding: 25px 318px;
+        width:200px;
+        height: 65px;
         margin-top: 30px;
         border-radius: 10px;
         background: #F9C041;
@@ -156,6 +161,7 @@ methods: {
         color:white; 
         font-weight:700;
         font-size:23px;
+        cursor: pointer;
     }
     #find{
         display: flex;
@@ -168,15 +174,15 @@ methods: {
     #find label{font-size:30px;font-weight: 700;}
     #find p{font-size:15px;font-weight: 400;color:#7A7979;}
     #mine{
-        width: 335px;
-        height: 85px;
-        padding: 24px 84px;
-        background: #F9C041;
+        width: 200px;
+        height: 65px;
+        background: #B91646;
         border:none;
         color:white; 
         border-radius: 10px;
         font-weight:700;
         font-size:23px;
+        cursor: pointer;
     }
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
@@ -185,25 +191,15 @@ methods: {
     }
 @media (max-width:1194px) {
    #wrap{width:100vw;}
-   #email{width:90%;}
-   #email input{width:750px;}
-   #button_box{width:90%;}
-   #find_p{width:750px;font-size:20px;}
-   #phone{width:90%;}
-   #find{width:750px;}
-   #num{width:750px;}
-   
-
 }
 @media (max-width:490px) {
     #wrap{width:calc(100vw - 30px); margin:10px;}
-    #email{width:40%;}
-    #email input{width:100%;}
-    #phone{width:40%;}
-    #num{width:40%;}
-    #num input{width:65px;}
-    #find{width:40%;}
-    #button_box {width: 100%; }
-    #find_p {width: 100%; padding: 15px 0;}
+    #email{width:60%;}
+    #email input{width:100%}
+    #phone{width:60%;}
+    #num{width:100%;gap:10px;}
+    #find{width:60%;}
+    #button_box {width:100%;}
+    #find_p {width:100%;}
 }
 </style>
