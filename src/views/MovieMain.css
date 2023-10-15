@@ -168,6 +168,18 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     }
   }
   
+  .screen .recReason{
+    text-align: right;
+    width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  @media(max-width:400px){
+    .screen .recReason{
+      font-size:10px;
+    }
+  }
+
   .screen .image {
     position: relative;
     width: 230px; height:328px;

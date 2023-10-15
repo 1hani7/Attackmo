@@ -135,20 +135,22 @@ export default {
 
     // 추천리스트
     const rec = reactive([]);
+    const randomIdx = Math.floor(Math.random()*bookMark.length);
     const getRecList = () => {
-      const target = bookMark[bookMark.length-1];
+      const target = bookMark[randomIdx];
       let recList = null;
       let genre = '';
       for( var i of set ){
+        var temp = Math.floor(Math.random()*(i.장르.split(',').length));
         if( i.제목 == ' '+target ){
-          genre = i.장르.split(',')[0];
+          genre = i.장르.split(',')[temp];
           break;
         }
       }
       if( genre == null ){
         for( var i of coming ){
           if( i.제목 == ' '+target ){
-          genre = i.장르.split(',')[0];
+          genre = i.장르.split(',')[temp];
           break;
         }
         }
