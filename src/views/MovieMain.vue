@@ -67,6 +67,9 @@
           <div class="plusBt">+</div>
         </RouterLink>
       </div>
+      <p style="text-align: right; ">
+        *{{ target }}를 북마크에 추가하셨으므로 || 장르 : {{ genre }}
+      </p>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
         <div v-for="(value, key) in rec.value" :key="key" class="poster-box">
@@ -149,7 +152,7 @@
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
         <div v-for="(value, key) in bm2" :key="key" class="poster-box">
-          <router-link :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
+          <router-link :to="{ name: 'ComingMovieTitle', query: { movieComing: value.제목 } }">
             <button type="submit">
               <img class="image" :src="value.포스터" />
             </button>
@@ -210,23 +213,6 @@ export default {
     })
 
 
-    // 추천리스트
-    const getRandomMovies = () => {
-      const numberOfMoviesToSelect = 12;
-      const randomMovies = [];
-
-      while (randomMovies.length < numberOfMoviesToSelect && set.length > 0) {
-        const randomIndex = Math.floor(Math.random() * set.length);
-        randomMovies.push(set[randomIndex]);
-        set.splice(randomIndex, 1); // 중복 선택 방지를 위해 이미 선택한 항목은 배열에서 제거
-      }
-
-      return randomMovies;
-    };
-
-    const randomMovies = getRandomMovies();
-
-
     // 북마크
     const bm = reactive([]);
     const bookMarkList = () => {
@@ -259,25 +245,25 @@ export default {
 
     // 추천리스트
     const rec = reactive([]);
+    const target = bookMark[bookMark.length-1];
+    let genre = ref('');
     const getRecList = () => {
-      const target = bookMark[bookMark.length-1];
       let recList = null;
-      let genre = '';
       for( var i of set ){
         if( i.제목 == ' '+target ){
-          genre = i.장르.split(',')[0];
+          genre.value = i.장르.split(',')[0];
           break;
         }
       }
-      if( genre == null ){
+      if( genre.value == null ){
         for( var i of coming ){
           if( i.제목 == ' '+target ){
-          genre = i.장르.split(',')[0];
+          genre.value = i.장르.split(',')[0];
           break;
         }
         }
       }
-      recList = set.filter( (item) => item.장르.indexOf(genre) > -1 );
+      recList = set.filter( (item) => item.장르.indexOf(genre.value) > -1 );
 
       const numberOfMoviesToSelect = 12;
       const randomMovies = [];
@@ -315,7 +301,7 @@ export default {
     return {
       isLogin, topTenList, titleModal, now,
       slideScrollRight, slideScrollLeft, bookMark, bookMarkList,
-      bm, bm2, randomMovies, rec, exp
+      bm, bm2, rec, exp, target, genre
     }
   }
 }

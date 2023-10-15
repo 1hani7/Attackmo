@@ -110,6 +110,8 @@ export default {
       isImage.value = filtered.value[0].스틸컷.length == 1 ? false : true
     });
 
+
+    // 북마크 기능
     const bookMark = (event) => {
       const t = event.target.parentNode.nextSibling.innerText;
 
@@ -124,6 +126,7 @@ export default {
         item.splice(item.indexOf(t), 1);
         localStorage.removeItem('ComingBookmark');
         localStorage.setItem('ComingBookmark', JSON.stringify(item));
+        path.value = '/src/images/movieInfo/bookmark.svg'
       } else if (localStorage.getItem('bookmark') != null || localStorage.getItem('ComingBookmark') != '[]') {
         const em = JSON.parse(localStorage.getItem('ComingBookmark'));
         em.push(t);
