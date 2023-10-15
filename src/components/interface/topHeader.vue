@@ -106,6 +106,7 @@ export default {
         provide('isMenuHover', isMenuHover);
         const isShowing = ref(false);
 
+        const path = useRoute().path;
         const router = useRouter();
 
         const MenuHover = () => {
@@ -118,9 +119,7 @@ export default {
             if (window.innerWidth >= 1194) {
                 isSearching.value = !isSearching.value;
                 isMenuHover.value = false;
-                router.push('/Search');
-            } else {
-                e.preventDefault();
+                router.replace('/Search');
             }
         }
 

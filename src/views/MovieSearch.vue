@@ -90,11 +90,15 @@ export default {
     }
 
 
-
-    window.addEventListener('resize', function () {
-      if (path == '/Search' && this.window.innerWidth <= 1194) {
-        router.push('/')
+    const kickMain = () => {
+      if (path == '/Search' && window.innerWidth <= 1194) {
+        router.replace('/')
       }
+    }
+
+    window.addEventListener('resize', kickMain)
+    router.beforeEach(()=>{
+      window.removeEventListener('resize', kickMain)
     })
 
     return { res, res2, word, resNum, isBlank, titleModal }

@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import {useRouter, useRoute} from 'vue-router'
+import {inject, watchEffect} from 'vue'
 export default {
     data(){
         return{
@@ -51,6 +53,15 @@ export default {
         close() {
             const sirenClose = window.close();
         }
+    },
+    setup(){
+        const isSiren = inject('isSiren');
+        const path = useRoute().path;
+        watchEffect(()=>{
+        if( path == '/Siren' ) isSiren.value = false;
+        else isSiren.value = true;
+        console.log(path);
+        })
     }
 };
 </script>

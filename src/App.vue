@@ -1,10 +1,10 @@
 <script>
-import { RouterView, useRouter  } from 'vue-router';
+import { RouterView, useRouter, useRoute  } from 'vue-router';
 import topHeader from './components/interface/topHeader.vue';
 import botFooter from './components/interface/botFooter.vue';
 import topAds from './components/AD/topAds.vue';
 import botAds from './components/AD/botAds.vue';
-import {ref, provide, onMounted, reactive } from 'vue';
+import {ref, provide, onMounted } from 'vue';
 
 // import {coming} from './mComing'
 // import {now} from './mNow'
@@ -23,6 +23,7 @@ export default {
     
     const isLogin = ref(false);
     provide('isLogin', isLogin);
+    const path = useRoute().path;
 
     const loginToggle = () => {
       const sessionStorage = window.sessionStorage;
@@ -33,18 +34,15 @@ export default {
     provide('loginToggle', loginToggle);
 
     const isSiren = ref(true);
+    provide('isSiren', isSiren);
 
     onMounted(() => {
       const sessionStorage = window.sessionStorage;
       sessionStorage.setItem('login', isLogin.value);
 
-      if (location.href.split("/")[3] == 'Siren') {
-        isSiren.value = false;
-      } else {
-        isSiren.value = true;
-      }
     })
 
+    
     useRouter().beforeEach(()=>{
       window.scrollTo(0, 0);
     })
@@ -63,25 +61,27 @@ export default {
   <!-- <div class="cursor"></div> -->
 
   <!-- 최상단으로 버튼 -->
-  <div v-if="isSiren" id="toTheTopBt">
+  <div v-show="isSiren" id="toTheTopBt">
     <a href="#">
       <img src="@/images/topBt.svg">
     </a>
   </div>
 
   <!-- 상단광고 위치 -->
-  <section v-if="isSiren">
+  <section v-show="isSiren">
     <topAds/>
   </section>
 
   <!-- 헤더 -->
-  <topHeader v-if="isSiren"/>
+  <section v-show="isSiren">
+    <topHeader/>
+  </section>
 
   <!-- 컨텐츠 -->
   <RouterView />
 
   <!-- 하단광고 위치 -->
-  <section v-if="isSiren">
+  <section v-show="isSiren">
     <botAds/>
   </section>
 
