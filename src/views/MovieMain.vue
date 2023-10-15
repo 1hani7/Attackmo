@@ -67,8 +67,8 @@
           <div class="plusBt">+</div>
         </RouterLink>
       </div>
-      <p style="text-align: right; ">
-        *{{ target }}를 북마크에 추가하셨으므로 || 장르 : {{ genre }}
+      <p class="recReason">
+        *{{ target }}를 북마크에 추가하셨으므로 추천 | 장르 : {{ genre }}
       </p>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
@@ -245,20 +245,22 @@ export default {
 
     // 추천리스트
     const rec = reactive([]);
-    const target = bookMark[bookMark.length-1];
     let genre = ref('');
+    const randomIdx = Math.floor(Math.random()*bookMark.length);
+    const target = bookMark[randomIdx];
     const getRecList = () => {
       let recList = null;
       for( var i of set ){
+        var temp = Math.floor(Math.random()*(i.장르.split(',').length));
         if( i.제목 == ' '+target ){
-          genre.value = i.장르.split(',')[0];
+          genre.value = i.장르.split(',')[temp];
           break;
         }
       }
       if( genre.value == null ){
         for( var i of coming ){
           if( i.제목 == ' '+target ){
-          genre.value = i.장르.split(',')[0];
+          genre.value = i.장르.split(',')[temp];
           break;
         }
         }
