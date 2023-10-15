@@ -8,7 +8,8 @@
             </RouterLink> 
         <div class="main">
             <div id="search_box">
-                    <input type="text" id="search"  placeholder="검색어를 입력해주세요">
+                    <input type="text" id="search" v-model="searchKeyword"
+                     placeholder="검색어를 입력해주세요">
                     <i class="bi bi-search" @click="search"></i>
             </div>
             <table class="list">
@@ -75,7 +76,7 @@ export default {
             data: [],//firebase에서 가져온 데이터를 저장할 배열
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
             currentPage: 1, //페이지 이동 수 
-            
+            searchKeyword:"",//검색어 저장 
         }
     },
     computed: {
@@ -90,10 +91,21 @@ export default {
             return Math.ceil(this.data.length / this.itemsPerPage);
         }, 
         visiblePosts() { //작성폼에서 작성해서 저장하면 목록에 추가해줌
-            const start = (this.currentPage - 1) * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            return this.sortedData.slice(start, end);
-        }, 
+            // const start = (this.currentPage - 1) * this.itemsPerPage;
+            // const end = start + this.itemsPerPage;
+            // return this.sortedData.slice(start, end);
+            if (this.searchKeyword) {
+                // 검색어가 입력된 경우
+                return this.sortedData.filter((value) => {
+                return value.title.toLowerCase().includes(this.searchKeyword.toLowerCase());
+                }).slice(0, this.itemsPerPage);
+            } else {
+                // 검색어가 입력되지 않았을 때
+                const start = (this.currentPage - 1) * this.itemsPerPage;
+                const end = start + this.itemsPerPage;
+                return this.sortedData.slice(start, end);
+            }
+        },
         blocks() { //페이지 이동
             const blocks = [];
             for (let i = 1; i <= this.totalPage; i++) {
@@ -111,10 +123,10 @@ export default {
             return `${year}-${month}-${day}`;
         },
         search(){
-            alert("검색한다");
+            alert("검색");
         },
         /*gonote(){
-           //alert("클릭미");
+          
             this.$router.push({path:"/Aread"});
         },*/
         gonote(selectedData) {
