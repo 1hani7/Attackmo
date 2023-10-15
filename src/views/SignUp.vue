@@ -230,6 +230,7 @@ export default {
     @media (max-width:1194px) {
      .wrap{width:100%;}
      #email input,#pw input,#pw_ck input,#nickname input{width:100%;}
+     #sign_box{width:750px;}
      #pw_ck,#nickname,#phone,#num{width:100%;}
      #pw_ck span{width:100%;font-size: 17px;}
      #num input{width:100%;}
@@ -239,10 +240,12 @@ export default {
     }
     @media (max-width:490px) {
       label, .bi-asterisk{font-size: 17px;}
-      #sign_box{width:calc(100% - 30px);}
-      #button_box{width:100%;padding:0px;}
+      #sign_box{width:calc(100% - 30px);gap:10px;}
+      #button_box{width:100%;padding:0px;margin-top:20px;}
       #button_box button{width:100px;font-size:17px;}
-      #pw_ck span{font-size:15px;}
-      #email input,#pw input,#pw_ck input,#nickname input, #num input{width:100%; height:30px;outline:none;}     
+      #pw_ck span{font-size:14px;}
+      #email input,#pw input,#pw_ck input,#nickname input, #num input{width:100%; height:30px;outline:none;}  
+      #app .wrap{padding:10px;}   
+      
     }
 </style>

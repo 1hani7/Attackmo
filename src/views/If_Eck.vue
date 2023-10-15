@@ -7,7 +7,7 @@
                 <input id="input_pw" type="password" placeholder="비밀번호를 입력해주세요">
             </div>
             <div id="button_bt">
-                <RouterLink to="Info"><button id="cancel" class="bt">취소</button></RouterLink>
+                <RouterLink to="Info"><button type ="button" id="cancel" class="bt">취소</button></RouterLink>
                 <button @click="move" type="submit" id="check" class="bt">확인</button> 
             </div>
         </div>
@@ -59,7 +59,7 @@ export default{
         height: 50px;
     }
     #input_pw{
-        width: 500px;
+        width: 445px;
         height: 50px;
         border-radius: 10px;
         border: 1px solid black;
@@ -99,6 +99,8 @@ export default{
     #input_box{width:100%;}
     #input_box input{width:100%;outline:none;}
     #button_bt{width:100%;}
-    .bt{width:45%;}
+    #cancel{width:130px;}
+    #check{width:130px;}
+
   }
 </style>
