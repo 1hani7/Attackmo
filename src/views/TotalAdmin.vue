@@ -1,5 +1,8 @@
 <template>
      <div id="wrap">
+        <div id="header">
+                <img src="../images/LOGO.svg"><p>관리자페이지</p>
+        </div>
         <div id="nav">
             <ul class="list0">
                 <li><RouterLink to="./Adsign">회원관리</RouterLink></li>
@@ -7,9 +10,6 @@
                 <li><RouterLink to="./Adnotice">공지관리</RouterLink></li>
                 <li><RouterLink to="./Arwrite">문의사항</RouterLink></li>
             </ul>
-        </div>
-        <div id="content">
-            <p>관리자 페이지</p>
         </div>
     </div>
 </template>
@@ -32,10 +32,9 @@
         align-items: center;
         gap: 75px;
         font-weight: 800;
-        font-size: 17px;
+        font-size: 30px;
     }
-    p{text-align: center;padding:200px; font-size: 40px;}
-    
+    #header{display: flex; gap:20px; font-size: 40px; justify-content:center;margin-top:30px;align-items: end;}
     
 </style>
 <script>

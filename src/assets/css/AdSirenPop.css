@@ -179,14 +179,16 @@ input { outline:none; }
     font-size:10px;
     text-align: center;  
 }
-.reply_text{
-    width:100%;
-    font-size:17px;
-    background:red;
-    font-weight: 700;
-}
+
 
 .rePost_reply, .del_reply, .siren_reply,
 .rePost, .del, .siren, .reply_bt,
 .bi-heart, .bi-heart-fill{cursor:pointer;}
 
+.reply_text, .reply_info{
+    width:80%;
+    font-size:17px;
+    color:red;
+    font-weight: 800;
+}
+.bi-exclamation-triangle{margin:10px;}
