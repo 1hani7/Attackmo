@@ -69,13 +69,10 @@
                         <div class="reply_info">
                             <div class="nickName">{{ reply.nickName }}</div>
                             <div class="wDate">{{ reply.date }}</div>
-                            <div class="reply_menu">
-                                <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
-                                <p class="del_reply" @click="() => deleteComment(index)">삭제</p>
-                                <p class="siren_reply" @click="openSirenPopup">신고</p>
-                            </div>
                         </div>
-                        <div class="reply_text">{{ reply.text }}</div>
+                        <div class="reply_text">
+                            <i class="bi bi-exclamation-triangle"></i>
+                            {{ reply.text }}</div>
                     </div>
                     <div class="mReply_wrap">
                         <div class="mReply_box" v-for="(reply, index) in replies" :key="index">
@@ -104,7 +101,7 @@ const replies = ref([
     {
         nickName:'미녀광인',
         date:'YYYY.MM.DD',
-        text:'씨발...ㅈㄴ잠옴 다 광고임 추천한놈누구냐..내돈내놔씹쌔끼야'
+        text:'씨발...ㅈㄴ잠옴 다 광고임 추천한놈누구냐..'
     },    
 ])
 </script>
