@@ -2,7 +2,7 @@
     <div id="wrap">
         <div id="nwrite">
             <p>공지사항</p>
-            <template v-for="(value, index) in data" :key="index">
+            <template v-for="(value) in data">
                 <div class="note">
                     <label>{{ value.title }}</label> 
                 </div>
