@@ -85,15 +85,15 @@ setup(){
     #login_bt{
         font-size: 20px;
         font-weight: 700;
-        color:black;
         width:400px;
         height:50px;
         border-radius: 10px;
         border:none;
         background:#F9C041;
         color:white;
+        cursor: pointer;
     }
-    #login_bt:hover{cursor: pointer;background: black;}
+  
     #find{
         width:85%;
         display: flex;
