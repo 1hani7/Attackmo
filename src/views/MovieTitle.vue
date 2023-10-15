@@ -143,6 +143,7 @@ export default {
     provide('date', date); provide('audience', audience);
 
 
+    // 북마크 기능
     const bookMark = (event) => {
       const t = event.target.parentNode.nextSibling.innerText;
 
@@ -157,6 +158,7 @@ export default {
         item.splice(item.indexOf(t), 1);
         localStorage.removeItem('bookmark');
         localStorage.setItem('bookmark', JSON.stringify(item));
+        path.value = '/src/images/movieInfo/bookmark.svg'
       } else if (localStorage.getItem('bookmark') != null || localStorage.getItem('bookmark') != '[]') {
         const em = JSON.parse(localStorage.getItem('bookmark'));
         em.push(t);

@@ -441,7 +441,7 @@
 .content iframe {
   position:absolute;
   left: -4px;
-  top: -18px;
+  top: -24px;
   width: 883px;
   height: 563px;
   transform: scale(0.531);
@@ -686,7 +686,7 @@
 .bi-chevron-compact-right {
   display: inline-block;
   position: absolute;
-  top: 53px;
+  top: 48.5px;
   text-align: center;
   height: 250px;
   width: 40px;

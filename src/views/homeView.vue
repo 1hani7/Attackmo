@@ -91,30 +91,11 @@
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle698.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle629.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle613.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle614.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle698.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle629.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle613.png" />
-        </RouterLink>
-        <RouterLink to="/MovieTitle">
-          <img class="rectangle" src="../images/Rectangle614.png" />
-        </RouterLink>
+        <div v-for="(value, key) in rec.value" :key="key">
+          <router-link :to="{ name: 'MovieTitle', query:{ movieName: value.제목 } }">
+            <img class="rectangle" :src="value.포스터" />
+          </router-link>
+        </div>
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
@@ -122,7 +103,7 @@
 </template>
 
 <script>
-import { inject, ref, onMounted } from 'vue';
+import { inject, reactive, ref, onMounted } from 'vue';
 import {useRouter} from 'vue-router'
 
 export default {
@@ -135,9 +116,12 @@ export default {
     const isMuted = ref(false);   // 음소거 상태
     const isLogin = inject('isLogin');
     const path = ref();
+
+    const set = JSON.parse(localStorage.getItem('set'));
     const now = JSON.parse(localStorage.getItem('now')).slice(0, 10);
     const coming = JSON.parse(localStorage.getItem('coming')).slice(0, 10);
     const topTenList = JSON.parse(localStorage.getItem('topTenList'));
+    const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
     
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
@@ -147,6 +131,41 @@ export default {
     const slideScrollLeft = (t, i) => {
       const slider = event.target.parentNode;
       slider.scrollLeft -= ((232 * 4) + (10 * 4));
+    }
+
+    // 추천리스트
+    const rec = reactive([]);
+    const getRecList = () => {
+      const target = bookMark[bookMark.length-1];
+      let recList = null;
+      let genre = '';
+      for( var i of set ){
+        if( i.제목 == ' '+target ){
+          genre = i.장르.split(',')[0];
+          break;
+        }
+      }
+      if( genre == null ){
+        for( var i of coming ){
+          if( i.제목 == ' '+target ){
+          genre = i.장르.split(',')[0];
+          break;
+        }
+        }
+      }
+      recList = set.filter( (item) => item.장르.indexOf(genre) > -1 );
+
+      const numberOfMoviesToSelect = 12;
+      const randomMovies = [];
+
+      while (randomMovies.length < numberOfMoviesToSelect && recList.length > 0) {
+        const randomIndex = Math.floor(Math.random() * recList.length);
+        randomMovies.push(recList[randomIndex]);
+        recList.splice(randomIndex, 1); // 중복 선택 방지를 위해 이미 선택한 항목은 배열에서 제거
+      }
+
+      rec.value = randomMovies;
+      console.log(rec)
     }
 
     // 랜덤 예고편
@@ -196,6 +215,7 @@ export default {
     // 비디오가 로드되면 초기 상태 설정
     onMounted(() => {
       randomTrailer();
+      getRecList();
 
       videoPlayer.value.addEventListener('play', () => {
         isPlaying.value = true;
@@ -223,7 +243,8 @@ export default {
       movieName,
       coming,
       isComing,
-      randomTrailer
+      randomTrailer,
+      rec
     };
   }
 }
