@@ -271,6 +271,11 @@ const router = createRouter({
       name: "AdSirenPop",
       component: () => import('@/views/AdSirenPop.vue')
     },
+    {
+      path: "/NoticeChoice",
+      name: "NoticeChoice",
+      component: () => import('@/views/NoticeChoice.vue')
+    },
    
 
   ]
