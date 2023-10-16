@@ -20,14 +20,12 @@
                     </div>
                     <div class="search-box">
                         <img class="vector" src="@/images/search_icon.svg" />
-                        <form action="/Search" method="get" @keypress.enter="searchMovie">
-                            <div class="place-holder">
-                                <input @focus="searchingStart()" @blur="searchFocusOut()"
-                                @keyup="getSearchWord"
-                                autocomplete="off" type="text" name="searchWord"
-                                class="inputText searchWrite" placeholder="영화 제목을 검색해보세요">
-                            </div>
-                        </form>
+                        <div class="place-holder">
+                            <input @focus="searchingStart()" @blur="searchFocusOut()"
+                            @keyup="getSearchWord" @keypress.enter="searchMovie"
+                            autocomplete="off" type="text" name="searchWord"
+                            class="inputText searchWrite" placeholder="영화 제목을 검색해보세요">
+                        </div>
                         <div v-show="isSearching" class="searchBar">
                             <searchBar />
                         </div>
@@ -119,7 +117,7 @@ export default {
             if (window.innerWidth >= 1194) {
                 isSearching.value = !isSearching.value;
                 isMenuHover.value = false;
-                router.replace('/Search');
+                router.replace('/Search?searchWord='+searchVal.value);
             }
         }
 
