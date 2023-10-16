@@ -67,8 +67,14 @@
           <div class="plusBt">+</div>
         </RouterLink>
       </div>
-      <p class="recReason">
+      <p v-if="isLogin && isBookMark" class="recReason">
         *{{ target }}를 북마크에 추가하셨으므로 추천 | 장르 : {{ genre }}
+      </p>
+      <p v-if="isLogin && !isBookMark" class="recReason">
+        * 북마크가 없으므로 랜덤 영화를 추천합니다.
+      </p>
+      <p v-if="!isLogin" class="recReason">
+        * 로그인시 북마크 목록을 기반으로 추천됩니다.
       </p>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
@@ -103,7 +109,7 @@
       </div>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <RouterLink to="/MovieTitle">
+        <RouterLink to="/Rread">
           <div class="poster-box">
             <img class="image" src="@/images/Rectangle613.png" />
             <div class="view">
@@ -118,7 +124,7 @@
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
-    <div v-if="isLogin" class="div">
+    <div v-if="isLogin && isBookMark" class="div">
       <div class="title">
         <div class="mainTitle">영화 북마크</div>
         <RouterLink to="/Mark">
@@ -133,7 +139,7 @@
               <img class="image" :src="value.포스터" />
             </button>
             <div class="view">
-              <div class="movieTitle">{{ value.제목 }}</div>
+              <div @mouseover="titleModal2" @mouseout="titleModal2" class="movieTitle">{{ value.제목 }}</div>
               <div class="movieDate">{{ value.개봉일 }}</div>
             </div>
             <div class="movieName show">{{ value.제목 }}</div>
@@ -142,9 +148,9 @@
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
-    <div v-if="isLogin" class="div">
+    <div v-if="isLogin && isComingBookMark" class="div">
       <div class="title">
-        <div class="mainTitle">기대하는 작품</div>
+        <div class="mainTitle">내가 기대하는 작품</div>
         <RouterLink to="/Mark">
           <div class="plusBt">+</div>
         </RouterLink>
@@ -157,7 +163,7 @@
               <img class="image" :src="value.포스터" />
             </button>
             <div class="view">
-              <div class="movieTitle">{{ value.제목 }}</div>
+              <div @mouseover="titleModal2" @mouseout="titleModal2" class="movieTitle">{{ value.제목 }}</div>
               <div class="movieDate">{{ value.개봉일 }}</div>
             </div>
             <div class="movieName show">{{ value.제목 }}</div>
@@ -181,7 +187,8 @@ export default {
     const set = JSON.parse(localStorage.getItem('set'));
     const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
     const ComingBookmark = localStorage.getItem('ComingBookmark')==null?'':JSON.parse(localStorage.getItem('ComingBookmark'));
-
+    const isBookMark = localStorage.getItem('bookmark')=='[]'?false:localStorage.getItem('bookmark')==null?false:true;
+    const isComingBookMark = localStorage.getItem('ComingBookmark')=='[]'?false:localStorage.getItem('ComingBookmark')==null?false:true;
 
     // 기대작
     const exp = reactive([]);
@@ -289,6 +296,10 @@ export default {
       const t = event.target.parentNode.nextSibling.nextSibling;
       t.classList.toggle('show');
     }
+    const titleModal2 = (event) => {
+      const t = event.target.parentNode.nextSibling;
+      t.classList.toggle('show');
+    }
 
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
@@ -301,9 +312,9 @@ export default {
     }
 
     return {
-      isLogin, topTenList, titleModal, now,
+      isLogin, topTenList, titleModal, titleModal2, now,
       slideScrollRight, slideScrollLeft, bookMark, bookMarkList,
-      bm, bm2, rec, exp, target, genre
+      bm, bm2, rec, exp, target, genre, isBookMark , isComingBookMark
     }
   }
 }

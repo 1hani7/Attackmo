@@ -126,8 +126,7 @@ export default {
         item.splice(item.indexOf(t), 1);
         localStorage.removeItem('ComingBookmark');
         localStorage.setItem('ComingBookmark', JSON.stringify(item));
-        path.value = '/src/images/movieInfo/bookmark.svg'
-      } else if (localStorage.getItem('bookmark') != null || localStorage.getItem('ComingBookmark') != '[]') {
+      } else if (localStorage.getItem('ComingBookmark') != null || localStorage.getItem('ComingBookmark') != '[]') {
         const em = JSON.parse(localStorage.getItem('ComingBookmark'));
         em.push(t);
         localStorage.removeItem('ComingBookmark');
@@ -144,9 +143,6 @@ export default {
       const slider = event.target.nextSibling;
       slider.scrollLeft -= (352 * 2) + (50 * 2);
     }
-
-
-    const BMClicked = () => isActive.value = !isActive.value;
 
     const titleModal = (event) => {
       const t = event.target.nextSibling;
@@ -172,11 +168,14 @@ export default {
     }
 
     onMounted(() => {
-      const movieName = document.querySelector('.movieName').innerText;
       path.value = '/src/images/movieInfo/bookmark.svg'
-      if(JSON.parse(localStorage.getItem('bookmark')) != null && localStorage.getItem('bookmark').indexOf(movieName) > -1 ){
+      const movieName = document.querySelector('.movieName').innerText;
+      if (JSON.parse(localStorage.getItem('ComingBookmark')) != null &&
+        JSON.parse(localStorage.getItem('ComingBookmark')).indexOf(movieName) > -1 &&
+        sessionStorage.getItem('login') == 'true') {
         path.value = '/src/images/movieInfo/bookmark_checked.svg';
         isActive.value = true;
+        isSwitched.value = true;
       }
 
       const bookMark_Bt = document.querySelector('.bookMark_Bt');
@@ -187,12 +186,12 @@ export default {
           path.value = '/src/images/movieInfo/bookmark_checked.svg';
           isSwitched.value = !isSwitched.value;
           ani.classList.toggle('clicked')
-          BMClicked();
+          isActive.value = true;
         } else if (isSwitched.value) {
           path.value = '/src/images/movieInfo/bookmark.svg';
           isSwitched.value = !isSwitched.value;
           ani.classList.toggle('clicked')
-          BMClicked();
+          isActive.value = false;
         }
       })
 
