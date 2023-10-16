@@ -64,6 +64,7 @@ thead tr{
 tbody{
     width:100%;
 }
+.hide{display:none;}
 .con{
     height:50px;
     border-bottom:1px solid #000;
