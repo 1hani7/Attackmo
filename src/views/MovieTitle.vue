@@ -56,7 +56,7 @@
             <img class="play-bt" src="@/images/movieInfo/play_bt.svg" />
           </div>
           <div @click="trailerScale" class="trailerTitle">
-          {{ value.예고편타이틀[idx] }}
+            {{ value.예고편타이틀[idx] }}
           </div>
           <div class="sub">{{ value.예고편타이틀[idx] }}</div>
         </div>
@@ -97,7 +97,7 @@
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ref, reactive, onMounted, provide, watchEffect } from 'vue'
+import { ref, reactive, onMounted, provide, watchEffect, watch } from 'vue'
 export default {
   name: 'MovieTitle',
   components: { lineChart, radarChart },
@@ -110,21 +110,23 @@ export default {
     const set = JSON.parse(localStorage.getItem('set'));
     const router = useRouter();
     const route = useRoute();
+    const queryParams = ref(router.currentRoute.value.query);
     let param = route.query.movieName;
     const filtered = ref(set.filter(item => item.제목 == param));
-    const actors = filtered.value[0].배우;
     const isTrailer = ref(filtered.value[0].예고편영상.length == 1 ? false : true);
+    const actors = ref(filtered.value[0].배우);
     const isImage = ref(filtered.value[0].스틸컷.length == 1 ? false : true);
     watchEffect(() => {
       param = route.query.movieName;
       filtered.value = set.filter(item => item.제목 == param);
+      actors.value = filtered.value[0].배우
       isTrailer.value = filtered.value[0].예고편영상.length == 1 ? false : true;
       isImage.value = filtered.value[0].스틸컷.length == 1 ? false : true
     });
 
 
     const toReviewBoard = (title) => {
-      router.replace('/ReviewBoard/:1?searchTitle='+title);
+      router.replace('/ReviewBoard/:1?searchTitle=' + title);
     }
 
 
@@ -132,18 +134,44 @@ export default {
     const aud = JSON.parse(localStorage.getItem('aud'));
     const pName = param.trim();
     let date = reactive([]);
-    const audience = reactive([]);
-    for (var key in aud[pName]) date.push(key);
-    date = date.sort((a, b) => b - a).slice(0, 10);
-    for (var i of date) audience.push(aud[pName][i]);
-    date = [...date].map(function (d) {
-      var temp = d.substring(4, 8);
-      var a = temp.slice(0, 2);
-      var b = temp.slice(2, 4);
-      return a + '.' + b;
-    })
-    date.reverse(); audience.reverse();
+    let audience = reactive([]);
+
+    const makeLineChartData = () => {
+      date = reactive([]);
+      audience = reactive([]);
+      for (var key in aud[pName]) date.push(key);
+      date = date.sort((a, b) => b - a).slice(0, 10);
+      for (var i of date) audience.push(aud[pName][i]);
+      date = [...date].map(function (d) {
+        var temp = d.substring(4, 8);
+        var a = temp.slice(0, 2);
+        var b = temp.slice(2, 4);
+        return a + '.' + b;
+      })
+      date.reverse(); audience.reverse();
+    }
+    makeLineChartData();
     provide('date', date); provide('audience', audience);
+    
+    // watch(
+    //   () => router.currentRoute.value.query,
+    //   (newQuery, oldQuery) => {
+    //     const trimed = newQuery.movieName.trim()
+    //     date = reactive([]);
+    //     audience = reactive([]);
+    //     for (var key in aud[trimed]) date.push(key);
+    //     date = date.sort((a, b) => b - a).slice(0, 10);
+    //     for (var i of date) audience.push(aud[trimed][i]);
+    //     date = [...date].map(function (d) {
+    //       var temp = d.substring(4, 8);
+    //       var a = temp.slice(0, 2);
+    //       var b = temp.slice(2, 4);
+    //       return a + '.' + b;
+    //     })
+    //     date.reverse(); audience.reverse();
+
+    //   }
+    // );
 
 
     // 북마크 기능

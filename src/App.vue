@@ -99,7 +99,7 @@ export default {
       return randomMovies;
     }
     onMounted(() => {
-      if (recList == null || recList == '[]' || isSundayMidnight) {
+      if ( (recList == null && isSundayMidnight) || (recList == '[]' && isSundayMidnight )) {
         let temp = [];
         for (var i = 0; i <= 3; i++) temp.push(getRecList());
         let list = [].concat(...temp);

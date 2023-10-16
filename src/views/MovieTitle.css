@@ -234,6 +234,11 @@
 
 .content .actorNameBox {
   width: 100%;
+  display:flex; flex-wrap: wrap;
+  gap:2px 5px;
+}
+.content .actorNameBox span{
+  white-space:nowrap;
 }
 
 @media(max-width:490px) {

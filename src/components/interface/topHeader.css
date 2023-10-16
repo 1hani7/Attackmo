@@ -184,7 +184,7 @@
   }
   @media(max-width:1194px){
     .header .search-box .searchBar{
-      height: fit-content; max-height:90vh;
+      height: fit-content; max-height:60vh;
       position:absolute; width:calc(100vw - 40px);
       left:50%; top:50px;
       transform:translateX(-50%);
