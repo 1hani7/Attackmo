@@ -271,11 +271,7 @@ const router = createRouter({
       name: "AdSirenPop",
       component: () => import('@/views/AdSirenPop.vue')
     },
-    {
-      path: "/TotalAdmin",
-      name: "TotalAdmin",
-      component: () => import('@/views/TotalAdmin.vue')
-    },
+   
 
   ]
 })
