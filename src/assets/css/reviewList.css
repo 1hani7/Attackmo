@@ -27,6 +27,8 @@
     align-items: flex-end;
 }
 #search_box{
+    display:flex;
+    align-items: center;
     width:330px;
     height:40px;
     border:1px solid #000;

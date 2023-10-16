@@ -165,7 +165,6 @@ export default {
         // 리스트 페이지별 표시 기능
         const setListBoard = (start, end) => {
             const word = document.getElementById('search').value;
-            console.log(isSearching.value)
             if( word == '' ) showList.value = list.slice(start, end);
             else if( word != '' ){
                 showList.value = searchRes.value.slice(start, end);
