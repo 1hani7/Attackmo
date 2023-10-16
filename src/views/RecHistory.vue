@@ -1,14 +1,15 @@
 <template>
-<section id="section">
+    <section id="section">
         <div id="rec_wrap">
             <div id="title">
-                N월 N주 추천영화
+                {{ month }}월 {{ weekNumber }}주차 추천영화
             </div>
+            <p class="alert_font">* 매주 일요일 0시에 업데이트됩니다.</p>
             <div id="con_box">
                 <div id="content">
-                    <div class="movie" v-for="data in randomMovies" :key="randomMovies">
-                        <router-link :to="{ name: 'MovieTitle', query:{ movieName: data.제목 } }">
-                            <img :src="data.포스터" :alt="data.제목">
+                    <div class="movie" v-for="data in recList" :key="data">
+                        <router-link :to="{ name: 'MovieTitle', query: { movieName: data.제목 } }">
+                            <div class="imgWrapper"><img :src="data.포스터" :alt="data.제목"></div>
                             <b>{{ data.제목 }}</b>
                         </router-link>
                     </div>
@@ -18,23 +19,22 @@
     </section>
 </template>
 
-<script setup>
-const set = JSON.parse(localStorage.getItem('set'));
+<script>
+import { inject } from 'vue'
+export default {
+    setup() {
+        const recList = JSON.parse(localStorage.getItem('recList'));
+        const isSundayMidnight = inject('isSundayMidnight');
+        const month = inject('month');
+        const weekNumber = inject('weekNumber');
 
-const getRandomMovies = () => {
-  const numberOfMoviesToSelect = 12;
-  const randomMovies = [];
-
-  while (randomMovies.length < numberOfMoviesToSelect && set.length > 0) {
-    const randomIndex = Math.floor(Math.random() * set.length);
-    randomMovies.push(set[randomIndex]);
-    set.splice(randomIndex, 1); // 중복 선택 방지를 위해 이미 선택한 항목은 배열에서 제거
-  }
-
-  return randomMovies;
-};
-
-const randomMovies = getRandomMovies();
+        return {
+            month,
+            weekNumber, recList,
+            isSundayMidnight
+        };
+    }
+}
 </script>
 
 <style scoped>

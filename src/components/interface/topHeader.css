@@ -14,8 +14,9 @@
   }
   @media(max-width:1194px){
     .header{
-      width:calc(100% - 30px);
+      width:100%;
       position:sticky; z-index:2;
+      padding:0 15px;
       margin-top:0;
     }
   }
@@ -190,7 +191,7 @@
     }
   }
   @media(max-width:490px){
-    .header .search-box .searchBar{top:37px;}
+    .header .search-box .searchBar{top:28px;}
   }
   .header .search-box .searchBar::-webkit-scrollbar{width:20px;}
   

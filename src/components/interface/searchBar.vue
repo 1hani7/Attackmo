@@ -1,5 +1,5 @@
 <template>
-    <div id="resBox">
+    <div v-show="isTyping" id="resBox">
         <div v-for="value in searchRes" :key="value">
             <router-link :to="{ name: 'MovieTitle', query:{ movieName: value.제목 } }" class="searchWrap">
                 <div class="posterWrap">
@@ -76,13 +76,15 @@ export default {
         const searchRes2 = ref('');
         const searchVal = inject('searchVal');
         const actors = ref('');
-
         const path = ref('');
+        const isTyping = ref(false);
 
         onMounted(() => {
             watch(searchVal, (newVal, oldVal) => {
                 let res = [];
                 let res2 = [];
+                if( newVal != '' ) isTyping.value = true;
+                else isTyping.value = false;
                 res = set.filter(function (item) {
                     return item.제목.indexOf(searchVal.value) > -1;
                 });
@@ -94,7 +96,7 @@ export default {
             });
         });
 
-        return { searchingStart, set, searchRes, searchRes2, actors, path };
+        return { searchingStart, set, searchRes, searchRes2, actors, path, isTyping };
     }
 }
 </script>

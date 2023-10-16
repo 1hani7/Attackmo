@@ -148,6 +148,9 @@ form{width:100%;}
   width: 100%; height:280px;
   object-fit: cover;
 }
+@media(max-width:880px){
+  .main-content .rectangle{height:300px;}
+}
 @media(max-width:651px){
   .main-content .rectangle{
     height:fit-content;

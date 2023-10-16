@@ -56,21 +56,14 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   }
   
   .screen .plusBt {
-    width: 23px;
     height: fit-content;
-    margin-top: -1px;
-    font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000000;
     font-size: 35px;
-    white-space: nowrap;
-    position: relative;
-    letter-spacing: 0;
-    line-height: normal;
   }
   @media(max-width:490px){
     .screen
-     .plusBt{display:none;}
+     .plusBt{font-size:20px;}
   }
 
   .screen .plusBt a { color:black; }

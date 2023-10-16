@@ -67,18 +67,12 @@
           <div class="plusBt">+</div>
         </RouterLink>
       </div>
-      <p v-if="isLogin && isBookMark" class="recReason">
-        *{{ target }}를 북마크에 추가하셨으므로 추천 | 장르 : {{ genre }}
-      </p>
-      <p v-if="isLogin && !isBookMark" class="recReason">
-        * 북마크가 없으므로 랜덤 영화를 추천합니다.
-      </p>
-      <p v-if="!isLogin" class="recReason">
-        * 로그인시 북마크 목록을 기반으로 추천됩니다.
+      <p class="recReason">
+        * 매주 일요일 0시에 업데이트됩니다.
       </p>
       <div class="cont">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <div v-for="(value, key) in rec.value" :key="key" class="poster-box">
+        <div v-for="(value, key) in recList" :key="key" class="poster-box">
           <router-link :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
             <button type="submit">
               <img class="image" :src="value.포스터" />
@@ -189,6 +183,7 @@ export default {
     const ComingBookmark = localStorage.getItem('ComingBookmark')==null?'':JSON.parse(localStorage.getItem('ComingBookmark'));
     const isBookMark = localStorage.getItem('bookmark')=='[]'?false:localStorage.getItem('bookmark')==null?false:true;
     const isComingBookMark = localStorage.getItem('ComingBookmark')=='[]'?false:localStorage.getItem('ComingBookmark')==null?false:true;
+    const recList = JSON.parse(localStorage.getItem('recList')).slice(0, 10);
 
     // 기대작
     const exp = reactive([]);
@@ -250,47 +245,6 @@ export default {
 
 
 
-    // 추천리스트
-    const rec = reactive([]);
-    let genre = ref('');
-    const randomIdx = Math.floor(Math.random()*bookMark.length);
-    const target = bookMark[randomIdx];
-    const getRecList = () => {
-      let recList = null;
-      for( var i of set ){
-        var temp = Math.floor(Math.random()*(i.장르.split(',').length));
-        if( i.제목 == ' '+target ){
-          genre.value = i.장르.split(',')[temp];
-          break;
-        }
-      }
-      if( genre.value == null ){
-        for( var i of coming ){
-          if( i.제목 == ' '+target ){
-          genre.value = i.장르.split(',')[temp];
-          break;
-        }
-        }
-      }
-      recList = set.filter( (item) => item.장르.indexOf(genre.value) > -1 );
-
-      const numberOfMoviesToSelect = 12;
-      const randomMovies = [];
-
-      while (randomMovies.length < numberOfMoviesToSelect && recList.length > 0) {
-        const randomIndex = Math.floor(Math.random() * recList.length);
-        randomMovies.push(recList[randomIndex]);
-        recList.splice(randomIndex, 1); // 중복 선택 방지를 위해 이미 선택한 항목은 배열에서 제거
-      }
-
-      rec.value = randomMovies;
-    }
-    onMounted(()=>{
-      getRecList()
-    })
-
-
-
     // 제목 모달
     const titleModal = (event) => {
       const t = event.target.parentNode.nextSibling.nextSibling;
@@ -313,8 +267,8 @@ export default {
 
     return {
       isLogin, topTenList, titleModal, titleModal2, now,
-      slideScrollRight, slideScrollLeft, bookMark, bookMarkList,
-      bm, bm2, rec, exp, target, genre, isBookMark , isComingBookMark
+      slideScrollRight, slideScrollLeft, bookMark, bookMarkList, recList,
+      bm, bm2, exp, isBookMark , isComingBookMark
     }
   }
 }
