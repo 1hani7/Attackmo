@@ -14,7 +14,7 @@
                <div id="line"></div> 
                 <div id="find">
                     <label>본인인증찾기</label>
-                    <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
+                    <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며,인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
                 </div>
                 <div id="find_bt">
                     <button @click="sign" type="submit" id="mine">본인인증찾기</button>
@@ -64,7 +64,7 @@ export default {
         align-items: center;
         gap: 40px;
         display: flex;
-        width:600px;
+        width:500px;
     }
     #phone{
         display: flex;

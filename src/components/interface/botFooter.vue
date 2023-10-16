@@ -40,7 +40,7 @@ export default {
   },methods:{
     Admin(){
       alert("관리자만 열~~드라구~~");
-      window.open('./TotalAdmin','_blank','width:150','height:150');
+      window.open('./AdSign','_blank','width:150','height:150');
     }
   }
 }

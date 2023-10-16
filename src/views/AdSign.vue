@@ -2,6 +2,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <section id="section">
     <div id="wrap">
+        <div id="header">
+                <img src="../images/LOGO.svg"><p>관리자페이지</p>
+        </div>
+        <div id="nav">
+            <ul class="list0">
+                <li><RouterLink to="./Adsign">회원관리</RouterLink></li>
+                <li><RouterLink to="./Adsiren">신고내역</RouterLink></li>
+                <li><RouterLink to="./Adnotice">공지관리</RouterLink></li>
+                <li><RouterLink to="./Arwrite">문의사항</RouterLink></li>
+            </ul>
+        </div>
             <p id="title">회원관리(관리자)</p> 
             <span>목록{{sortedData.length}}</span>
             <div id="app" v-show="isModalOn">
@@ -16,14 +27,14 @@
                              경고 / {{number}}회
                         </div>
                         <div class="content">
-                            정지 / 0회
+                            정지 / {{stopCount}}회
                         </div>
                         <div id="button_box">
                             <div id="warring">
                                 <button @click="plus('plus')" >경고 1회 누적</button>
                             </div>
                             <div id="stop">
-                                <button @click="stop()" >회원 정지 </button>
+                                <button @click="stop('stop')">회원 정지 </button>
                             </div>
                             <div id="delete">
                                 <button @click="deleteMember()">회원 삭제</button>
@@ -43,9 +54,8 @@
                      </tr>
                 </thead>
             <tbody>
-                <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" @click="modalOn">
-                    <td class="n"><i class="bi bi-sign-stop-fill" 
-                        :class="{ 'hidden': hideIcon }"></i>{{ value.name }}</td>
+                <tr class="con" v-for="(value,index) in visiblePosts" :key="value.id" @click="modalOn">
+                    <td class="n"><i class="bi bi-sign-stop-fill" :class="{ 'hidden': hideIcon }"></i>{{ value.name }}</td>
                     <td class="t">{{ value.email }}</td>
                     <td class="w">{{ value.number}}</td>
                     <td class="d">{{ value.level}}</td>
@@ -79,7 +89,8 @@ export default {
             currentPage: 1, //페이지 이동 수
             isModalOn: false,//모달창
             number:0,//경고1추가
-            hideIcon:true,
+            stopCount:0,//정지1추가
+            hideIcon:true,//정지아이콘표시
             
         }
         
@@ -143,22 +154,58 @@ export default {
                 alert("경고1회추가되었습니다.");
             } 
         },
-        stop(){
-            this.hideIcon = !this.hideIcon;
-            alert("정지되었습니다.");
-            
+        stop(type){
+            if(type === 'stop'){
+                this.stopCount++;
+                this.hideIcon = !this.hideIcon;
+                // this.data[index].hideIcon = !this.data[index].hideIcon;
+                alert("정지1회추가되었습니다.");
+            } 
         },
-
-    
         deleteMember() {
+             // 데이터 목록에서 선택된 항목을 제거합니다.
+            this.data.splice(this.selectedIndex, 1);
+            // 모달창 닫기
             this.isModalOn = false;
             alert("삭제되었습니다.");
         }
-
     }
 }
 </script>
 <style scoped>
+#nav{
+        width:1000px;
+        display: inline-flex;
+        height: 40px;
+        padding: 80px 30px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .list0{
+        list-style-type: none;
+        display: flex;
+        width: 100%;
+        padding: 0px 50px;
+        justify-content: center;
+        align-items: center;
+        gap: 75px;
+        font-weight: 800;
+        font-size: 30px;
+        border-top:1px solid black;
+        border-bottom:1px solid black;
+        padding:20px;
+    }
+    #header{
+        width:100%;  
+        font-size: 40px;
+        margin-top:30px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        gap:20px;
+    }
+    
 *{padding:0;margin:0; box-sizing: border-box;}
 #section{
     width:1000px;
@@ -259,8 +306,8 @@ span{font-weight: 700;}
 /* 모달창 */
         #app{
             position:absolute;
-            top:188px;
-            left:120px;
+            top:400px;
+            left:105px;
             border-radius: 10px;
             padding:20px;  
             background: white;  

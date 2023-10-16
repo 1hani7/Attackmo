@@ -200,6 +200,6 @@ methods: {
     #num{width:100%;gap:10px;}
     #find{width:60%;}
     #button_box {width:100%;}
-    #find_p {width:100%;}
+    #find_p {width:65%;}
 }
 </style>
