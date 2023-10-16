@@ -103,6 +103,7 @@ export default {
         const isMenuHover = ref(false);
         provide('isMenuHover', isMenuHover);
         const isShowing = ref(false);
+        provide('isShowing', isShowing);
 
         const path = useRoute().path;
         const router = useRouter();

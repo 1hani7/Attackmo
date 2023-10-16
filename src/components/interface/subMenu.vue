@@ -28,21 +28,27 @@ export default{
   name:'subMenu',
   setup(){
     const isMenuHover = inject('isMenuHover');
-    
+    const isShowing = inject('isShowing');
+
+    const resizeUnShow = () => isShowing.value = false;
 
     onMounted(()=>{
       const subMenu = document.querySelector('.sub-menu');
-
       watch(isMenuHover, (newVal, oldVal) => {
         subMenu.classList.toggle('foldingIn');
         subMenu.classList.toggle('foldingOut');
       })
 
+      window.addEventListener('resize', resizeUnShow);
+
     })
 
     
 
-    return {isMenuHover}
+    return {
+      isMenuHover,
+      resizeUnShow
+    }
   }
 }
 </script>
