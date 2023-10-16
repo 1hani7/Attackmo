@@ -91,7 +91,7 @@
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
-        <div v-for="(value, key) in rec.value" :key="key">
+        <div v-for="(value, key) in recList" :key="key">
           <router-link :to="{ name: 'MovieTitle', query:{ movieName: value.제목 } }">
             <img class="rectangle" :src="value.포스터" />
           </router-link>
@@ -122,6 +122,7 @@ export default {
     const coming = JSON.parse(localStorage.getItem('coming')).slice(0, 10);
     const topTenList = JSON.parse(localStorage.getItem('topTenList'));
     const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
+    const recList = localStorage.getItem('recList')==null?'':JSON.parse(localStorage.getItem('recList'));
     
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
@@ -245,7 +246,7 @@ export default {
       coming,
       isComing,
       randomTrailer,
-      rec
+      rec, recList
     };
   }
 }
