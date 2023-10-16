@@ -30,7 +30,7 @@ export default {
       isLogin.value = !isLogin.value;
       sessionStorage.setItem('login', isLogin.value);
       console.log('login is = ' + sessionStorage.getItem('login'))
-    }
+    };
     provide('loginToggle', loginToggle);
 
     const isSiren = ref(true);
