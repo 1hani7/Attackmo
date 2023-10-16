@@ -199,9 +199,10 @@ export default {
 }
 @media (max-width:490px) { 
 #wrap{width:calc(100% - 30px);}
-  #admin{width:90%;margin-bottom:30px;}
+  #admin{width:90%;margin-bottom:30px;gap:35px;}
   #title{width:100%;}
   #title input{width:100%;height: 50%;font-size: 13px;}
   #notice textarea{width:100%;height:80%;font-size: 13px;}
+  label{font-size: 17px;}
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="wrap">
     <form @submit.prevent="submitForm" id="find_box">
-      <h1>비밀번호 찾기</h1>
+      <label>비밀번호 찾기</label>
       <div id="email">
         <input type="email" placeholder="이메일" v-model="formData.email" name="mail">
       </div>
@@ -127,6 +127,8 @@ methods: {
     #phone{
        width:100%; 
     }
+    #find_box label{font-size:23px;
+        font-weight: 700;}
     #phone label{
         font-size:23px;
         font-weight: 700;
@@ -137,6 +139,7 @@ methods: {
         display: flex;
         justify-content: space-between;
         width:100%;
+
     }
     #num input{
         width: 100%;
@@ -146,6 +149,7 @@ methods: {
         outline:none;
         font-size: 23px;
         border:1px solid black;
+        margin-top:10px;
     }
     #button_box{
         width:100%;
@@ -172,7 +176,7 @@ methods: {
         margin-top:10px;
         width:100%;
     }
-    #find label{font-size:30px;font-weight: 700;}
+    #find label{font-size:23px;font-weight: 700;}
     #find p{font-size:15px;font-weight: 400;color:#7A7979;}
     #mine{
         width: 200px;
@@ -195,9 +199,13 @@ methods: {
    #wrap{width:100vw;}
 }
 @media (max-width:490px) {
-    #wrap{width:calc(100vw - 30px); margin:10px;}
-   #find_box{width:100%;}
+   #wrap{width:calc(100vw - 30px); margin:15px;}
+   #find_box{width:100%;gap:15px;}
+   #find_box input{width:100%;height:40px;font-size: 17px;}
    #line{width:100%;}
-   #num{gap:10px;}
+   #num{gap:10px;margin-top:10px;}
+   #find_box label{font-size: 17px;}
+   #find_p{font-size: 17px;height: 50px;width:40%;}
+   #mine{font-size: 17px;height: 50px;width:130px;}
 }
 </style>

@@ -138,6 +138,8 @@ try {
   
   @media (max-width: 490px) {
       #wrap{width:calc(100vw - 20px);}
-      #nwrite{width:90%;}
+      #nwrite{width:90%;margin-bottom:20px;gap:25px;}
+      #nwrite p{font-size: 17px;}
+      label{padding:15px;font-size: 17px;}
     }
   </style>

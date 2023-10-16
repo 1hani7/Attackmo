@@ -36,8 +36,8 @@
             </tbody> -->
           </table>
           <div class="mobileList">
-                    <div class="post" v-for="(value,i) in visiblePosts" :key="value.id">
-                        <div class="m_t"><RouterLink to="/NoticeChoice">{{value.title }}</RouterLink></div>
+                    <div class="post" v-for="(value,index) in visiblePosts" :key="value.id">
+                        <div class="m_t" @click="gonote(index)">{{value.title }}</div>
                         <div class="m_w">{{ value.writer }}</div>
                         <div class="m_d">{{ getCurrentDate() }}</div>
                     </div>    
