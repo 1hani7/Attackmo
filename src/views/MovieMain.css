@@ -144,7 +144,7 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     cursor:pointer;
   }
   @media(max-width:1194px){
-    .screen .poster-box{width:100%; height: fit-content;}
+    .screen .poster-box{height: fit-content;}
   }
   @media(max-width:490px){
 
