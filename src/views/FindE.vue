@@ -103,7 +103,7 @@ export default {
         cursor: pointer;
     }
 
-    #find{ width:700px;}
+    #find{ width:100%;}
     #find label{font-size:30px;font-weight: 700;}
     #find p{font-size:16px;font-weight: 400;color:#7A7979;}
     #mine{ 

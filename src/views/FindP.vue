@@ -16,6 +16,7 @@
           <button type="submit" id="find_p" class="bt" @click="findPassword">비밀번호 찾기</button>
         </div>
       </div>
+      <div id="line"></div> 
       <div id="find">
         <label>본인인증찾기</label>
         <p>본인 인증 시 제공되는 정보는 해당 인증 기관에서 직접 수집하며, 인증 이외의 용도로 이용 또는 저장되지 않습니다.</p>
@@ -189,17 +190,14 @@ methods: {
         -webkit-appearance: none;
         margin: 0;
     }
+    #line{width:700px; height:2px; border: 3px solid whitesmoke;}
 @media (max-width:1194px) {
    #wrap{width:100vw;}
 }
 @media (max-width:490px) {
     #wrap{width:calc(100vw - 30px); margin:10px;}
-    #email{width:60%;}
-    #email input{width:100%}
-    #phone{width:60%;}
-    #num{width:100%;gap:10px;}
-    #find{width:60%;}
-    #button_box {width:100%;}
-    #find_p {width:65%;}
+   #find_box{width:100%;}
+   #line{width:100%;}
+   #num{gap:10px;}
 }
 </style>
