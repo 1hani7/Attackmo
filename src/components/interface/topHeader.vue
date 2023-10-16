@@ -126,7 +126,10 @@ export default {
         }
 
         const searchFocusOut = () => {
-            if( window.innerWidth > 1194 ) searchingStart();
+            if( window.innerWidth > 1194 ){
+                searchingStart();
+                isSearching.value = false;
+            }
         }
 
         const searchingStart = () => {

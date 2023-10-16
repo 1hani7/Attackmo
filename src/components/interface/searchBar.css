@@ -1,8 +1,13 @@
 span{color:#B3B3B3;}
 strong{margin-right:15px; color:black;}
 @media(max-width:1194px){
-    .searchWrap{
+    a{
         cursor:pointer;
+    }
+}
+@media(min-width:1194px){
+    a{
+        cursor:default;
     }
 }
 #resBox{

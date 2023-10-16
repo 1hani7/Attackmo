@@ -36,12 +36,9 @@
       <div class="scenarioBox">
         <div class="scenarioTitle bold" style="margin-bottom:10px;">
           줄거리
-          <div class="searchTitle">
-            <form name="searchTitle" action="/ReviewBoard" method="get">
-              <input class="revBt" type="submit" value="리뷰 보러 가기 >" />
-              <div class="animationTool"></div>
-              <input type="hidden" name="searchTitle" :value="value.제목" />
-            </form>
+          <div @click="toReviewBoard(value.제목)" class="searchTitle">
+            <input class="revBt" type="submit" value="리뷰 보러 가기 >" />
+            <div class="animationTool"></div>
           </div>
         </div>
         <div class="normalFont storyLine">
@@ -99,7 +96,7 @@
 <script>
 import lineChart from '../components/chart/lineChart.vue'
 import radarChart from '../components/chart/radarChart.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { ref, reactive, onMounted, provide, watchEffect } from 'vue'
 export default {
   name: 'MovieTitle',
@@ -111,6 +108,7 @@ export default {
     const path = ref('');
     const image = ref('');
     const set = JSON.parse(localStorage.getItem('set'));
+    const router = useRouter();
     const route = useRoute();
     let param = route.query.movieName;
     const filtered = ref(set.filter(item => item.제목 == param));
@@ -123,6 +121,11 @@ export default {
       isTrailer.value = filtered.value[0].예고편영상.length == 1 ? false : true;
       isImage.value = filtered.value[0].스틸컷.length == 1 ? false : true
     });
+
+
+    const toReviewBoard = (title) => {
+      router.replace('/ReviewBoard/:1?searchTitle='+title);
+    }
 
 
     // 선 차트 데이터
@@ -238,7 +241,8 @@ export default {
     return {
       path, isBig, switcher, trailerScale, isSwitched,
       image, isActive, filtered, actors, isTrailer, titleModal,
-      slideScrollRight, slideScrollLeft, isImage, bookMark, date
+      slideScrollRight, slideScrollLeft, isImage, bookMark, date,
+      toReviewBoard
     }
   }
 }
