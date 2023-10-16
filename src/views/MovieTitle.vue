@@ -84,7 +84,7 @@
         </div>
         <div v-if="!date.length == 0" class="chartBox">
           <h3>지난 {{ date.length }}일 간의 관객 수</h3>
-          <small>* 10위권에 진입했던 기록만 지원합니다.</small>
+          <small>* 10위권 안에 진입했던 기록만 집계됩니다.</small>
           <lineChart />
         </div>
       </div>

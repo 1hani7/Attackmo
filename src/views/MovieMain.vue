@@ -108,7 +108,7 @@
         </RouterLink>
       </div>
       <div class="cont">
-        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
+        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left ref1"></i>
         <RouterLink to="/Rread">
           <div class="poster-box">
             <img class="image" src="@/images/Rectangle613.png" />
@@ -121,7 +121,7 @@
             </div>
           </div>
         </RouterLink>
-        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
+        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right ref1"></i>
       </div>
     </div>
     <div v-if="isLogin && isBookMark" class="div">
@@ -132,7 +132,7 @@
         </RouterLink>
       </div>
       <div class="cont">
-        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
+        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left ref2"></i>
         <div v-for="(value, key) in bm" :key="key" class="poster-box">
           <router-link :to="{ name: 'MovieTitle', query: { movieName: value.제목 } }">
             <button type="submit">
@@ -145,7 +145,7 @@
             <div class="movieName show">{{ value.제목 }}</div>
           </router-link>
         </div>
-        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
+        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right ref2"></i>
       </div>
     </div>
     <div v-if="isLogin && isComingBookMark" class="div">
@@ -156,7 +156,7 @@
         </RouterLink>
       </div>
       <div class="cont">
-        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
+        <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left ref2"></i>
         <div v-for="(value, key) in bm2" :key="key" class="poster-box">
           <router-link :to="{ name: 'ComingMovieTitle', query: { movieComing: value.제목 } }">
             <button type="submit">
@@ -169,7 +169,7 @@
             <div class="movieName show">{{ value.제목 }}</div>
           </router-link>
         </div>
-        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
+        <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right ref2"></i>
       </div>
     </div>
   </div>

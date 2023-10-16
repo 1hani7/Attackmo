@@ -57,7 +57,7 @@ a{
   height: 0px; overflow:hidden;
   align-items: center;
   justify-content: center;
-  position: absolute; top:166px;
+  position: absolute; top:155px;
   left:50%; transform:translateX(-50%);
   background-color: #ffffff;
   width: 100%; z-index:2;

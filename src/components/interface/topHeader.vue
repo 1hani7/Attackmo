@@ -2,7 +2,7 @@
     <div class="header" @mouseleave="MenuLeave()">
         <div class="frame">
             <div class="logo-frame" @mouseover="MenuLeave()">
-                <routerLink to="/"><img class="LOGO" src="@/images/LOGO.svg" /></routerLink>
+                <routerLink to="/" class="logoWrap"><img class="LOGO" src="@/images/LOGO.svg" /></routerLink>
                 <div class="inter-b-ox">
                     <div class="div">
                         <RouterLink to="/login">

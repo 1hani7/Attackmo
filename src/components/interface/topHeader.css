@@ -55,7 +55,7 @@
 
 
   /* 메뉴버튼 */
-  .header .menu_bt{cursor:pointer; position:relative; top:-2px;}
+  .header .menu_bt{cursor:pointer; position:relative;}
   @media(min-width:1194px){
     .header .menu_bt{ display: none; width:46px; }
   }
@@ -69,39 +69,41 @@
     .header .search_bt{display:none;}
   }
   @media(max-width:490px){
-    .header .search_bt{display:block; top:-2px;}
+    .header .search_bt{display:block;}
   }
   
 
-  .header .LOGO {
+  .header .LOGO, .header .logoWrap {
     position: relative;
     width: 358.23px;
     height: 70px;
   }
   @media(max-width:1194px){
-    .header .LOGO {width:198px;}
+    .header .LOGO, .header .logoWrap {width:198px;}
   }
   @media(max-width:490px){
-    .header .LOGO{ width:120px; }
+    .header .LOGO, .header .logoWrap{ width:120px; }
   }
   
   .header .inter-b-ox {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 31px;
+    justify-content: space-between;
+    height:70px;
     position: relative;
     flex: 0 0 auto;
   }
   @media(max-width:1194px){
     .header .inter-b-ox {
       flex-direction: row; gap:20px;
+      align-items: center;
       justify-self: left;
     }
   }
   @media(max-width:490px){
     .header .inter-b-ox{
-      gap:10px; align-items: center;
+      gap:10px; height:fit-content;
     }
   }
   

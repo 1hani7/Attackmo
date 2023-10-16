@@ -223,6 +223,9 @@ button{
     line-height: normal;
     white-space: nowrap;
   }
+  @media(max-width:490px){
+    .div-wrapper .div{font-size:30px;}
+  }
   .div-wrapper .div a{ color:black; }
   .div-wrapper .div:hover{
     transition:all 1s ease;

@@ -133,6 +133,13 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
     right:0%;
   }
 
+  .screen .cont .ref1{
+    height:430.33px;
+  }
+  .screen .cont .ref2{
+    height:393px;
+  }
+
   
   .screen .poster-box {
     display: flex;

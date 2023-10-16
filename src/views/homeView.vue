@@ -39,7 +39,7 @@
     <div class="top">
       <div class="frame">
         <div class="title">인기 TOP 10</div>
-        <div class="div" id="top10Plus"><router-link to="/MovieMain">+</router-link></div>
+        <!-- <div class="div" id="top10Plus"><router-link to="/MovieMain">+</router-link></div> -->
       </div>
       <div class="posters">
         <i @mousedown="slideScrollLeft()" class="bi bi-chevron-compact-left"></i>
