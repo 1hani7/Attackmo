@@ -9,9 +9,14 @@
                 <div id="content">
                     <div class="movie" v-for="data in recList" :key="data">
                         <router-link :to="{ name: 'MovieTitle', query: { movieName: data.제목 } }">
-                            <div class="imgWrapper"><img :src="data.포스터" :alt="data.제목"></div>
-                            <b>{{ data.제목 }}</b>
+                            <div class="imgWrapper">
+                                <img :src="data.포스터" :alt="data.제목">
+                            </div>
+                            <b @mouseover="showName" @mouseout="hideName">
+                                {{ data.제목 }}
+                            </b>
                         </router-link>
+                        <div class="movieName">{{ data.제목 }}</div>
                     </div>
                 </div>
             </div>
@@ -28,10 +33,21 @@ export default {
         const month = inject('month');
         const weekNumber = inject('weekNumber');
 
+        const showName = (event) => {
+            const t = event.target.parentNode.nextSibling;
+            t.classList.add('show');
+        }
+
+        const hideName = (event) => {
+            const t = event.target.parentNode.nextSibling;
+            t.classList.remove('show');
+        }
+
         return {
             month,
             weekNumber, recList,
-            isSundayMidnight
+            isSundayMidnight,
+            showName, hideName
         };
     }
 }

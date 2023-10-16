@@ -285,13 +285,16 @@ export default {
 
             pageNumbers();
 
-            document.querySelectorAll('.pageIdx')[0].classList.add('bold');
-
+            
             startIndex.value = 0;
             itemsPerPage.value = 15;
             setListBoard(startIndex.value, itemsPerPage.value);
-
+            
             isSearching.value = true;
+            if(document.querySelectorAll('.pageIdx').length != 0){
+                document.querySelector('.pageIdx').classList.add('bold');
+            }
+            
         };
 
         

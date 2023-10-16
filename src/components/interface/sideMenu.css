@@ -279,14 +279,14 @@ a{color:black;}
     100%{
       border-bottom:1px solid black;
       opacity: 1;
-      height:calc(141px - 35px);
+      height:calc( 37px*3 );
     }
   }
   @keyframes close2{
     0%{
       border-bottom:1px solid black;
       opacity: 1;
-      height:calc(141px - 35px);
+      height:calc( 37px*3 );
     }
     100%{
       opacity: 0;
