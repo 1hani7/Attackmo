@@ -21,11 +21,18 @@
                         <td class="d">날짜</td>
                      </tr>
                 </thead>
+            <!-- <tbody>
+                <tr class="con" v-for="(value,index) in visiblePosts" :key="value.id" >
+                    <td class="n">{{ index + 1 }}</td>
+                    <td class="t" @click="gonote(index)">{{ value.title }}</td>
+                    <td class="w">{{ value.writer }}</td>
+                    <td class="d">{{ getCurrentDate()}}</td>
+                </tr>
+            </tbody> -->
             <tbody>
-                <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" >
-                    <td class="n">{{ i + 1 }}</td>
-                    <!--<td class="t" @click="gonote">{{ value.title }}</td>-->
-                    <td class="t" @click="gonote(value)"> {{ value.title }}</td>
+                <tr class="con" v-for="(value,index) in visiblePosts" :key="value.id" >
+                    <td class="n">{{ index + 1 }}</td>
+                    <td class="t" @click="gonote">{{ value.title }}</td>
                     <td class="w">{{ value.writer }}</td>
                     <td class="d">{{ getCurrentDate()}}</td>
                 </tr>
@@ -33,7 +40,7 @@
           </table>
           <div class="mobileList">
                     <div class="post" v-for="(value,i) in visiblePosts" :key="value.id">
-                        <div class="m_t"><RouterLink to="/notice">{{value.title }}</RouterLink></div>
+                        <div class="m_t"><RouterLink to="/Aread">{{value.title }}</RouterLink></div>
                         <div class="m_w">{{ value.writer }}</div>
                         <div class="m_d">{{ getCurrentDate() }}</div>
                     </div>
@@ -125,13 +132,12 @@ export default {
         search(){
             alert("검색");
         },
-        /*gonote(){
-          
-            this.$router.push({path:"/Aread"});
-        },*/
-        gonote(selectedData) {
-        //this.$router.push({ path: "/AreadTest", query: { data: selectedData } }); // 'selectedData'에 선택한 데이터가 포함됩니다.
-        this.$router.push({ path: "/Aread"});
+
+        // gonote(index) {
+        //     this.$router.push({ name: 'notice', params: { selectedIndex: index } });
+        // },
+        gonote() {
+            this.$router.push('./Aread');
         },
         changePage(page) {
             this.currentPage = page;

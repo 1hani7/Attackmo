@@ -37,7 +37,7 @@
           </table>
           <div class="mobileList">
                     <div class="post" v-for="(value,i) in visiblePosts" :key="value.id">
-                        <div class="m_t"><RouterLink to="/notice">{{value.title }}</RouterLink></div>
+                        <div class="m_t"><RouterLink to="/NoticeChoice">{{value.title }}</RouterLink></div>
                         <div class="m_w">{{ value.writer }}</div>
                         <div class="m_d">{{ getCurrentDate() }}</div>
                     </div>    

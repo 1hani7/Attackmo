@@ -11,12 +11,9 @@
             </div>
             <div id="line"></div>
             <div id="admin">
-                <template v-for="(value, index) in data" :key="index">
                 <div id="name">
-                    <label>{{ value.title }}</label> 
-                    <!-- <label>re:문의 드립니다</label> -->
+                    <label>re:문의 드립니다</label>
                 </div>
-              </template>
                 <div class="writer">
                     <h6>작성자</h6><h3>관리자</h3>
                 </div>

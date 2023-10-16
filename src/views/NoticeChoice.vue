@@ -36,7 +36,6 @@ const noticeCollection = collection(db, "Adnotice");
 
 export default {
     name: 'Read',
-    //name: 'NoticeChoice',
     props: ['selectedData'], // 선택한 데이터를 props로 받음
     data() {
         return {
@@ -65,23 +64,7 @@ export default {
       }
     },
   },
-// async selectData(index) {
-//       if (index >= 0 && index < this.data.length) {
-//         const selectedTitle = this.data[index].title;
-//         const querySnapshot = await getDocs(query(collection(db, "Adnotice"), where("title", "==", selectedTitle)));
-        
-//         if (!querySnapshot.empty) {
-//           const selectedData = querySnapshot.docs[0].data();
-//           this.selectedData.title = selectedData.title;
-//           this.selectedData.content = selectedData.content;
-//         } else {
-//           console.log("데이터를 찾을 수 없습니다.");
-//         }
-//       } else {
-//         console.log("데이터가 없거나 인덱스가 잘못되었습니다.");
-//       }
-//     },
-//   },
+
 async created() {
 try {
       const querySnapshot = await getDocs(noticeCollection);
