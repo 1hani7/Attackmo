@@ -1,7 +1,4 @@
 <template>
-    <div v-for="(item, index) in data" :key="index" @click="selectData(index)">
-       <p>{{ item.title }}</p>
-    </div>
     <div id="wrap">
         <div id="nwrite">
             <p>공지사항</p>

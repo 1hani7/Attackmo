@@ -19,13 +19,21 @@
                      </tr>
                 </thead>
             <tbody>
-                <tr class="con" v-for="(value,i) in visiblePosts" :key="value.id" >
-                    <td class="n">{{ i + 1 }}</td>
-                    <td class="t" @click="gonote">{{ value.title }}</td>
+                <tr class="con" v-for="(value,index) in visiblePosts" :key="value.id" >
+                    <td class="n">{{ index + 1 }}</td>
+                    <td class="t" @click="gonote(index)">{{ value.title }}</td>
                     <td class="w">{{ value.writer }}</td>
                     <td class="d">{{ getCurrentDate()}}</td>
                 </tr>
             </tbody>
+            <!-- <tbody>
+                <tr class="con" v-for="(item, index) in data" :key="index" @click="gonote(index)">
+                    <td class="n">{{ index + 1 }}</td>
+                    <td class="t">{{ item.title }}</td>
+                    <td class="w">{{ item.writer }}</td>
+                    <td class="d">{{ getCurrentDate() }}</td>
+                </tr>
+            </tbody> -->
           </table>
           <div class="mobileList">
                     <div class="post" v-for="(value,i) in visiblePosts" :key="value.id">
@@ -71,6 +79,7 @@ export default {
             itemsPerPage: 10, //목록 몇개까지 표시할것인가
             currentPage: 1, //페이지 이동 수 
             searchKeyword:"",//검색어 저장  
+            selectedData: null, // 데이터 속성 이름 변경
         }   
     },
     computed: {
@@ -118,8 +127,8 @@ export default {
             const day = String(currentDate.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         },
-        gonote(){
-            this.$router.push({path:"/notice"});
+        gonote(index) {
+            this.$router.push({ name: 'NoticeChoice', params: { selectedIndex: index } });
         },
         search(){
             alert("검색");
