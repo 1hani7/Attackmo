@@ -75,6 +75,7 @@
 .movie_p img{
     width:180px;
     height:257px;
+    cursor: pointer;
 }
 .movie_p p{
     width:100%;

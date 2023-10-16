@@ -14,16 +14,13 @@
                         v-model="searchQuery"
                         placeholder="영화제목을 입력해주세요"
                         @focus="showSearchResult"
-                        @blur="hideSearchResult"
-                        @click="toggleSearchResult"
                     />
                     <div class="search-result" v-show="isSearchResultVisible">
-                        <div class="movie_p" v-for="movie in set" :key="movie">
-                            <img :src="movie.포스터                                                                                                                                                                               " alt="Movie Poster" @click="pickMovie(movie)"/>
+                        <div class="movie_p" v-for="movie in filteredMovies" :key="movie.제목">
+                            <img :src="movie.포스터" alt="Movie Poster" @click="selectMovie(movie.제목)"/>
                             <p>{{ movie.제목 }}</p>
                         </div>
                     </div>
-                    
                 </div>
                 <div id="star">
                     <p>별점</p>
@@ -90,7 +87,7 @@
 
 
 <script>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted ,watch } from 'vue';
 import selectMovie from '../views/SelectM.vue'; // selectMovie 컴포넌트를 가져옵니다.
 
 export default {
@@ -117,10 +114,11 @@ export default {
             }
         };
 
-        const hideSearchResult = () => {
+        const selectMovie = (title) => {
+            searchQuery.value = title;
             isSearchResultVisible.value = false;
-        };
-
+        }
+        
         onMounted(() => {
             $("#search_m").on("keyup", function () {
                 searchQuery.value = $(this).val();
@@ -132,8 +130,7 @@ export default {
             filteredMovies,
             isSearchResultVisible,
             showSearchResult,
-            hideSearchResult,
-            set,
+            set, selectMovie,
         };
     },
 };
