@@ -444,6 +444,7 @@
   height: 200px;
 }
 .content iframe {
+  display: block;
   position:absolute;
   left: -55px;
   top: -55px;
@@ -452,9 +453,10 @@
   transform: scale(0.531);
   transform-origin: 0% 0%;
 }
-@media(max-width:1194px) {
+@media(max-width:490px) {
   .content iframe{
-    transform: scale(0.531);
+    left:-2.6px;
+    top:-15.5px;
   }
 }
 

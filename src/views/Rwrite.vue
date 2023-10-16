@@ -14,7 +14,8 @@
                         v-model="searchQuery"
                         placeholder="영화제목을 입력해주세요"
                         @focus="showSearchResult"
-                    />
+                        />
+                        <i @click="hideSearchResult" v-show="isSearchResultVisible" class="bi bi-x-circle"></i>
                     <div class="search-result" v-show="isSearchResultVisible">
                         <div class="movie_p" v-for="movie in filteredMovies" :key="movie.제목">
                             <img :src="movie.포스터" alt="Movie Poster" @click="selectMovie(movie.제목)"/>
@@ -76,10 +77,10 @@
                     <label>내용</label>
                     <textarea name="de_con" id="de_con" style="resize:none"></textarea>
                 </div>
-            </div>
-            <div id="bt_wrap">
-                <RouterLink to="/ReviewBoard/:1"><button>취소</button></RouterLink>
-                <button>등록하기</button>
+                <div id="bt_wrap">
+                    <RouterLink to="/ReviewBoard/:1"><button>취소</button></RouterLink>
+                    <button>등록하기</button>
+                </div>
             </div>
         </div>
     </section>
@@ -114,6 +115,11 @@ export default {
             }
         };
 
+        const hideSearchResult = () => {
+            searchQuery.value = '';
+            isSearchResultVisible.value = false;
+        }
+
         const selectMovie = (title) => {
             searchQuery.value = title;
             isSearchResultVisible.value = false;
@@ -130,6 +136,7 @@ export default {
             filteredMovies,
             isSearchResultVisible,
             showSearchResult,
+            hideSearchResult,
             set, selectMovie,
         };
     },

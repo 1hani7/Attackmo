@@ -27,6 +27,8 @@
     align-items: flex-end;
 }
 #search_box{
+    display:flex;
+    align-items: center;
     width:330px;
     height:40px;
     border:1px solid #000;
@@ -70,17 +72,26 @@ tbody{
     border-bottom:1px solid #000;
 }
 .page_list{
-    width:500px;
     font-size: 17px;
     margin:25px auto;
     display:flex;
+    align-items: center;
     justify-content: space-evenly;
-    gap:10px;
 }
-.page_list a{
-    color:#000;
-    text-decoration: none;
+.page_list .bi{cursor:pointer;}
+
+.page_list .arrowBox{
+    display:flex; column-gap: 10px;
 }
+.page_list .pageNumbers{
+    display:flex; align-items: center;
+}
+.page_list .pageIdx{
+    cursor:pointer; padding:0 10px;
+}
+
+.bold{font-weight:900; font-size:1.5em;}
+
 .mobileList{
     display:none;
 }
