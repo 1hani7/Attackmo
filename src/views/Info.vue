@@ -32,7 +32,7 @@
             <div id="rec">
                 <div class="title">
                     <b>이번 주의 추천영화</b>
-                    <small>*추천영화는 활동 내역을 기반으로 매주 업데이트됩니다.</small>
+                    <small>* 매주 일요일 0시에 업데이트됩니다.</small>
                 </div>
                 <div class="slider">
                     <div class="slide-container">
@@ -49,7 +49,7 @@
             <div id="rec_history">
                 <div class="title">
                     <b>추천영화 기록</b>
-                    <small>*매주 일요일 자정 업데이트됩니다.</small>
+                    <!-- <small>*매주 일요일 자정 업데이트됩니다.</small> -->
                 </div>
                 <div id="history_wrap">
                     <div class="card">

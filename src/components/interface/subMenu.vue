@@ -4,8 +4,8 @@
         <div class="div">
           <RouterLink to="/Mnow"><div class="navBt">상영중인 영화</div></RouterLink>
           <RouterLink to="/Mcoming"><div class="navBt">상영예정 영화</div></RouterLink>
-          <div class="navBt">이벤트</div>
-          <div class="navBt">시사회</div>
+          <!-- <div class="navBt">이벤트</div>
+          <div class="navBt">시사회</div> -->
         </div>
         <div class="div">
           <RouterLink to="/ReviewBoard/:1"><div class="navBt">리뷰</div></RouterLink>

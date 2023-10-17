@@ -249,7 +249,7 @@ a{color:black;}
     100%{
       border-bottom:1px solid black;
       opacity: 1;
-      height:186px;
+      height:calc(37px*3);
     }
   }
 
@@ -257,7 +257,7 @@ a{color:black;}
     0%{
       border-bottom:1px solid black;
       opacity: 1;
-      height:186px;
+      height:calc(37px*3);
     }
     100%{
       opacity: 0;

@@ -125,12 +125,12 @@ export default {
         <RouterLink to="/Mcoming" class="child">
           <div class="normalFont">- 상영예정 영화</div>
         </RouterLink>
-        <div class="div-wrapper">
+        <!-- <div class="div-wrapper">
           <div class="normalFont">- 이벤트</div>
         </div>
         <div class="child">
           <div class="normalFont">- 시사회</div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="category">
