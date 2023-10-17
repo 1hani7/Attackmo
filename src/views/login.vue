@@ -119,8 +119,9 @@ setup(){
   @media (max-width:1194px) { .wrap{width:100%;}}
 
   @media (max-width: 490px) {
-    .wrap{width:100%;}
-    #content{width:90%;}
+    .wrap{width:calc(100vw - 30px);}
+    #login_box{width:375px;}
+    #content{width:92%;}
     #content input{width:100%;}
     #login_bt{width:100%;}
     #social_login img{ width: 30px; height:30px;}

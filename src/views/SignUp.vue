@@ -240,7 +240,7 @@ export default {
     }
     @media (max-width:490px) {
       label, .bi-asterisk{font-size: 17px;}
-      #sign_box{width:calc(100% - 30px);gap:12px;}
+      #sign_box{width:338px;gap:12px;}
       #button_box{width:100%;margin-top:20px;padding:0px;}
       #button_box button{width:100px;font-size:17px;height:40px;}
       #pw_ck span{font-size:14px;}
