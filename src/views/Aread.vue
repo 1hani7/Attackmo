@@ -95,10 +95,11 @@ export default {
         padding: 23px 20px;
         font-size: 23px;
         font-weight: 700;
+    
    }
    #line{
     width:100%;
-    border: 1px solid black;
+    border: 3px solid whitesmoke;
    }
    #name{
     display: flex;
@@ -108,6 +109,7 @@ export default {
     gap: 39px;
     flex-shrink: 0;
    }
+   #name label{background: #B91646; color:white;}
    #admin{
         display: flex;
         flex-direction: column;

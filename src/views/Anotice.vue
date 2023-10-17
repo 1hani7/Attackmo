@@ -8,7 +8,7 @@
             </div>
             <div class="file_box">
                 <label>첨부파일</label>
-                <input type="file" accept =".gif, .jpg, .png" name="file" id="file" @change="handleFileChange">
+                <input type="file" accept =".gif, .jpg, .png" name="file" id="file" >
                 <!-- @change="handleFileChange" 사용자가 파일을 선택하거나 파일 입력 필드에 변경을 가했을 때 호출되는 함수-->
                 <p>*gif,jpg,png 선택 가능합니다</p>
             </div>
@@ -29,6 +29,7 @@
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { useRouter } from 'vue-router';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyC_4wWcRfgtT-dVPlL7BsjBMWbO0F2z7xc",
@@ -56,28 +57,22 @@ export default {
             writer: "",
             title: "",
             content: "",
-            file: null  // 'file' 속성을 정의합니다.
         }
     },
     methods: {
         async uploadData() {
-            try {
+            try { //글 작성 정보 저장
                 const docRef = await addDoc(noticeCollection, {
                 title: this.title,
                 content: this.content,
                 });
                 console.log("Document written with ID: ", docRef.id);
-
             // 업로드가 완료되면 알림 표시
             window.alert("업로드가 완료되었습니다!");
             } catch (error) {
                 console.error("Error adding document: ", error);
             }
             this.router.push('/AskMe');
-        },
-        handleFileChange(event) {
-            // 파일 변경 이벤트를 처리하고 선택한 파일을 저장합니다. 1번째 파일을 가져옴
-            this.file = event.target.files[0];
         },
         created() {
             // 'AreadTest' 페이지가 로드될 때 전달된 데이터를 수신합니다.
@@ -167,17 +162,18 @@ export default {
     }
     #button_box{
         display: flex;
-        justify-content: center;
+        justify-content:space-between;
         align-items: flex-start;
         gap: 50px;
-        width:100%;
+        width:350px;
+        margin:30px auto;
     }
     .bt{
         border-radius: 8px;
-        border:1px solid red;
+        border:1px solid #B91646;
         display: flex;
-        width: 100px;
-        padding: 7px 0px;
+        width: 130px;
+        padding: 10px;
         justify-content: center;
         align-items: center;
         gap: 10px;
@@ -186,8 +182,8 @@ export default {
         font-weight: 400;
         cursor: pointer;
     }
-    #cancel{color:red;background:white;}
-    #check{background:red;color:white;}
+    #cancel{color:#B91646;background:white;}
+    #check{background:#B91646;color:white;}
     label{font-size:23px;font-weight: 700;}
     
 
@@ -204,5 +200,8 @@ export default {
   #title input{width:100%;height: 50%;font-size: 13px;}
   #notice textarea{width:100%;height:80%;font-size: 13px;}
   label{font-size: 17px;}
+  #button_box{width:170px;}
+  #cancel{width:70px;padding:3px 0;font-size: 12px;}
+  #check{width:70px;padding:3px 0;font-size: 12px;}
 }
 </style>

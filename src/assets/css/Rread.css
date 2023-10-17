@@ -187,25 +187,20 @@ input { outline:none; }
 }
 .reply_info div{
     height:15px;
-    font-size:13px;
-    margin-bottom:10px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size:15px;
+    margin:10px 10px 10px 0;
 }
-.reply_box{
-    display:flex;
-    column-gap: 10px;;
-}
+.nickName{color:#105652;font-weight: 700;}
 .reply_menu{
     width:100px;
     display:flex;
     justify-content:space-between;
-    justify-self: end;
+    align-items: flex-end;
 }
 .reply_menu p{
-    font-size:13px;
+    font-size:9px;
     text-align: center;
+    font-weight: 700;
 }
 .reply_text{
     width:100%;
@@ -292,7 +287,7 @@ input { outline:none; }
     color:#fff;
     border:0;
 }
-#moreComment{font-size:17px;text-align: center;cursor: pointer; padding:30px 0;}
+#moreComment{font-size:17px;text-align: center;cursor: pointer;margin-top:20px;}
 #moreComment i{font-size: 17px;}
 
 @media (max-width:1194px) {
@@ -340,6 +335,6 @@ input { outline:none; }
     .reply_bt{font-size: 12px;width:15%;height: 99%;;}
     .reply{display:none;}
     .mReply_wrap{display:block;} .mReply_box{ border-bottom:1px solid #ccc; padding: 10px 0;}
-    .n_name{color:#105652;} .mReply_menu{width: 100%; display:flex;justify-content:flex-end;padding:5px 0;}
+    .n_name{color:#105652; font-weight: 700;} .mReply_menu{width: 100%; display:flex;justify-content:flex-end;padding:5px 0;}
     .mReply_menu p{padding: 2px 5px; border: 1px solid #aaa; border-radius:5px;font-size: 10px; margin-left: 5px;}
 } 
