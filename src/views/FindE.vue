@@ -141,7 +141,7 @@ export default {
   #find label{font-size: 17px;}
   #find_e{width:40vw;padding:0px;height:50px;font-size: 17px;}
   #mine{width:40vw;padding:0px;height:50px;font-size: 17px;}
-  #find_box{width: 100%;padding:0px;margin:0px;} 
+  #find_box{width: 343px;padding:0px;margin:0px;} 
   #phone{width:100%;}
   #phone label{font-size: 17px;}
   #phone input{width:90%;padding:20px;height:40px;}

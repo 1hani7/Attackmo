@@ -132,9 +132,10 @@ export default {
 
   @media (max-width: 490px) {
       #wrap{width:calc(100vw - 20px);}
-      #nwrite{width:90%;margin-bottom:20px;gap:25px;}
+      #nwrite{width:97%;margin-bottom:20px;gap:25px;}
       #nwrite p{font-size: 17px;}
       label{padding:15px;font-size: 17px;}
+      #line{width:100%; border: 3px solid whitesmoke;}
     }
   
 </style>
