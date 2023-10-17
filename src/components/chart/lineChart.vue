@@ -14,6 +14,7 @@ export default {
         const aud = JSON.parse(localStorage.getItem('aud'));
         let date = inject('date');
         let audience = inject('audience');
+        console.log(date, audience)
         const router = useRouter();
         let line = null;
         const isCharted = ref(false);
@@ -36,7 +37,6 @@ export default {
                 data: {
                     labels: date,
                     datasets: [{
-                        label: date,
                         data: audience,
                         borderWidth: 3,
                         borderColor: '#F9C041',

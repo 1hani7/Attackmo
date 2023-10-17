@@ -24,6 +24,7 @@
     column-gap: calc( (100% - (213px*4))/3 );
     row-gap: 50px;
     flex-wrap: wrap;
+    justify-items:;
 }
 .mark{
     width:fit-content; height:305px;
@@ -47,9 +48,12 @@
     font-weight:900;
     text-align:center;
     padding:15px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
 }
 .summary{
-    width:100%; height:100%; padding:0px;
+    width:100%; height:190px; padding:0px;
     text-overflow: ellipsis; overflow:hidden;
 }
 .mark img{ width:213px; height: 100%; }
@@ -60,24 +64,27 @@
     opacity:1;
 }
 @media (max-width:1194px) {
+    .markMovie{
+        width:100%; height:98%; left:50%; transform:translate(-50%);
+    }
     #section{width:calc( 100% - 30px );}
     #mark_wrap{width:100%; margin:0 auto;}
     .m_box{
         display:grid; column-gap: 15px;
         grid-template-columns: repeat(5, 1fr);
     }
-    .mark{width:100%; overflow: hidden; height:300px;}
-    .mark img{ position:relative; left:50%; transform:translate(-50%); }
+    .mark{width:100%; overflow: hidden; height:100%;}
+    .mark img{ width:100%; height:fit-content; position:relative; left:50%; transform:translate(-50%); }
+    .summary{width:100%; height:190px; overflow:hidden;}
 }
-@media (max-width:1070px){
+@media (max-width:900px){
     .m_box{grid-template-columns: repeat(4, 1fr);}
 }
 @media (max-width:880px){
-    .m_box{grid-template-columns: repeat(3, 1fr);}
-    .mark{height:300px;}
+    /* .m_box{grid-template-columns: repeat(3, 1fr);} */
 }
 @media (max-width:650px){
-    .m_box{grid-template-columns: repeat(2, 1fr);}
+    .m_box{grid-template-columns: repeat(3, 1fr);}
 }
 
 @media (max-width:490px) {
