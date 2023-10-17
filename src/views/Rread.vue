@@ -76,11 +76,13 @@
                     </div>
                     <div class="reply" v-for="(reply, index) in displayedReplies" :key="index">
                         <div class="reply_info">
-                            <div class="nickName">{{ reply.nickName }}</div>
-                            <div class="wDate">{{ reply.date }}</div>
+                            <div class="reply_box">
+                                <div class="nickName">{{ reply.nickName }}</div>
+                                <div class="wDate">{{ reply.date }}</div>
+                            </div>
                             <div class="reply_menu">
-                                <p class="rePost_reply">수정</p>
-                                <p class="del_reply" @click="() => deleteComment(index)">삭제</p>
+                                <p class="rePost_reply">수정</p>|
+                                <p class="del_reply" @click="() => deleteComment(index)">삭제</p>|
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
                         </div>

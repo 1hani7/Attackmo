@@ -152,6 +152,8 @@ input { outline:none; }
     height:60px;
     margin:20px 0;
     border:1px solid #000;
+    display:flex;
+    align-items: center;
 }
 .write_reply input{
     width:90%;
@@ -166,6 +168,7 @@ input { outline:none; }
     font-size:17px;
     height:100%;
     border:0;
+    white-space: nowrap;
 }
 .reply_bt:hover{
     background:#ccc;
@@ -178,6 +181,9 @@ input { outline:none; }
 }
 .reply_info{
     display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
 }
 .reply_info div{
     height:15px;
@@ -200,6 +206,8 @@ input { outline:none; }
     width:100%;
     font-size:17px;
 }
+
+
 
 .rePost_reply, .del_reply, .siren_reply,
 .rePost, .del, .siren, .reply_bt,
@@ -291,6 +299,9 @@ input { outline:none; }
     #review_wrap{width:90%;margin: 0 auto;}
     .con_detail{column-gap: 20px;}
     .movie_info{flex-grow: 1;}
+    .reply_bt{
+        font-size:13px;
+    }
 }
 
 
