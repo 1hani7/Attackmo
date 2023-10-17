@@ -79,6 +79,8 @@
 </template>
 <script>
 import data from '../data/sign.js'
+import {inject, watchEffect} from 'vue';
+import {useRoute} from 'vue-router'
 
 export default {
     name: 'Read',
@@ -169,6 +171,14 @@ export default {
             this.isModalOn = false;
             alert("삭제되었습니다.");
         }
+    },setup(){
+        const isSiren = inject('isSiren');
+        const path = useRoute().path;
+        watchEffect(()=>{
+        if( path == '/AdSign' ) isSiren.value = false;
+        else isSiren.value = true;
+        console.log(path);
+        })
     }
 }
 </script>

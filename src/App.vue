@@ -151,7 +151,7 @@ export default {
   </section>
 
   <!-- footer -->
-  <footer>
+  <footer v-show="isSiren">
     <botFooter />
   </footer>
 </template>
