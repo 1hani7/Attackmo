@@ -20,24 +20,39 @@
     row-gap: 50px;
     flex-wrap: wrap;
 }
+.review_l{
+
+}
 .review{
     width:230px;
     position:relative;
 }
+.review img{
+    height:100%;
+}
 .likeReview{
     width:100%;
-    height:99%;
+    height:100%;
     position:absolute;
     background:rgba(0,0,0,0.5);
     color:white;
-    padding:30px 10px;
-    display:none;
+    padding:15px;
+    opacity: 0;
+    overflow:hidden;
+    z-index:10;
+    display:flex;
+    flex-direction: column;
+    row-gap:10px;
 }
-.review:hover .likeReview.active {
-    display: block;
-}
-.review:hover {
-    display:block;
+@media(min-width:490px){
+    .review:hover .likeReview.active {
+        transition:all 0.5s ease;
+        opacity: 1;
+    }
+    .review:hover {
+        transition:all 0.5s ease;
+        opacity: 1;
+    }
 }
 .review img{
     width:230px;

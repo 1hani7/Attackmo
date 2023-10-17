@@ -21,7 +21,7 @@
 }
 .info p,.my_review, .change{
     width:440px;
-    margin:10px 30px;
+    margin:10px 25px;
     font-size:23px;
     font-weight: 800;
     white-space:nowrap;
@@ -131,6 +131,7 @@
 @media (max-width:1194px) {
     #wrap{width:calc(100% - 30px);}
     #content{width:100%;}
+    .info{padding:5px 10px;}
     .info a, .info p{width:35%; font-size:19px; margin:10px 10px;}
     .slide-container{
         width:100%;gap:24px;
