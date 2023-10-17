@@ -175,6 +175,7 @@ export default {
             const search_box = document.querySelector(".search-box");
             const search_bt = document.querySelector(".search_bt");
             const menu_bt = document.querySelector(".menu_bt");
+            const inputText  = document.querySelector(".inputText ");
 
             isSearching.value = !isSearching.value;
             isMobileSearch.value = !isMobileSearch.value;
@@ -185,6 +186,7 @@ export default {
                 search_bt.style.display = 'none';
                 search_box.style.display = 'flex';
                 search_box.style.width = 'calc(100vw - 30px)';
+                inputText.focus();
             } else {
                 LOGO.classList.remove('hide');
                 menu_bt.style.display = '';

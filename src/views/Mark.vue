@@ -1,11 +1,15 @@
 <template>
+  <div id="navBox">
+    <a href="#now" class="navBt">개봉</a>
+    <a href="#coming" class="navBt">미개봉</a>
+  </div>
   <section id="section">
     <div id="mark_wrap">
       <p class="mark_title">
           영화 북마크
       </p>
       <div class="movie_wrap">
-        <h3>개봉 완료</h3>
+        <h3 id="now">개봉 완료</h3>
         <div class="m_box">
           <RouterLink :to="{ name: 'MovieTitle', query: { movieName: mark.제목 } }" class="mark"
           v-for="(mark, index) in bm" :key="index"
@@ -17,7 +21,7 @@
             <img :src="mark.포스터" :alt="mark.제목" />
           </RouterLink>
         </div>
-        <h3>미개봉</h3>
+        <h3 id="coming">미개봉</h3>
         <div class="m_box">
           <RouterLink :to="{ name: 'ComingMovieTitle', query: { movieComing: mark.제목 } }" class="mark"
           v-for="(mark, index) in bm2" :key="index"
