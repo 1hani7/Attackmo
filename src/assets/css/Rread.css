@@ -175,6 +175,8 @@ input { outline:none; }
 }
 .mReply_wrap{display:none;}
 .reply{
+    display:flex; flex-direction: column;
+    row-gap:5px;
     width:100%;
     padding:20px 15px;
     border-bottom:1px solid black;
@@ -188,17 +190,17 @@ input { outline:none; }
 .reply_info div{
     height:15px;
     font-size:15px;
-    margin:10px 10px 10px 0;
 }
+.reply_box{display:flex;}
 .nickName{color:#105652;font-weight: 700;}
 .reply_menu{
     width:100px;
     display:flex;
     justify-content:space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 .reply_menu p{
-    font-size:9px;
+    font-size:13px;
     text-align: center;
     font-weight: 700;
 }
