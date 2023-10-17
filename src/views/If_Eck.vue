@@ -93,7 +93,7 @@ export default{
 
 @media (max-width: 490px) {
     #wrap{width:calc(100vw - 30px);}
-    #edit_box{width:90%;}
+    #edit_box{width:90%;gap:10px;}
     #edit_box label{width:100%;}
     #edit_box p{width:100%; font-size: 17px;}
     #input_box{width:100%;}
