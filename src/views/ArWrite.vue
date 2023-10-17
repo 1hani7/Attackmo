@@ -1,5 +1,16 @@
 <template>
     <div id="wrap">
+        <div id="header">
+                <img src="../images/LOGO.svg"><p>관리자페이지</p>
+        </div>
+        <div id="nav">
+            <ul class="list0">
+                <li><RouterLink to="./Adsign">회원관리</RouterLink></li>
+                <li><RouterLink to="./Adsiren">신고내역</RouterLink></li>
+                <li><RouterLink to="./Adnotice">공지관리</RouterLink></li>
+                <li><RouterLink to="./Arwrite">문의사항</RouterLink></li>
+            </ul>
+        </div>
         <div id="nwrite">
             <p>문의사항(관리자)</p>
             <label class="title">문의 드립니다</label>        
@@ -83,6 +94,38 @@ export default {
 } 
 </script>
 <style scoped>
+  #nav{
+        width:1000px;
+        display: inline-flex;
+        height: 40px;
+        padding: 80px 30px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .list0{
+        list-style-type: none;
+        display: flex;
+        width: 100%;
+        padding: 0px 50px;
+        justify-content: center;
+        align-items: center;
+        gap: 75px;
+        font-weight: 800;
+        font-size: 30px;
+        border-top:1px solid black;
+        border-bottom:1px solid black;
+        padding:20px;
+    }
+    #header{
+        width:100%;  
+        font-size: 40px;
+        margin-top:30px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        gap:20px;
+    }
 #wrap{
     display: flex;
     flex-direction: column;
