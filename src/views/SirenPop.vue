@@ -36,7 +36,7 @@
     </div>
     <div id="bt_wrap">
         <button class="cancel" @click="close">취소</button>
-        <button class="registration">등록하기</button>
+        <button class="registration" @click="ok">등록하기</button>
     </div>
 </template>
 
@@ -52,6 +52,9 @@ export default {
     methods: {
         close() {
             const sirenClose = window.close();
+        },
+        ok(){
+            alert("신고가 왼료되었습니다.");
         }
     },
     setup(){

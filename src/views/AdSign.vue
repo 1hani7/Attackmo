@@ -55,7 +55,7 @@
                 </thead>
             <tbody>
                 <tr class="con" v-for="(value,index) in visiblePosts" :key="value.id" @click="modalOn">
-                    <td class="n"><i class="bi bi-sign-stop-fill" :class="{ 'hidden': hideIcon }"></i>{{ value.name }}</td>
+                    <td class="n">{{ value.name }}</td>
                     <td class="t">{{ value.email }}</td>
                     <td class="w">{{ value.number}}</td>
                     <td class="d">{{ value.level}}</td>
@@ -159,8 +159,6 @@ export default {
         stop(type){
             if(type === 'stop'){
                 this.stopCount++;
-                this.hideIcon = !this.hideIcon;
-                // this.data[index].hideIcon = !this.data[index].hideIcon;
                 alert("정지1회추가되었습니다.");
             } 
         },
