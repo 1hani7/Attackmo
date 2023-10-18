@@ -82,7 +82,7 @@
         <i @mousedown="slideScrollRight()" class="bi bi-chevron-compact-right"></i>
       </div>
     </div>
-    <div v-if="isLogin" class="top">
+    <div v-if="isLogin && isRecList" class="top">
       <div class="frame">
         <div class="title">당신의 취향은?</div>
         <RouterLink to="/RecHistory">
@@ -123,7 +123,8 @@ export default {
     const topTenList = JSON.parse(localStorage.getItem('topTenList'));
     const bookMark = localStorage.getItem('bookmark')==null?'':JSON.parse(localStorage.getItem('bookmark'));
     const recList = localStorage.getItem('recList')==null?'':JSON.parse(localStorage.getItem('recList'));
-    
+    const isRecList = localStorage.getItem('recList')=='[]'?false:localStorage.getItem('recList')==null?false:true;
+
     // 슬라이드 스크롤
     const slideScrollRight = (t, i) => {
       const slider = event.target.parentNode;
@@ -246,7 +247,7 @@ export default {
       coming,
       isComing,
       randomTrailer,
-      rec, recList
+      rec, recList, isRecList
     };
   }
 }
