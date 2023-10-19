@@ -49,7 +49,8 @@
 </template>
 <script>
 import data from '../data/siren.js'
-
+import { inject, watchEffect } from 'vue';
+import { useRoute } from 'vue-router'
 export default {
     name: 'Read',
     data() {
@@ -105,7 +106,15 @@ export default {
                 this.currentPage++;
             }
         }
-    },
+    },setup(){
+        const isSiren = inject('isSiren');
+        const path = useRoute().path;
+        watchEffect(()=>{
+        if( path == '/Adsiren' ) isSiren.value = false;
+        else isSiren.value = true;
+        console.log(path);
+        })
+    }
 }
 </script>
 <style scoped>

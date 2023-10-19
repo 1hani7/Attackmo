@@ -7,8 +7,8 @@
                     <div class="review_title">
                         <p class="title">별 기대 안 하고 가볍게 봤는데 진짜 대박이네요...</p>
                         <div class="heart_wrap">
-                            <i class="bi bi-heart" @click="toggleLike" :class="{ 'hidden' : liked }"></i>
-                            <i class="bi bi-heart-fill" @click="toggleLike" :class="{ 'hidden' : !liked }"></i>
+                            <i class="bi bi-heart" @click="toggleLike" :class="{ 'hidden': liked }"></i>
+                            <i class="bi bi-heart-fill" @click="toggleLike" :class="{ 'hidden': !liked }"></i>
                             <div class="ani"></div>
                         </div>
                     </div>
@@ -52,7 +52,9 @@
                         </div>
                     </div>
                     <div class="post_menu">
-                        <div class="rePost"><RouterLink to="/Rwrite">수정</RouterLink></div>
+                        <div class="rePost">
+                            <RouterLink to="/Rwrite">수정</RouterLink>
+                        </div>
                         <div class="del" @click="postDel">삭제</div>
                         <div class="siren" @click="openSirenPopup">신고</div>
                     </div>
@@ -72,7 +74,8 @@
                         </div>
                         <div class="reply_text">
                             <i class="bi bi-exclamation-triangle"></i>
-                            {{ reply.text }}</div>
+                            {{ reply.text }}
+                        </div>
                     </div>
                     <div class="mReply_wrap">
                         <div class="mReply_box" v-for="(reply, index) in replies" :key="index">
@@ -81,7 +84,9 @@
                                 {{ reply.text }}
                             </div>
                             <div class="mReply_menu">
-                                <p class="rePost_reply"><RouterLink to="/Rwrite">수정</RouterLink></p>
+                                <p class="rePost_reply">
+                                    <RouterLink to="/Rwrite">수정</RouterLink>
+                                </p>
                                 <p class="del_reply" @click="() => deleteComment(index)">삭제</p>
                                 <p class="siren_reply" @click="openSirenPopup">신고</p>
                             </div>
@@ -93,19 +98,33 @@
     </section>
 </template>
 
-<script setup>
+<script>
 import { ref } from 'vue'
-
-
-const replies = ref([
-    {
-        nickName:'미녀광인',
-        date:'YYYY.MM.DD',
-        text:'씨발...ㅈㄴ잠옴 다 광고임 추천한놈누구냐..'
-    },    
-])
+import { inject, watchEffect } from 'vue';
+import { useRoute } from 'vue-router'
+export default {
+    setup() {
+        const replies = ref([
+            {
+                nickName: '미녀광인',
+                date: 'YYYY.MM.DD',
+                text: '씨발...ㅈㄴ잠옴 다 광고임 추천한놈누구냐..'
+            },
+        ])
+        const isSiren = inject('isSiren');
+        const path = useRoute().path;
+        watchEffect(() => {
+            if (path == '/AdSign') isSiren.value = false;
+            else isSiren.value = true;
+        })
+        return {
+            router,
+        };
+    }
+}
 </script>
-<style scoped>
-@import url('../assets/css/AdSirenPop.css');
-.hidden{display:none;}
-</style>
+<style scoped>@import url('../assets/css/AdSirenPop.css');
+
+.hidden {
+    display: none;
+}</style>
