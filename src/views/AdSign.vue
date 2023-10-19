@@ -173,7 +173,7 @@ export default {
         const isSiren = inject('isSiren');
         const path = useRoute().path;
         watchEffect(()=>{
-        if( path == '/Adsign' ) isSiren.value = false;
+        if( path == '/Adsign' || path == '/AdSign' ) isSiren.value = false;
         else isSiren.value = true;
         console.log(path);
         })
