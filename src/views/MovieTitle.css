@@ -382,7 +382,7 @@
   gap: 50px; height:250px;
   display: flex;
   position: relative;
-  overflow-X: scroll;
+  overflow-x: scroll;
   overflow: hidden;
   scroll-behavior: smooth;
   align-items: center;
@@ -399,7 +399,7 @@
   .content .trailer-template {
     gap: 10px;
     overflow: hidden;
-    overflow-X: scroll;
+    overflow-x: scroll;
   }
 }
 

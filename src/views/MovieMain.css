@@ -96,7 +96,7 @@ button{border:none; cursor:pointer; text-align: left; background:white;}
   }
   @media(max-width:490px){
     .screen .cont{
-        width:calc(100vw -15px);
+        width:calc(100vw - 15px);
         left:0; gap:5px;
     }
   }
